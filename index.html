@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculadora IRPF autónomos Cataluña 2026 · Gratis y sin registro</title>
+  <meta name="description" content="Calcula gratis el IRPF de un autónomo en Cataluña para 2025 y 2026, con la escala catalana vigente, la reducción por inicio de actividad y el mínimo por hijos. Sin registro y sin enviar tus datos.">
+  <link rel="canonical" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Calculadora IRPF autónomos Cataluña 2026">
+  <meta property="og:description" content="Estimación gratuita del IRPF de autónomos en Cataluña, con desglose estatal y autonómico.">
+  <meta property="og:url" content="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/">
+  <meta property="og:locale" content="es_ES">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f5f8b'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white' font-family='Arial'%3E%E2%82%AC%3C/text%3E%3C/svg%3E">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Calculadora IRPF autónomos Cataluña",
+        "url": "https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Cualquiera",
+        "inLanguage": "es",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Qué escala de IRPF se aplica a un autónomo en Cataluña en 2026?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Se suman la escala estatal del artículo 63 de la Ley del IRPF y la escala autonómica catalana del artículo 611-1 del Código tributario de Cataluña, según el Decreto-ley 5/2025. La catalana tiene ocho tramos, del 9,5 % al 25,5 %." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Los autónomos que empiezan pagan menos IRPF?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Pueden reducir un 20 % el rendimiento neto positivo en el primer ejercicio con rendimiento positivo y en el siguiente, si no tuvieron actividad económica el año anterior al inicio y cumplen el resto de requisitos del artículo 32.3 de la Ley del IRPF." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Esta calculadora guarda mis datos?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. El cálculo se hace en tu navegador y los importes no se envían a ningún servidor." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --fondo: #f6f7f9;
+      --tarjeta: #ffffff;
+      --texto: #1b1f24;
+      --suave: #59626d;
+      --borde: #d9dde3;
+      --acento: #1f5f8b;
+      --acento-texto: #ffffff;
+      --resalte: #eaf2f8;
+      --aviso: #fff6e0;
+      --aviso-borde: #e8c46a;
+      --error: #b42318;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --fondo: #111418;
+        --tarjeta: #1a1f25;
+        --texto: #e8ebef;
+        --suave: #a3acb7;
+        --borde: #2f3741;
+        --acento: #6fb3e0;
+        --acento-texto: #0c1116;
+        --resalte: #1d2a35;
+        --aviso: #2b2416;
+        --aviso-borde: #8a6d2c;
+        --error: #ff8a80;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--fondo);
+      color: var(--texto);
+      font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    main { max-width: 860px; margin: 0 auto; padding: 32px 16px 56px; }
+    h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); line-height: 1.2; margin: 0 0 8px; }
+    h2 { font-size: 1.25rem; margin: 0 0 12px; }
+    p { margin: 0 0 12px; }
+    a { color: var(--acento); }
+    .entradilla { color: var(--suave); margin-bottom: 24px; }
+    .tarjeta {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .rejilla { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px 18px; }
+    label { display: block; font-weight: 600; margin-bottom: 4px; }
+    .ayuda { display: block; font-weight: 400; font-size: 0.875rem; color: var(--suave); margin-top: 2px; }
+    input[type="number"], select {
+      width: 100%;
+      padding: 10px 12px;
+      font: inherit;
+      color: var(--texto);
+      background: var(--fondo);
+      border: 1px solid var(--borde);
+      border-radius: 8px;
+    }
+    input:focus-visible, select:focus-visible, summary:focus-visible, a:focus-visible {
+      outline: 2px solid var(--acento);
+      outline-offset: 2px;
+    }
+    .casilla { display: flex; gap: 10px; align-items: flex-start; margin-top: 14px; }
+    .casilla input { margin-top: 5px; width: 18px; height: 18px; flex: none; }
+    .casilla label { margin: 0; }
+    details { margin-top: 16px; }
+    summary { cursor: pointer; font-weight: 600; }
+    .total {
+      background: var(--resalte);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    .total .cifra { font-size: 2rem; font-weight: 700; line-height: 1.2; }
+    table { width: 100%; border-collapse: collapse; }
+    td { padding: 8px 0; border-bottom: 1px solid var(--borde); vertical-align: top; }
+    td:last-child { text-align: right; white-space: nowrap; padding-left: 12px; font-variant-numeric: tabular-nums; }
+    tr.fuerte td { font-weight: 700; }
+    .error { color: var(--error); font-weight: 600; }
+    .aviso {
+      background: var(--aviso);
+      border: 1px solid var(--aviso-borde);
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 0.95rem;
+    }
+    .aviso ul, .faq ul { margin: 6px 0 0; padding-left: 20px; }
+    .boton {
+      display: inline-block;
+      background: var(--acento);
+      color: var(--acento-texto);
+      text-decoration: none;
+      font-weight: 700;
+      padding: 12px 18px;
+      border-radius: 8px;
+      margin-top: 4px;
+    }
+    .faq h3 { font-size: 1.05rem; margin: 18px 0 6px; }
+    footer { color: var(--suave); font-size: 0.875rem; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Calculadora de IRPF para autónomos en Cataluña (2025 y 2026)</h1>
+  <p class="entradilla">Estima cuánto IRPF te corresponde como autónomo residente en Cataluña, con la escala estatal y la catalana vigentes. Gratis, sin registro y sin enviar tus datos: el cálculo se hace en tu navegador.</p>
+
+  <form id="formulario" class="tarjeta" novalidate>
+    <h2>Tus datos del año</h2>
+    <div class="rejilla">
+      <div>
+        <label for="anio">Ejercicio</label>
+        <select id="anio" name="anio">
+          <option value="2026" selected>2026</option>
+          <option value="2025">2025</option>
+        </select>
+      </div>
+      <div>
+        <label for="ingresos">Ingresos anuales (€)<span class="ayuda">Lo facturado en el año, sin IVA.</span></label>
+        <input id="ingresos" name="ingresos" type="number" inputmode="decimal" min="0" step="0.01" value="40000">
+      </div>
+      <div>
+        <label for="gastos">Gastos deducibles (€)<span class="ayuda">Sin contar las cuotas de autónomo.</span></label>
+        <input id="gastos" name="gastos" type="number" inputmode="decimal" min="0" step="0.01" value="5000">
+      </div>
+      <div>
+        <label for="cuotas">Cuotas de autónomo pagadas (€)<span class="ayuda">Total del año a la Seguridad Social.</span></label>
+        <input id="cuotas" name="cuotas" type="number" inputmode="decimal" min="0" step="0.01" value="4000">
+      </div>
+      <div>
+        <label for="pagos">Retenciones y pagos a cuenta (€)<span class="ayuda">Lo ya adelantado a Hacienda en el año.</span></label>
+        <input id="pagos" name="pagos" type="number" inputmode="decimal" min="0" step="0.01" value="0">
+      </div>
+      <div>
+        <label for="modalidad">Estimación</label>
+        <select id="modalidad" name="modalidad">
+          <option value="directa_simplificada" selected>Directa simplificada</option>
+          <option value="directa_normal">Directa normal</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="casilla">
+      <input id="inicio" name="inicio" type="checkbox">
+      <label for="inicio">Acabo de empezar como autónomo<span class="ayuda">Reducción del 20 % (art. 32.3 de la Ley del IRPF). Márcala solo si no tuviste actividad económica el año anterior al inicio, es tu primer o segundo año con beneficios y no facturas más del 50 % a quien te pagó como asalariado ese año anterior.</span></label>
+    </div>
+    <div class="casilla">
+      <input id="cliente" name="cliente" type="checkbox">
+      <label for="cliente">Cumplo los requisitos de la reducción para autónomos dependientes<span class="ayuda">Art. 32.2.2.º de la Ley del IRPF, entre otros: un único cliente no vinculado y gastos que no superen el 30 % de los ingresos. Márcala solo si cumples todos los requisitos.</span></label>
+    </div>
+
+    <details>
+      <summary>Hijos y otros descendientes</summary>
+      <div class="rejilla" style="margin-top:12px">
+        <div>
+          <label for="hijos">Descendientes que dan derecho al mínimo<span class="ayuda">En general, menores de 25 años que conviven contigo.</span></label>
+          <input id="hijos" name="hijos" type="number" min="0" max="20" step="1" value="0">
+        </div>
+        <div>
+          <label for="menores3">De ellos, menores de 3 años</label>
+          <input id="menores3" name="menores3" type="number" min="0" max="20" step="1" value="0">
+        </div>
+      </div>
+      <div class="casilla">
+        <input id="compartido" name="compartido" type="checkbox">
+        <label for="compartido">El otro progenitor también aplica el mínimo<span class="ayuda">En ese caso se reparte a partes iguales.</span></label>
+      </div>
+    </details>
+  </form>
+
+  <section class="tarjeta" aria-live="polite">
+    <h2>Resultado estimado</h2>
+    <div id="resultado"><p>Rellena tus datos para ver el cálculo.</p></div>
+  </section>
+
+  <section class="tarjeta">
+    <h2>¿Usas Claude, ChatGPT o Cursor?</h2>
+    <p>Este mismo cálculo está disponible como servidor MCP, para que tu asistente de IA calcule el IRPF dentro de la conversación y consulte datos públicos de empresas catalanas (BORME y Generalitat). Tiene un plan gratuito de 50 consultas al mes.</p>
+    <a class="boton" href="https://mcpize.com/mcp/irpf-pymes-cat-mcp">Probarlo gratis en MCPize</a>
+  </section>
+
+  <section class="tarjeta faq">
+    <h2>Preguntas frecuentes</h2>
+    <h3>¿Qué escala se aplica en Cataluña en 2026?</h3>
+    <p>Se suman la escala estatal del artículo 63 de la Ley del IRPF y la escala catalana del artículo 611-1 del Código tributario de Cataluña, según el <a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2025-10270">Decreto-ley 5/2025</a>. La catalana tiene ocho tramos, del 9,5 % al 25,5 %, y se aplica desde 2025.</p>
+    <h3>¿Qué son los gastos de difícil justificación?</h3>
+    <p>En estimación directa simplificada se resta un 5 % del rendimiento, con un máximo de 2.000 € al año, para cubrir gastos difíciles de documentar. No se aplica si usas la reducción para autónomos dependientes.</p>
+    <h3>¿Los autónomos que empiezan pagan menos?</h3>
+    <p>Pueden reducir un 20 % el rendimiento neto positivo durante el primer año con beneficios y el siguiente, sobre un máximo de 100.000 €, si cumplen los requisitos del artículo 32.3 de la Ley del IRPF.</p>
+    <h3>¿Qué no incluye esta calculadora?</h3>
+    <ul>
+      <li>Otras rentas, como un sueldo, alquileres o inversiones.</li>
+      <li>Deducciones, aportaciones a planes de pensiones, ascendientes, edad, discapacidad y tributación conjunta.</li>
+      <li>Otras comunidades autónomas: solo usa la escala catalana.</li>
+    </ul>
+    <h3>¿Guardáis mis datos?</h3>
+    <p>No. La página no tiene registro, ni cookies, ni analítica, y los importes no salen de tu navegador.</p>
+  </section>
+
+  <div class="aviso">
+    <strong>Aviso:</strong> es una estimación orientativa y no sustituye la declaración ni el consejo de un asesor fiscal. Tablas revisadas el <span id="fecha-revision"></span>.
+    <ul id="fuentes"></ul>
+  </div>
+
+  <footer>
+    <p style="margin-top:20px">Página independiente, sin relación con la Agencia Tributaria ni con la Generalitat de Catalunya.</p>
+  </footer>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>

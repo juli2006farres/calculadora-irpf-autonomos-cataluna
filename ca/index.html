@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculadora IRPF autònoms Catalunya 2026 · Gratuïta i sense registre</title>
+  <meta name="description" content="Calcula gratis l'IRPF d'un autònom a Catalunya per al 2025 i el 2026, amb l'escala catalana vigent, la reducció per inici d'activitat i el mínim per fills. Sense registre i sense enviar les teves dades.">
+  <link rel="canonical" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Calculadora IRPF autònoms Catalunya 2026">
+  <meta property="og:description" content="Estimació gratuïta de l'IRPF dels autònoms a Catalunya, amb el desglossament estatal i autonòmic.">
+  <meta property="og:url" content="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/">
+  <meta property="og:locale" content="ca_ES">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f5f8b'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white' font-family='Arial'%3E%E2%82%AC%3C/text%3E%3C/svg%3E">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Calculadora IRPF autònoms Catalunya",
+        "url": "https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Qualsevol",
+        "inLanguage": "ca",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quina escala d'IRPF s'aplica a un autònom a Catalunya el 2026?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Se sumen l'escala estatal de l'article 63 de la Llei de l'IRPF i l'escala autonòmica catalana de l'article 611-1 del Codi tributari de Catalunya, segons el Decret llei 5/2025. La catalana té vuit trams, del 9,5 % al 25,5 %." }
+          },
+          {
+            "@type": "Question",
+            "name": "Els autònoms que comencen paguen menys IRPF?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Poden reduir un 20 % el rendiment net positiu el primer exercici amb rendiment positiu i el següent, si no van tenir activitat econòmica l'any anterior a l'inici i compleixen la resta de requisits de l'article 32.3 de la Llei de l'IRPF." }
+          },
+          {
+            "@type": "Question",
+            "name": "Aquesta calculadora desa les meves dades?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. El càlcul es fa al teu navegador i els imports no s'envien a cap servidor." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="alternate" hreflang="es" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/">
+  <link rel="alternate" hreflang="ca" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/">
+  <link rel="alternate" hreflang="x-default" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/">
+  <link rel="stylesheet" href="../estilos.css">
+</head>
+<body>
+<main>
+  <p class="idiomas"><a href="../" hreflang="es" lang="es">Versión en castellano</a></p>
+  <h1>Calculadora d'IRPF per a autònoms a Catalunya (2025 i 2026)</h1>
+  <p class="entradilla">Calcula quant IRPF et correspon com a autònom resident a Catalunya, amb l'escala estatal i la catalana vigents. Gratuïta, sense registre i sense enviar les teves dades: el càlcul es fa al teu navegador.</p>
+
+  <form id="formulario" class="tarjeta" novalidate>
+    <h2>Les teves dades de l'any</h2>
+    <div class="rejilla">
+      <div>
+        <label for="anio">Exercici</label>
+        <select id="anio" name="anio">
+          <option value="2026" selected>2026</option>
+          <option value="2025">2025</option>
+        </select>
+      </div>
+      <div>
+        <label for="ingresos">Ingressos anuals (€)<span class="ayuda">El que has facturat durant l'any, sense IVA.</span></label>
+        <input id="ingresos" name="ingresos" type="number" inputmode="decimal" min="0" step="0.01" value="40000">
+      </div>
+      <div>
+        <label for="gastos">Despeses deduïbles (€)<span class="ayuda">Sense comptar les quotes d'autònom.</span></label>
+        <input id="gastos" name="gastos" type="number" inputmode="decimal" min="0" step="0.01" value="5000">
+      </div>
+      <div>
+        <label for="cuotas">Quotes d'autònom pagades (€)<span class="ayuda">Total de l'any a la Seguretat Social.</span></label>
+        <input id="cuotas" name="cuotas" type="number" inputmode="decimal" min="0" step="0.01" value="4000">
+      </div>
+      <div>
+        <label for="pagos">Retencions i pagaments a compte (€)<span class="ayuda">El que ja has avançat a Hisenda durant l'any.</span></label>
+        <input id="pagos" name="pagos" type="number" inputmode="decimal" min="0" step="0.01" value="0">
+      </div>
+      <div>
+        <label for="modalidad">Estimació</label>
+        <select id="modalidad" name="modalidad">
+          <option value="directa_simplificada" selected>Directa simplificada</option>
+          <option value="directa_normal">Directa normal</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="casilla">
+      <input id="inicio" name="inicio" type="checkbox">
+      <label for="inicio">Acabo de començar com a autònom<span class="ayuda">Reducció del 20 % (art. 32.3 de la Llei de l'IRPF). Marca-la només si no vas tenir activitat econòmica l'any anterior a l'inici, és el teu primer o segon any amb beneficis i no factures més del 50 % a qui et va pagar com a assalariat aquell any anterior.</span></label>
+    </div>
+    <div class="casilla">
+      <input id="cliente" name="cliente" type="checkbox">
+      <label for="cliente">Compleixo els requisits de la reducció per a autònoms dependents<span class="ayuda">Art. 32.2.2n de la Llei de l'IRPF, entre d'altres: un únic client no vinculat i despeses que no superin el 30 % dels ingressos. Marca-la només si compleixes tots els requisits.</span></label>
+    </div>
+
+    <details>
+      <summary>Fills i altres descendents</summary>
+      <div class="rejilla" style="margin-top:12px">
+        <div>
+          <label for="hijos">Descendents que donen dret al mínim<span class="ayuda">En general, menors de 25 anys que conviuen amb tu.</span></label>
+          <input id="hijos" name="hijos" type="number" min="0" max="20" step="1" value="0">
+        </div>
+        <div>
+          <label for="menores3">D'aquests, menors de 3 anys</label>
+          <input id="menores3" name="menores3" type="number" min="0" max="20" step="1" value="0">
+        </div>
+      </div>
+      <div class="casilla">
+        <input id="compartido" name="compartido" type="checkbox">
+        <label for="compartido">L'altre progenitor també aplica el mínim<span class="ayuda">En aquest cas, es reparteix a parts iguals.</span></label>
+      </div>
+    </details>
+  </form>
+
+  <section class="tarjeta" aria-live="polite">
+    <h2>Resultat estimat</h2>
+    <div id="resultado"><p>Omple les teves dades per veure el càlcul.</p></div>
+  </section>
+
+  <section class="tarjeta">
+    <h2>Fas servir Claude, ChatGPT o Cursor?</h2>
+    <p>Aquest mateix càlcul està disponible com a servidor MCP, perquè el teu assistent d'IA calculi l'IRPF dins de la conversa i consulti dades públiques d'empreses catalanes (BORME i Generalitat). Té un pla gratuït de 50 consultes al mes. La pàgina del servei està en anglès i el servei respon en castellà.</p>
+    <a class="boton" href="https://mcpize.com/mcp/irpf-pymes-cat-mcp">Prova'l gratis a MCPize</a>
+  </section>
+
+  <section class="tarjeta faq">
+    <h2>Preguntes freqüents</h2>
+    <h3>Quina escala s'aplica a Catalunya el 2026?</h3>
+    <p>Se sumen l'escala estatal de l'article 63 de la Llei de l'IRPF i l'escala catalana de l'article 611-1 del Codi tributari de Catalunya, segons el <a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2025-10270">Decret llei 5/2025</a>. La catalana té vuit trams, del 9,5 % al 25,5 %, i s'aplica des del 2025.</p>
+    <h3>Què són les despeses de difícil justificació?</h3>
+    <p>En estimació directa simplificada es resta un 5 % del rendiment, amb un màxim de 2.000 € l'any, per cobrir despeses difícils de documentar. No s'aplica si fas servir la reducció per a autònoms dependents.</p>
+    <h3>Els autònoms que comencen paguen menys?</h3>
+    <p>Poden reduir un 20 % el rendiment net positiu durant el primer any amb beneficis i el següent, sobre un màxim de 100.000 €, si compleixen els requisits de l'article 32.3 de la Llei de l'IRPF.</p>
+    <h3>Què no inclou aquesta calculadora?</h3>
+    <ul>
+      <li>Altres rendes, com un sou, lloguers o inversions.</li>
+      <li>Deduccions, aportacions a plans de pensions, ascendents, edat, discapacitat i tributació conjunta.</li>
+      <li>Altres comunitats autònomes: només fa servir l'escala catalana.</li>
+    </ul>
+    <h3>Deseu les meves dades?</h3>
+    <p>No. La pàgina no té registre, ni galetes, ni analítica, i els imports no surten del teu navegador.</p>
+  </section>
+
+  <div class="aviso">
+    <strong>Avís:</strong> és una estimació orientativa i no substitueix la declaració ni el consell d'un assessor fiscal. Taules revisades el <span id="fecha-revision"></span>. Fonts, en castellà:
+    <ul id="fuentes"></ul>
+  </div>
+
+  <footer>
+    <p style="margin-top:20px">Pàgina independent, sense relació amb l'Agència Tributària ni amb la Generalitat de Catalunya.</p>
+  </footer>
+</main>
+<script type="module" src="../app.js"></script>
+</body>
+</html>

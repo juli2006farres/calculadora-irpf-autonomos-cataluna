@@ -112,3 +112,36 @@ test("sueldo neto con una cuota indicada por el usuario", () => {
   });
   assert.equal(r.cuotaAnual, 1200);
 });
+
+import { calcularIva } from "../iva/calculo.js";
+import { facturacionParaNeto } from "../objetivo/calculo.js";
+
+test("añadir IVA del 21 %", () => {
+  assert.deepEqual(calcularIva({ importe: 100, modo: "anadir", tipo: 21 }), { base: 100, iva: 21, total: 121 });
+});
+
+test("quitar IVA: base e IVA suman siempre el precio", () => {
+  assert.deepEqual(calcularIva({ importe: 121, modo: "quitar", tipo: 21 }), { base: 100, iva: 21, total: 121 });
+  for (const importe of [9.99, 1, 0.05, 333.33, 12345.67]) {
+    for (const tipo of [21, 10, 4]) {
+      const r = calcularIva({ importe, modo: "quitar", tipo });
+      assert.equal(Math.round((r.base + r.iva) * 100), Math.round(importe * 100));
+    }
+  }
+});
+
+test("cuánto facturar: es la inversa del sueldo neto", () => {
+  const datos = { gastos: 5000, modalidad: "directa_simplificada", cumpleRequisitosArt32: false, inicioActividad: false };
+  const r = facturacionParaNeto({ netoMensual: 2016.04, ...datos });
+  assert.ok(Math.abs(r.ingresos - 40000) < 5, `facturación ${r.ingresos}`);
+  assert.ok(r.netoMensual >= 2016.04);
+  // Un euro menos de facturación ya no llega al objetivo (un céntimo puede no notarse al redondear).
+  const menos = calcularSueldoNeto({ ingresos: r.ingresos - 1, cuotaMensual: null, ...datos });
+  assert.ok(menos.netoAnual < 2016.04 * 12);
+});
+
+test("cuánto facturar con objetivo cero o imposible", () => {
+  const datos = { gastos: 0, modalidad: "directa_normal", cumpleRequisitosArt32: false, inicioActividad: false };
+  assert.ok(facturacionParaNeto({ netoMensual: 0, ...datos }).ingresos > 0);
+  assert.equal(facturacionParaNeto({ netoMensual: 9_000_000, ...datos }), null);
+});

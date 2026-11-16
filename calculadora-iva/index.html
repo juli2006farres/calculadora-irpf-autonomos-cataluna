@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculadora de IVA · Añadir o quitar el IVA de un precio</title>
+  <meta name="description" content="Calcula el IVA de un precio al momento: añade o quita el IVA del 21 %, 10 % o 4 % y obtén la base imponible y el total. Gratis y sin registro.">
+  <link rel="canonical" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/calculadora-iva/">
+  <link rel="alternate" hreflang="es" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/calculadora-iva/">
+  <link rel="alternate" hreflang="ca" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/calculadora-iva/">
+  <link rel="alternate" hreflang="x-default" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/calculadora-iva/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Calculadora de IVA: añadir o quitar el IVA">
+  <meta property="og:description" content="Base imponible, IVA y total de cualquier precio con el 21 %, 10 % o 4 %.">
+  <meta property="og:url" content="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/calculadora-iva/">
+  <meta property="og:locale" content="es_ES">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f5f8b'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white' font-family='Arial'%3E%E2%82%AC%3C/text%3E%3C/svg%3E">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Calculadora de IVA: añadir o quitar el IVA",
+        "url": "https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/calculadora-iva/",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Cualquiera",
+        "inLanguage": "es",
+        "dateModified": "2026-11-17",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Cómo se quita el IVA de un precio?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Divide el precio con IVA entre 1,21 si el tipo es del 21 %, entre 1,10 si es del 10 % o entre 1,04 si es del 4 %. Por ejemplo, 121 € con IVA incluido son 100 € de base y 21 € de IVA. Restar un 21 % al precio con IVA da un resultado incorrecto."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo se añade el IVA a un precio?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Multiplica el precio sin IVA por 1,21, por 1,10 o por 1,04, según el tipo. Por ejemplo, 100 € más el 21 % de IVA son 121 €."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué tipos de IVA hay en España?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "El general del 21 %, el reducido del 10 %, que se aplica por ejemplo a la hostelería o al transporte de viajeros, y el superreducido del 4 %, que se aplica por ejemplo al pan, la leche, los libros o los medicamentos, según los artículos 90 y 91 de la Ley del IVA. En Canarias no se aplica el IVA, sino el IGIC, y en Ceuta y Melilla, el IPSI."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué es la base imponible?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Es el precio sin IVA. Sobre ella se calculan el IVA y, en las facturas de los profesionales, la retención de IRPF."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="../estilos.css">
+</head>
+<body>
+<header class="cabecera">
+  <div class="contenedor">
+    <a class="marca" href="../"><span class="logo" aria-hidden="true">€</span>Calculadoras para autónomos</a>
+    <nav class="menu" aria-label="Calculadoras para autónomos">
+      <a href="../">IRPF</a>
+      <a href="../cuota-autonomos-2026/">Cuota</a>
+      <a href="../factura-autonomos/">Factura</a>
+      <a href="./" aria-current="page">IVA</a>
+      <a href="../sueldo-neto-autonomo/">Sueldo neto</a>
+      <a href="../cuanto-facturar-autonomo/">Cuánto facturar</a>
+      <a href="../modelo-130/">Modelo 130</a>
+      <a class="idioma" href="../ca/calculadora-iva/" hreflang="ca" lang="ca">Català</a>
+    </nav>
+  </div>
+</header>
+<section class="heroe">
+  <div class="contenedor">
+    <h1>Calculadora de IVA: añadir o quitar el IVA de un precio</h1>
+    <p class="entradilla">Añade el IVA a un precio sin IVA o quítaselo a un precio con IVA incluido, con los tipos del 21 %, 10 % y 4 %. Verás la base imponible, el IVA y el total al momento.</p>
+    <ul class="chips"><li>Gratis</li><li>Sin registro</li><li>Sin cookies</li><li>Datos oficiales</li></ul>
+    <p class="actualizado"><time datetime="2026-11-17">Revisado el 17 de noviembre de 2026 · tipos vigentes en 2026</time></p>
+  </div>
+</section>
+<main>
+<div class="contenedor">
+  <div class="calculadora">
+  <form id="formulario" class="tarjeta" novalidate>
+    <h2>Datos del precio</h2>
+    <fieldset class="segmentos">
+      <legend>¿Qué quieres hacer?</legend>
+      <label><input type="radio" name="modo" value="anadir" checked><span>Añadir IVA</span></label>
+      <label><input type="radio" name="modo" value="quitar"><span>Quitar IVA</span></label>
+    </fieldset>
+    <div class="rejilla">
+      <div>
+        <label for="importe">Precio (€)<span class="ayuda" id="ayuda-importe">Precio sin IVA.</span></label>
+        <input id="importe" name="importe" type="number" inputmode="decimal" min="0" step="0.01" value="100">
+      </div>
+      <div>
+        <label for="tipo">Tipo de IVA</label>
+        <select id="tipo" name="tipo">
+          <option value="21" selected>21 % (general)</option>
+          <option value="10">10 % (reducido)</option>
+          <option value="4">4 % (superreducido)</option>
+        </select>
+      </div>
+    </div>
+  </form>
+
+  <section class="tarjeta resultado" aria-live="polite">
+    <h2>Resultado</h2>
+    <div id="resultado"><p>Rellena tus datos para ver el cálculo.</p></div>
+  </section>
+  </div>
+
+  <section class="tarjeta faq">
+    <h2>Preguntas frecuentes</h2>
+    <h3>¿Cómo se quita el IVA de un precio?</h3>
+    <p>Divide el precio con IVA entre 1,21 si el tipo es del 21 %, entre 1,10 si es del 10 % o entre 1,04 si es del 4 %. Por ejemplo, 121 € con IVA incluido son 100 € de base y 21 € de IVA. Restar un 21 % al precio con IVA da un resultado incorrecto.</p>
+    <h3>¿Cómo se añade el IVA a un precio?</h3>
+    <p>Multiplica el precio sin IVA por 1,21, por 1,10 o por 1,04, según el tipo. Por ejemplo, 100 € más el 21 % de IVA son 121 €.</p>
+    <h3>¿Qué tipos de IVA hay en España?</h3>
+    <p>El general del 21 %, el reducido del 10 %, que se aplica por ejemplo a la hostelería o al transporte de viajeros, y el superreducido del 4 %, que se aplica por ejemplo al pan, la leche, los libros o los medicamentos, según los <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1992-28740#a90">artículos 90 y 91 de la Ley del IVA</a>. En Canarias no se aplica el IVA, sino el IGIC, y en Ceuta y Melilla, el IPSI.</p>
+    <h3>¿Qué es la base imponible?</h3>
+    <p>Es el precio sin IVA. Sobre ella se calculan el IVA y, en las facturas de los profesionales, la retención de IRPF.</p>
+  </section>
+
+  <section class="tarjeta ia">
+    <h2>¿Usas Claude, ChatGPT o Cursor?</h2>
+    <p>Estos cálculos están disponibles como servidor MCP, para que tu asistente de IA los haga dentro de la conversación. Tiene un plan gratuito de 50 consultas al mes.</p>
+    <a class="boton" href="https://mcpize.com/mcp/irpf-pymes-cat-mcp">Probarlo gratis en MCPize</a>
+  </section>
+
+  <section class="tarjeta">
+    <h2>Más calculadoras para autónomos</h2>
+    <ul class="otras">
+      <li><a href="../"><strong>IRPF de autónomos en Cataluña</strong><span>Cuánto pagarás en la renta, con la escala catalana.</span></a></li>
+      <li><a href="../cuota-autonomos-2026/"><strong>Cuota de autónomos 2026</strong><span>Tu tramo y tu cuota mensual según lo que ganas.</span></a></li>
+      <li><a href="../factura-autonomos/"><strong>Factura con IVA e IRPF</strong><span>El total de la factura, o cuánto facturar para cobrar una cantidad.</span></a></li>
+      <li><a href="../sueldo-neto-autonomo/"><strong>Sueldo neto de autónomo</strong><span>Lo que te queda al mes tras gastos, cuota e IRPF.</span></a></li>
+      <li><a href="../cuanto-facturar-autonomo/"><strong>Cuánto facturar</strong><span>La facturación y el precio por hora para ganar el neto que quieres.</span></a></li>
+      <li><a href="../modelo-130/"><strong>Modelo 130</strong><span>Tus pagos trimestrales del IRPF, trimestre a trimestre.</span></a></li>
+    </ul>
+  </section>
+
+  <div class="aviso">
+    <strong>Aviso:</strong> es una estimación orientativa. El tipo que corresponde depende de cada producto o servicio, así que consúltalo si tienes dudas. Fuente:
+    <ul><li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-1992-28740#a90">Ley 37/1992 del IVA, artículos 90 y 91 (BOE)</a></li></ul>
+  </div>
+</div>
+</main>
+<footer class="pie">
+  <div class="contenedor">
+    <p>Calculadoras independientes, sin relación con la Agencia Tributaria, la Seguridad Social ni la Generalitat de Catalunya. Los cálculos se hacen en tu navegador y no se guarda nada.</p>
+    <p>¿Usas un asistente de IA? Estos cálculos también están en un <a href="https://mcpize.com/mcp/irpf-pymes-cat-mcp">servidor MCP con plan gratuito</a>.</p>
+  </div>
+</footer>
+<script type="module" src="../iva-app.js"></script>
+</body>
+</html>

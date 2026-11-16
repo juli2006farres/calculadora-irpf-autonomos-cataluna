@@ -204,3 +204,4 @@ tr.fuerte td { font-weight: 750; }
   .calculadora.apilada { grid-template-columns: minmax(0, 1fr); }
   .calculadora.apilada > .resultado { position: static; }
 }
+.actualizado { margin: 14px 0 0; font-size: 0.88rem; color: var(--suave); }

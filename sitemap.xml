@@ -43,6 +43,20 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/factura-autonomos/"/>
   </url>
   <url>
+    <loc>https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/calculadora-iva/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/calculadora-iva/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/calculadora-iva/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/calculadora-iva/"/>
+  </url>
+  <url>
+    <loc>https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/calculadora-iva/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/calculadora-iva/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/calculadora-iva/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/calculadora-iva/"/>
+  </url>
+  <url>
     <loc>https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/sueldo-neto-autonomo/</loc>
     <lastmod>2026-11-17</lastmod>
     <xhtml:link rel="alternate" hreflang="es" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/sueldo-neto-autonomo/"/>
@@ -55,6 +69,20 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/sueldo-neto-autonomo/"/>
     <xhtml:link rel="alternate" hreflang="ca" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/sou-net-autonom/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/sueldo-neto-autonomo/"/>
+  </url>
+  <url>
+    <loc>https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/cuanto-facturar-autonomo/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/cuanto-facturar-autonomo/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/quant-facturar-autonom/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/cuanto-facturar-autonomo/"/>
+  </url>
+  <url>
+    <loc>https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/quant-facturar-autonom/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/cuanto-facturar-autonomo/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/quant-facturar-autonom/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/cuanto-facturar-autonomo/"/>
   </url>
   <url>
     <loc>https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/modelo-130/</loc>

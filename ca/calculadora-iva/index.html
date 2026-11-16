@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculadora d'IVA · Afegir o treure l'IVA d'un preu</title>
+  <meta name="description" content="Calcula l&#x27;IVA d&#x27;un preu al moment: afegeix o treu l&#x27;IVA del 21 %, 10 % o 4 % i obtén la base imposable i el total. Gratuïta i sense registre.">
+  <link rel="canonical" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/calculadora-iva/">
+  <link rel="alternate" hreflang="es" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/calculadora-iva/">
+  <link rel="alternate" hreflang="ca" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/calculadora-iva/">
+  <link rel="alternate" hreflang="x-default" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/calculadora-iva/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Calculadora d&#x27;IVA: afegir o treure l&#x27;IVA">
+  <meta property="og:description" content="Base imposable, IVA i total de qualsevol preu amb el 21 %, 10 % o 4 %.">
+  <meta property="og:url" content="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/calculadora-iva/">
+  <meta property="og:locale" content="ca_ES">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f5f8b'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white' font-family='Arial'%3E%E2%82%AC%3C/text%3E%3C/svg%3E">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Calculadora d'IVA: afegir o treure l'IVA",
+        "url": "https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/calculadora-iva/",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Qualsevol",
+        "inLanguage": "ca",
+        "dateModified": "2026-11-17",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Com es treu l'IVA d'un preu?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Divideix el preu amb IVA entre 1,21 si el tipus és del 21 %, entre 1,10 si és del 10 % o entre 1,04 si és del 4 %. Per exemple, 121 € amb IVA inclòs són 100 € de base i 21 € d'IVA. Restar un 21 % al preu amb IVA dona un resultat incorrecte."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Com s'afegeix l'IVA a un preu?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Multiplica el preu sense IVA per 1,21, per 1,10 o per 1,04, segons el tipus. Per exemple, 100 € més el 21 % d'IVA són 121 €."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quins tipus d'IVA hi ha a Espanya?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "El general del 21 %, el reduït del 10 %, que s'aplica per exemple a l'hostaleria o al transport de viatgers, i el superreduït del 4 %, que s'aplica per exemple al pa, la llet, els llibres o els medicaments, segons els articles 90 i 91 de la Llei de l'IVA. A les Canàries no s'aplica l'IVA, sinó l'IGIC, i a Ceuta i Melilla, l'IPSI."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Què és la base imposable?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "És el preu sense IVA. Sobre aquesta base es calculen l'IVA i, a les factures dels professionals, la retenció d'IRPF."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="../../estilos.css">
+</head>
+<body>
+<header class="cabecera">
+  <div class="contenedor">
+    <a class="marca" href="../"><span class="logo" aria-hidden="true">€</span>Calculadores per a autònoms</a>
+    <nav class="menu" aria-label="Calculadores per a autònoms">
+      <a href="../">IRPF</a>
+      <a href="../quota-autonoms-2026/">Quota</a>
+      <a href="../factura-autonoms/">Factura</a>
+      <a href="./" aria-current="page">IVA</a>
+      <a href="../sou-net-autonom/">Sou net</a>
+      <a href="../quant-facturar-autonom/">Quant facturar</a>
+      <a href="../model-130/">Model 130</a>
+      <a class="idioma" href="../../calculadora-iva/" hreflang="es" lang="es">Castellano</a>
+    </nav>
+  </div>
+</header>
+<section class="heroe">
+  <div class="contenedor">
+    <h1>Calculadora d'IVA: afegir o treure l'IVA d'un preu</h1>
+    <p class="entradilla">Afegeix l'IVA a un preu sense IVA o treu-l'hi a un preu amb IVA inclòs, amb els tipus del 21 %, 10 % i 4 %. Veuràs la base imposable, l'IVA i el total al moment.</p>
+    <ul class="chips"><li>Gratuït</li><li>Sense registre</li><li>Sense galetes</li><li>Dades oficials</li></ul>
+    <p class="actualizado"><time datetime="2026-11-17">Revisat el 17 de novembre de 2026 · tipus vigents el 2026</time></p>
+  </div>
+</section>
+<main>
+<div class="contenedor">
+  <div class="calculadora">
+  <form id="formulario" class="tarjeta" novalidate>
+    <h2>Dades del preu</h2>
+    <fieldset class="segmentos">
+      <legend>Què vols fer?</legend>
+      <label><input type="radio" name="modo" value="anadir" checked><span>Afegir IVA</span></label>
+      <label><input type="radio" name="modo" value="quitar"><span>Treure IVA</span></label>
+    </fieldset>
+    <div class="rejilla">
+      <div>
+        <label for="importe">Preu (€)<span class="ayuda" id="ayuda-importe">Preu sense IVA.</span></label>
+        <input id="importe" name="importe" type="number" inputmode="decimal" min="0" step="0.01" value="100">
+      </div>
+      <div>
+        <label for="tipo">Tipus d'IVA</label>
+        <select id="tipo" name="tipo">
+          <option value="21" selected>21 % (general)</option>
+          <option value="10">10 % (reduït)</option>
+          <option value="4">4 % (superreduït)</option>
+        </select>
+      </div>
+    </div>
+  </form>
+
+  <section class="tarjeta resultado" aria-live="polite">
+    <h2>Resultat</h2>
+    <div id="resultado"><p>Omple les teves dades per veure el càlcul.</p></div>
+  </section>
+  </div>
+
+  <section class="tarjeta faq">
+    <h2>Preguntes freqüents</h2>
+    <h3>Com es treu l'IVA d'un preu?</h3>
+    <p>Divideix el preu amb IVA entre 1,21 si el tipus és del 21 %, entre 1,10 si és del 10 % o entre 1,04 si és del 4 %. Per exemple, 121 € amb IVA inclòs són 100 € de base i 21 € d'IVA. Restar un 21 % al preu amb IVA dona un resultat incorrecte.</p>
+    <h3>Com s'afegeix l'IVA a un preu?</h3>
+    <p>Multiplica el preu sense IVA per 1,21, per 1,10 o per 1,04, segons el tipus. Per exemple, 100 € més el 21 % d'IVA són 121 €.</p>
+    <h3>Quins tipus d'IVA hi ha a Espanya?</h3>
+    <p>El general del 21 %, el reduït del 10 %, que s'aplica per exemple a l'hostaleria o al transport de viatgers, i el superreduït del 4 %, que s'aplica per exemple al pa, la llet, els llibres o els medicaments, segons els <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1992-28740#a90">articles 90 i 91 de la Llei de l'IVA</a>. A les Canàries no s'aplica l'IVA, sinó l'IGIC, i a Ceuta i Melilla, l'IPSI.</p>
+    <h3>Què és la base imposable?</h3>
+    <p>És el preu sense IVA. Sobre aquesta base es calculen l'IVA i, a les factures dels professionals, la retenció d'IRPF.</p>
+  </section>
+
+  <section class="tarjeta ia">
+    <h2>Fas servir Claude, ChatGPT o Cursor?</h2>
+    <p>Aquests càlculs estan disponibles com a servidor MCP, perquè el teu assistent d'IA els faci dins de la conversa. Té un pla gratuït de 50 consultes al mes. La pàgina del servei està en anglès i el servei respon en castellà.</p>
+    <a class="boton" href="https://mcpize.com/mcp/irpf-pymes-cat-mcp">Prova'l gratis a MCPize</a>
+  </section>
+
+  <section class="tarjeta">
+    <h2>Més calculadores per a autònoms</h2>
+    <ul class="otras">
+      <li><a href="../"><strong>IRPF d'autònoms a Catalunya</strong><span>Quant pagaràs a la renda, amb l'escala catalana.</span></a></li>
+      <li><a href="../quota-autonoms-2026/"><strong>Quota d'autònoms 2026</strong><span>El teu tram i la teva quota mensual segons el que guanyes.</span></a></li>
+      <li><a href="../factura-autonoms/"><strong>Factura amb IVA i IRPF</strong><span>El total de la factura, o quant facturar per cobrar una quantitat.</span></a></li>
+      <li><a href="../sou-net-autonom/"><strong>Sou net d'autònom</strong><span>El que et queda al mes després de despeses, quota i IRPF.</span></a></li>
+      <li><a href="../quant-facturar-autonom/"><strong>Quant facturar</strong><span>La facturació i el preu per hora per guanyar el net que vols.</span></a></li>
+      <li><a href="../model-130/"><strong>Model 130</strong><span>Els teus pagaments trimestrals de l'IRPF, trimestre a trimestre.</span></a></li>
+    </ul>
+  </section>
+
+  <div class="aviso">
+    <strong>Avís:</strong> és una estimació orientativa. El tipus que correspon depèn de cada producte o servei, així que consulta-ho si tens dubtes. Font, en castellà:
+    <ul><li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-1992-28740#a90">Ley 37/1992 del IVA, artículos 90 y 91 (BOE)</a></li></ul>
+  </div>
+</div>
+</main>
+<footer class="pie">
+  <div class="contenedor">
+    <p>Calculadores independents, sense relació amb l'Agència Tributària, la Seguretat Social ni la Generalitat de Catalunya. Els càlculs es fan al teu navegador i no es desa res.</p>
+    <p>Fas servir un assistent d'IA? Aquests càlculs també són en un <a href="https://mcpize.com/mcp/irpf-pymes-cat-mcp">servidor MCP amb pla gratuït</a>.</p>
+  </div>
+</footer>
+<script type="module" src="../../iva-app.js"></script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculadora quota d'autònoms 2026 per trams · Gratuïta</title>
+  <meta name="description" content="Calcula gratis la teva quota d'autònoms 2026 segons els teus rendiments nets: tram, base mínima i màxima i quota mensual, amb les taules oficials de l'Ordre PJC/297/2026. Vàlida per a tot l'Estat.">
+  <link rel="canonical" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/quota-autonoms-2026/">
+  <link rel="alternate" hreflang="es" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/cuota-autonomos-2026/">
+  <link rel="alternate" hreflang="ca" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/quota-autonoms-2026/">
+  <link rel="alternate" hreflang="x-default" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/cuota-autonomos-2026/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Calculadora quota d'autònoms 2026">
+  <meta property="og:description" content="Tram, bases i quota mensual d'autònoms el 2026 segons els teus rendiments nets.">
+  <meta property="og:url" content="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/quota-autonoms-2026/">
+  <meta property="og:locale" content="ca_ES">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f5f8b'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white' font-family='Arial'%3E%E2%82%AC%3C/text%3E%3C/svg%3E">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Calculadora quota d'autònoms 2026",
+        "url": "https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/quota-autonoms-2026/",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Qualsevol",
+        "inLanguage": "ca",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quina és la quota mínima d'autònoms el 2026?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Amb rendiments nets de fins a 670 € al mes, la base mínima és de 653,59 € i la quota mensual, amb un tipus total del 31,5 %, és de 205,88 €, sense comptar la tarifa plana ni altres reduccions." }
+          },
+          {
+            "@type": "Question",
+            "name": "Com es calculen els rendiments nets per a la quota d'autònoms?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Es parteix del rendiment net fiscal de l'activitat, s'hi sumen les quotes d'autònom pagades i s'aplica una deducció del 7 % per despeses genèriques. El resultat anual es divideix entre 12 per saber el tram." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quin tipus de cotització paguen els autònoms el 2026?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Un 31,5 % de la base: 28,3 % per contingències comunes, 1,3 % per contingències professionals, 0,9 % per cessament d'activitat, 0,1 % per formació professional i 0,9 % pel mecanisme d'equitat intergeneracional." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="../../estilos.css">
+</head>
+<body>
+<main>
+  <p class="idiomas"><a href="../">Calculadora d'IRPF</a> · <a href="../../cuota-autonomos-2026/" hreflang="es" lang="es">Versión en castellano</a></p>
+  <h1>Calculadora de la quota d'autònoms 2026</h1>
+  <p class="entradilla">Calcula el teu tram i la teva quota mensual a la Seguretat Social el 2026 segons els teus rendiments nets, amb les taules oficials. Vàlida per a tot l'Estat. Gratuïta, sense registre i sense enviar les teves dades.</p>
+
+  <form id="formulario" class="tarjeta" novalidate>
+    <h2>Les teves previsions per al 2026</h2>
+    <div class="rejilla">
+      <div>
+        <label for="ingresos">Ingressos anuals (€)<span class="ayuda">El que preveus facturar durant l'any, sense IVA.</span></label>
+        <input id="ingresos" name="ingresos" type="number" inputmode="decimal" min="0" step="0.01" value="40000">
+      </div>
+      <div>
+        <label for="gastos">Despeses deduïbles (€)<span class="ayuda">Sense comptar les quotes d'autònom.</span></label>
+        <input id="gastos" name="gastos" type="number" inputmode="decimal" min="0" step="0.01" value="5000">
+      </div>
+      <div>
+        <label for="modalidad">Estimació a l'IRPF</label>
+        <select id="modalidad" name="modalidad">
+          <option value="directa_simplificada" selected>Directa simplificada</option>
+          <option value="directa_normal">Directa normal</option>
+        </select>
+      </div>
+    </div>
+    <div class="casilla">
+      <input id="cliente" name="cliente" type="checkbox">
+      <label for="cliente">Compleixo els requisits de la reducció per a autònoms dependents<span class="ayuda">Art. 32.2.2n de la Llei de l'IRPF. Només canvia les despeses de difícil justificació de l'IRPF, que també compten aquí.</span></label>
+    </div>
+  </form>
+
+  <section class="tarjeta" aria-live="polite">
+    <h2>Resultat estimat</h2>
+    <div id="resultado"><p>Omple les teves dades per veure el càlcul.</p></div>
+  </section>
+
+  <section class="tarjeta">
+    <h2>Fas servir Claude, ChatGPT o Cursor?</h2>
+    <p>Aquesta calculadora i la de l'IRPF estan disponibles com a servidor MCP, perquè el teu assistent d'IA faci els càlculs dins de la conversa. Té un pla gratuït de 50 consultes al mes. La pàgina de MCPize està en anglès i el servei respon en castellà.</p>
+    <a class="boton" href="https://mcpize.com/mcp/irpf-pymes-cat-mcp">Prova'l gratis a MCPize</a>
+  </section>
+
+  <section class="tarjeta">
+    <h2>Trams de la quota d'autònoms 2026</h2>
+    <p>Rendiments nets mensuals, bases de cotització i quota amb la base mínima, segons l'article 18 de l'<a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-7296">Ordre PJC/297/2026</a>.</p>
+    <table>
+      <tbody>
+        <tr class="fuerte"><td>Tram · rendiment al mes</td><td>Base mínima · quota</td></tr>
+        <tr><td>Reduïda 1 · fins a 670 €</td><td>653,59 € · 205,88 €</td></tr>
+        <tr><td>Reduïda 2 · de 670 a 900 €</td><td>718,95 € · 226,47 €</td></tr>
+        <tr><td>Reduïda 3 · de 900 a 1.166,70 €</td><td>849,67 € · 267,65 €</td></tr>
+        <tr><td>General 1 · de 1.166,70 a 1.300 €</td><td>950,98 € · 299,56 €</td></tr>
+        <tr><td>General 2 · de 1.300 a 1.500 €</td><td>960,78 € · 302,65 €</td></tr>
+        <tr><td>General 3 · de 1.500 a 1.700 €</td><td>960,78 € · 302,65 €</td></tr>
+        <tr><td>General 4 · de 1.700 a 1.850 €</td><td>1.143,79 € · 360,29 €</td></tr>
+        <tr><td>General 5 · de 1.850 a 2.030 €</td><td>1.209,15 € · 380,88 €</td></tr>
+        <tr><td>General 6 · de 2.030 a 2.330 €</td><td>1.274,51 € · 401,47 €</td></tr>
+        <tr><td>General 7 · de 2.330 a 2.760 €</td><td>1.356,21 € · 427,21 €</td></tr>
+        <tr><td>General 8 · de 2.760 a 3.190 €</td><td>1.437,91 € · 452,94 €</td></tr>
+        <tr><td>General 9 · de 3.190 a 3.620 €</td><td>1.519,61 € · 478,68 €</td></tr>
+        <tr><td>General 10 · de 3.620 a 4.050 €</td><td>1.601,31 € · 504,41 €</td></tr>
+        <tr><td>General 11 · de 4.050 a 6.000 €</td><td>1.732,03 € · 545,59 €</td></tr>
+        <tr><td>General 12 · més de 6.000 €</td><td>1.928,10 € · 607,35 €</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="tarjeta faq">
+    <h2>Preguntes freqüents</h2>
+    <h3>Com es calculen els rendiments per a la quota?</h3>
+    <p>Es parteix del rendiment net de l'activitat a l'IRPF, s'hi sumen les quotes d'autònom i es resta un 7 % per despeses genèriques. El resultat anual es divideix entre 12 per saber en quin tram ets.</p>
+    <h3>Quin tipus s'aplica el 2026?</h3>
+    <p>Un 31,5 % de la base: 28,3 % per contingències comunes, 1,3 % per contingències professionals, 0,9 % per cessament d'activitat, 0,1 % per formació professional i 0,9 % pel mecanisme d'equitat intergeneracional.</p>
+    <h3>Puc pagar més que la quota mínima?</h3>
+    <p>Sí. Pots triar qualsevol base entre la mínima i la màxima del teu tram, i una base més alta sol donar dret a prestacions més altes.</p>
+    <h3>Què passa si m'equivoco de tram?</h3>
+    <p>La quota mensual és provisional. Quan la Seguretat Social coneix els teus rendiments reals de l'any, regularitza la diferència: et retorna o et reclama el que correspongui.</p>
+    <h3>Què no inclou?</h3>
+    <ul>
+      <li>La tarifa plana per a nous autònoms, les bonificacions i les reduccions.</li>
+      <li>La pluriactivitat.</li>
+      <li>Els autònoms societaris i els familiars col·laboradors, que tenen regles diferents, com una deducció del 3 % en lloc del 7 %.</li>
+    </ul>
+  </section>
+
+  <div class="aviso">
+    <strong>Avís:</strong> és una estimació orientativa i no substitueix el consell d'un assessor laboral o fiscal. Taules revisades el <span id="fecha-revision"></span>. Fonts, en castellà:
+    <ul id="fuentes"></ul>
+  </div>
+
+  <footer>
+    <p style="margin-top:20px">Pàgina independent, sense relació amb la Seguretat Social ni amb l'Agència Tributària.</p>
+  </footer>
+</main>
+<script type="module" src="../../cuota-app.js"></script>
+</body>
+</html>

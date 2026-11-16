@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculadora cuota de autónomos 2026 por tramos · Gratis</title>
+  <meta name="description" content="Calcula gratis tu cuota de autónomos 2026 según tus rendimientos netos: tramo, base mínima y máxima y cuota mensual, con las tablas oficiales de la Orden PJC/297/2026. Válida para toda España.">
+  <link rel="canonical" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/cuota-autonomos-2026/">
+  <link rel="alternate" hreflang="es" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/cuota-autonomos-2026/">
+  <link rel="alternate" hreflang="ca" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/quota-autonoms-2026/">
+  <link rel="alternate" hreflang="x-default" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/cuota-autonomos-2026/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Calculadora cuota de autónomos 2026">
+  <meta property="og:description" content="Tramo, bases y cuota mensual de autónomos en 2026 según tus rendimientos netos.">
+  <meta property="og:url" content="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/cuota-autonomos-2026/">
+  <meta property="og:locale" content="es_ES">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f5f8b'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white' font-family='Arial'%3E%E2%82%AC%3C/text%3E%3C/svg%3E">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Calculadora cuota de autónomos 2026",
+        "url": "https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/cuota-autonomos-2026/",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Cualquiera",
+        "inLanguage": "es",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Cuál es la cuota mínima de autónomos en 2026?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Con rendimientos netos de hasta 670 € al mes, la base mínima es de 653,59 € y la cuota mensual, con un tipo total del 31,5 %, es de 205,88 €, sin contar la tarifa plana ni otras reducciones." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo se calculan los rendimientos netos para la cuota de autónomos?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Se parte del rendimiento neto fiscal de la actividad, se le suman las cuotas de autónomo pagadas y se aplica una deducción del 7 % por gastos genéricos. El resultado anual se divide entre 12 para saber el tramo." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué tipo de cotización pagan los autónomos en 2026?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Un 31,5 % de la base: 28,3 % por contingencias comunes, 1,3 % por contingencias profesionales, 0,9 % por cese de actividad, 0,1 % por formación profesional y 0,9 % por el mecanismo de equidad intergeneracional." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="../estilos.css">
+</head>
+<body>
+<main>
+  <p class="idiomas"><a href="../">Calculadora de IRPF</a> · <a href="../ca/quota-autonoms-2026/" hreflang="ca" lang="ca">Versió en català</a></p>
+  <h1>Calculadora de la cuota de autónomos 2026</h1>
+  <p class="entradilla">Calcula tu tramo y tu cuota mensual a la Seguridad Social en 2026 según tus rendimientos netos, con las tablas oficiales. Vale para toda España. Gratis, sin registro y sin enviar tus datos.</p>
+
+  <form id="formulario" class="tarjeta" novalidate>
+    <h2>Tus previsiones para 2026</h2>
+    <div class="rejilla">
+      <div>
+        <label for="ingresos">Ingresos anuales (€)<span class="ayuda">Lo que prevés facturar en el año, sin IVA.</span></label>
+        <input id="ingresos" name="ingresos" type="number" inputmode="decimal" min="0" step="0.01" value="40000">
+      </div>
+      <div>
+        <label for="gastos">Gastos deducibles (€)<span class="ayuda">Sin contar las cuotas de autónomo.</span></label>
+        <input id="gastos" name="gastos" type="number" inputmode="decimal" min="0" step="0.01" value="5000">
+      </div>
+      <div>
+        <label for="modalidad">Estimación en el IRPF</label>
+        <select id="modalidad" name="modalidad">
+          <option value="directa_simplificada" selected>Directa simplificada</option>
+          <option value="directa_normal">Directa normal</option>
+        </select>
+      </div>
+    </div>
+    <div class="casilla">
+      <input id="cliente" name="cliente" type="checkbox">
+      <label for="cliente">Cumplo los requisitos de la reducción para autónomos dependientes<span class="ayuda">Art. 32.2.2.º de la Ley del IRPF. Solo cambia los gastos de difícil justificación del IRPF, que también cuentan aquí.</span></label>
+    </div>
+  </form>
+
+  <section class="tarjeta" aria-live="polite">
+    <h2>Resultado estimado</h2>
+    <div id="resultado"><p>Rellena tus datos para ver el cálculo.</p></div>
+  </section>
+
+  <section class="tarjeta">
+    <h2>¿Usas Claude, ChatGPT o Cursor?</h2>
+    <p>Esta calculadora y la del IRPF están disponibles como servidor MCP, para que tu asistente de IA haga los cálculos dentro de la conversación. Tiene un plan gratuito de 50 consultas al mes.</p>
+    <a class="boton" href="https://mcpize.com/mcp/irpf-pymes-cat-mcp">Probarlo gratis en MCPize</a>
+  </section>
+
+  <section class="tarjeta">
+    <h2>Tramos de la cuota de autónomos 2026</h2>
+    <p>Rendimientos netos mensuales, bases de cotización y cuota con la base mínima, según el artículo 18 de la <a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-7296">Orden PJC/297/2026</a>.</p>
+    <table>
+      <tbody>
+        <tr class="fuerte"><td>Tramo · rendimiento al mes</td><td>Base mínima · cuota</td></tr>
+        <tr><td>Reducida 1 · hasta 670 €</td><td>653,59 € · 205,88 €</td></tr>
+        <tr><td>Reducida 2 · de 670 a 900 €</td><td>718,95 € · 226,47 €</td></tr>
+        <tr><td>Reducida 3 · de 900 a 1.166,70 €</td><td>849,67 € · 267,65 €</td></tr>
+        <tr><td>General 1 · de 1.166,70 a 1.300 €</td><td>950,98 € · 299,56 €</td></tr>
+        <tr><td>General 2 · de 1.300 a 1.500 €</td><td>960,78 € · 302,65 €</td></tr>
+        <tr><td>General 3 · de 1.500 a 1.700 €</td><td>960,78 € · 302,65 €</td></tr>
+        <tr><td>General 4 · de 1.700 a 1.850 €</td><td>1.143,79 € · 360,29 €</td></tr>
+        <tr><td>General 5 · de 1.850 a 2.030 €</td><td>1.209,15 € · 380,88 €</td></tr>
+        <tr><td>General 6 · de 2.030 a 2.330 €</td><td>1.274,51 € · 401,47 €</td></tr>
+        <tr><td>General 7 · de 2.330 a 2.760 €</td><td>1.356,21 € · 427,21 €</td></tr>
+        <tr><td>General 8 · de 2.760 a 3.190 €</td><td>1.437,91 € · 452,94 €</td></tr>
+        <tr><td>General 9 · de 3.190 a 3.620 €</td><td>1.519,61 € · 478,68 €</td></tr>
+        <tr><td>General 10 · de 3.620 a 4.050 €</td><td>1.601,31 € · 504,41 €</td></tr>
+        <tr><td>General 11 · de 4.050 a 6.000 €</td><td>1.732,03 € · 545,59 €</td></tr>
+        <tr><td>General 12 · más de 6.000 €</td><td>1.928,10 € · 607,35 €</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="tarjeta faq">
+    <h2>Preguntas frecuentes</h2>
+    <h3>¿Cómo se calculan los rendimientos para la cuota?</h3>
+    <p>Se parte del rendimiento neto de la actividad en el IRPF, se le suman las cuotas de autónomo y se resta un 7 % por gastos genéricos. El resultado anual se divide entre 12 para saber en qué tramo estás.</p>
+    <h3>¿Qué tipo se aplica en 2026?</h3>
+    <p>Un 31,5 % de la base: 28,3 % por contingencias comunes, 1,3 % por contingencias profesionales, 0,9 % por cese de actividad, 0,1 % por formación profesional y 0,9 % por el mecanismo de equidad intergeneracional.</p>
+    <h3>¿Puedo pagar más que la cuota mínima?</h3>
+    <p>Sí. Puedes elegir cualquier base entre la mínima y la máxima de tu tramo, y una base más alta suele dar derecho a prestaciones más altas.</p>
+    <h3>¿Qué pasa si me equivoco de tramo?</h3>
+    <p>La cuota mensual es provisional. Cuando la Seguridad Social conoce tus rendimientos reales del año, regulariza la diferencia: te devuelve o te reclama lo que corresponda.</p>
+    <h3>¿Qué no incluye?</h3>
+    <ul>
+      <li>La tarifa plana para nuevos autónomos, las bonificaciones y las reducciones.</li>
+      <li>La pluriactividad.</li>
+      <li>Los autónomos societarios y los familiares colaboradores, que tienen reglas distintas, como una deducción del 3 % en lugar del 7 %.</li>
+    </ul>
+  </section>
+
+  <div class="aviso">
+    <strong>Aviso:</strong> es una estimación orientativa y no sustituye el consejo de un asesor laboral o fiscal. Tablas revisadas el <span id="fecha-revision"></span>.
+    <ul id="fuentes"></ul>
+  </div>
+
+  <footer>
+    <p style="margin-top:20px">Página independiente, sin relación con la Seguridad Social ni con la Agencia Tributaria.</p>
+  </footer>
+</main>
+<script type="module" src="../cuota-app.js"></script>
+</body>
+</html>

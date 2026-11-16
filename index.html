@@ -55,11 +55,30 @@
   <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
+<header class="cabecera">
+  <div class="contenedor">
+    <a class="marca" href="./"><span class="logo" aria-hidden="true">€</span>Calculadoras para autónomos</a>
+    <nav class="menu" aria-label="Calculadoras para autónomos">
+      <a href="./" aria-current="page">IRPF Cataluña</a>
+      <a href="cuota-autonomos-2026/">Cuota 2026</a>
+      <a href="factura-autonomos/">Factura</a>
+      <a href="sueldo-neto-autonomo/">Sueldo neto</a>
+      <a href="modelo-130/">Modelo 130</a>
+      <a class="idioma" href="ca/" hreflang="ca" lang="ca">Català</a>
+    </nav>
+  </div>
+</header>
+<section class="heroe">
+  <div class="contenedor">
+    <h1>Calculadora de IRPF para autónomos en Cataluña (2025 y 2026)</h1>
+    <p class="entradilla">Estima cuánto IRPF te corresponde como autónomo residente en Cataluña, con la escala estatal y la catalana vigentes. Gratis, sin registro y sin enviar tus datos: el cálculo se hace en tu navegador.</p>
+    <ul class="chips"><li>Gratis</li><li>Sin registro</li><li>Sin cookies</li><li>Datos oficiales</li></ul>
+  </div>
+</section>
 <main>
-  <p class="idiomas"><a href="cuota-autonomos-2026/">Calculadora de cuota de autónomos 2026</a> · <a href="ca/" hreflang="ca" lang="ca">Versió en català</a></p>
-  <h1>Calculadora de IRPF para autónomos en Cataluña (2025 y 2026)</h1>
-  <p class="entradilla">Estima cuánto IRPF te corresponde como autónomo residente en Cataluña, con la escala estatal y la catalana vigentes. Gratis, sin registro y sin enviar tus datos: el cálculo se hace en tu navegador.</p>
+<div class="contenedor">
 
+  <div class="calculadora">
   <form id="formulario" class="tarjeta" novalidate>
     <h2>Tus datos del año</h2>
     <div class="rejilla">
@@ -123,12 +142,13 @@
     </details>
   </form>
 
-  <section class="tarjeta" aria-live="polite">
+  <section class="tarjeta resultado" aria-live="polite">
     <h2>Resultado estimado</h2>
     <div id="resultado"><p>Rellena tus datos para ver el cálculo.</p></div>
   </section>
+  </div>
 
-  <section class="tarjeta">
+  <section class="tarjeta ia">
     <h2>¿Usas Claude, ChatGPT o Cursor?</h2>
     <p>Este mismo cálculo está disponible como servidor MCP, para que tu asistente de IA calcule el IRPF dentro de la conversación y consulte datos públicos de empresas catalanas (BORME y Generalitat). Tiene un plan gratuito de 50 consultas al mes.</p>
     <a class="boton" href="https://mcpize.com/mcp/irpf-pymes-cat-mcp">Probarlo gratis en MCPize</a>
@@ -152,15 +172,29 @@
     <p>No. La página no tiene registro, ni cookies, ni analítica, y los importes no salen de tu navegador.</p>
   </section>
 
+  <section class="tarjeta">
+    <h2>Más calculadoras para autónomos</h2>
+    <ul class="otras">
+      <li><a href="cuota-autonomos-2026/"><strong>Cuota de autónomos 2026</strong><span>Tu tramo y tu cuota mensual según lo que ganas.</span></a></li>
+      <li><a href="factura-autonomos/"><strong>Factura con IVA e IRPF</strong><span>El total de la factura, o cuánto facturar para cobrar una cantidad.</span></a></li>
+      <li><a href="sueldo-neto-autonomo/"><strong>Sueldo neto de autónomo</strong><span>Lo que te queda al mes tras gastos, cuota e IRPF.</span></a></li>
+      <li><a href="modelo-130/"><strong>Modelo 130</strong><span>Tus pagos trimestrales del IRPF, trimestre a trimestre.</span></a></li>
+    </ul>
+  </section>
+
   <div class="aviso">
     <strong>Aviso:</strong> es una estimación orientativa y no sustituye la declaración ni el consejo de un asesor fiscal. Tablas revisadas el <span id="fecha-revision"></span>.
     <ul id="fuentes"></ul>
   </div>
 
-  <footer>
-    <p style="margin-top:20px">Página independiente, sin relación con la Agencia Tributaria ni con la Generalitat de Catalunya.</p>
-  </footer>
+</div>
 </main>
+<footer class="pie">
+  <div class="contenedor">
+    <p>Calculadoras independientes, sin relación con la Agencia Tributaria, la Seguridad Social ni la Generalitat de Catalunya. Los cálculos se hacen en tu navegador y no se guarda nada.</p>
+    <p>¿Usas un asistente de IA? Estos cálculos también están en un <a href="https://mcpize.com/mcp/irpf-pymes-cat-mcp">servidor MCP con plan gratuito</a>.</p>
+  </div>
+</footer>
 <script type="module" src="app.js"></script>
 </body>
 </html>

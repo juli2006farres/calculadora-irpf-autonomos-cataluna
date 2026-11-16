@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculadora de factura d'autònom amb IVA i IRPF · Gratuïta</title>
+  <meta name="description" content="Calcula gratis una factura d&#x27;autònom: base imposable, IVA del 21 %, 10 % o 4 % i retenció d&#x27;IRPF del 15 % o del 7 %. També a l&#x27;inrevés: quant facturar per cobrar una quantitat. Per a tot Espanya.">
+  <link rel="canonical" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/factura-autonoms/">
+  <link rel="alternate" hreflang="es" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/factura-autonomos/">
+  <link rel="alternate" hreflang="ca" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/factura-autonoms/">
+  <link rel="alternate" hreflang="x-default" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/factura-autonomos/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Calculadora de factura d&#x27;autònom amb IVA i IRPF">
+  <meta property="og:description" content="Base, IVA, retenció i total de la teva factura, o quant facturar per cobrar una quantitat.">
+  <meta property="og:url" content="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/factura-autonoms/">
+  <meta property="og:locale" content="ca_ES">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f5f8b'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white' font-family='Arial'%3E%E2%82%AC%3C/text%3E%3C/svg%3E">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Calculadora de factura d'autònom amb IVA i IRPF",
+        "url": "https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/factura-autonoms/",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Qualsevol",
+        "inLanguage": "ca",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quina retenció d'IRPF poso a les meves factures?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Els professionals apliquen un 15 %. Si comences una activitat professional, pots aplicar un 7 % l'any d'inici i els dos següents, sempre que no hagis exercit cap activitat professional l'any anterior i ho comuniquis al teu client, segons l'article 95.1 del Reglament de l'IRPF."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quan no s'ha de posar retenció?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "En general, quan el client és un particular, perquè els particulars no estan obligats a retenir, i en la majoria d'activitats empresarials, com el comerç o l'hostaleria. Retenen les empreses i els autònoms que paguen serveis professionals."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quin tipus d'IVA aplico?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "El general és del 21 %. Alguns béns i serveis porten el 10 % o el 4 %, i d'altres estan exempts, com molts serveis sanitaris o d'ensenyament. Depèn del que venguis, així que consulta-ho si tens dubtes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Com calculo quant facturar per cobrar una quantitat?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Divideix el que vols cobrar entre 1 + IVA − retenció. Per exemple, per cobrar 1.060 € amb un 21 % d'IVA i un 15 % de retenció, la base és 1.060 / 1,06 = 1.000 €."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "L'IVA que cobro és meu?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. L'ingresses a Hisenda cada trimestre amb el model 303, després de restar l'IVA de les despeses de l'activitat. La retenció tampoc la cobres: la ingressa el teu client a Hisenda com a avançament del teu IRPF."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="../../estilos.css">
+</head>
+<body>
+<header class="cabecera">
+  <div class="contenedor">
+    <a class="marca" href="../"><span class="logo" aria-hidden="true">€</span>Calculadores per a autònoms</a>
+    <nav class="menu" aria-label="Calculadores per a autònoms">
+      <a href="../">IRPF Catalunya</a>
+      <a href="../quota-autonoms-2026/">Quota 2026</a>
+      <a href="./" aria-current="page">Factura</a>
+      <a href="../sou-net-autonom/">Sou net</a>
+      <a href="../model-130/">Model 130</a>
+      <a class="idioma" href="../../factura-autonomos/" hreflang="es" lang="es">Castellano</a>
+    </nav>
+  </div>
+</header>
+<section class="heroe">
+  <div class="contenedor">
+    <h1>Calculadora de factura per a autònoms amb IVA i retenció d'IRPF</h1>
+    <p class="entradilla">Calcula el total de la teva factura amb IVA i retenció d'IRPF, o a l'inrevés: quant has de facturar per cobrar una quantitat concreta. Serveix per a tot Espanya.</p>
+    <ul class="chips"><li>Gratuït</li><li>Sense registre</li><li>Sense galetes</li><li>Dades oficials</li></ul>
+  </div>
+</section>
+<main>
+<div class="contenedor">
+  <div class="calculadora">
+  <form id="formulario" class="tarjeta" novalidate>
+    <h2>Dades de la factura</h2>
+    <fieldset class="segmentos">
+      <legend>De quin import parteixes?</legend>
+      <label><input type="radio" name="modo" value="base" checked><span>Preu sense IVA</span></label>
+      <label><input type="radio" name="modo" value="cobrar"><span>El que vull cobrar</span></label>
+    </fieldset>
+    <div class="rejilla">
+      <div>
+        <label for="importe">Import (€)<span class="ayuda" id="ayuda-importe">El preu de la teva feina, sense IVA.</span></label>
+        <input id="importe" name="importe" type="number" inputmode="decimal" min="0" step="0.01" value="1000">
+      </div>
+      <div>
+        <label for="iva">IVA</label>
+        <select id="iva" name="iva">
+          <option value="21" selected>21 % (general)</option>
+          <option value="10">10 % (reduït)</option>
+          <option value="4">4 % (superreduït)</option>
+          <option value="0">0 % (exempta o no subjecta)</option>
+        </select>
+      </div>
+      <div>
+        <label for="retencion">Retenció d'IRPF<span class="ayuda">Sense retenció si el client és un particular o la teva activitat és empresarial.</span></label>
+        <select id="retencion" name="retencion">
+          <option value="15" selected>15 % (professional)</option>
+          <option value="7">7 % (nou professional)</option>
+          <option value="0">Sense retenció</option>
+        </select>
+      </div>
+    </div>
+  </form>
+
+  <section class="tarjeta resultado" aria-live="polite">
+    <h2>Resultat</h2>
+    <div id="resultado"><p>Omple les teves dades per veure el càlcul.</p></div>
+  </section>
+  </div>
+
+  <section class="tarjeta faq">
+    <h2>Preguntes freqüents</h2>
+    <h3>Quina retenció d'IRPF poso a les meves factures?</h3>
+    <p>Els professionals apliquen un 15 %. Si comences una activitat professional, pots aplicar un 7 % l'any d'inici i els dos següents, sempre que no hagis exercit cap activitat professional l'any anterior i ho comuniquis al teu client, segons l'<a href="https://www.boe.es/buscar/act.php?id=BOE-A-2007-6820#a95">article 95.1 del Reglament de l'IRPF</a>.</p>
+    <h3>Quan no s'ha de posar retenció?</h3>
+    <p>En general, quan el client és un particular, perquè els particulars no estan obligats a retenir, i en la majoria d'activitats empresarials, com el comerç o l'hostaleria. Retenen les empreses i els autònoms que paguen serveis professionals.</p>
+    <h3>Quin tipus d'IVA aplico?</h3>
+    <p>El general és del 21 %. Alguns béns i serveis porten el 10 % o el 4 %, i d'altres estan exempts, com molts serveis sanitaris o d'ensenyament. Depèn del que venguis, així que consulta-ho si tens dubtes.</p>
+    <h3>Com calculo quant facturar per cobrar una quantitat?</h3>
+    <p>Divideix el que vols cobrar entre 1 + IVA − retenció. Per exemple, per cobrar 1.060 € amb un 21 % d'IVA i un 15 % de retenció, la base és 1.060 / 1,06 = 1.000 €.</p>
+    <h3>L'IVA que cobro és meu?</h3>
+    <p>No. L'ingresses a Hisenda cada trimestre amb el model 303, després de restar l'IVA de les despeses de l'activitat. La retenció tampoc la cobres: la ingressa el teu client a Hisenda com a avançament del teu IRPF.</p>
+
+  </section>
+
+  <section class="tarjeta ia">
+    <h2>Fas servir Claude, ChatGPT o Cursor?</h2>
+    <p>Les calculadores d'IRPF i de quota estan disponibles com a servidor MCP, perquè el teu assistent d'IA faci els càlculs dins de la conversa. Té un pla gratuït de 50 consultes al mes. La pàgina del servei està en anglès i el servei respon en castellà.</p>
+    <a class="boton" href="https://mcpize.com/mcp/irpf-pymes-cat-mcp">Prova'l gratis a MCPize</a>
+  </section>
+
+  <section class="tarjeta">
+    <h2>Més calculadores per a autònoms</h2>
+    <ul class="otras">
+      <li><a href="../"><strong>IRPF d'autònoms a Catalunya</strong><span>Quant pagaràs a la renda, amb l'escala catalana.</span></a></li>
+      <li><a href="../quota-autonoms-2026/"><strong>Quota d'autònoms 2026</strong><span>El teu tram i la teva quota mensual segons el que guanyes.</span></a></li>
+      <li><a href="../sou-net-autonom/"><strong>Sou net d'autònom</strong><span>El que et queda al mes després de despeses, quota i IRPF.</span></a></li>
+      <li><a href="../model-130/"><strong>Model 130</strong><span>Els teus pagaments trimestrals de l'IRPF, trimestre a trimestre.</span></a></li>
+    </ul>
+  </section>
+
+  <div class="aviso">
+    <strong>Avís:</strong> és una estimació orientativa i no substitueix el consell d'un assessor fiscal. No inclou altres tipus de retenció, com l'1 % de les activitats en mòduls, ni el recàrrec d'equivalència. Fonts, en castellà:
+    <ul><li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-1992-28740#a90">Ley 37/1992 del IVA, artículos 90 y 91 (BOE)</a></li><li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2007-6820#a95">Reglamento del IRPF, artículo 95 (BOE)</a></li></ul>
+  </div>
+</div>
+</main>
+<footer class="pie">
+  <div class="contenedor">
+    <p>Calculadores independents, sense relació amb l'Agència Tributària, la Seguretat Social ni la Generalitat de Catalunya. Els càlculs es fan al teu navegador i no es desa res.</p>
+    <p>Fas servir un assistent d'IA? Aquests càlculs també són en un <a href="https://mcpize.com/mcp/irpf-pymes-cat-mcp">servidor MCP amb pla gratuït</a>.</p>
+  </div>
+</footer>
+<script type="module" src="../../factura-app.js"></script>
+</body>
+</html>

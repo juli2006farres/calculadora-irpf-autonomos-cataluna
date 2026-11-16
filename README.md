@@ -1,10 +1,19 @@
-# Calculadora IRPF autónomos Cataluña
+# Calculadoras para autónomos
 
-Web estática y gratuita que estima el IRPF de un autónomo residente en Cataluña en 2025 y 2026. Se publica con GitHub Pages en <https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/>.
+Web estática y gratuita con calculadoras para autónomos, en castellano y en catalán. Se publica con GitHub Pages en <https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/>.
+
+| Calculadora | Castellano | Catalán | Ámbito |
+|---|---|---|---|
+| IRPF de autónomos | `/` | `/ca/` | Cataluña, 2025 y 2026 |
+| Cuota de autónomos 2026 | `/cuota-autonomos-2026/` | `/ca/quota-autonoms-2026/` | Toda España |
+| Factura con IVA e IRPF | `/factura-autonomos/` | `/ca/factura-autonoms/` | Toda España |
+| Sueldo neto de autónomo | `/sueldo-neto-autonomo/` | `/ca/sou-net-autonom/` | Cataluña, 2026 |
+| Modelo 130 | `/modelo-130/` | `/ca/model-130/` | Toda España salvo País Vasco y Navarra |
 
 - **Sin servidor ni datos guardados:** el cálculo se hace en el navegador. No hay registro, cookies ni analítica.
 - **Mismo cálculo que el servidor MCP:** las carpetas `irpf/` y `cuota/` son copias exactas de la compilación de `irpf-pymes-cat-mcp`. Si cambian las tablas, hay que compilar el servidor y volver a copiarlas.
-- **Páginas:** IRPF de autónomos en Cataluña y cuota de autónomos 2026 para toda España, cada una en castellano y en catalán.
-- **Enlace al servidor MCP:** la página ofrece el servidor en MCPize, que tiene un plan gratuito.
+- **Cálculos propios de la web:** `factura/`, `modelo130/` y `sueldo/`. El modelo 130 sigue el art. 110 del Reglamento del IRPF y las instrucciones del modelo de la AEAT, revisados el 17 de noviembre de 2026.
+- **Pruebas:** `node --test test/`.
+- **Enlace al servidor MCP:** las páginas ofrecen el servidor en MCPize, que tiene un plan gratuito.
 
-Es una estimación orientativa y no sustituye a un asesor fiscal.
+Son estimaciones orientativas y no sustituyen a un asesor fiscal.

@@ -54,11 +54,30 @@
   <link rel="stylesheet" href="../../estilos.css">
 </head>
 <body>
+<header class="cabecera">
+  <div class="contenedor">
+    <a class="marca" href="../"><span class="logo" aria-hidden="true">€</span>Calculadores per a autònoms</a>
+    <nav class="menu" aria-label="Calculadores per a autònoms">
+      <a href="../">IRPF Catalunya</a>
+      <a href="./" aria-current="page">Quota 2026</a>
+      <a href="../factura-autonoms/">Factura</a>
+      <a href="../sou-net-autonom/">Sou net</a>
+      <a href="../model-130/">Model 130</a>
+      <a class="idioma" href="../../cuota-autonomos-2026/" hreflang="es" lang="es">Castellano</a>
+    </nav>
+  </div>
+</header>
+<section class="heroe">
+  <div class="contenedor">
+    <h1>Calculadora de la quota d'autònoms 2026</h1>
+    <p class="entradilla">Calcula el teu tram i la teva quota mensual a la Seguretat Social el 2026 segons els teus rendiments nets, amb les taules oficials. Vàlida per a tot l'Estat. Gratuïta, sense registre i sense enviar les teves dades.</p>
+    <ul class="chips"><li>Gratuït</li><li>Sense registre</li><li>Sense galetes</li><li>Dades oficials</li></ul>
+  </div>
+</section>
 <main>
-  <p class="idiomas"><a href="../">Calculadora d'IRPF</a> · <a href="../../cuota-autonomos-2026/" hreflang="es" lang="es">Versión en castellano</a></p>
-  <h1>Calculadora de la quota d'autònoms 2026</h1>
-  <p class="entradilla">Calcula el teu tram i la teva quota mensual a la Seguretat Social el 2026 segons els teus rendiments nets, amb les taules oficials. Vàlida per a tot l'Estat. Gratuïta, sense registre i sense enviar les teves dades.</p>
+<div class="contenedor">
 
+  <div class="calculadora">
   <form id="formulario" class="tarjeta" novalidate>
     <h2>Les teves previsions per al 2026</h2>
     <div class="rejilla">
@@ -84,12 +103,13 @@
     </div>
   </form>
 
-  <section class="tarjeta" aria-live="polite">
+  <section class="tarjeta resultado" aria-live="polite">
     <h2>Resultat estimat</h2>
     <div id="resultado"><p>Omple les teves dades per veure el càlcul.</p></div>
   </section>
+  </div>
 
-  <section class="tarjeta">
+  <section class="tarjeta ia">
     <h2>Fas servir Claude, ChatGPT o Cursor?</h2>
     <p>Aquesta calculadora i la de l'IRPF estan disponibles com a servidor MCP, perquè el teu assistent d'IA faci els càlculs dins de la conversa. Té un pla gratuït de 50 consultes al mes. La pàgina de MCPize està en anglès i el servei respon en castellà.</p>
     <a class="boton" href="https://mcpize.com/mcp/irpf-pymes-cat-mcp">Prova'l gratis a MCPize</a>
@@ -138,15 +158,29 @@
     </ul>
   </section>
 
+  <section class="tarjeta">
+    <h2>Més calculadores per a autònoms</h2>
+    <ul class="otras">
+      <li><a href="../"><strong>IRPF d'autònoms a Catalunya</strong><span>Quant pagaràs a la renda, amb l'escala catalana.</span></a></li>
+      <li><a href="../factura-autonoms/"><strong>Factura amb IVA i IRPF</strong><span>El total de la factura, o quant facturar per cobrar una quantitat.</span></a></li>
+      <li><a href="../sou-net-autonom/"><strong>Sou net d'autònom</strong><span>El que et queda al mes després de despeses, quota i IRPF.</span></a></li>
+      <li><a href="../model-130/"><strong>Model 130</strong><span>Els teus pagaments trimestrals de l'IRPF, trimestre a trimestre.</span></a></li>
+    </ul>
+  </section>
+
   <div class="aviso">
     <strong>Avís:</strong> és una estimació orientativa i no substitueix el consell d'un assessor laboral o fiscal. Taules revisades el <span id="fecha-revision"></span>. Fonts, en castellà:
     <ul id="fuentes"></ul>
   </div>
 
-  <footer>
-    <p style="margin-top:20px">Pàgina independent, sense relació amb la Seguretat Social ni amb l'Agència Tributària.</p>
-  </footer>
+</div>
 </main>
+<footer class="pie">
+  <div class="contenedor">
+    <p>Calculadores independents, sense relació amb l'Agència Tributària, la Seguretat Social ni la Generalitat de Catalunya. Els càlculs es fan al teu navegador i no es desa res.</p>
+    <p>Fas servir un assistent d'IA? Aquests càlculs també són en un <a href="https://mcpize.com/mcp/irpf-pymes-cat-mcp">servidor MCP amb pla gratuït</a>.</p>
+  </div>
+</footer>
 <script type="module" src="../../cuota-app.js"></script>
 </body>
 </html>

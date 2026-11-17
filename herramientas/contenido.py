@@ -63,7 +63,7 @@ FACTURA_ES = {
     </fieldset>
     <div class="rejilla">
 {campo("importe", "Importe (€)", "El precio de tu trabajo, sin IVA.", "1000")}
-{seleccion("iva", "IVA", [("21", "21 % (general)"), ("10", "10 % (reducido)"), ("4", "4 % (superreducido)"), ("0", "0 % (exenta o no sujeta)")])}
+{seleccion("iva", "IVA", [("21", "21 % (general)"), ("10", "10 % (reducido)"), ("4", "4 % (superreducido)"), ("0", "0 % (exenta o no sujeta)")], "El general es el 21 %.")}
 {seleccion("retencion", "Retención de IRPF", [("15", "15 % (profesional)"), ("7", "7 % (nuevo profesional)"), ("0", "Sin retención")], "Sin retención si el cliente es un particular o tu actividad es empresarial.")}
     </div>""",
     "faq": [
@@ -105,7 +105,7 @@ FACTURA_CA = {
     </fieldset>
     <div class="rejilla">
 {campo("importe", "Import (€)", "El preu de la teva feina, sense IVA.", "1000")}
-{seleccion("iva", "IVA", [("21", "21 % (general)"), ("10", "10 % (reduït)"), ("4", "4 % (superreduït)"), ("0", "0 % (exempta o no subjecta)")])}
+{seleccion("iva", "IVA", [("21", "21 % (general)"), ("10", "10 % (reduït)"), ("4", "4 % (superreduït)"), ("0", "0 % (exempta o no subjecta)")], "El general és el 21 %.")}
 {seleccion("retencion", "Retenció d'IRPF", [("15", "15 % (professional)"), ("7", "7 % (nou professional)"), ("0", "Sense retenció")], "Sense retenció si el client és un particular o la teva activitat és empresarial.")}
     </div>""",
     "faq": [
@@ -140,7 +140,7 @@ SUELDO_ES = {
 {campo("ingresos", "Ingresos anuales (€)", "Lo que prevés facturar en el año, sin IVA.", "40000")}
 {campo("gastos", "Gastos deducibles (€)", "Sin contar las cuotas de autónomo.", "5000")}
 {campo("cuota", "Cuota de autónomos al mes (€)", "Déjala vacía para usar la cuota mínima de tu tramo.", "", ' placeholder="Mínima de tu tramo"')}
-{seleccion("modalidad", "Estimación en el IRPF", MODALIDAD["es"])}
+{seleccion("modalidad", "Estimación en el IRPF", MODALIDAD["es"], "La que usas en el IRPF. La más habitual es la simplificada.")}
     </div>
 {casilla("inicio", "Acabo de empezar como autónomo", "Reducción del 20 % del IRPF (art. 32.3 de la Ley del IRPF). Márcala solo si no tuviste actividad económica el año anterior al inicio y es tu primer o segundo año con beneficios.")}
 {casilla("cliente", "Cumplo los requisitos de la reducción para autónomos dependientes", "Art. 32.2.2.º de la Ley del IRPF: entre otros, un único cliente no vinculado y gastos que no superen el 30 % de los ingresos.")}""",
@@ -179,7 +179,7 @@ SUELDO_CA = {
 {campo("ingresos", "Ingressos anuals (€)", "El que preveus facturar durant l'any, sense IVA.", "40000")}
 {campo("gastos", "Despeses deduïbles (€)", "Sense comptar les quotes d'autònom.", "5000")}
 {campo("cuota", "Quota d'autònoms al mes (€)", "Deixa-la buida per fer servir la quota mínima del teu tram.", "", ' placeholder="Mínima del teu tram"')}
-{seleccion("modalidad", "Estimació a l'IRPF", MODALIDAD["ca"])}
+{seleccion("modalidad", "Estimació a l'IRPF", MODALIDAD["ca"], "La que fas servir a l'IRPF. La més habitual és la simplificada.")}
     </div>
 {casilla("inicio", "Acabo de començar com a autònom", "Reducció del 20 % de l'IRPF (art. 32.3 de la Llei de l'IRPF). Marca-la només si no vas tenir activitat econòmica l'any anterior a l'inici i és el teu primer o segon any amb beneficis.")}
 {casilla("cliente", "Compleixo els requisits de la reducció per a autònoms dependents", "Art. 32.2.2n de la Llei de l'IRPF: entre d'altres, un únic client no vinculat i despeses que no superin el 30 % dels ingressos.")}""",

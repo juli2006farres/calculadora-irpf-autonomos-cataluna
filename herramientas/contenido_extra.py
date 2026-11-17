@@ -23,7 +23,7 @@ IVA_ES = {
     </fieldset>
     <div class="rejilla">
 {campo("importe", "Precio (€)", "Precio sin IVA.", "100")}
-{seleccion("tipo", "Tipo de IVA", [("21", "21 % (general)"), ("10", "10 % (reducido)"), ("4", "4 % (superreducido)")])}
+{seleccion("tipo", "Tipo de IVA", [("21", "21 % (general)"), ("10", "10 % (reducido)"), ("4", "4 % (superreducido)")], "El general es el 21 %.")}
     </div>""",
     "faq": [
         ("¿Cómo se quita el IVA de un precio?",
@@ -59,7 +59,7 @@ IVA_CA = {
     </fieldset>
     <div class="rejilla">
 {campo("importe", "Preu (€)", "Preu sense IVA.", "100")}
-{seleccion("tipo", "Tipus d'IVA", [("21", "21 % (general)"), ("10", "10 % (reduït)"), ("4", "4 % (superreduït)")])}
+{seleccion("tipo", "Tipus d'IVA", [("21", "21 % (general)"), ("10", "10 % (reduït)"), ("4", "4 % (superreduït)")], "El general és el 21 %.")}
     </div>""",
     "faq": [
         ("Com es treu l'IVA d'un preu?",
@@ -100,7 +100,7 @@ OBJETIVO_ES = {
 {campo("neto", "Sueldo neto que quieres al mes (€)", "Lo que quieres que te quede limpio, en 12 pagas.", "2000")}
 {campo("gastos", "Gastos de la actividad al año (€)", "Sin contar las cuotas de autónomo.", "5000")}
 {campo("horas", "Horas que facturas al mes", "Solo las que cobras a clientes, no las de gestión.", "120")}
-{seleccion("modalidad", "Estimación en el IRPF", MODALIDAD["es"])}
+{seleccion("modalidad", "Estimación en el IRPF", MODALIDAD["es"], "La que usas en el IRPF. La más habitual es la simplificada.")}
     </div>
 {casilla("inicio", *INICIO["es"])}
 {casilla("cliente", *CLIENTE["es"])}""",
@@ -135,7 +135,7 @@ OBJETIVO_CA = {
 {campo("neto", "Sou net que vols al mes (€)", "El que vols que et quedi net, en 12 pagues.", "2000")}
 {campo("gastos", "Despeses de l'activitat a l'any (€)", "Sense comptar les quotes d'autònom.", "5000")}
 {campo("horas", "Hores que factures al mes", "Només les que cobres als clients, no les de gestió.", "120")}
-{seleccion("modalidad", "Estimació a l'IRPF", MODALIDAD["ca"])}
+{seleccion("modalidad", "Estimació a l'IRPF", MODALIDAD["ca"], "La que fas servir a l'IRPF. La més habitual és la simplificada.")}
     </div>
 {casilla("inicio", *INICIO["ca"])}
 {casilla("cliente", *CLIENTE["ca"])}""",

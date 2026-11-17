@@ -56,8 +56,10 @@ FACTURA_ES = {
     "formulario": f"""    <h2>Datos de la factura</h2>
     <fieldset class="segmentos">
       <legend>¿De qué importe partes?</legend>
+      <div class="pastilla">
       <label><input type="radio" name="modo" value="base" checked><span>Precio sin IVA</span></label>
       <label><input type="radio" name="modo" value="cobrar"><span>Lo que quiero cobrar</span></label>
+      </div>
     </fieldset>
     <div class="rejilla">
 {campo("importe", "Importe (€)", "El precio de tu trabajo, sin IVA.", "1000")}
@@ -96,8 +98,10 @@ FACTURA_CA = {
     "formulario": f"""    <h2>Dades de la factura</h2>
     <fieldset class="segmentos">
       <legend>De quin import parteixes?</legend>
+      <div class="pastilla">
       <label><input type="radio" name="modo" value="base" checked><span>Preu sense IVA</span></label>
       <label><input type="radio" name="modo" value="cobrar"><span>El que vull cobrar</span></label>
+      </div>
     </fieldset>
     <div class="rejilla">
 {campo("importe", "Import (€)", "El preu de la teva feina, sense IVA.", "1000")}

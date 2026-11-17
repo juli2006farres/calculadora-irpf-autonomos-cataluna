@@ -51,6 +51,7 @@ TARJETAS = {
         "m130": ("Model 130", "Els teus pagaments trimestrals de l'IRPF, trimestre a trimestre."),
     },
 }
+ICONOS = {"irpf": "📊", "cuota": "🏛️", "factura": "🧾", "iva": "💶", "sueldo": "💰", "objetivo": "🎯", "m130": "📅"}
 # Fecha de la última revisión de los datos de cada calculadora y a qué año se refieren.
 REVISION = {
     "irpf": ("2026-11-04", {"es": "datos de 2025 y 2026", "ca": "dades del 2025 i el 2026"}),
@@ -176,7 +177,10 @@ def mas_calculadoras(lang, clave):
         if k == clave:
             continue
         titulo, texto = TARJETAS[lang][k]
-        items.append(f'<li><a href="{relativa(ruta, RUTAS[k][lang])}"><strong>{titulo}</strong><span>{texto}</span></a></li>')
+        items.append(
+            f'<li><a href="{relativa(ruta, RUTAS[k][lang])}"><span class="icono" aria-hidden="true">{ICONOS[k]}</span>'
+            f'<div><strong>{titulo}</strong><span>{texto}</span></div></a></li>'
+        )
     lista = "\n      ".join(items)
     return f"""<section class="tarjeta">
     <h2>{T[lang]["mas"]}</h2>

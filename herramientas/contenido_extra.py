@@ -16,8 +16,10 @@ IVA_ES = {
     "formulario": f"""    <h2>Datos del precio</h2>
     <fieldset class="segmentos">
       <legend>¿Qué quieres hacer?</legend>
+      <div class="pastilla">
       <label><input type="radio" name="modo" value="anadir" checked><span>Añadir IVA</span></label>
       <label><input type="radio" name="modo" value="quitar"><span>Quitar IVA</span></label>
+      </div>
     </fieldset>
     <div class="rejilla">
 {campo("importe", "Precio (€)", "Precio sin IVA.", "100")}
@@ -50,8 +52,10 @@ IVA_CA = {
     "formulario": f"""    <h2>Dades del preu</h2>
     <fieldset class="segmentos">
       <legend>Què vols fer?</legend>
+      <div class="pastilla">
       <label><input type="radio" name="modo" value="anadir" checked><span>Afegir IVA</span></label>
       <label><input type="radio" name="modo" value="quitar"><span>Treure IVA</span></label>
+      </div>
     </fieldset>
     <div class="rejilla">
 {campo("importe", "Preu (€)", "Preu sense IVA.", "100")}

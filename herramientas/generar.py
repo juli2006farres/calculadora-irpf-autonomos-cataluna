@@ -2,6 +2,7 @@
 
 Uso, desde la carpeta de la web: python -I herramientas/generar.py .
 """
+import hashlib
 import html
 import json
 import posixpath
@@ -111,6 +112,9 @@ DESCRIPCIONES = {
     ("es", "cuota"): "Calcula gratis tu cuota de autónomos 2026: tramo, base mínima y cuota mensual según tus rendimientos, con las tablas oficiales del BOE. Toda España.",
     ("ca", "cuota"): "Calcula gratis la teva quota d'autònoms 2026: tram, base mínima i quota mensual segons els teus rendiments, amb les taules oficials del BOE.",
 }
+# Versión de la hoja de estilos: cambia sola cuando cambia estilos.css, para que los navegadores
+# no sigan usando una copia antigua guardada en caché.
+VERSION_CSS = hashlib.sha256((WEB / "estilos.css").read_bytes()).hexdigest()[:10]
 ICONO = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f5f8b'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white' font-family='Arial'%3E%E2%82%AC%3C/text%3E%3C/svg%3E"
 
 
@@ -279,7 +283,7 @@ def pagina_transparencia(lang):
   <link rel="alternate" hreflang="ca" href="{ca}">
   <link rel="alternate" hreflang="x-default" href="{es}">
   <link rel="icon" href="{ICONO}">
-  <link rel="stylesheet" href="{raiz}estilos.css">
+  <link rel="stylesheet" href="{raiz}estilos.css?v={VERSION_CSS}">
 </head>
 <body>
 {cabecera(lang, "transparencia")}
@@ -368,7 +372,7 @@ def pagina(p):
   <script type="application/ld+json">
   {ld_texto}
   </script>
-  <link rel="stylesheet" href="{raiz}estilos.css">
+  <link rel="stylesheet" href="{raiz}estilos.css?v={VERSION_CSS}">
 </head>
 <body>
 {cabecera(lang, clave)}
@@ -438,6 +442,11 @@ def actualizar_existente(lang, clave):
         1,
     ) if '"dateModified"' not in t else t
     t = sustituir(t, r'<footer class="pie">.*?</footer>', pie(lang, clave), archivo)
+    t = re.sub(
+        r'href="((?:\.\./)*)estilos\.css(?:\?v=\w+)?"',
+        lambda m: f'href="{m.group(1)}estilos.css?v={VERSION_CSS}"',
+        t,
+    )
     archivo.write_text(t, encoding="utf-8")
 
 

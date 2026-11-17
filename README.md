@@ -18,5 +18,6 @@ Web estática y gratuita con calculadoras para autónomos, en castellano y en ca
 - **Pruebas:** `node --test test/`.
 - **Generador:** las páginas, el menú, las tarjetas y el sitemap salen de `herramientas/generar.py` (textos en `herramientas/contenido*.py`). Se ejecuta con `python -I herramientas/generar.py .` desde esta carpeta. Las páginas de IRPF y cuota se escribieron a mano: el generador solo actualiza sus partes comunes.
 - **Enlace al servidor MCP:** las páginas ofrecen el servidor en MCPize, que tiene un plan gratuito.
+- **Afiliado de Quipu:** las calculadoras de factura, IVA y modelo 130 muestran un recuadro con un enlace de afiliado de Quipu (`?via=juli`, panel en quipu.getrewardful.com), marcado como tal. `/transparencia/` explica cómo se financia la web.
 
 Son estimaciones orientativas y no sustituyen a un asesor fiscal.

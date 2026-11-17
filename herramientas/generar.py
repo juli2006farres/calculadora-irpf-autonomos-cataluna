@@ -22,6 +22,7 @@ RUTAS = {
     "sueldo": {"es": "sueldo-neto-autonomo/", "ca": "ca/sou-net-autonom/"},
     "objetivo": {"es": "cuanto-facturar-autonomo/", "ca": "ca/quant-facturar-autonom/"},
     "m130": {"es": "modelo-130/", "ca": "ca/model-130/"},
+    "transparencia": {"es": "transparencia/", "ca": "ca/transparencia/"},
 }
 ORDEN = ["irpf", "cuota", "factura", "iva", "sueldo", "objetivo", "m130"]
 MENU = {
@@ -185,13 +186,118 @@ def mas_calculadoras(lang, clave):
   </section>"""
 
 
-def pie(lang):
+TRANSPARENCIA = {"es": "Cómo se financia esta web", "ca": "Com es finança aquest web"}
+
+
+def pie(lang, clave):
+    enlace = relativa(RUTAS[clave][lang], RUTAS["transparencia"][lang])
     return f"""<footer class="pie">
   <div class="contenedor">
     <p>{T[lang]["pie"]}</p>
     <p>{T[lang]["mcp"]}</p>
+    <p><a href="{enlace}">{TRANSPARENCIA[lang]}</a></p>
   </div>
 </footer>"""
+
+
+# Enlace de afiliado de Quipu (programa de afiliados de Quipu, panel en quipu.getrewardful.com).
+# Solo aparece en las calculadoras relacionadas con facturar e impuestos trimestrales.
+AFILIADO_URL = {"es": "https://getquipu.com/es/autonomos?via=juli", "ca": "https://getquipu.com/ca/autonoms?via=juli"}
+PAGINAS_CON_AFILIADO = {"factura", "iva", "m130"}
+AFILIADO = {
+    "es": {
+        "titulo": "¿Todavía haces las facturas a mano?",
+        "texto": "Quipu es un programa de facturación para autónomos: crea facturas adaptadas a Verifactu, guarda los gastos con una foto del ticket y prepara tus impuestos. Se puede empezar gratis.",
+        "boton": "Ver Quipu",
+        "nota": "Enlace de afiliado: si contratas Quipu desde aquí, esta web recibe una comisión y a ti no te cuesta más. Así estas calculadoras siguen siendo gratis.",
+        "mas": "Más información",
+    },
+    "ca": {
+        "titulo": "Encara fas les factures a mà?",
+        "texto": "Quipu és un programa de facturació per a autònoms: crea factures adaptades a Verifactu, desa les despeses amb una foto del tiquet i prepara els teus impostos. Es pot començar gratis.",
+        "boton": "Veure Quipu",
+        "nota": "Enllaç d'afiliat: si contractes Quipu des d'aquí, aquest web rep una comissió i a tu no et costa més. Així aquestes calculadores continuen sent gratuïtes.",
+        "mas": "Més informació",
+    },
+}
+
+
+def recomendacion(lang, clave):
+    if clave not in PAGINAS_CON_AFILIADO:
+        return ""
+    a = AFILIADO[lang]
+    enlace = relativa(RUTAS[clave][lang], RUTAS["transparencia"][lang])
+    return f"""<section class="tarjeta patrocinio">
+    <h2>{a["titulo"]}</h2>
+    <p>{a["texto"]}</p>
+    <a class="boton" href="{AFILIADO_URL[lang]}" rel="sponsored noopener" target="_blank">{a["boton"]}</a>
+    <p class="nota">{a["nota"]} <a href="{enlace}">{a["mas"]}</a></p>
+  </section>
+
+  """
+
+
+def pagina_transparencia(lang):
+    ruta = RUTAS["transparencia"][lang]
+    raiz = "../" * ruta.count("/")
+    if lang == "es":
+        titulo, h1 = "Cómo se financia esta web · Calculadoras para autónomos", "Cómo se financia esta web"
+        entradilla = "Las calculadoras son gratuitas y seguirán siéndolo. Esto es lo que hay detrás."
+        cuerpo = f"""    <h2>Sin cookies ni seguimiento</h2>
+    <p>Las calculadoras no tienen registro, cookies ni analítica. Los cálculos se hacen en tu navegador y no se guarda nada.</p>
+    <h2>Enlaces de afiliado</h2>
+    <p>Algunas calculadoras muestran un enlace a <strong>Quipu</strong>, un programa de facturación para autónomos. Es un enlace de afiliado: si te registras y contratas una suscripción desde él, esta web recibe una comisión de Quipu. A ti no te cuesta más.</p>
+    <p>Esos enlaces llevan siempre la etiqueta «Enlace de afiliado». Las comisiones no cambian los cálculos ni los resultados, y esta web no tiene relación con Quipu más allá de su programa de afiliados.</p>
+    <p>Al pulsar el enlace sales de esta web. Quipu y su plataforma de afiliados, Rewardful, usan sus propias cookies para saber que llegaste desde aquí. Consulta la <a href="https://getquipu.com/es/politica-de-privacidad">política de privacidad de Quipu</a>.</p>
+    <h2>Servidor MCP</h2>
+    <p>Los mismos cálculos están disponibles como <a href="{MCPIZE}">servidor MCP en MCPize</a> para asistentes de IA, con un plan gratuito y otro de pago.</p>"""
+    else:
+        titulo, h1 = "Com es finança aquest web · Calculadores per a autònoms", "Com es finança aquest web"
+        entradilla = "Les calculadores són gratuïtes i ho continuaran sent. Això és el que hi ha al darrere."
+        cuerpo = f"""    <h2>Sense galetes ni seguiment</h2>
+    <p>Les calculadores no tenen registre, galetes ni analítica. Els càlculs es fan al teu navegador i no es desa res.</p>
+    <h2>Enllaços d'afiliat</h2>
+    <p>Algunes calculadores mostren un enllaç a <strong>Quipu</strong>, un programa de facturació per a autònoms. És un enllaç d'afiliat: si et registres i contractes una subscripció des d'aquí, aquest web rep una comissió de Quipu. A tu no et costa més.</p>
+    <p>Aquests enllaços porten sempre l'etiqueta «Enllaç d'afiliat». Les comissions no canvien els càlculs ni els resultats, i aquest web no té relació amb Quipu més enllà del seu programa d'afiliats.</p>
+    <p>En prémer l'enllaç surts d'aquest web. Quipu i la seva plataforma d'afiliats, Rewardful, fan servir les seves pròpies galetes per saber que hi has arribat des d'aquí. Consulta la <a href="https://getquipu.com/es/politica-de-privacidad">política de privacitat de Quipu</a>.</p>
+    <h2>Servidor MCP</h2>
+    <p>Els mateixos càlculs estan disponibles com a <a href="{MCPIZE}">servidor MCP a MCPize</a> per a assistents d'IA, amb un pla gratuït i un altre de pagament.</p>"""
+    es, ca = BASE + RUTAS["transparencia"]["es"], BASE + RUTAS["transparencia"]["ca"]
+    return f"""<!doctype html>
+<html lang="{lang}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{titulo}</title>
+  <meta name="description" content="{html.escape(entradilla)}">
+  <link rel="canonical" href="{BASE + ruta}">
+  <link rel="alternate" hreflang="es" href="{es}">
+  <link rel="alternate" hreflang="ca" href="{ca}">
+  <link rel="alternate" hreflang="x-default" href="{es}">
+  <link rel="icon" href="{ICONO}">
+  <link rel="stylesheet" href="{raiz}estilos.css">
+</head>
+<body>
+{cabecera(lang, "transparencia")}
+<section class="heroe">
+  <div class="contenedor">
+    <h1>{h1}</h1>
+    <p class="entradilla">{entradilla}</p>
+  </div>
+</section>
+<main>
+<div class="contenedor">
+  <section class="tarjeta faq">
+{cuerpo}
+  </section>
+
+  {mas_calculadoras(lang, "transparencia")}
+</div>
+</main>
+{pie(lang, "transparencia")}
+</body>
+</html>
+"""
 
 
 def hreflang(clave):
@@ -276,7 +382,7 @@ def pagina(p):
   </section>
   </div>
 
-  <section class="tarjeta faq">
+  {recomendacion(lang, clave)}<section class="tarjeta faq">
     <h2>{T[lang]["faq"]}</h2>
 {faq}
   </section>
@@ -295,7 +401,7 @@ def pagina(p):
   </div>
 </div>
 </main>
-{pie(lang)}
+{pie(lang, clave)}
 <script type="module" src="{raiz}{p["script"]}"></script>
 </body>
 </html>
@@ -327,6 +433,7 @@ def actualizar_existente(lang, clave):
         f'"dateModified": "{REVISION[clave][0]}",\n        "offers": {{ "@type": "Offer"',
         1,
     ) if '"dateModified"' not in t else t
+    t = sustituir(t, r'<footer class="pie">.*?</footer>', pie(lang, clave), archivo)
     archivo.write_text(t, encoding="utf-8")
 
 
@@ -364,4 +471,8 @@ if __name__ == "__main__":
         destino.parent.mkdir(parents=True, exist_ok=True)
         destino.write_text(pagina(p), encoding="utf-8")
         print("escrita", destino)
+    for lang in ("es", "ca"):
+        destino = WEB / RUTAS["transparencia"][lang] / "index.html"
+        destino.parent.mkdir(parents=True, exist_ok=True)
+        destino.write_text(pagina_transparencia(lang), encoding="utf-8")
     sitemap()

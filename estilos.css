@@ -205,3 +205,5 @@ tr.fuerte td { font-weight: 750; }
   .calculadora.apilada > .resultado { position: static; }
 }
 .actualizado { margin: 14px 0 0; font-size: 0.88rem; color: var(--suave); }
+.patrocinio { border-left: 4px solid var(--exito); }
+.patrocinio .nota { margin-bottom: 0; }

@@ -23,14 +23,16 @@ RUTAS = {
     "sueldo": {"es": "sueldo-neto-autonomo/", "ca": "ca/sou-net-autonom/"},
     "objetivo": {"es": "cuanto-facturar-autonomo/", "ca": "ca/quant-facturar-autonom/"},
     "m130": {"es": "modelo-130/", "ca": "ca/model-130/"},
+    "m303": {"es": "modelo-303/", "ca": "ca/model-303/"},
+    "plantilla": {"es": "plantilla-factura-autonomo/", "ca": "ca/plantilla-factura-autonom/"},
     "transparencia": {"es": "transparencia/", "ca": "ca/transparencia/"},
 }
-ORDEN = ["irpf", "cuota", "factura", "iva", "sueldo", "objetivo", "m130"]
+ORDEN = ["irpf", "cuota", "factura", "plantilla", "iva", "m303", "m130", "sueldo", "objetivo"]
 MENU = {
     "es": {"irpf": "IRPF", "cuota": "Cuota", "factura": "Factura", "iva": "IVA", "sueldo": "Sueldo neto",
-           "objetivo": "Cuánto facturar", "m130": "Modelo 130"},
+           "objetivo": "Cuánto facturar", "m130": "Modelo 130", "m303": "Modelo 303", "plantilla": "Plantilla"},
     "ca": {"irpf": "IRPF", "cuota": "Quota", "factura": "Factura", "iva": "IVA", "sueldo": "Sou net",
-           "objetivo": "Quant facturar", "m130": "Model 130"},
+           "objetivo": "Quant facturar", "m130": "Model 130", "m303": "Model 303", "plantilla": "Plantilla"},
 }
 TARJETAS = {
     "es": {
@@ -41,6 +43,8 @@ TARJETAS = {
         "sueldo": ("Sueldo neto de autónomo", "Lo que te queda al mes tras gastos, cuota e IRPF."),
         "objetivo": ("Cuánto facturar", "La facturación y el precio por hora para ganar el neto que quieres."),
         "m130": ("Modelo 130", "Tus pagos trimestrales del IRPF, trimestre a trimestre."),
+        "m303": ("Modelo 303", "El IVA de cada trimestre: lo que cobras menos lo que pagas."),
+        "plantilla": ("Plantilla de factura", "Excel y Word gratis, con el IVA y la retención calculados."),
     },
     "ca": {
         "irpf": ("IRPF d'autònoms a Catalunya", "Quant pagaràs a la renda, amb l'escala catalana."),
@@ -50,9 +54,11 @@ TARJETAS = {
         "sueldo": ("Sou net d'autònom", "El que et queda al mes després de despeses, quota i IRPF."),
         "objetivo": ("Quant facturar", "La facturació i el preu per hora per guanyar el net que vols."),
         "m130": ("Model 130", "Els teus pagaments trimestrals de l'IRPF, trimestre a trimestre."),
+        "m303": ("Model 303", "L'IVA de cada trimestre: el que cobres menys el que pagues."),
+        "plantilla": ("Plantilla de factura", "Excel i Word gratis, amb l'IVA i la retenció calculats."),
     },
 }
-ICONOS = {"irpf": "📊", "cuota": "🏛️", "factura": "🧾", "iva": "💶", "sueldo": "💰", "objetivo": "🎯", "m130": "📅"}
+ICONOS = {"irpf": "📊", "cuota": "🏛️", "factura": "🧾", "iva": "💶", "sueldo": "💰", "objetivo": "🎯", "m130": "📅", "m303": "🧮", "plantilla": "📄"}
 # Fecha de la última revisión de los datos de cada calculadora y a qué año se refieren.
 REVISION = {
     "irpf": ("2026-11-04", {"es": "datos de 2025 y 2026", "ca": "dades del 2025 i el 2026"}),
@@ -62,6 +68,8 @@ REVISION = {
     "sueldo": (HOY, {"es": "datos de 2026", "ca": "dades del 2026"}),
     "objetivo": (HOY, {"es": "datos de 2026", "ca": "dades del 2026"}),
     "m130": (HOY, {"es": "normativa vigente en 2026", "ca": "normativa vigent el 2026"}),
+    "m303": ("2026-11-18", {"es": "normativa vigente en 2026", "ca": "normativa vigent el 2026"}),
+    "plantilla": ("2026-11-18", {"es": "requisitos vigentes en 2026", "ca": "requisits vigents el 2026"}),
 }
 MESES = {
     "es": ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"],
@@ -211,7 +219,7 @@ def pie(lang, clave):
 # Enlace de afiliado de Quipu (programa de afiliados de Quipu, panel en quipu.getrewardful.com).
 # Solo aparece en las calculadoras relacionadas con facturar e impuestos trimestrales.
 AFILIADO_URL = {"es": "https://getquipu.com/es/autonomos?via=juli", "ca": "https://getquipu.com/ca/autonoms?via=juli"}
-PAGINAS_CON_AFILIADO = {"factura", "iva", "m130"}
+PAGINAS_CON_AFILIADO = {"factura", "iva", "m130", "m303", "plantilla"}
 AFILIADO = {
     "es": {
         "titulo": "¿Todavía haces las facturas a mano?",
@@ -354,6 +362,20 @@ def pagina(p):
     fuentes = "".join(f'<li><a href="{u}">{t}</a></li>' for t, u in p["fuentes"])
     ld_texto = json.dumps(ld, ensure_ascii=False, indent=2).replace("\n", "\n  ")
     clase = "calculadora apilada" if p.get("apilada") else "calculadora"
+    if p.get("cuerpo"):
+        bloque = p["cuerpo"]
+    else:
+        bloque = f"""<div class="{clase}">
+  <form id="formulario" class="tarjeta" novalidate>
+{p["formulario"]}
+  </form>
+
+  <section class="tarjeta resultado" aria-live="polite">
+    <h2>{T[lang]["resultado"]}</h2>
+    <div id="resultado"><p>{T[lang]["rellena"]}</p></div>
+  </section>
+  </div>"""
+    script = f'<script type="module" src="{raiz}{p["script"]}"></script>\n' if p.get("script") else ""
     return f"""<!doctype html>
 <html lang="{lang}">
 <head>
@@ -379,16 +401,7 @@ def pagina(p):
 {heroe(lang, clave, "<h1>" + p["h1"] + "</h1>", '<p class="entradilla">' + p["entradilla"] + "</p>")}
 <main>
 <div class="contenedor">
-  <div class="{clase}">
-  <form id="formulario" class="tarjeta" novalidate>
-{p["formulario"]}
-  </form>
-
-  <section class="tarjeta resultado" aria-live="polite">
-    <h2>{T[lang]["resultado"]}</h2>
-    <div id="resultado"><p>{T[lang]["rellena"]}</p></div>
-  </section>
-  </div>
+  {bloque}
 
   {recomendacion(lang, clave)}<section class="tarjeta faq">
     <h2>{T[lang]["faq"]}</h2>
@@ -410,8 +423,7 @@ def pagina(p):
 </div>
 </main>
 {pie(lang, clave)}
-<script type="module" src="{raiz}{p["script"]}"></script>
-</body>
+{script}</body>
 </html>
 """
 
@@ -471,7 +483,7 @@ def sitemap():
 
 if __name__ == "__main__":
     sys.path.insert(0, str(Path(__file__).parent))
-    from contenido_extra import PAGINAS
+    from contenido_303 import PAGINAS
 
     for (lang, clave), d in DESCRIPCIONES.items():
         if len(d) > 155:

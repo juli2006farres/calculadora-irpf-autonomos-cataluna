@@ -142,7 +142,7 @@ SUELDO_ES = {
 {campo("cuota", "Cuota de autónomos al mes (€)", "Déjala vacía para usar la cuota mínima de tu tramo.", "", ' placeholder="Mínima de tu tramo"')}
 {seleccion("modalidad", "Estimación en el IRPF", MODALIDAD["es"], "La que usas en el IRPF. La más habitual es la simplificada.")}
     </div>
-{casilla("inicio", "Acabo de empezar como autónomo", "Reducción del 20 % del IRPF (art. 32.3 de la Ley del IRPF). Márcala solo si no tuviste actividad económica el año anterior al inicio y es tu primer o segundo año con beneficios.")}
+{casilla("inicio", "Acabo de empezar como autónomo", "Reducción del 20 % del IRPF (art. 32.3 de la Ley del IRPF). Márcala solo si no tuviste actividad económica el año anterior al inicio, es tu primer o segundo año con beneficios y no facturas más del 50 % a quien te pagó como asalariado ese año anterior.")}
 {casilla("cliente", "Cumplo los requisitos de la reducción para autónomos dependientes", "Art. 32.2.2.º de la Ley del IRPF: entre otros, un único cliente no vinculado y gastos que no superen el 30 % de los ingresos.")}""",
     "faq": [
         ("¿Cómo se calcula el sueldo neto de un autónomo?",
@@ -181,7 +181,7 @@ SUELDO_CA = {
 {campo("cuota", "Quota d'autònoms al mes (€)", "Deixa-la buida per fer servir la quota mínima del teu tram.", "", ' placeholder="Mínima del teu tram"')}
 {seleccion("modalidad", "Estimació a l'IRPF", MODALIDAD["ca"], "La que fas servir a l'IRPF. La més habitual és la simplificada.")}
     </div>
-{casilla("inicio", "Acabo de començar com a autònom", "Reducció del 20 % de l'IRPF (art. 32.3 de la Llei de l'IRPF). Marca-la només si no vas tenir activitat econòmica l'any anterior a l'inici i és el teu primer o segon any amb beneficis.")}
+{casilla("inicio", "Acabo de començar com a autònom", "Reducció del 20 % de l'IRPF (art. 32.3 de la Llei de l'IRPF). Marca-la només si no vas tenir activitat econòmica l'any anterior a l'inici, és el teu primer o segon any amb beneficis i no factures més del 50 % a qui et va pagar com a assalariat aquell any anterior.")}
 {casilla("cliente", "Compleixo els requisits de la reducció per a autònoms dependents", "Art. 32.2.2n de la Llei de l'IRPF: entre d'altres, un únic client no vinculat i despeses que no superin el 30 % dels ingressos.")}""",
     "faq": [
         ("Com es calcula el sou net d'un autònom?",

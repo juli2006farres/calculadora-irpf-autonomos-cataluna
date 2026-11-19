@@ -229,7 +229,7 @@ def word(lang):
     for celda, texto in zip(conceptos.rows[0].cells, t["conceptos"]):
         celda.text = texto
         celda.paragraphs[0].runs[0].bold = True
-    for valores in ((t["linea_ej"], "1", "1.000,00", "1.000,00"), ("", "", "", ""), ("", "", "", "")):
+    for valores in ((t["linea_ej"], "1", "1.000,00", "1.000,00"), *[("", "", "", "")] * 7):
         for celda, texto in zip(conceptos.add_row().cells, valores):
             celda.text = texto
 

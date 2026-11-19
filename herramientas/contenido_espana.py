@@ -151,7 +151,7 @@ FILAS_CALENDARIO = {
     "es": [
         ("Hasta el 20 de enero", "Modelos 111 y 115 del 4T de 2026", "Solo si tienes trabajadores, pagas a profesionales con retención o alquilas un local.", None),
         ("Hasta el 1 de febrero", "Modelo 303 del 4T de 2026 (IVA)", "Plazo del 1 al 30 de enero, que en 2027 acaba en sábado.", "m303"),
-        ("Hasta el 1 de febrero", "Modelo 130 del 4T de 2026 (IRPF)", "Si no te retienen al menos el 70 % de tus ingresos.", "m130"),
+        ("Hasta el 1 de febrero", "Modelo 130 del 4T de 2026 (IRPF)", "Salvo profesionales con retención en al menos el 70 % de sus ingresos del año anterior.", "m130"),
         ("Hasta el 1 de febrero", "Modelo 390: resumen anual del IVA de 2026", "", None),
         ("Hasta el 1 de febrero", "Modelos 190 y 180: resúmenes anuales de retenciones", "Si presentas los modelos 111 o 115.", None),
         ("Hasta el 1 de marzo", "Modelo 347: operaciones con terceros", "Si superas 3.005,06 € con un mismo cliente o proveedor en 2026. Plazo de febrero, que acaba en domingo.", None),
@@ -159,12 +159,13 @@ FILAS_CALENDARIO = {
         ("De abril a junio", "Renta 2026 (modelo 100)", "Hacienda publica las fechas exactas cada año. Normalmente acaba el 30 de junio.", "irpf_es"),
         ("Del 1 al 20 de julio", "Modelos 303, 130, 111 y 115 del 2T de 2027", "", "m130"),
         ("Del 1 al 20 de octubre", "Modelos 303, 130, 111 y 115 del 3T de 2027", "", "m303"),
+        ("Hasta el 20 de enero de 2028", "Modelos 111 y 115 del 4T de 2027", "Solo si tienes trabajadores, pagas a profesionales con retención o alquilas un local.", None),
         ("Hasta el 31 de enero de 2028", "Modelos 303, 130 y 390 del 4T y del año 2027", "Plazo del 1 al 30 de enero, que en 2028 acaba en domingo.", "m130"),
     ],
     "ca": [
         ("Fins al 20 de gener", "Models 111 i 115 del 4T del 2026", "Només si tens treballadors, pagues professionals amb retenció o lloges un local.", None),
         ("Fins a l'1 de febrer", "Model 303 del 4T del 2026 (IVA)", "Termini de l'1 al 30 de gener, que el 2027 acaba en dissabte.", "m303"),
-        ("Fins a l'1 de febrer", "Model 130 del 4T del 2026 (IRPF)", "Si no et retenen almenys el 70 % dels ingressos.", "m130"),
+        ("Fins a l'1 de febrer", "Model 130 del 4T del 2026 (IRPF)", "Excepte professionals amb retenció en almenys el 70 % dels ingressos de l'any anterior.", "m130"),
         ("Fins a l'1 de febrer", "Model 390: resum anual de l'IVA del 2026", "", None),
         ("Fins a l'1 de febrer", "Models 190 i 180: resums anuals de retencions", "Si presentes els models 111 o 115.", None),
         ("Fins a l'1 de març", "Model 347: operacions amb tercers", "Si superes 3.005,06 € amb un mateix client o proveïdor el 2026. Termini de febrer, que acaba en diumenge.", None),
@@ -172,6 +173,7 @@ FILAS_CALENDARIO = {
         ("D'abril a juny", "Renda 2026 (model 100)", "Hisenda publica les dates exactes cada any. Normalment acaba el 30 de juny.", "irpf_es"),
         ("De l'1 al 20 de juliol", "Models 303, 130, 111 i 115 del 2T del 2027", "", "m130"),
         ("De l'1 al 20 d'octubre", "Models 303, 130, 111 i 115 del 3T del 2027", "", "m303"),
+        ("Fins al 20 de gener del 2028", "Models 111 i 115 del 4T del 2027", "Només si tens treballadors, pagues professionals amb retenció o lloges un local.", None),
         ("Fins al 31 de gener del 2028", "Models 303, 130 i 390 del 4T i de l'any 2027", "Termini de l'1 al 30 de gener, que el 2028 acaba en diumenge.", "m130"),
     ],
 }

@@ -77,8 +77,8 @@ IVA_CA = {
 
 # ---------------------------------------------------------------- Cuánto facturar
 INICIO = {
-    "es": ("Acabo de empezar como autónomo", "Reducción del 20 % del IRPF (art. 32.3 de la Ley del IRPF). Márcala solo si no tuviste actividad económica el año anterior al inicio y es tu primer o segundo año con beneficios."),
-    "ca": ("Acabo de començar com a autònom", "Reducció del 20 % de l'IRPF (art. 32.3 de la Llei de l'IRPF). Marca-la només si no vas tenir activitat econòmica l'any anterior a l'inici i és el teu primer o segon any amb beneficis."),
+    "es": ("Acabo de empezar como autónomo", "Reducción del 20 % del IRPF (art. 32.3 de la Ley del IRPF). Márcala solo si no tuviste actividad económica el año anterior al inicio, es tu primer o segundo año con beneficios y no facturas más del 50 % a quien te pagó como asalariado ese año anterior."),
+    "ca": ("Acabo de començar com a autònom", "Reducció del 20 % de l'IRPF (art. 32.3 de la Llei de l'IRPF). Marca-la només si no vas tenir activitat econòmica l'any anterior a l'inici, és el teu primer o segon any amb beneficis i no factures més del 50 % a qui et va pagar com a assalariat aquell any anterior."),
 }
 CLIENTE = {
     "es": ("Cumplo los requisitos de la reducción para autónomos dependientes", "Art. 32.2.2.º de la Ley del IRPF: entre otros, un único cliente no vinculado y gastos que no superen el 30 % de los ingresos."),

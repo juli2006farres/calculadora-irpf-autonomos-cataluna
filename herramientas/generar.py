@@ -69,7 +69,7 @@ TARJETAS = {
 ICONOS = {"irpf": "📊", "cuota": "🏛️", "factura": "🧾", "iva": "💶", "sueldo": "💰", "objetivo": "🎯", "m130": "📅", "m303": "🧮", "plantilla": "📄", "irpf_es": "🗺️", "calendario": "🗓️"}
 # Fecha de la última revisión de los datos de cada calculadora y a qué año se refieren.
 REVISION = {
-    "irpf": ("2026-11-04", {"es": "datos de 2025 y 2026", "ca": "dades del 2025 i el 2026"}),
+    "irpf": ("2026-11-19", {"es": "datos de 2025 y 2026", "ca": "dades del 2025 i el 2026"}),
     "cuota": ("2026-11-16", {"es": "tablas oficiales de 2026", "ca": "taules oficials del 2026"}),
     "factura": (HOY, {"es": "tipos vigentes en 2026", "ca": "tipus vigents el 2026"}),
     "iva": (HOY, {"es": "tipos vigentes en 2026", "ca": "tipus vigents el 2026"}),
@@ -93,9 +93,9 @@ T = {
         "revisado": "Revisado el {fecha} · {datos}",
         "mas": "Más calculadoras para autónomos",
         "pie": "Calculadoras independientes, sin relación con la Agencia Tributaria, la Seguridad Social ni la Generalitat de Catalunya. Los cálculos se hacen en tu navegador y no se guarda nada.",
-        "mcp": "¿Usas un asistente de IA? Estos cálculos también están en un <a href=\"" + MCPIZE + "\">servidor MCP con plan gratuito</a>.",
+        "mcp": "¿Usas un asistente de IA? Las principales calculadoras también están en un <a href=\"" + MCPIZE + "\">servidor MCP con plan gratuito</a>.",
         "ia_titulo": "¿Usas Claude, ChatGPT o Cursor?",
-        "ia_texto": "Estos cálculos están disponibles como servidor MCP, para que tu asistente de IA los haga dentro de la conversación. Tiene un plan gratuito de 50 consultas al mes.",
+        "ia_texto": "Las calculadoras de IRPF, cuota de autónomos, factura y modelos 130 y 303 están disponibles como servidor MCP, para que tu asistente de IA haga esos cálculos dentro de la conversación. Tiene un plan gratuito de 50 consultas al mes.",
         "ia_boton": "Probarlo gratis en MCPize",
         "faq": "Preguntas frecuentes",
         "resultado": "Resultado",
@@ -111,9 +111,9 @@ T = {
         "revisado": "Revisat el {fecha} · {datos}",
         "mas": "Més calculadores per a autònoms",
         "pie": "Calculadores independents, sense relació amb l'Agència Tributària, la Seguretat Social ni la Generalitat de Catalunya. Els càlculs es fan al teu navegador i no es desa res.",
-        "mcp": "Fas servir un assistent d'IA? Aquests càlculs també són en un <a href=\"" + MCPIZE + "\">servidor MCP amb pla gratuït</a>.",
+        "mcp": "Fas servir un assistent d'IA? Les principals calculadores també són en un <a href=\"" + MCPIZE + "\">servidor MCP amb pla gratuït</a>.",
         "ia_titulo": "Fas servir Claude, ChatGPT o Cursor?",
-        "ia_texto": "Aquests càlculs estan disponibles com a servidor MCP, perquè el teu assistent d'IA els faci dins de la conversa. Té un pla gratuït de 50 consultes al mes. La pàgina del servei està en anglès i el servei respon en castellà.",
+        "ia_texto": "Les calculadores d'IRPF, quota d'autònoms, factura i models 130 i 303 estan disponibles com a servidor MCP, perquè el teu assistent d'IA faci aquests càlculs dins de la conversa. Té un pla gratuït de 50 consultes al mes. La pàgina del servei està en anglès i el servei respon en castellà.",
         "ia_boton": "Prova'l gratis a MCPize",
         "faq": "Preguntes freqüents",
         "resultado": "Resultat",

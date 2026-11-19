@@ -21,6 +21,7 @@ Web estática y gratuita con calculadoras para autónomos, en castellano y en ca
 - **Generador:** las páginas, el menú, las tarjetas y el sitemap salen de `herramientas/generar.py` (textos en `herramientas/contenido*.py`). Se ejecuta con `python -I herramientas/generar.py .` desde esta carpeta. Las páginas de IRPF y cuota se escribieron a mano: el generador solo actualiza sus partes comunes.
 - **Enlace al servidor MCP:** las páginas ofrecen el servidor en MCPize, que tiene un plan gratuito.
 - **Plantillas:** `plantillas/` sale de `herramientas/plantillas.py` (`python -I herramientas/plantillas.py .`). No llevan macros ni libro registro, para no ser un sistema de facturación sujeto a Verifactu.
+- **Buscadores:** verificada en Google Search Console (meta `google-site-verification`) y en Bing Webmaster Tools (meta `msvalidate.01` y `BingSiteAuth.xml`), con el sitemap enviado a los dos. No hay que borrar esas etiquetas ni el archivo.
 - **IndexNow:** cada publicación que cambia páginas avisa a Bing y otros buscadores con `.github/workflows/indexnow.yml` y la clave de la raíz (`*.txt` de 32 caracteres).
 - **Afiliado de Quipu:** las calculadoras de factura, IVA, modelo 130, modelo 303 y la plantilla muestran un recuadro con un enlace de afiliado de Quipu (`?via=juli`, panel en quipu.getrewardful.com), marcado como tal. `/transparencia/` explica cómo se financia la web.
 

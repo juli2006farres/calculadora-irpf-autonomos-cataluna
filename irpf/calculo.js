@@ -1,4 +1,4 @@
-import { TABLAS } from "./tablas.js";
+import { MINIMOS_AUTONOMICOS, TABLAS } from "./tablas.js";
 // Redondea a céntimos, que es como se expresan los importes fiscales.
 function aCentimos(valor) {
     return Math.round(valor * 100) / 100;
@@ -56,10 +56,10 @@ function calcularReduccionInicio(rendimientoReducido, inicioActividad) {
 }
 // Mínimo por descendientes (art. 58): cada hijo suma una cantidad según su orden,
 // y los menores de 3 años añaden un incremento.
-function calcularMinimoDescendientes(entrada, tabla) {
-    let total = entrada.descendientesMenores3 * tabla.incrementoMenor3;
+function calcularMinimoDescendientes(entrada, minimos) {
+    let total = entrada.descendientesMenores3 * minimos.menor3;
     for (let orden = 0; orden < entrada.descendientesMenores25; orden++) {
-        total += tabla.minimoDescendientes[Math.min(orden, 3)] ?? 0;
+        total += minimos.descendientes[Math.min(orden, 3)] ?? 0;
     }
     // Si ambos progenitores tienen derecho al mínimo, se reparte a partes iguales.
     return entrada.minimoDescendientesCompartido ? total / 2 : total;
@@ -79,10 +79,13 @@ export function calcularIrpf(entrada) {
     const base = rendimientoReducido - reduccionInicio;
     // Fase 2: la escala se aplica a la base y también al mínimo, y se restan ambas
     // cuotas. Así funciona el mínimo personal: no reduce la base, sino la cuota.
-    const minimo = tabla.minimoContribuyente + calcularMinimoDescendientes(entrada, tabla);
-    const minimoAplicable = Math.min(minimo, base);
-    const cuotaEstatal = aplicarEscala(base, tabla.escalaEstatal) - aplicarEscala(minimoAplicable, tabla.escalaEstatal);
-    const cuotaAutonomica = aplicarEscala(base, tabla.escalaCataluna) - aplicarEscala(minimoAplicable, tabla.escalaCataluna);
+    // La parte estatal usa los mínimos del Estado y la autonómica los de la comunidad.
+    const minimosAutonomicos = MINIMOS_AUTONOMICOS[entrada.comunidad];
+    const minimo = tabla.minimosEstatales.contribuyente + calcularMinimoDescendientes(entrada, tabla.minimosEstatales);
+    const minimoAutonomico = minimosAutonomicos.contribuyente + calcularMinimoDescendientes(entrada, minimosAutonomicos);
+    const escalaAutonomica = tabla.escalasAutonomicas[entrada.comunidad];
+    const cuotaEstatal = aplicarEscala(base, tabla.escalaEstatal) - aplicarEscala(Math.min(minimo, base), tabla.escalaEstatal);
+    const cuotaAutonomica = aplicarEscala(base, escalaAutonomica) - aplicarEscala(Math.min(minimoAutonomico, base), escalaAutonomica);
     const cuotaIntegra = cuotaEstatal + cuotaAutonomica;
     return {
         rendimiento_previo: aCentimos(previo),
@@ -92,6 +95,7 @@ export function calcularIrpf(entrada) {
         reduccion_inicio_actividad: aCentimos(reduccionInicio),
         base_liquidable_general: aCentimos(base),
         minimo_personal_y_familiar: aCentimos(minimo),
+        minimo_autonomico: aCentimos(minimoAutonomico),
         cuota_estatal: aCentimos(cuotaEstatal),
         cuota_autonomica: aCentimos(cuotaAutonomica),
         cuota_integra: aCentimos(cuotaIntegra),

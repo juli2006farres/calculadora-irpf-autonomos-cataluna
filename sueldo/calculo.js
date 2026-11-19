@@ -1,4 +1,4 @@
-// Sueldo neto de un autónomo en Cataluña en 2026: lo que queda tras gastos, cuota e IRPF.
+// Sueldo neto de un autónomo en 2026: lo que queda tras gastos, cuota e IRPF de su comunidad.
 // Reutiliza los cálculos de la cuota y del IRPF, que son copias de los del servidor MCP.
 import { calcularCuota } from "../cuota/calculo.js";
 import { calcularIrpf } from "../irpf/calculo.js";
@@ -6,11 +6,12 @@ import { calcularIrpf } from "../irpf/calculo.js";
 const aCentimos = (valor) => Math.round(valor * 100) / 100;
 
 // cuotaMensual: null para usar la cuota mínima del tramo que corresponde.
-export function calcularSueldoNeto({ ingresos, gastos, cuotaMensual, modalidad, cumpleRequisitosArt32, inicioActividad }) {
+export function calcularSueldoNeto({ ingresos, gastos, cuotaMensual, modalidad, cumpleRequisitosArt32, inicioActividad, comunidad = "cataluna" }) {
   const cuota = calcularCuota({ ingresos, gastos, modalidad, cumpleRequisitosArt32 });
   const cuotaAnual = cuotaMensual === null ? cuota.cuota_anual_minima : aCentimos(cuotaMensual * 12);
   const irpf = calcularIrpf({
     ejercicio: 2026,
+    comunidad,
     ingresos,
     gastos,
     cuotasAutonomo: cuotaAnual,

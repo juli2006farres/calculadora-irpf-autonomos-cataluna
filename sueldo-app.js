@@ -50,6 +50,7 @@ function calcular() {
     modalidad: document.getElementById("modalidad").value,
     cumpleRequisitosArt32: document.getElementById("cliente").checked,
     inicioActividad: document.getElementById("inicio").checked,
+    comunidad: document.getElementById("comunidad").value,
   });
   const concepto = propia
     ? t.cuotaPropia(euros.format(r.cuotaMensual))

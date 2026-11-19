@@ -4,15 +4,17 @@ Web estática y gratuita con calculadoras para autónomos, en castellano y en ca
 
 | Calculadora | Castellano | Catalán | Ámbito |
 |---|---|---|---|
+| IRPF por comunidad autónoma | `/calculadora-irpf-autonomos/` | `/ca/calculadora-irpf-autonoms/` | 15 comunidades de régimen común, 2025 y 2026 |
 | IRPF de autónomos | `/` | `/ca/` | Cataluña, 2025 y 2026 |
 | Cuota de autónomos 2026 | `/cuota-autonomos-2026/` | `/ca/quota-autonoms-2026/` | Toda España |
 | Factura con IVA e IRPF | `/factura-autonomos/` | `/ca/factura-autonoms/` | Toda España |
 | IVA: añadir o quitar | `/calculadora-iva/` | `/ca/calculadora-iva/` | Toda España salvo Canarias, Ceuta y Melilla |
-| Sueldo neto de autónomo | `/sueldo-neto-autonomo/` | `/ca/sou-net-autonom/` | Cataluña, 2026 |
-| Cuánto facturar para un neto | `/cuanto-facturar-autonomo/` | `/ca/quant-facturar-autonom/` | Cataluña, 2026 |
+| Sueldo neto de autónomo | `/sueldo-neto-autonomo/` | `/ca/sou-net-autonom/` | 15 comunidades, 2026 |
+| Cuánto facturar para un neto | `/cuanto-facturar-autonomo/` | `/ca/quant-facturar-autonom/` | 15 comunidades, 2026 |
 | Modelo 130 | `/modelo-130/` | `/ca/model-130/` | Toda España salvo País Vasco y Navarra |
 | Modelo 303 | `/modelo-303/` | `/ca/model-303/` | Toda España salvo Canarias, Ceuta, Melilla, País Vasco y Navarra |
 | Plantilla de factura (Excel y Word) | `/plantilla-factura-autonomo/` | `/ca/plantilla-factura-autonom/` | Toda España |
+| Calendario fiscal 2027 | `/calendario-fiscal-autonomos-2027/` | `/ca/calendari-fiscal-autonoms-2027/` | Toda España salvo haciendas forales |
 
 - **Sin servidor ni datos guardados:** el cálculo se hace en el navegador. No hay registro, cookies ni analítica.
 - **Mismo cálculo que el servidor MCP:** las carpetas `irpf/`, `cuota/`, `factura/`, `modelo130/` y `modelo303/` son copias exactas de la compilación de `irpf-pymes-cat-mcp`. Si cambian las tablas, hay que compilar el servidor y volver a copiarlas.

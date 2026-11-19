@@ -26,16 +26,22 @@ RUTAS = {
     "m303": {"es": "modelo-303/", "ca": "ca/model-303/"},
     "plantilla": {"es": "plantilla-factura-autonomo/", "ca": "ca/plantilla-factura-autonom/"},
     "transparencia": {"es": "transparencia/", "ca": "ca/transparencia/"},
+    "irpf_es": {"es": "calculadora-irpf-autonomos/", "ca": "ca/calculadora-irpf-autonoms/"},
+    "calendario": {"es": "calendario-fiscal-autonomos-2027/", "ca": "ca/calendari-fiscal-autonoms-2027/"},
 }
-ORDEN = ["irpf", "cuota", "factura", "plantilla", "iva", "m303", "m130", "sueldo", "objetivo"]
+# ORDEN: tarjetas y sitemap. MENU_ORDEN: menú de arriba (el IRPF de Cataluña se enlaza desde las tarjetas).
+ORDEN = ["irpf_es", "irpf", "cuota", "factura", "plantilla", "iva", "m303", "m130", "sueldo", "objetivo", "calendario"]
+MENU_ORDEN = ["irpf_es", "cuota", "factura", "plantilla", "iva", "m303", "m130", "sueldo", "objetivo", "calendario"]
 MENU = {
-    "es": {"irpf": "IRPF", "cuota": "Cuota", "factura": "Factura", "iva": "IVA", "sueldo": "Sueldo neto",
+    "es": {"irpf_es": "IRPF", "calendario": "Calendario", "irpf": "IRPF Cataluña", "cuota": "Cuota", "factura": "Factura", "iva": "IVA", "sueldo": "Sueldo neto",
            "objetivo": "Cuánto facturar", "m130": "Modelo 130", "m303": "Modelo 303", "plantilla": "Plantilla"},
-    "ca": {"irpf": "IRPF", "cuota": "Quota", "factura": "Factura", "iva": "IVA", "sueldo": "Sou net",
+    "ca": {"irpf_es": "IRPF", "calendario": "Calendari", "irpf": "IRPF Catalunya", "cuota": "Quota", "factura": "Factura", "iva": "IVA", "sueldo": "Sou net",
            "objetivo": "Quant facturar", "m130": "Model 130", "m303": "Model 303", "plantilla": "Plantilla"},
 }
 TARJETAS = {
     "es": {
+        "irpf_es": ("IRPF por comunidad autónoma", "Tu IRPF en tu comunidad y cuánto pagarías en las demás."),
+        "calendario": ("Calendario fiscal 2027", "Todos los plazos del año: modelos 303, 130, 390 y renta."),
         "irpf": ("IRPF de autónomos en Cataluña", "Cuánto pagarás en la renta, con la escala catalana."),
         "cuota": ("Cuota de autónomos 2026", "Tu tramo y tu cuota mensual según lo que ganas."),
         "factura": ("Factura con IVA e IRPF", "El total de la factura, o cuánto facturar para cobrar una cantidad."),
@@ -47,6 +53,8 @@ TARJETAS = {
         "plantilla": ("Plantilla de factura", "Excel y Word gratis, con el IVA y la retención calculados."),
     },
     "ca": {
+        "irpf_es": ("IRPF per comunitat autònoma", "El teu IRPF a la teva comunitat i quant pagaries a les altres."),
+        "calendario": ("Calendari fiscal 2027", "Tots els terminis de l'any: models 303, 130, 390 i renda."),
         "irpf": ("IRPF d'autònoms a Catalunya", "Quant pagaràs a la renda, amb l'escala catalana."),
         "cuota": ("Quota d'autònoms 2026", "El teu tram i la teva quota mensual segons el que guanyes."),
         "factura": ("Factura amb IVA i IRPF", "El total de la factura, o quant facturar per cobrar una quantitat."),
@@ -58,18 +66,20 @@ TARJETAS = {
         "plantilla": ("Plantilla de factura", "Excel i Word gratis, amb l'IVA i la retenció calculats."),
     },
 }
-ICONOS = {"irpf": "📊", "cuota": "🏛️", "factura": "🧾", "iva": "💶", "sueldo": "💰", "objetivo": "🎯", "m130": "📅", "m303": "🧮", "plantilla": "📄"}
+ICONOS = {"irpf": "📊", "cuota": "🏛️", "factura": "🧾", "iva": "💶", "sueldo": "💰", "objetivo": "🎯", "m130": "📅", "m303": "🧮", "plantilla": "📄", "irpf_es": "🗺️", "calendario": "🗓️"}
 # Fecha de la última revisión de los datos de cada calculadora y a qué año se refieren.
 REVISION = {
     "irpf": ("2026-11-04", {"es": "datos de 2025 y 2026", "ca": "dades del 2025 i el 2026"}),
     "cuota": ("2026-11-16", {"es": "tablas oficiales de 2026", "ca": "taules oficials del 2026"}),
     "factura": (HOY, {"es": "tipos vigentes en 2026", "ca": "tipus vigents el 2026"}),
     "iva": (HOY, {"es": "tipos vigentes en 2026", "ca": "tipus vigents el 2026"}),
-    "sueldo": (HOY, {"es": "datos de 2026", "ca": "dades del 2026"}),
-    "objetivo": (HOY, {"es": "datos de 2026", "ca": "dades del 2026"}),
+    "sueldo": ("2026-11-19", {"es": "datos de 2026", "ca": "dades del 2026"}),
+    "objetivo": ("2026-11-19", {"es": "datos de 2026", "ca": "dades del 2026"}),
     "m130": (HOY, {"es": "normativa vigente en 2026", "ca": "normativa vigent el 2026"}),
     "m303": ("2026-11-18", {"es": "normativa vigente en 2026", "ca": "normativa vigent el 2026"}),
     "plantilla": ("2026-11-18", {"es": "requisitos vigentes en 2026", "ca": "requisits vigents el 2026"}),
+    "irpf_es": ("2026-11-19", {"es": "datos de 2025 y 2026", "ca": "dades del 2025 i el 2026"}),
+    "calendario": ("2026-11-19", {"es": "plazos de 2027", "ca": "terminis del 2027"}),
 }
 MESES = {
     "es": ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"],
@@ -146,7 +156,7 @@ def otro(lang):
 def cabecera(lang, clave):
     ruta = RUTAS[clave][lang]
     enlaces = []
-    for k in ORDEN:
+    for k in MENU_ORDEN:
         actual = ' aria-current="page"' if k == clave else ""
         enlaces.append(f'<a href="{relativa(ruta, RUTAS[k][lang])}"{actual}>{MENU[lang][k]}</a>')
     o = otro(lang)
@@ -156,7 +166,7 @@ def cabecera(lang, clave):
     menu = "\n      ".join(enlaces)
     return f"""<header class="cabecera">
   <div class="contenedor">
-    <a class="marca" href="{relativa(ruta, RUTAS["irpf"][lang])}"><span class="logo" aria-hidden="true">€</span>{T[lang]["marca"]}</a>
+    <a class="marca" href="{relativa(ruta, RUTAS["irpf"][lang])}" aria-label="{T[lang]["marca"]}"><span class="logo" aria-hidden="true">€</span><span class="marca-texto">{T[lang]["marca"]}</span></a>
     <nav class="menu" aria-label="{T[lang]["marca"]}">
       {menu}
     </nav>
@@ -219,7 +229,7 @@ def pie(lang, clave):
 # Enlace de afiliado de Quipu (programa de afiliados de Quipu, panel en quipu.getrewardful.com).
 # Solo aparece en las calculadoras relacionadas con facturar e impuestos trimestrales.
 AFILIADO_URL = {"es": "https://getquipu.com/es/autonomos?via=juli", "ca": "https://getquipu.com/ca/autonoms?via=juli"}
-PAGINAS_CON_AFILIADO = {"factura", "iva", "m130", "m303", "plantilla"}
+PAGINAS_CON_AFILIADO = {"factura", "iva", "m130", "m303", "plantilla", "calendario"}
 AFILIADO = {
     "es": {
         "titulo": "¿Todavía haces las facturas a mano?",
@@ -483,7 +493,7 @@ def sitemap():
 
 if __name__ == "__main__":
     sys.path.insert(0, str(Path(__file__).parent))
-    from contenido_303 import PAGINAS
+    from contenido_espana import PAGINAS
 
     for (lang, clave), d in DESCRIPCIONES.items():
         if len(d) > 155:

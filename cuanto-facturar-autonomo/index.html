@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>¿Cuánto tengo que facturar como autónomo? Calculadora 2026</title>
-  <meta name="description" content="¿Cuánto tienes que facturar como autónomo para ganar 2.000 € netos al mes? Calcúlalo con la cuota de autónomos y el IRPF de Cataluña en 2026.">
+  <meta name="description" content="¿Cuánto tienes que facturar como autónomo para ganar 2.000 € netos al mes? Calcúlalo con la cuota de autónomos y el IRPF de tu comunidad en 2026.">
   <link rel="canonical" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/cuanto-facturar-autonomo/">
   <link rel="alternate" hreflang="es" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/cuanto-facturar-autonomo/">
   <link rel="alternate" hreflang="ca" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/quant-facturar-autonom/">
@@ -26,7 +26,7 @@
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Cualquiera",
         "inLanguage": "es",
-        "dateModified": "2026-11-17",
+        "dateModified": "2026-11-19",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -41,7 +41,7 @@
             "name": "¿Cuánto tiene que facturar un autónomo para ganar 2.000 € netos al mes?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "En Cataluña en 2026, con 5.000 € de gastos al año y la cuota mínima de su tramo, unos 39.730 € al año sin IVA, unos 3.311 € al mes. De ahí salen 427,21 € al mes de cuota de autónomos y unos 5.601 € de IRPF en el año."
+              "text": "En Cataluña en 2026, con 5.000 € de gastos al año y la cuota mínima de su tramo, unos 39.730 € al año sin IVA, unos 3.311 € al mes. En otras comunidades cambia por el IRPF: elige la tuya en la calculadora."
             }
           },
           {
@@ -70,10 +70,10 @@
           },
           {
             "@type": "Question",
-            "name": "¿Por qué solo vale para Cataluña?",
+            "name": "¿Por qué cambia según la comunidad?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "El IRPF tiene una parte autonómica y esta calculadora usa la escala catalana. La cuota de autónomos es igual en toda España."
+              "text": "El IRPF tiene una parte autonómica con escala propia en cada comunidad. La cuota de autónomos es igual en toda España."
             }
           }
         ]
@@ -81,14 +81,14 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="../estilos.css?v=c44cd584d3">
+  <link rel="stylesheet" href="../estilos.css?v=a8b722bce0">
 </head>
 <body>
 <header class="cabecera">
   <div class="contenedor">
-    <a class="marca" href="../"><span class="logo" aria-hidden="true">€</span>Calculadoras para autónomos</a>
+    <a class="marca" href="../" aria-label="Calculadoras para autónomos"><span class="logo" aria-hidden="true">€</span><span class="marca-texto">Calculadoras para autónomos</span></a>
     <nav class="menu" aria-label="Calculadoras para autónomos">
-      <a href="../">IRPF</a>
+      <a href="../calculadora-irpf-autonomos/">IRPF</a>
       <a href="../cuota-autonomos-2026/">Cuota</a>
       <a href="../factura-autonomos/">Factura</a>
       <a href="../plantilla-factura-autonomo/">Plantilla</a>
@@ -97,6 +97,7 @@
       <a href="../modelo-130/">Modelo 130</a>
       <a href="../sueldo-neto-autonomo/">Sueldo neto</a>
       <a href="./" aria-current="page">Cuánto facturar</a>
+      <a href="../calendario-fiscal-autonomos-2027/">Calendario</a>
       <a class="idioma" href="../ca/quant-facturar-autonom/" hreflang="ca" lang="ca">Català</a>
     </nav>
   </div>
@@ -104,9 +105,9 @@
 <section class="heroe">
   <div class="contenedor">
     <h1>¿Cuánto tengo que facturar como autónomo para ganar lo que quiero?</h1>
-    <p class="entradilla">Escribe el sueldo neto que quieres al mes y calcula cuánto tienes que facturar al año, con la cuota de autónomos y el IRPF de Cataluña en 2026. También te da el precio mínimo por hora.</p>
+    <p class="entradilla">Escribe el sueldo neto que quieres al mes y calcula cuánto tienes que facturar al año, con la cuota de autónomos y el IRPF de tu comunidad en 2026. También te da el precio mínimo por hora.</p>
     <ul class="chips"><li>Gratis</li><li>Sin registro</li><li>Sin cookies</li><li>Datos oficiales</li></ul>
-    <p class="actualizado"><time datetime="2026-11-17">Revisado el 17 de noviembre de 2026 · datos de 2026</time></p>
+    <p class="actualizado"><time datetime="2026-11-19">Revisado el 19 de noviembre de 2026 · datos de 2026</time></p>
   </div>
 </section>
 <main>
@@ -115,6 +116,26 @@
   <form id="formulario" class="tarjeta" novalidate>
     <h2>Tu objetivo para 2026</h2>
     <div class="rejilla">
+      <div>
+        <label for="comunidad">Comunidad autónoma<span class="ayuda">Donde vives. No incluye País Vasco, Navarra, Ceuta ni Melilla.</span></label>
+        <select id="comunidad" name="comunidad">
+          <option value="andalucia">Andalucía</option>
+          <option value="aragon">Aragón</option>
+          <option value="canarias">Canarias</option>
+          <option value="cantabria">Cantabria</option>
+          <option value="castilla_y_leon">Castilla y León</option>
+          <option value="castilla_la_mancha">Castilla-La Mancha</option>
+          <option value="cataluna">Cataluña</option>
+          <option value="madrid" selected>Comunidad de Madrid</option>
+          <option value="valenciana">Comunitat Valenciana</option>
+          <option value="extremadura">Extremadura</option>
+          <option value="galicia">Galicia</option>
+          <option value="baleares">Illes Balears</option>
+          <option value="la_rioja">La Rioja</option>
+          <option value="asturias">Principado de Asturias</option>
+          <option value="murcia">Región de Murcia</option>
+        </select>
+      </div>
       <div>
         <label for="neto">Sueldo neto que quieres al mes (€)<span class="ayuda" id="ayuda-neto">Lo que quieres que te quede limpio, en 12 pagas.</span></label>
         <input id="neto" name="neto" type="number" inputmode="decimal" min="0" step="0.01" value="2000">
@@ -154,15 +175,15 @@
   <section class="tarjeta faq">
     <h2>Preguntas frecuentes</h2>
     <h3>¿Cuánto tiene que facturar un autónomo para ganar 2.000 € netos al mes?</h3>
-    <p>En Cataluña en 2026, con 5.000 € de gastos al año y la cuota mínima de su tramo, unos 39.730 € al año sin IVA, unos 3.311 € al mes. De ahí salen 427,21 € al mes de cuota de autónomos y unos 5.601 € de IRPF en el año.</p>
+    <p>En Cataluña en 2026, con 5.000 € de gastos al año y la cuota mínima de su tramo, unos 39.730 € al año sin IVA, unos 3.311 € al mes. En otras comunidades cambia por el IRPF: elige la tuya en la calculadora.</p>
     <h3>¿Cómo se calcula?</h3>
     <p>La calculadora busca la facturación con la que, después de restar los gastos, la cuota mínima de autónomos de tu tramo y el IRPF del año, te queda el sueldo neto que has pedido.</p>
     <h3>¿Qué precio por hora debo cobrar?</h3>
     <p>Divide la facturación anual entre las horas que facturas al año. Cuenta solo las horas que cobras: las vacaciones, los días sin clientes y el tiempo de gestión no se pagan, y por eso el precio por hora tiene que ser más alto de lo que parece.</p>
     <h3>¿La facturación incluye el IVA?</h3>
     <p>No. Es la facturación sin IVA, porque el IVA que cobras lo ingresas a Hacienda. Si facturas con IVA, el cliente pagará además el IVA correspondiente.</p>
-    <h3>¿Por qué solo vale para Cataluña?</h3>
-    <p>El IRPF tiene una parte autonómica y esta calculadora usa la escala catalana. La cuota de autónomos es igual en toda España.</p>
+    <h3>¿Por qué cambia según la comunidad?</h3>
+    <p>El IRPF tiene una parte autonómica con escala propia en cada comunidad. La cuota de autónomos es igual en toda España.</p>
   </section>
 
   <section class="tarjeta ia">
@@ -174,6 +195,7 @@
   <section class="tarjeta">
     <h2>Más calculadoras para autónomos</h2>
     <ul class="otras">
+      <li><a href="../calculadora-irpf-autonomos/"><span class="icono" aria-hidden="true">🗺️</span><div><strong>IRPF por comunidad autónoma</strong><span>Tu IRPF en tu comunidad y cuánto pagarías en las demás.</span></div></a></li>
       <li><a href="../"><span class="icono" aria-hidden="true">📊</span><div><strong>IRPF de autónomos en Cataluña</strong><span>Cuánto pagarás en la renta, con la escala catalana.</span></div></a></li>
       <li><a href="../cuota-autonomos-2026/"><span class="icono" aria-hidden="true">🏛️</span><div><strong>Cuota de autónomos 2026</strong><span>Tu tramo y tu cuota mensual según lo que ganas.</span></div></a></li>
       <li><a href="../factura-autonomos/"><span class="icono" aria-hidden="true">🧾</span><div><strong>Factura con IVA e IRPF</strong><span>El total de la factura, o cuánto facturar para cobrar una cantidad.</span></div></a></li>
@@ -182,12 +204,13 @@
       <li><a href="../modelo-303/"><span class="icono" aria-hidden="true">🧮</span><div><strong>Modelo 303</strong><span>El IVA de cada trimestre: lo que cobras menos lo que pagas.</span></div></a></li>
       <li><a href="../modelo-130/"><span class="icono" aria-hidden="true">📅</span><div><strong>Modelo 130</strong><span>Tus pagos trimestrales del IRPF, trimestre a trimestre.</span></div></a></li>
       <li><a href="../sueldo-neto-autonomo/"><span class="icono" aria-hidden="true">💰</span><div><strong>Sueldo neto de autónomo</strong><span>Lo que te queda al mes tras gastos, cuota e IRPF.</span></div></a></li>
+      <li><a href="../calendario-fiscal-autonomos-2027/"><span class="icono" aria-hidden="true">🗓️</span><div><strong>Calendario fiscal 2027</strong><span>Todos los plazos del año: modelos 303, 130, 390 y renta.</span></div></a></li>
     </ul>
   </section>
 
   <div class="aviso">
-    <strong>Aviso:</strong> es una estimación orientativa y no sustituye el consejo de un asesor fiscal o laboral. No incluye la tarifa plana, otras rentas, el mínimo por hijos ni las deducciones. Fuentes:
-    <ul><li><a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-7296">Cuota de autónomos: Orden PJC/297/2026 (BOE)</a></li><li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764">Ley del IRPF (BOE)</a></li><li><a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2025-10270">Escala catalana: Decreto-ley 5/2025 (BOE)</a></li></ul>
+    <strong>Aviso:</strong> es una estimación orientativa y no sustituye el consejo de un asesor fiscal o laboral. No incluye la tarifa plana, otras rentas, el mínimo por hijos ni las deducciones autonómicas. Fuentes:
+    <ul><li><a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-7296">Cuota de autónomos: Orden PJC/297/2026 (BOE)</a></li><li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764">Ley del IRPF, artículos 57, 58 y 63 (BOE)</a></li><li><a href="https://sede.agenciatributaria.gob.es/Sede/ayuda/manuales-videos-folletos/manuales-practicos/irpf-2025/c15-calculo-impuesto-determinacion-cuotas-integras/gravamen-base-liquidable-general/gravamen-autonomico.html">Escalas autonómicas, Manual de Renta 2025 (Agencia Tributaria)</a></li><li><a href="https://sede.agenciatributaria.gob.es/Sede/ayuda/manuales-videos-folletos/manuales-practicos/irpf-2025/c14-adecuacion-impuesto-circunstancias-personales/minimo-autonomico-personal-familiar/cuadro-minimos-personales-familiares-estatal-autonomicos.html">Mínimos autonómicos, Manual de Renta 2025 (Agencia Tributaria)</a></li></ul>
   </div>
 </div>
 </main>

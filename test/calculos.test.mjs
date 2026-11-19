@@ -145,3 +145,12 @@ test("cuánto facturar con objetivo cero o imposible", () => {
   assert.ok(facturacionParaNeto({ netoMensual: 0, ...datos }).ingresos > 0);
   assert.equal(facturacionParaNeto({ netoMensual: 9_000_000, ...datos }), null);
 });
+
+test("sueldo neto en otra comunidad: Madrid paga menos IRPF que Cataluña", () => {
+  const datos = { ingresos: 40000, gastos: 5000, cuotaMensual: null, modalidad: "directa_simplificada", cumpleRequisitosArt32: false, inicioActividad: false };
+  const cat = calcularSueldoNeto({ ...datos, comunidad: "cataluna" });
+  const mad = calcularSueldoNeto({ ...datos, comunidad: "madrid" });
+  assert.equal(cat.irpf, calcularSueldoNeto(datos).irpf);
+  assert.ok(mad.irpf < cat.irpf);
+  assert.ok(mad.netoMensual > cat.netoMensual);
+});

@@ -8,10 +8,10 @@ const MAXIMO = 10_000_000;
 // El neto crece con la facturación salvo pequeños saltos al cambiar de tramo de cuota, así que
 // el resultado es una facturación con la que se alcanza el objetivo, redondeada al céntimo.
 // Devuelve null si el objetivo no se alcanza ni con la facturación máxima admitida.
-export function facturacionParaNeto({ netoMensual, gastos, modalidad, cumpleRequisitosArt32, inicioActividad }) {
+export function facturacionParaNeto({ netoMensual, gastos, modalidad, cumpleRequisitosArt32, inicioActividad, comunidad = "cataluna" }) {
   const objetivo = netoMensual * 12;
   const neto = (ingresos) =>
-    calcularSueldoNeto({ ingresos, gastos, cuotaMensual: null, modalidad, cumpleRequisitosArt32, inicioActividad }).netoAnual;
+    calcularSueldoNeto({ ingresos, gastos, cuotaMensual: null, modalidad, cumpleRequisitosArt32, inicioActividad, comunidad }).netoAnual;
   if (neto(MAXIMO) < objetivo) return null;
   let bajo = gastos;
   let alto = Math.max(gastos + objetivo * 2 + 10_000, 1);
@@ -24,6 +24,6 @@ export function facturacionParaNeto({ netoMensual, gastos, modalidad, cumpleRequ
   // Redondea hacia arriba al céntimo para no quedarse por debajo del objetivo.
   let ingresos = Math.ceil(alto * 100) / 100;
   while (neto(ingresos) < objetivo) ingresos = aCentimos(ingresos + 0.01);
-  const detalle = calcularSueldoNeto({ ingresos, gastos, cuotaMensual: null, modalidad, cumpleRequisitosArt32, inicioActividad });
+  const detalle = calcularSueldoNeto({ ingresos, gastos, cuotaMensual: null, modalidad, cumpleRequisitosArt32, inicioActividad, comunidad });
   return { ingresos, ...detalle };
 }

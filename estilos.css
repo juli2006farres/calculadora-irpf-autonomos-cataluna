@@ -298,3 +298,24 @@ tr.fuerte td { font-weight: 800; color: var(--acento-fuerte); }
 .subtitulo { font-size: 1.04rem; margin: 6px 0 8px; }
 .lista { margin: 0 0 8px; padding-left: 20px; }
 .lista li { margin-bottom: 4px; }
+.calendario td { white-space: normal; text-align: left; padding-left: 10px; vertical-align: top; }
+.calendario td:first-child { white-space: nowrap; padding-left: 0; }
+.calendario td:last-child { text-align: right; }
+.calendario .ayuda { margin-top: 2px; }
+.aviso-comunidad { margin: -6px 0 14px; }
+.cabecera .contenedor { max-width: 1260px; }
+@media (min-width: 601px) and (max-width: 1330px) {
+  .marca .marca-texto { display: none; }
+}
+.calendario th { text-align: left; padding-left: 10px; }
+.calendario th:first-child { padding-left: 0; }
+.calendario th:last-child { text-align: right; }
+@media (max-width: 900px) {
+  .cabecera { position: static; }
+  .menu {
+    margin-left: 0; width: 100%; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none;
+    -webkit-overflow-scrolling: touch; padding-bottom: 2px;
+  }
+  .menu::-webkit-scrollbar { display: none; }
+  .marca .marca-texto { display: inline; }
+}

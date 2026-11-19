@@ -111,6 +111,7 @@ function calcular() {
   const r = calcularIrpf({
     ...datos,
     ejercicio: Number(document.getElementById("anio").value),
+    comunidad: "cataluna",
     modalidad: document.getElementById("modalidad").value,
     cumpleRequisitosArt32: marcado("cliente"),
     inicioActividad: marcado("inicio"),

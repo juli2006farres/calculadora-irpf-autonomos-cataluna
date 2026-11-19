@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Quant he de facturar com a autònom? Calculadora 2026</title>
-  <meta name="description" content="Quant has de facturar com a autònom per guanyar 2.000 € nets al mes? Calcula-ho amb la quota d&#x27;autònoms i l&#x27;IRPF de Catalunya del 2026.">
+  <meta name="description" content="Quant has de facturar com a autònom per guanyar 2.000 € nets al mes? Calcula-ho amb la quota d&#x27;autònoms i l&#x27;IRPF de la teva comunitat el 2026.">
   <link rel="canonical" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/quant-facturar-autonom/">
   <link rel="alternate" hreflang="es" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/cuanto-facturar-autonomo/">
   <link rel="alternate" hreflang="ca" href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/quant-facturar-autonom/">
@@ -26,7 +26,7 @@
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Qualsevol",
         "inLanguage": "ca",
-        "dateModified": "2026-11-17",
+        "dateModified": "2026-11-19",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -41,7 +41,7 @@
             "name": "Quant ha de facturar un autònom per guanyar 2.000 € nets al mes?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "A Catalunya el 2026, amb 5.000 € de despeses l'any i la quota mínima del seu tram, uns 39.730 € l'any sense IVA, uns 3.311 € al mes. D'aquí surten 427,21 € al mes de quota d'autònoms i uns 5.601 € d'IRPF a l'any."
+              "text": "A Catalunya el 2026, amb 5.000 € de despeses l'any i la quota mínima del seu tram, uns 39.730 € l'any sense IVA, uns 3.311 € al mes. A altres comunitats canvia per l'IRPF: tria la teva a la calculadora."
             }
           },
           {
@@ -70,10 +70,10 @@
           },
           {
             "@type": "Question",
-            "name": "Per què només serveix per a Catalunya?",
+            "name": "Per què canvia segons la comunitat?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "L'IRPF té una part autonòmica i aquesta calculadora fa servir l'escala catalana. La quota d'autònoms és igual a tot Espanya."
+              "text": "L'IRPF té una part autonòmica amb escala pròpia a cada comunitat. La quota d'autònoms és igual a tot Espanya."
             }
           }
         ]
@@ -81,14 +81,14 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="../../estilos.css?v=c44cd584d3">
+  <link rel="stylesheet" href="../../estilos.css?v=a8b722bce0">
 </head>
 <body>
 <header class="cabecera">
   <div class="contenedor">
-    <a class="marca" href="../"><span class="logo" aria-hidden="true">€</span>Calculadores per a autònoms</a>
+    <a class="marca" href="../" aria-label="Calculadores per a autònoms"><span class="logo" aria-hidden="true">€</span><span class="marca-texto">Calculadores per a autònoms</span></a>
     <nav class="menu" aria-label="Calculadores per a autònoms">
-      <a href="../">IRPF</a>
+      <a href="../calculadora-irpf-autonoms/">IRPF</a>
       <a href="../quota-autonoms-2026/">Quota</a>
       <a href="../factura-autonoms/">Factura</a>
       <a href="../plantilla-factura-autonom/">Plantilla</a>
@@ -97,6 +97,7 @@
       <a href="../model-130/">Model 130</a>
       <a href="../sou-net-autonom/">Sou net</a>
       <a href="./" aria-current="page">Quant facturar</a>
+      <a href="../calendari-fiscal-autonoms-2027/">Calendari</a>
       <a class="idioma" href="../../cuanto-facturar-autonomo/" hreflang="es" lang="es">Castellano</a>
     </nav>
   </div>
@@ -104,9 +105,9 @@
 <section class="heroe">
   <div class="contenedor">
     <h1>Quant he de facturar com a autònom per guanyar el que vull?</h1>
-    <p class="entradilla">Escriu el sou net que vols al mes i calcula quant has de facturar a l'any, amb la quota d'autònoms i l'IRPF de Catalunya del 2026. També et dona el preu mínim per hora.</p>
+    <p class="entradilla">Escriu el sou net que vols al mes i calcula quant has de facturar a l'any, amb la quota d'autònoms i l'IRPF de la teva comunitat el 2026. També et dona el preu mínim per hora.</p>
     <ul class="chips"><li>Gratuït</li><li>Sense registre</li><li>Sense galetes</li><li>Dades oficials</li></ul>
-    <p class="actualizado"><time datetime="2026-11-17">Revisat el 17 de novembre de 2026 · dades del 2026</time></p>
+    <p class="actualizado"><time datetime="2026-11-19">Revisat el 19 de novembre de 2026 · dades del 2026</time></p>
   </div>
 </section>
 <main>
@@ -115,6 +116,26 @@
   <form id="formulario" class="tarjeta" novalidate>
     <h2>El teu objectiu per al 2026</h2>
     <div class="rejilla">
+      <div>
+        <label for="comunidad">Comunitat autònoma<span class="ayuda">On vius. No inclou el País Basc, Navarra, Ceuta ni Melilla.</span></label>
+        <select id="comunidad" name="comunidad">
+          <option value="andalucia">Andalusia</option>
+          <option value="aragon">Aragó</option>
+          <option value="cantabria">Cantàbria</option>
+          <option value="canarias">Canàries</option>
+          <option value="castilla_y_leon">Castella i Lleó</option>
+          <option value="castilla_la_mancha">Castella-la Manxa</option>
+          <option value="cataluna">Catalunya</option>
+          <option value="valenciana">Comunitat Valenciana</option>
+          <option value="madrid" selected>Comunitat de Madrid</option>
+          <option value="extremadura">Extremadura</option>
+          <option value="galicia">Galícia</option>
+          <option value="baleares">Illes Balears</option>
+          <option value="la_rioja">La Rioja</option>
+          <option value="asturias">Principat d'Astúries</option>
+          <option value="murcia">Regió de Múrcia</option>
+        </select>
+      </div>
       <div>
         <label for="neto">Sou net que vols al mes (€)<span class="ayuda" id="ayuda-neto">El que vols que et quedi net, en 12 pagues.</span></label>
         <input id="neto" name="neto" type="number" inputmode="decimal" min="0" step="0.01" value="2000">
@@ -154,15 +175,15 @@
   <section class="tarjeta faq">
     <h2>Preguntes freqüents</h2>
     <h3>Quant ha de facturar un autònom per guanyar 2.000 € nets al mes?</h3>
-    <p>A Catalunya el 2026, amb 5.000 € de despeses l'any i la quota mínima del seu tram, uns 39.730 € l'any sense IVA, uns 3.311 € al mes. D'aquí surten 427,21 € al mes de quota d'autònoms i uns 5.601 € d'IRPF a l'any.</p>
+    <p>A Catalunya el 2026, amb 5.000 € de despeses l'any i la quota mínima del seu tram, uns 39.730 € l'any sense IVA, uns 3.311 € al mes. A altres comunitats canvia per l'IRPF: tria la teva a la calculadora.</p>
     <h3>Com es calcula?</h3>
     <p>La calculadora busca la facturació amb la qual, després de restar les despeses, la quota mínima d'autònoms del teu tram i l'IRPF de l'any, et queda el sou net que has demanat.</p>
     <h3>Quin preu per hora he de cobrar?</h3>
     <p>Divideix la facturació anual entre les hores que factures a l'any. Compta només les hores que cobres: les vacances, els dies sense clients i el temps de gestió no es paguen, i per això el preu per hora ha de ser més alt del que sembla.</p>
     <h3>La facturació inclou l'IVA?</h3>
     <p>No. És la facturació sense IVA, perquè l'IVA que cobres l'ingresses a Hisenda. Si factures amb IVA, el client pagarà a més l'IVA corresponent.</p>
-    <h3>Per què només serveix per a Catalunya?</h3>
-    <p>L'IRPF té una part autonòmica i aquesta calculadora fa servir l'escala catalana. La quota d'autònoms és igual a tot Espanya.</p>
+    <h3>Per què canvia segons la comunitat?</h3>
+    <p>L'IRPF té una part autonòmica amb escala pròpia a cada comunitat. La quota d'autònoms és igual a tot Espanya.</p>
   </section>
 
   <section class="tarjeta ia">
@@ -174,6 +195,7 @@
   <section class="tarjeta">
     <h2>Més calculadores per a autònoms</h2>
     <ul class="otras">
+      <li><a href="../calculadora-irpf-autonoms/"><span class="icono" aria-hidden="true">🗺️</span><div><strong>IRPF per comunitat autònoma</strong><span>El teu IRPF a la teva comunitat i quant pagaries a les altres.</span></div></a></li>
       <li><a href="../"><span class="icono" aria-hidden="true">📊</span><div><strong>IRPF d'autònoms a Catalunya</strong><span>Quant pagaràs a la renda, amb l'escala catalana.</span></div></a></li>
       <li><a href="../quota-autonoms-2026/"><span class="icono" aria-hidden="true">🏛️</span><div><strong>Quota d'autònoms 2026</strong><span>El teu tram i la teva quota mensual segons el que guanyes.</span></div></a></li>
       <li><a href="../factura-autonoms/"><span class="icono" aria-hidden="true">🧾</span><div><strong>Factura amb IVA i IRPF</strong><span>El total de la factura, o quant facturar per cobrar una quantitat.</span></div></a></li>
@@ -182,12 +204,13 @@
       <li><a href="../model-303/"><span class="icono" aria-hidden="true">🧮</span><div><strong>Model 303</strong><span>L'IVA de cada trimestre: el que cobres menys el que pagues.</span></div></a></li>
       <li><a href="../model-130/"><span class="icono" aria-hidden="true">📅</span><div><strong>Model 130</strong><span>Els teus pagaments trimestrals de l'IRPF, trimestre a trimestre.</span></div></a></li>
       <li><a href="../sou-net-autonom/"><span class="icono" aria-hidden="true">💰</span><div><strong>Sou net d'autònom</strong><span>El que et queda al mes després de despeses, quota i IRPF.</span></div></a></li>
+      <li><a href="../calendari-fiscal-autonoms-2027/"><span class="icono" aria-hidden="true">🗓️</span><div><strong>Calendari fiscal 2027</strong><span>Tots els terminis de l'any: models 303, 130, 390 i renda.</span></div></a></li>
     </ul>
   </section>
 
   <div class="aviso">
-    <strong>Avís:</strong> és una estimació orientativa i no substitueix el consell d'un assessor fiscal o laboral. No inclou la tarifa plana, altres rendes, el mínim per fills ni les deduccions. Fonts, en castellà:
-    <ul><li><a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-7296">Cuota de autónomos: Orden PJC/297/2026 (BOE)</a></li><li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764">Ley del IRPF (BOE)</a></li><li><a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2025-10270">Escala catalana: Decreto-ley 5/2025 (BOE)</a></li></ul>
+    <strong>Avís:</strong> és una estimació orientativa i no substitueix el consell d'un assessor fiscal o laboral. No inclou la tarifa plana, altres rendes, el mínim per fills ni les deduccions autonòmiques. Fonts, en castellà:
+    <ul><li><a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-7296">Cuota de autónomos: Orden PJC/297/2026 (BOE)</a></li><li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764">Ley del IRPF, artículos 57, 58 y 63 (BOE)</a></li><li><a href="https://sede.agenciatributaria.gob.es/Sede/ayuda/manuales-videos-folletos/manuales-practicos/irpf-2025/c15-calculo-impuesto-determinacion-cuotas-integras/gravamen-base-liquidable-general/gravamen-autonomico.html">Escalas autonómicas, Manual de Renta 2025 (Agencia Tributaria)</a></li><li><a href="https://sede.agenciatributaria.gob.es/Sede/ayuda/manuales-videos-folletos/manuales-practicos/irpf-2025/c14-adecuacion-impuesto-circunstancias-personales/minimo-autonomico-personal-familiar/cuadro-minimos-personales-familiares-estatal-autonomicos.html">Mínimos autonómicos, Manual de Renta 2025 (Agencia Tributaria)</a></li></ul>
   </div>
 </div>
 </main>

@@ -46,6 +46,7 @@ function calcular() {
     modalidad: document.getElementById("modalidad").value,
     cumpleRequisitosArt32: document.getElementById("cliente").checked,
     inicioActividad: document.getElementById("inicio").checked,
+    comunidad: document.getElementById("comunidad").value,
   });
   if (r === null) return mostrar(resultado, error(t.imposible));
   const porHora = horas > 0 ? euros.format(Math.ceil((r.ingresos / (horas * 12)) * 100) / 100) : null;

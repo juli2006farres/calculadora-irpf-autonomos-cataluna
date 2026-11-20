@@ -1,7 +1,7 @@
 // Utilidades compartidas por las calculadoras nuevas. Todo ocurre en el navegador.
 export const idioma = document.documentElement.lang === "ca" ? "ca" : "es";
 export const locale = idioma === "ca" ? "ca-ES" : "es-ES";
-export const euros = new Intl.NumberFormat(locale, { style: "currency", currency: "EUR" });
+export const euros = new Intl.NumberFormat(locale, { style: "currency", currency: "EUR", useGrouping: "always" });
 export const numero = new Intl.NumberFormat(locale, { maximumFractionDigits: 2 });
 
 // Lee un importe. Si está vacío devuelve `vacio`; si no es válido, null.

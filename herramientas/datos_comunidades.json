@@ -1,0 +1,2808 @@
+{
+ "ejemplos": [
+  {
+   "ingresos": 20000,
+   "gastos": 3000
+  },
+  {
+   "ingresos": 30000,
+   "gastos": 4000
+  },
+  {
+   "ingresos": 40000,
+   "gastos": 5000
+  },
+  {
+   "ingresos": 60000,
+   "gastos": 8000
+  }
+ ],
+ "escala_estatal": [
+  {
+   "hasta": 12450,
+   "tipo": 9.5
+  },
+  {
+   "hasta": 20200,
+   "tipo": 12
+  },
+  {
+   "hasta": 35200,
+   "tipo": 15
+  },
+  {
+   "hasta": 60000,
+   "tipo": 18.5
+  },
+  {
+   "hasta": 300000,
+   "tipo": 22.5
+  },
+  {
+   "hasta": null,
+   "tipo": 24.5
+  }
+ ],
+ "minimos_estatales": {
+  "contribuyente": 5550,
+  "descendientes": [
+   2400,
+   2700,
+   4000,
+   4500
+  ],
+  "menor3": 2800
+ },
+ "comunidades": {
+  "andalucia": {
+   "escala_2026": [
+    {
+     "hasta": 13000,
+     "tipo": 9.5
+    },
+    {
+     "hasta": 21100,
+     "tipo": 12
+    },
+    {
+     "hasta": 35200,
+     "tipo": 15
+    },
+    {
+     "hasta": 60000,
+     "tipo": 18.5
+    },
+    {
+     "hasta": null,
+     "tipo": 22.5
+    }
+   ],
+   "escala_2025": null,
+   "tipo_minimo": 9.5,
+   "tipo_maximo": 22.5,
+   "marginal_conjunto": [
+    {
+     "desde": 0,
+     "hasta": 12450,
+     "estatal": 9.5,
+     "autonomico": 9.5,
+     "total": 19
+    },
+    {
+     "desde": 12450,
+     "hasta": 13000,
+     "estatal": 12,
+     "autonomico": 9.5,
+     "total": 21.5
+    },
+    {
+     "desde": 13000,
+     "hasta": 20200,
+     "estatal": 12,
+     "autonomico": 12,
+     "total": 24
+    },
+    {
+     "desde": 20200,
+     "hasta": 21100,
+     "estatal": 15,
+     "autonomico": 12,
+     "total": 27
+    },
+    {
+     "desde": 21100,
+     "hasta": 35200,
+     "estatal": 15,
+     "autonomico": 15,
+     "total": 30
+    },
+    {
+     "desde": 35200,
+     "hasta": 60000,
+     "estatal": 18.5,
+     "autonomico": 18.5,
+     "total": 37
+    },
+    {
+     "desde": 60000,
+     "hasta": 300000,
+     "estatal": 22.5,
+     "autonomico": 22.5,
+     "total": 45
+    },
+    {
+     "desde": 300000,
+     "hasta": null,
+     "estatal": 24.5,
+     "autonomico": 22.5,
+     "total": 47
+    }
+   ],
+   "minimos": {
+    "contribuyente": 5790,
+    "descendientes": [
+     2510,
+     2820,
+     4170,
+     4700
+    ],
+    "menor3": 2920
+   },
+   "minimos_propios": true,
+   "ejemplos": [
+    {
+     "ingresos": 20000,
+     "gastos": 3000,
+     "cuota_mensual": 299.56,
+     "irpf": 1349.48,
+     "tipo_medio": 10.6,
+     "neto_anual": 12055.8,
+     "neto_mensual": 1004.65,
+     "puesto": 10,
+     "mas_barata": "extremadura",
+     "irpf_mas_barata": 1252.24,
+     "mas_cara": "baleares",
+     "irpf_mas_cara": 1397.89
+    },
+    {
+     "ingresos": 30000,
+     "gastos": 4000,
+     "cuota_mensual": 380.88,
+     "irpf": 3177.1,
+     "tipo_medio": 15.61,
+     "neto_anual": 18252.34,
+     "neto_mensual": 1521.03,
+     "puesto": 9,
+     "mas_barata": "extremadura",
+     "irpf_mas_barata": 2924.85,
+     "mas_cara": "cataluna",
+     "irpf_mas_cara": 3251.69
+    },
+    {
+     "ingresos": 40000,
+     "gastos": 5000,
+     "cuota_mensual": 427.21,
+     "irpf": 5561.39,
+     "tipo_medio": 19.6,
+     "neto_anual": 24312.09,
+     "neto_mensual": 2026.01,
+     "puesto": 11,
+     "mas_barata": "madrid",
+     "irpf_mas_barata": 5245.7,
+     "mas_cara": "cataluna",
+     "irpf_mas_cara": 5680.99
+    },
+    {
+     "ingresos": 60000,
+     "gastos": 8000,
+     "cuota_mensual": 504.41,
+     "irpf": 10843.87,
+     "tipo_medio": 24.67,
+     "neto_anual": 35103.21,
+     "neto_mensual": 2925.27,
+     "puesto": 10,
+     "mas_barata": "madrid",
+     "irpf_mas_barata": 10271.54,
+     "mas_cara": "extremadura",
+     "irpf_mas_cara": 11145.97
+    }
+   ]
+  },
+  "aragon": {
+   "escala_2026": [
+    {
+     "hasta": 13072.5,
+     "tipo": 9.5
+    },
+    {
+     "hasta": 21210,
+     "tipo": 12
+    },
+    {
+     "hasta": 36960,
+     "tipo": 15
+    },
+    {
+     "hasta": 52500,
+     "tipo": 18.5
+    },
+    {
+     "hasta": 60000,
+     "tipo": 20.5
+    },
+    {
+     "hasta": 80000,
+     "tipo": 23
+    },
+    {
+     "hasta": 90000,
+     "tipo": 24
+    },
+    {
+     "hasta": 130000,
+     "tipo": 25
+    },
+    {
+     "hasta": null,
+     "tipo": 25.5
+    }
+   ],
+   "escala_2025": null,
+   "tipo_minimo": 9.5,
+   "tipo_maximo": 25.5,
+   "marginal_conjunto": [
+    {
+     "desde": 0,
+     "hasta": 12450,
+     "estatal": 9.5,
+     "autonomico": 9.5,
+     "total": 19
+    },
+    {
+     "desde": 12450,
+     "hasta": 13072.5,
+     "estatal": 12,
+     "autonomico": 9.5,
+     "total": 21.5
+    },
+    {
+     "desde": 13072.5,
+     "hasta": 20200,
+     "estatal": 12,
+     "autonomico": 12,
+     "total": 24
+    },
+    {
+     "desde": 20200,
+     "hasta": 21210,
+     "estatal": 15,
+     "autonomico": 12,
+     "total": 27
+    },
+    {
+     "desde": 21210,
+     "hasta": 35200,
+     "estatal": 15,
+     "autonomico": 15,
+     "total": 30
+    },
+    {
+     "desde": 35200,
+     "hasta": 36960,
+     "estatal": 18.5,
+     "autonomico": 15,
+     "total": 33.5
+    },
+    {
+     "desde": 36960,
+     "hasta": 52500,
+     "estatal": 18.5,
+     "autonomico": 18.5,
+     "total": 37
+    },
+    {
+     "desde": 52500,
+     "hasta": 60000,
+     "estatal": 18.5,
+     "autonomico": 20.5,
+     "total": 39
+    },
+    {
+     "desde": 60000,
+     "hasta": 80000,
+     "estatal": 22.5,
+     "autonomico": 23,
+     "total": 45.5
+    },
+    {
+     "desde": 80000,
+     "hasta": 90000,
+     "estatal": 22.5,
+     "autonomico": 24,
+     "total": 46.5
+    },
+    {
+     "desde": 90000,
+     "hasta": 130000,
+     "estatal": 22.5,
+     "autonomico": 25,
+     "total": 47.5
+    },
+    {
+     "desde": 130000,
+     "hasta": 300000,
+     "estatal": 22.5,
+     "autonomico": 25.5,
+     "total": 48
+    },
+    {
+     "desde": 300000,
+     "hasta": null,
+     "estatal": 24.5,
+     "autonomico": 25.5,
+     "total": 50
+    }
+   ],
+   "minimos": {
+    "contribuyente": 5550,
+    "descendientes": [
+     2400,
+     2700,
+     4000,
+     4500
+    ],
+    "menor3": 2800
+   },
+   "minimos_propios": false,
+   "ejemplos": [
+    {
+     "ingresos": 20000,
+     "gastos": 3000,
+     "cuota_mensual": 299.56,
+     "irpf": 1372.28,
+     "tipo_medio": 10.78,
+     "neto_anual": 12033,
+     "neto_mensual": 1002.75,
+     "puesto": 11,
+     "mas_barata": "extremadura",
+     "irpf_mas_barata": 1252.24,
+     "mas_cara": "baleares",
+     "irpf_mas_cara": 1397.89
+    },
+    {
+     "ingresos": 30000,
+     "gastos": 4000,
+     "cuota_mensual": 380.88,
+     "irpf": 3198.09,
+     "tipo_medio": 15.71,
+     "neto_anual": 18231.35,
+     "neto_mensual": 1519.28,
+     "puesto": 12,
+     "mas_barata": "extremadura",
+     "irpf_mas_barata": 2924.85,
+     "mas_cara": "cataluna",
+     "irpf_mas_cara": 3251.69
+    },
+    {
+     "ingresos": 40000,
+     "gastos": 5000,
+     "cuota_mensual": 427.21,
+     "irpf": 5579.08,
+     "tipo_medio": 19.66,
+     "neto_anual": 24294.4,
+     "neto_mensual": 2024.53,
+     "puesto": 12,
+     "mas_barata": "madrid",
+     "irpf_mas_barata": 5245.7,
+     "mas_cara": "cataluna",
+     "irpf_mas_cara": 5680.99
+    },
+    {
+     "ingresos": 60000,
+     "gastos": 8000,
+     "cuota_mensual": 504.41,
+     "irpf": 10799.96,
+     "tipo_medio": 24.57,
+     "neto_anual": 35147.12,
+     "neto_mensual": 2928.93,
+     "puesto": 9,
+     "mas_barata": "madrid",
+     "irpf_mas_barata": 10271.54,
+     "mas_cara": "extremadura",
+     "irpf_mas_cara": 11145.97
+    }
+   ]
+  },
+  "asturias": {
+   "escala_2026": [
+    {
+     "hasta": 12450,
+     "tipo": 9
+    },
+    {
+     "hasta": 17707.2,
+     "tipo": 12
+    },
+    {
+     "hasta": 33007.2,
+     "tipo": 14
+    },
+    {
+     "hasta": 53407.2,
+     "tipo": 19.2
+    },
+    {
+     "hasta": 70000,
+     "tipo": 21.5
+    },
+    {
+     "hasta": 90000,
+     "tipo": 22.5
+    },
+    {
+     "hasta": 175000,
+     "tipo": 25
+    },
+    {
+     "hasta": null,
+     "tipo": 26
+    }
+   ],
+   "escala_2025": null,
+   "tipo_minimo": 9,
+   "tipo_maximo": 26,
+   "marginal_conjunto": [
+    {
+     "desde": 0,
+     "hasta": 12450,
+     "estatal": 9.5,
+     "autonomico": 9,
+     "total": 18.5
+    },
+    {
+     "desde": 12450,
+     "hasta": 17707.2,
+     "estatal": 12,
+     "autonomico": 12,
+     "total": 24
+    },
+    {
+     "desde": 17707.2,
+     "hasta": 20200,
+     "estatal": 12,
+     "autonomico": 14,
+     "total": 26
+    },
+    {
+     "desde": 20200,
+     "hasta": 33007.2,
+     "estatal": 15,
+     "autonomico": 14,
+     "total": 29
+    },
+    {
+     "desde": 33007.2,
+     "hasta": 35200,
+     "estatal": 15,
+     "autonomico": 19.2,
+     "total": 34.2
+    },
+    {
+     "desde": 35200,
+     "hasta": 53407.2,
+     "estatal": 18.5,
+     "autonomico": 19.2,
+     "total": 37.7
+    },
+    {
+     "desde": 53407.2,
+     "hasta": 60000,
+     "estatal": 18.5,
+     "autonomico": 21.5,
+     "total": 40
+    },
+    {
+     "desde": 60000,
+     "hasta": 70000,
+     "estatal": 22.5,
+     "autonomico": 21.5,
+     "total": 44
+    },
+    {
+     "desde": 70000,
+     "hasta": 90000,
+     "estatal": 22.5,
+     "autonomico": 22.5,
+     "total": 45
+    },
+    {
+     "desde": 90000,
+     "hasta": 175000,
+     "estatal": 22.5,
+     "autonomico": 25,
+     "total": 47.5
+    },
+    {
+     "desde": 175000,
+     "hasta": 300000,
+     "estatal": 22.5,
+     "autonomico": 26,
+     "total": 48.5
+    },
+    {
+     "desde": 300000,
+     "hasta": null,
+     "estatal": 24.5,
+     "autonomico": 26,
+     "total": 50.5
+    }
+   ],
+   "minimos": {
+    "contribuyente": 6105,
+    "descendientes": [
+     2640,
+     2970,
+     4400,
+     4950
+    ],
+    "menor3": 3080
+   },
+   "minimos_propios": true,
+   "ejemplos": [
+    {
+     "ingresos": 20000,
+     "gastos": 3000,
+     "cuota_mensual": 299.56,
+     "irpf": 1294.95,
+     "tipo_medio": 10.17,
+     "neto_anual": 12110.33,
+     "neto_mensual": 1009.19,
+     "puesto": 5,
+     "mas_barata": "extremadura",
+     "irpf_mas_barata": 1252.24,
+     "mas_cara": "baleares",
+     "irpf_mas_cara": 1397.89
+    },
+    {
+     "ingresos": 30000,
+     "gastos": 4000,
+     "cuota_mensual": 380.88,
+     "irpf": 3182.22,
+     "tipo_medio": 15.63,
+     "neto_anual": 18247.22,
+     "neto_mensual": 1520.6,
+     "puesto": 10,
+     "mas_barata": "extremadura",
+     "irpf_mas_barata": 2924.85,
+     "mas_cara": "cataluna",
+     "irpf_mas_cara": 3251.69
+    },
+    {
+     "ingresos": 40000,
+     "gastos": 5000,
+     "cuota_mensual": 427.21,
+     "irpf": 5508.55,
+     "tipo_medio": 19.41,
+     "neto_anual": 24364.93,
+     "neto_mensual": 2030.41,
+     "puesto": 9,
+     "mas_barata": "madrid",
+     "irpf_mas_barata": 5245.7,
+     "mas_cara": "cataluna",
+     "irpf_mas_cara": 5680.99
+    },
+    {
+     "ingresos": 60000,
+     "gastos": 8000,
+     "cuota_mensual": 504.41,
+     "irpf": 10898.08,
+     "tipo_medio": 24.8,
+     "neto_anual": 35049,
+     "neto_mensual": 2920.75,
+     "puesto": 11,
+     "mas_barata": "madrid",
+     "irpf_mas_barata": 10271.54,
+     "mas_cara": "extremadura",
+     "irpf_mas_cara": 11145.97
+    }
+   ]
+  },
+  "baleares": {
+   "escala_2026": [
+    {
+     "hasta": 10000,
+     "tipo": 9
+    },
+    {
+     "hasta": 18000,
+     "tipo": 11.25
+    },
+    {
+     "hasta": 30000,
+     "tipo": 14.25
+    },
+    {
+     "hasta": 48000,
+     "tipo": 17.5
+    },
+    {
+     "hasta": 70000,
+     "tipo": 19
+    },
+    {
+     "hasta": 90000,
+     "tipo": 21.75
+    },
+    {
+     "hasta": 120000,
+     "tipo": 22.75
+    },
+    {
+     "hasta": 175000,
+     "tipo": 23.75
+    },
+    {
+     "hasta": null,
+     "tipo": 24.75
+    }
+   ],
+   "escala_2025": null,
+   "tipo_minimo": 9,
+   "tipo_maximo": 24.75,
+   "marginal_conjunto": [
+    {
+     "desde": 0,
+     "hasta": 10000,
+     "estatal": 9.5,
+     "autonomico": 9,
+     "total": 18.5
+    },
+    {
+     "desde": 10000,
+     "hasta": 12450,
+     "estatal": 9.5,
+     "autonomico": 11.25,
+     "total": 20.75
+    },
+    {
+     "desde": 12450,
+     "hasta": 18000,
+     "estatal": 12,
+     "autonomico": 11.25,
+     "total": 23.25
+    },
+    {
+     "desde": 18000,
+     "hasta": 20200,
+     "estatal": 12,
+     "autonomico": 14.25,
+     "total": 26.25
+    },
+    {
+     "desde": 20200,
+     "hasta": 30000,
+     "estatal": 15,
+     "autonomico": 14.25,
+     "total": 29.25
+    },
+    {
+     "desde": 30000,
+     "hasta": 35200,
+     "estatal": 15,
+     "autonomico": 17.5,
+     "total": 32.5
+    },
+    {
+     "desde": 35200,
+     "hasta": 48000,
+     "estatal": 18.5,
+     "autonomico": 17.5,
+     "total": 36
+    },
+    {
+     "desde": 48000,
+     "hasta": 60000,
+     "estatal": 18.5,
+     "autonomico": 19,
+     "total": 37.5
+    },
+    {
+     "desde": 60000,
+     "hasta": 70000,
+     "estatal": 22.5,
+     "autonomico": 19,
+     "total": 41.5
+    },
+    {
+     "desde": 70000,
+     "hasta": 90000,
+     "estatal": 22.5,
+     "autonomico": 21.75,
+     "total": 44.25
+    },
+    {
+     "desde": 90000,
+     "hasta": 120000,
+     "estatal": 22.5,
+     "autonomico": 22.75,
+     "total": 45.25
+    },
+    {
+     "desde": 120000,
+     "hasta": 175000,
+     "estatal": 22.5,
+     "autonomico": 23.75,
+     "total": 46.25
+    },
+    {
+     "desde": 175000,
+     "hasta": 300000,
+     "estatal": 22.5,
+     "autonomico": 24.75,
+     "total": 47.25
+    },
+    {
+     "desde": 300000,
+     "hasta": null,
+     "estatal": 24.5,
+     "autonomico": 24.75,
+     "total": 49.25
+    }
+   ],
+   "minimos": {
+    "contribuyente": 5550,
+    "descendientes": [
+     2400,
+     2970,
+     4400,
+     4950
+    ],
+    "menor3": 2800
+   },
+   "minimos_propios": true,
+   "ejemplos": [
+    {
+     "ingresos": 20000,
+     "gastos": 3000,
+     "cuota_mensual": 299.56,
+     "irpf": 1397.89,
+     "tipo_medio": 10.98,
+     "neto_anual": 12007.39,
+     "neto_mensual": 1000.62,
+     "puesto": 15,
+     "mas_barata": "extremadura",
+     "irpf_mas_barata": 1252.24,
+     "mas_cara": "baleares",
+     "irpf_mas_cara": 1397.89
+    },
+    {
+     "ingresos": 30000,
+     "gastos": 4000,
+     "cuota_mensual": 380.88,
+     "irpf": 3245.71,
+     "tipo_medio": 15.94,
+     "neto_anual": 18183.73,
+     "neto_mensual": 1515.31,
+     "puesto": 14,
+     "mas_barata": "extremadura",
+     "irpf_mas_barata": 2924.85,
+     "mas_cara": "cataluna",
+     "irpf_mas_cara": 3251.69
+    },
+    {
+     "ingresos": 40000,
+     "gastos": 5000,
+     "cuota_mensual": 427.21,
+     "irpf": 5592.09,
+     "tipo_medio": 19.7,
+     "neto_anual": 24281.39,
+     "neto_mensual": 2023.45,
+     "puesto": 13,
+     "mas_barata": "madrid",
+     "irpf_mas_barata": 5245.7,
+     "mas_cara": "cataluna",
+     "irpf_mas_cara": 5680.99
+    },
+    {
+     "ingresos": 60000,
+     "gastos": 8000,
+     "cuota_mensual": 504.41,
+     "irpf": 10904.95,
+     "tipo_medio": 24.81,
+     "neto_anual": 35042.13,
+     "neto_mensual": 2920.18,
+     "puesto": 12,
+     "mas_barata": "madrid",
+     "irpf_mas_barata": 10271.54,
+     "mas_cara": "extremadura",
+     "irpf_mas_cara": 11145.97
+    }
+   ]
+  },
+  "canarias": {
+   "escala_2026": [
+    {
+     "hasta": 13748,
+     "tipo": 9
+    },
+    {
+     "hasta": 19422,
+     "tipo": 11.5
+    },
+    {
+     "hasta": 35924,
+     "tipo": 14
+    },
+    {
+     "hasta": 57566,
+     "tipo": 18.5
+    },
+    {
+     "hasta": 93268,
+     "tipo": 23.5
+    },
+    {
+     "hasta": 123745,
+     "tipo": 25
+    },
+    {
+     "hasta": null,
+     "tipo": 26
+    }
+   ],
+   "escala_2025": null,
+   "tipo_minimo": 9,
+   "tipo_maximo": 26,
+   "marginal_conjunto": [
+    {
+     "desde": 0,
+     "hasta": 12450,
+     "estatal": 9.5,
+     "autonomico": 9,
+     "total": 18.5
+    },
+    {
+     "desde": 12450,
+     "hasta": 13748,
+     "estatal": 12,
+     "autonomico": 9,
+     "total": 21
+    },
+    {
+     "desde": 13748,
+     "hasta": 19422,
+     "estatal": 12,
+     "autonomico": 11.5,
+     "total": 23.5
+    },
+    {
+     "desde": 19422,
+     "hasta": 20200,
+     "estatal": 12,
+     "autonomico": 14,
+     "total": 26
+    },
+    {
+     "desde": 20200,
+     "hasta": 35200,
+     "estatal": 15,
+     "autonomico": 14,
+     "total": 29
+    },
+    {
+     "desde": 35200,
+     "hasta": 35924,
+     "estatal": 18.5,
+     "autonomico": 14,
+     "total": 32.5
+    },
+    {
+     "desde": 35924,
+     "hasta": 57566,
+     "estatal": 18.5,
+     "autonomico": 18.5,
+     "total": 37
+    },
+    {
+     "desde": 57566,
+     "hasta": 60000,
+     "estatal": 18.5,
+     "autonomico": 23.5,
+     "total": 42
+    },
+    {
+     "desde": 60000,
+     "hasta": 93268,
+     "estatal": 22.5,
+     "autonomico": 23.5,
+     "total": 46
+    },
+    {
+     "desde": 93268,
+     "hasta": 123745,
+     "estatal": 22.5,
+     "autonomico": 25,
+     "total": 47.5
+    },
+    {
+     "desde": 123745,
+     "hasta": 300000,
+     "estatal": 22.5,
+     "autonomico": 26,
+     "total": 48.5
+    },
+    {
+     "desde": 300000,
+     "hasta": null,
+     "estatal": 24.5,
+     "autonomico": 26,
+     "total": 50.5
+    }
+   ],
+   "minimos": {
+    "contribuyente": 5606,
+    "descendientes": [
+     2424,
+     2727,
+     4040,
+     4545
+    ],
+    "menor3": 2828
+   },
+   "minimos_propios": true,
+   "ejemplos": [
+    {
+     "ingresos": 20000,
+     "gastos": 3000,
+     "cuota_mensual": 299.56,
+     "irpf": 1331.31,
+     "tipo_medio": 10.45,
+     "neto_anual": 12073.97,
+     "neto_mensual": 1006.16,
+     "puesto": 8,
+     "mas_barata": "extremadura",
+     "irpf_mas_barata": 1252.24,
+     "mas_cara": "baleares",
+     "irpf_mas_cara": 1397.89
+    },
+    {
+     "ingresos": 30000,
+     "gastos": 4000,
+     "cuota_mensual": 380.88,
+     "irpf": 3125.52,
+     "tipo_medio": 15.35,
+     "neto_anual": 18303.92,
+     "neto_mensual": 1525.33,
+     "puesto": 7,
+     "mas_barata": "extremadura",
+     "irpf_mas_barata": 2924.85,
+     "mas_cara": "cataluna",
+     "irpf_mas_cara": 3251.69
+    },
+    {
+     "ingresos": 40000,
+     "gastos": 5000,
+     "cuota_mensual": 427.21,
+     "irpf": 5451.85,
+     "tipo_medio": 19.21,
+     "neto_anual": 24421.63,
+     "neto_mensual": 2035.14,
+     "puesto": 6,
+     "mas_barata": "madrid",
+     "irpf_mas_barata": 5245.7,
+     "mas_cara": "cataluna",
+     "irpf_mas_cara": 5680.99
+    },
+    {
+     "ingresos": 60000,
+     "gastos": 8000,
+     "cuota_mensual": 504.41,
+     "irpf": 10633.55,
+     "tipo_medio": 24.2,
+     "neto_anual": 35313.53,
+     "neto_mensual": 2942.79,
+     "puesto": 5,
+     "mas_barata": "madrid",
+     "irpf_mas_barata": 10271.54,
+     "mas_cara": "extremadura",
+     "irpf_mas_cara": 11145.97
+    }
+   ]
+  },
+  "cantabria": {
+   "escala_2026": [
+    {
+     "hasta": 13000,
+     "tipo": 8.5
+    },
+    {
+     "hasta": 21000,
+     "tipo": 11
+    },
+    {
+     "hasta": 35200,
+     "tipo": 14.5
+    },
+    {
+     "hasta": 60000,
+     "tipo": 18
+    },
+    {
+     "hasta": 90000,
+     "tipo": 22.5
+    },
+    {
+     "hasta": null,
+     "tipo": 24.5
+    }
+   ],
+   "escala_2025": null,
+   "tipo_minimo": 8.5,
+   "tipo_maximo": 24.5,
+   "marginal_conjunto": [
+    {
+     "desde": 0,
+     "hasta": 12450,
+     "estatal": 9.5,
+     "autonomico": 8.5,
+     "total": 18
+    },
+    {
+     "desde": 12450,
+     "hasta": 13000,
+     "estatal": 12,
+     "autonomico": 8.5,
+     "total": 20.5
+    },
+    {
+     "desde": 13000,
+     "hasta": 20200,
+     "estatal": 12,
+     "autonomico": 11,
+     "total": 23
+    },
+    {
+     "desde": 20200,
+     "hasta": 21000,
+     "estatal": 15,
+     "autonomico": 11,
+     "total": 26
+    },
+    {
+     "desde": 21000,
+     "hasta": 35200,
+     "estatal": 15,
+     "autonomico": 14.5,
+     "total": 29.5
+    },
+    {
+     "desde": 35200,
+     "hasta": 60000,
+     "estatal": 18.5,
+     "autonomico": 18,
+     "total": 36.5
+    },
+    {
+     "desde": 60000,
+     "hasta": 90000,
+     "estatal": 22.5,
+     "autonomico": 22.5,
+     "total": 45
+    },
+    {
+     "desde": 90000,
+     "hasta": 300000,
+     "estatal": 22.5,
+     "autonomico": 24.5,
+     "total": 47
+    },
+    {
+     "desde": 300000,
+     "hasta": null,
+     "estatal": 24.5,
+     "autonomico": 24.5,
+     "total": 49
+    }
+   ],
+   "minimos": {
+    "contribuyente": 5550,
+    "descendientes": [
+     2400,
+     2700,
+     4000,
+     4500
+    ],
+    "menor3": 2800
+   },
+   "minimos_propios": false,
+   "ejemplos": [
+    {
+     "ingresos": 20000,
+     "gastos": 3000,
+     "cuota_mensual": 299.56,
+     "irpf": 1300.43,
+     "tipo_medio": 10.21,
+     "neto_anual": 12104.85,
+     "neto_mensual": 1008.74,
+     "puesto": 6,
+     "mas_barata": "extremadura",
+     "irpf_mas_barata": 1252.24,
+     "mas_cara": "baleares",
+     "irpf_mas_cara": 1397.89
+    },
+    {
+     "ingresos": 30000,
+     "gastos": 4000,
+     "cuota_mensual": 380.88,
+     "irpf": 3051.82,
+     "tipo_medio": 14.99,
+     "neto_anual": 18377.62,
+     "neto_mensual": 1531.47,
+     "puesto": 4,
+     "mas_barata": "extremadura",
+     "irpf_mas_barata": 2924.85,
+     "mas_cara": "cataluna",
+     "irpf_mas_cara": 3251.69
+    },
+    {
+     "ingresos": 40000,
+     "gastos": 5000,
+     "cuota_mensual": 427.21,
+     "irpf": 5395.79,
+     "tipo_medio": 19.01,
+     "neto_anual": 24477.69,
+     "neto_mensual": 2039.81,
+     "puesto": 3,
+     "mas_barata": "madrid",
+     "irpf_mas_barata": 5245.7,
+     "mas_cara": "cataluna",
+     "irpf_mas_cara": 5680.99
+    },
+    {
+     "ingresos": 60000,
+     "gastos": 8000,
+     "cuota_mensual": 504.41,
+     "irpf": 10600.43,
+     "tipo_medio": 24.12,
+     "neto_anual": 35346.65,
+     "neto_mensual": 2945.55,
+     "puesto": 4,
+     "mas_barata": "madrid",
+     "irpf_mas_barata": 10271.54,
+     "mas_cara": "extremadura",
+     "irpf_mas_cara": 11145.97
+    }
+   ]
+  },
+  "castilla_la_mancha": {
+   "escala_2026": [
+    {
+     "hasta": 12450,
+     "tipo": 9.5
+    },
+    {
+     "hasta": 20200,
+     "tipo": 12
+    },
+    {
+     "hasta": 35200,
+     "tipo": 15
+    },
+    {
+     "hasta": 60000,
+     "tipo": 18.5
+    },
+    {
+     "hasta": null,
+     "tipo": 22.5
+    }
+   ],
+   "escala_2025": null,
+   "tipo_minimo": 9.5,
+   "tipo_maximo": 22.5,
+   "marginal_conjunto": [
+    {
+     "desde": 0,
+     "hasta": 12450,
+     "estatal": 9.5,
+     "autonomico": 9.5,
+     "total": 19
+    },
+    {
+     "desde": 12450,
+     "hasta": 20200,
+     "estatal": 12,
+     "autonomico": 12,
+     "total": 24
+    },
+    {
+     "desde": 20200,
+     "hasta": 35200,
+     "estatal": 15,
+     "autonomico": 15,
+     "total": 30
+    },
+    {
+     "desde": 35200,
+     "hasta": 60000,
+     "estatal": 18.5,
+     "autonomico": 18.5,
+     "total": 37
+    },
+    {
+     "desde": 60000,
+     "hasta": 300000,
+     "estatal": 22.5,
+     "autonomico": 22.5,
+     "total": 45
+    },
+    {
+     "desde": 300000,
+     "hasta": null,
+     "estatal": 24.5,
+     "autonomico": 22.5,
+     "total": 47
+    }
+   ],
+   "minimos": {
+    "contribuyente": 5550,
+    "descendientes": [
+     2400,
+     2700,
+     4000,
+     4500
+    ],
+    "menor3": 2800
+   },
+   "minimos_propios": false,
+   "ejemplos": [
+    {
+     "ingresos": 20000,
+     "gastos": 3000,
+     "cuota_mensual": 299.56,
+     "irpf": 1379.4,
+     "tipo_medio": 10.83,
+     "neto_anual": 12025.88,
+     "neto_mensual": 1002.16,
+     "puesto": 14,
+     "mas_barata": "extremadura",
+     "irpf_mas_barata": 1252.24,
+     "mas_cara": "baleares",
+     "irpf_mas_cara": 1397.89
+    },
+    {
+     "ingresos": 30000,
+     "gastos": 4000,
+     "cuota_mensual": 380.88,
+     "irpf": 3218.39,
+     "tipo_medio": 15.81,
+     "neto_anual": 18211.05,
+     "neto_mensual": 1517.59,
+     "puesto": 13,
+     "mas_barata": "extremadura",
+     "irpf_mas_barata": 2924.85,
+     "mas_cara": "cataluna",
+     "irpf_mas_cara": 3251.69
+    },
+    {
+     "ingresos": 40000,
+     "gastos": 5000,
+     "cuota_mensual": 427.21,
+     "irpf": 5624.94,
+     "tipo_medio": 19.82,
+     "neto_anual": 24248.54,
+     "neto_mensual": 2020.71,
+     "puesto": 14,
+     "mas_barata": "madrid",
+     "irpf_mas_barata": 5245.7,
+     "mas_cara": "cataluna",
+     "irpf_mas_cara": 5680.99
+    },
+    {
+     "ingresos": 60000,
+     "gastos": 8000,
+     "cuota_mensual": 504.41,
+     "irpf": 10907.42,
+     "tipo_medio": 24.82,
+     "neto_anual": 35039.66,
+     "neto_mensual": 2919.97,
+     "puesto": 13,
+     "mas_barata": "madrid",
+     "irpf_mas_barata": 10271.54,
+     "mas_cara": "extremadura",
+     "irpf_mas_cara": 11145.97
+    }
+   ]
+  },
+  "castilla_y_leon": {
+   "escala_2026": [
+    {
+     "hasta": 12450,
+     "tipo": 9
+    },
+    {
+     "hasta": 20200,
+     "tipo": 12
+    },
+    {
+     "hasta": 35200,
+     "tipo": 14
+    },
+    {
+     "hasta": 53407.2,
+     "tipo": 18.5
+    },
+    {
+     "hasta": null,
+     "tipo": 21.5
+    }
+   ],
+   "escala_2025": null,
+   "tipo_minimo": 9,
+   "tipo_maximo": 21.5,
+   "marginal_conjunto": [
+    {
+     "desde": 0,
+     "hasta": 12450,
+     "estatal": 9.5,
+     "autonomico": 9,
+     "total": 18.5
+    },
+    {
+     "desde": 12450,
+     "hasta": 20200,
+     "estatal": 12,
+     "autonomico": 12,
+     "total": 24
+    },
+    {
+     "desde": 20200,
+     "hasta": 35200,
+     "estatal": 15,
+     "autonomico": 14,
+     "total": 29
+    },
+    {
+     "desde": 35200,
+     "hasta": 53407.2,
+     "estatal": 18.5,
+     "autonomico": 18.5,
+     "total": 37
+    },
+    {
+     "desde": 53407.2,
+     "hasta": 60000,
+     "estatal": 18.5,
+     "autonomico": 21.5,
+     "total": 40
+    },
+    {
+     "desde": 60000,
+     "hasta": 300000,
+     "estatal": 22.5,
+     "autonomico": 21.5,
+     "total": 44
+    },
+    {
+     "desde": 300000,
+     "hasta": null,
+     "estatal": 24.5,
+     "autonomico": 21.5,
+     "total": 46
+    }
+   ],
+   "minimos": {
+    "contribuyente": 5550,
+    "descendientes": [
+     2400,
+     2700,
+     4000,
+     4500
+    ],
+    "menor3": 2800
+   },
+   "minimos_propios": false,
+   "ejemplos": [
+    {
+     "ingresos": 20000,
+     "gastos": 3000,
+     "cuota_mensual": 299.56,
+     "irpf": 1344.9,
+     "tipo_medio": 10.56,
+     "neto_anual": 12060.38,
+     "neto_mensual": 1005.03,
+     "puesto": 9,
+     "mas_barata": "extremadura",
+     "irpf_mas_barata": 1252.24,
+     "mas_cara": "baleares",
+     "irpf_mas_cara": 1397.89
+    },
+    {
+     "ingresos": 30000,
+     "gastos": 4000,
+     "cuota_mensual": 380.88,
+     "irpf": 3182.31,
+     "tipo_medio": 15.63,
+     "neto_anual": 18247.13,
+     "neto_mensual": 1520.59,
+     "puesto": 11,
+     "mas_barata": "extremadura",
+     "irpf_mas_barata": 2924.85,
+     "mas_cara": "cataluna",
+     "irpf_mas_cara": 3251.69
+    },
+    {
+     "ingresos": 40000,
+     "gastos": 5000,
+     "cuota_mensual": 427.21,
+     "irpf": 5508.64,
+     "tipo_medio": 19.41,
+     "neto_anual": 24364.84,
+     "neto_mensual": 2030.4,
+     "puesto": 10,
+     "mas_barata": "madrid",
+     "irpf_mas_barata": 5245.7,
+     "mas_cara": "cataluna",
+     "irpf_mas_cara": 5680.99
+    },
+    {
+     "ingresos": 60000,
+     "gastos": 8000,
+     "cuota_mensual": 504.41,
+     "irpf": 10722.92,
+     "tipo_medio": 24.4,
+     "neto_anual": 35224.16,
+     "neto_mensual": 2935.35,
+     "puesto": 7,
+     "mas_barata": "madrid",
+     "irpf_mas_barata": 10271.54,
+     "mas_cara": "extremadura",
+     "irpf_mas_cara": 11145.97
+    }
+   ]
+  },
+  "cataluna": {
+   "escala_2026": [
+    {
+     "hasta": 12500,
+     "tipo": 9.5
+    },
+    {
+     "hasta": 22000,
+     "tipo": 12.5
+    },
+    {
+     "hasta": 33000,
+     "tipo": 16
+    },
+    {
+     "hasta": 53000,
+     "tipo": 19
+    },
+    {
+     "hasta": 90000,
+     "tipo": 21.5
+    },
+    {
+     "hasta": 120000,
+     "tipo": 23.5
+    },
+    {
+     "hasta": 175000,
+     "tipo": 24.5
+    },
+    {
+     "hasta": null,
+     "tipo": 25.5
+    }
+   ],
+   "escala_2025": null,
+   "tipo_minimo": 9.5,
+   "tipo_maximo": 25.5,
+   "marginal_conjunto": [
+    {
+     "desde": 0,
+     "hasta": 12450,
+     "estatal": 9.5,
+     "autonomico": 9.5,
+     "total": 19
+    },
+    {
+     "desde": 12450,
+     "hasta": 12500,
+     "estatal": 12,
+     "autonomico": 9.5,
+     "total": 21.5
+    },
+    {
+     "desde": 12500,
+     "hasta": 20200,
+     "estatal": 12,
+     "autonomico": 12.5,
+     "total": 24.5
+    },
+    {
+     "desde": 20200,
+     "hasta": 22000,
+     "estatal": 15,
+     "autonomico": 12.5,
+     "total": 27.5
+    },
+    {
+     "desde": 22000,
+     "hasta": 33000,
+     "estatal": 15,
+     "autonomico": 16,
+     "total": 31
+    },
+    {
+     "desde": 33000,
+     "hasta": 35200,
+     "estatal": 15,
+     "autonomico": 19,
+     "total": 34
+    },
+    {
+     "desde": 35200,
+     "hasta": 53000,
+     "estatal": 18.5,
+     "autonomico": 19,
+     "total": 37.5
+    },
+    {
+     "desde": 53000,
+     "hasta": 60000,
+     "estatal": 18.5,
+     "autonomico": 21.5,
+     "total": 40
+    },
+    {
+     "desde": 60000,
+     "hasta": 90000,
+     "estatal": 22.5,
+     "autonomico": 21.5,
+     "total": 44
+    },
+    {
+     "desde": 90000,
+     "hasta": 120000,
+     "estatal": 22.5,
+     "autonomico": 23.5,
+     "total": 46
+    },
+    {
+     "desde": 120000,
+     "hasta": 175000,
+     "estatal": 22.5,
+     "autonomico": 24.5,
+     "total": 47
+    },
+    {
+     "desde": 175000,
+     "hasta": 300000,
+     "estatal": 22.5,
+     "autonomico": 25.5,
+     "total": 48
+    },
+    {
+     "desde": 300000,
+     "hasta": null,
+     "estatal": 24.5,
+     "autonomico": 25.5,
+     "total": 50
+    }
+   ],
+   "minimos": {
+    "contribuyente": 5550,
+    "descendientes": [
+     2400,
+     2700,
+     4000,
+     4500
+    ],
+    "menor3": 2800
+   },
+   "minimos_propios": false,
+   "ejemplos": [
+    {
+     "ingresos": 20000,
+     "gastos": 3000,
+     "cuota_mensual": 299.56,
+     "irpf": 1379.33,
+     "tipo_medio": 10.83,
+     "neto_anual": 12025.95,
+     "neto_mensual": 1002.16,
+     "puesto": 13,
+     "mas_barata": "extremadura",
+     "irpf_mas_barata": 1252.24,
+     "mas_cara": "baleares",
+     "irpf_mas_cara": 1397.89
+    },
+    {
+     "ingresos": 30000,
+     "gastos": 4000,
+     "cuota_mensual": 380.88,
+     "irpf": 3251.69,
+     "tipo_medio": 15.97,
+     "neto_anual": 18177.75,
+     "neto_mensual": 1514.81,
+     "puesto": 15,
+     "mas_barata": "extremadura",
+     "irpf_mas_barata": 2924.85,
+     "mas_cara": "cataluna",
+     "irpf_mas_cara": 3251.69
+    },
+    {
+     "ingresos": 40000,
+     "gastos": 5000,
+     "cuota_mensual": 427.21,
+     "irpf": 5680.99,
+     "tipo_medio": 20.02,
+     "neto_anual": 24192.49,
+     "neto_mensual": 2016.04,
+     "puesto": 15,
+     "mas_barata": "madrid",
+     "irpf_mas_barata": 5245.7,
+     "mas_cara": "cataluna",
+     "irpf_mas_cara": 5680.99
+    },
+    {
+     "ingresos": 60000,
+     "gastos": 8000,
+     "cuota_mensual": 504.41,
+     "irpf": 11141.41,
+     "tipo_medio": 25.35,
+     "neto_anual": 34805.67,
+     "neto_mensual": 2900.47,
+     "puesto": 14,
+     "mas_barata": "madrid",
+     "irpf_mas_barata": 10271.54,
+     "mas_cara": "extremadura",
+     "irpf_mas_cara": 11145.97
+    }
+   ]
+  },
+  "extremadura": {
+   "escala_2026": [
+    {
+     "hasta": 12450,
+     "tipo": 7.75
+    },
+    {
+     "hasta": 20200,
+     "tipo": 9.75
+    },
+    {
+     "hasta": 24200,
+     "tipo": 16
+    },
+    {
+     "hasta": 35200,
+     "tipo": 17.5
+    },
+    {
+     "hasta": 60000,
+     "tipo": 21
+    },
+    {
+     "hasta": 80200,
+     "tipo": 23.5
+    },
+    {
+     "hasta": 99200,
+     "tipo": 24
+    },
+    {
+     "hasta": 120200,
+     "tipo": 24.5
+    },
+    {
+     "hasta": null,
+     "tipo": 25
+    }
+   ],
+   "escala_2025": [
+    {
+     "hasta": 12450,
+     "tipo": 8
+    },
+    {
+     "hasta": 20200,
+     "tipo": 10
+    },
+    {
+     "hasta": 24200,
+     "tipo": 16
+    },
+    {
+     "hasta": 35200,
+     "tipo": 17.5
+    },
+    {
+     "hasta": 60000,
+     "tipo": 21
+    },
+    {
+     "hasta": 80200,
+     "tipo": 23.5
+    },
+    {
+     "hasta": 99200,
+     "tipo": 24
+    },
+    {
+     "hasta": 120200,
+     "tipo": 24.5
+    },
+    {
+     "hasta": null,
+     "tipo": 25
+    }
+   ],
+   "tipo_minimo": 7.75,
+   "tipo_maximo": 25,
+   "marginal_conjunto": [
+    {
+     "desde": 0,
+     "hasta": 12450,
+     "estatal": 9.5,
+     "autonomico": 7.75,
+     "total": 17.25
+    },
+    {
+     "desde": 12450,
+     "hasta": 20200,
+     "estatal": 12,
+     "autonomico": 9.75,
+     "total": 21.75
+    },
+    {
+     "desde": 20200,
+     "hasta": 24200,
+     "estatal": 15,
+     "autonomico": 16,
+     "total": 31
+    },
+    {
+     "desde": 24200,
+     "hasta": 35200,
+     "estatal": 15,
+     "autonomico": 17.5,
+     "total": 32.5
+    },
+    {
+     "desde": 35200,
+     "hasta": 60000,
+     "estatal": 18.5,
+     "autonomico": 21,
+     "total": 39.5
+    },
+    {
+     "desde": 60000,
+     "hasta": 80200,
+     "estatal": 22.5,
+     "autonomico": 23.5,
+     "total": 46
+    },
+    {
+     "desde": 80200,
+     "hasta": 99200,
+     "estatal": 22.5,
+     "autonomico": 24,
+     "total": 46.5
+    },
+    {
+     "desde": 99200,
+     "hasta": 120200,
+     "estatal": 22.5,
+     "autonomico": 24.5,
+     "total": 47
+    },
+    {
+     "desde": 120200,
+     "hasta": 300000,
+     "estatal": 22.5,
+     "autonomico": 25,
+     "total": 47.5
+    },
+    {
+     "desde": 300000,
+     "hasta": null,
+     "estatal": 24.5,
+     "autonomico": 25,
+     "total": 49.5
+    }
+   ],
+   "minimos": {
+    "contribuyente": 5550,
+    "descendientes": [
+     2400,
+     2700,
+     4000,
+     4500
+    ],
+    "menor3": 2800
+   },
+   "minimos_propios": false,
+   "ejemplos": [
+    {
+     "ingresos": 20000,
+     "gastos": 3000,
+     "cuota_mensual": 299.56,
+     "irpf": 1252.24,
+     "tipo_medio": 9.83,
+     "neto_anual": 12153.04,
+     "neto_mensual": 1012.75,
+     "puesto": 1,
+     "mas_barata": "extremadura",
+     "irpf_mas_barata": 1252.24,
+     "mas_cara": "baleares",
+     "irpf_mas_cara": 1397.89
+    },
+    {
+     "ingresos": 30000,
+     "gastos": 4000,
+     "cuota_mensual": 380.88,
+     "irpf": 2924.85,
+     "tipo_medio": 14.37,
+     "neto_anual": 18504.59,
+     "neto_mensual": 1542.05,
+     "puesto": 1,
+     "mas_barata": "extremadura",
+     "irpf_mas_barata": 2924.85,
+     "mas_cara": "cataluna",
+     "irpf_mas_cara": 3251.69
+    },
+    {
+     "ingresos": 40000,
+     "gastos": 5000,
+     "cuota_mensual": 427.21,
+     "irpf": 5474.31,
+     "tipo_medio": 19.29,
+     "neto_anual": 24399.17,
+     "neto_mensual": 2033.26,
+     "puesto": 7,
+     "mas_barata": "madrid",
+     "irpf_mas_barata": 5245.7,
+     "mas_cara": "cataluna",
+     "irpf_mas_cara": 5680.99
+    },
+    {
+     "ingresos": 60000,
+     "gastos": 8000,
+     "cuota_mensual": 504.41,
+     "irpf": 11145.97,
+     "tipo_medio": 25.36,
+     "neto_anual": 34801.11,
+     "neto_mensual": 2900.09,
+     "puesto": 15,
+     "mas_barata": "madrid",
+     "irpf_mas_barata": 10271.54,
+     "mas_cara": "extremadura",
+     "irpf_mas_cara": 11145.97
+    }
+   ]
+  },
+  "galicia": {
+   "escala_2026": [
+    {
+     "hasta": 12985.35,
+     "tipo": 9
+    },
+    {
+     "hasta": 21068.6,
+     "tipo": 11.65
+    },
+    {
+     "hasta": 35200,
+     "tipo": 14.9
+    },
+    {
+     "hasta": 60000,
+     "tipo": 18.4
+    },
+    {
+     "hasta": null,
+     "tipo": 22.5
+    }
+   ],
+   "escala_2025": null,
+   "tipo_minimo": 9,
+   "tipo_maximo": 22.5,
+   "marginal_conjunto": [
+    {
+     "desde": 0,
+     "hasta": 12450,
+     "estatal": 9.5,
+     "autonomico": 9,
+     "total": 18.5
+    },
+    {
+     "desde": 12450,
+     "hasta": 12985.35,
+     "estatal": 12,
+     "autonomico": 9,
+     "total": 21
+    },
+    {
+     "desde": 12985.35,
+     "hasta": 20200,
+     "estatal": 12,
+     "autonomico": 11.65,
+     "total": 23.65
+    },
+    {
+     "desde": 20200,
+     "hasta": 21068.6,
+     "estatal": 15,
+     "autonomico": 11.65,
+     "total": 26.65
+    },
+    {
+     "desde": 21068.6,
+     "hasta": 35200,
+     "estatal": 15,
+     "autonomico": 14.9,
+     "total": 29.9
+    },
+    {
+     "desde": 35200,
+     "hasta": 60000,
+     "estatal": 18.5,
+     "autonomico": 18.4,
+     "total": 36.9
+    },
+    {
+     "desde": 60000,
+     "hasta": 300000,
+     "estatal": 22.5,
+     "autonomico": 22.5,
+     "total": 45
+    },
+    {
+     "desde": 300000,
+     "hasta": null,
+     "estatal": 24.5,
+     "autonomico": 22.5,
+     "total": 47
+    }
+   ],
+   "minimos": {
+    "contribuyente": 5789,
+    "descendientes": [
+     2503,
+     2816,
+     4172,
+     4694
+    ],
+    "menor3": 2920
+   },
+   "minimos_propios": true,
+   "ejemplos": [
+    {
+     "ingresos": 20000,
+     "gastos": 3000,
+     "cuota_mensual": 299.56,
+     "irpf": 1314.84,
+     "tipo_medio": 10.32,
+     "neto_anual": 12090.44,
+     "neto_mensual": 1007.54,
+     "puesto": 7,
+     "mas_barata": "extremadura",
+     "irpf_mas_barata": 1252.24,
+     "mas_cara": "baleares",
+     "irpf_mas_cara": 1397.89
+    },
+    {
+     "ingresos": 30000,
+     "gastos": 4000,
+     "cuota_mensual": 380.88,
+     "irpf": 3115.78,
+     "tipo_medio": 15.3,
+     "neto_anual": 18313.66,
+     "neto_mensual": 1526.14,
+     "puesto": 6,
+     "mas_barata": "extremadura",
+     "irpf_mas_barata": 2924.85,
+     "mas_cara": "cataluna",
+     "irpf_mas_cara": 3251.69
+    },
+    {
+     "ingresos": 40000,
+     "gastos": 5000,
+     "cuota_mensual": 427.21,
+     "irpf": 5491.21,
+     "tipo_medio": 19.35,
+     "neto_anual": 24382.27,
+     "neto_mensual": 2031.86,
+     "puesto": 8,
+     "mas_barata": "madrid",
+     "irpf_mas_barata": 5245.7,
+     "mas_cara": "cataluna",
+     "irpf_mas_cara": 5680.99
+    },
+    {
+     "ingresos": 60000,
+     "gastos": 8000,
+     "cuota_mensual": 504.41,
+     "irpf": 10758.12,
+     "tipo_medio": 24.48,
+     "neto_anual": 35188.96,
+     "neto_mensual": 2932.41,
+     "puesto": 8,
+     "mas_barata": "madrid",
+     "irpf_mas_barata": 10271.54,
+     "mas_cara": "extremadura",
+     "irpf_mas_cara": 11145.97
+    }
+   ]
+  },
+  "la_rioja": {
+   "escala_2026": [
+    {
+     "hasta": 12450,
+     "tipo": 8
+    },
+    {
+     "hasta": 20200,
+     "tipo": 10.6
+    },
+    {
+     "hasta": 35200,
+     "tipo": 13.6
+    },
+    {
+     "hasta": 40000,
+     "tipo": 17.8
+    },
+    {
+     "hasta": 50000,
+     "tipo": 18.3
+    },
+    {
+     "hasta": 60000,
+     "tipo": 19
+    },
+    {
+     "hasta": 120000,
+     "tipo": 24.5
+    },
+    {
+     "hasta": null,
+     "tipo": 27
+    }
+   ],
+   "escala_2025": null,
+   "tipo_minimo": 8,
+   "tipo_maximo": 27,
+   "marginal_conjunto": [
+    {
+     "desde": 0,
+     "hasta": 12450,
+     "estatal": 9.5,
+     "autonomico": 8,
+     "total": 17.5
+    },
+    {
+     "desde": 12450,
+     "hasta": 20200,
+     "estatal": 12,
+     "autonomico": 10.6,
+     "total": 22.6
+    },
+    {
+     "desde": 20200,
+     "hasta": 35200,
+     "estatal": 15,
+     "autonomico": 13.6,
+     "total": 28.6
+    },
+    {
+     "desde": 35200,
+     "hasta": 40000,
+     "estatal": 18.5,
+     "autonomico": 17.8,
+     "total": 36.3
+    },
+    {
+     "desde": 40000,
+     "hasta": 50000,
+     "estatal": 18.5,
+     "autonomico": 18.3,
+     "total": 36.8
+    },
+    {
+     "desde": 50000,
+     "hasta": 60000,
+     "estatal": 18.5,
+     "autonomico": 19,
+     "total": 37.5
+    },
+    {
+     "desde": 60000,
+     "hasta": 120000,
+     "estatal": 22.5,
+     "autonomico": 24.5,
+     "total": 47
+    },
+    {
+     "desde": 120000,
+     "hasta": 300000,
+     "estatal": 22.5,
+     "autonomico": 27,
+     "total": 49.5
+    },
+    {
+     "desde": 300000,
+     "hasta": null,
+     "estatal": 24.5,
+     "autonomico": 27,
+     "total": 51.5
+    }
+   ],
+   "minimos": {
+    "contribuyente": 5550,
+    "descendientes": [
+     2400,
+     2700,
+     4000,
+     4500
+    ],
+    "menor3": 2800
+   },
+   "minimos_propios": false,
+   "ejemplos": [
+    {
+     "ingresos": 20000,
+     "gastos": 3000,
+     "cuota_mensual": 299.56,
+     "irpf": 1271.91,
+     "tipo_medio": 9.99,
+     "neto_anual": 12133.37,
+     "neto_mensual": 1011.11,
+     "puesto": 3,
+     "mas_barata": "extremadura",
+     "irpf_mas_barata": 1252.24,
+     "mas_cara": "baleares",
+     "irpf_mas_cara": 1397.89
+    },
+    {
+     "ingresos": 30000,
+     "gastos": 4000,
+     "cuota_mensual": 380.88,
+     "irpf": 3004.18,
+     "tipo_medio": 14.76,
+     "neto_anual": 18425.26,
+     "neto_mensual": 1535.44,
+     "puesto": 2,
+     "mas_barata": "extremadura",
+     "irpf_mas_barata": 2924.85,
+     "mas_cara": "cataluna",
+     "irpf_mas_cara": 3251.69
+    },
+    {
+     "ingresos": 40000,
+     "gastos": 5000,
+     "cuota_mensual": 427.21,
+     "irpf": 5298.42,
+     "tipo_medio": 18.67,
+     "neto_anual": 24575.06,
+     "neto_mensual": 2047.92,
+     "puesto": 2,
+     "mas_barata": "madrid",
+     "irpf_mas_barata": 5245.7,
+     "mas_cara": "cataluna",
+     "irpf_mas_cara": 5680.99
+    },
+    {
+     "ingresos": 60000,
+     "gastos": 8000,
+     "cuota_mensual": 504.41,
+     "irpf": 10443.93,
+     "tipo_medio": 23.76,
+     "neto_anual": 35503.15,
+     "neto_mensual": 2958.6,
+     "puesto": 2,
+     "mas_barata": "madrid",
+     "irpf_mas_barata": 10271.54,
+     "mas_cara": "extremadura",
+     "irpf_mas_cara": 11145.97
+    }
+   ]
+  },
+  "madrid": {
+   "escala_2026": [
+    {
+     "hasta": 13362.22,
+     "tipo": 8.5
+    },
+    {
+     "hasta": 19004.63,
+     "tipo": 10.7
+    },
+    {
+     "hasta": 35425.68,
+     "tipo": 12.8
+    },
+    {
+     "hasta": 57320.4,
+     "tipo": 17.4
+    },
+    {
+     "hasta": null,
+     "tipo": 20.5
+    }
+   ],
+   "escala_2025": null,
+   "tipo_minimo": 8.5,
+   "tipo_maximo": 20.5,
+   "marginal_conjunto": [
+    {
+     "desde": 0,
+     "hasta": 12450,
+     "estatal": 9.5,
+     "autonomico": 8.5,
+     "total": 18
+    },
+    {
+     "desde": 12450,
+     "hasta": 13362.22,
+     "estatal": 12,
+     "autonomico": 8.5,
+     "total": 20.5
+    },
+    {
+     "desde": 13362.22,
+     "hasta": 19004.63,
+     "estatal": 12,
+     "autonomico": 10.7,
+     "total": 22.7
+    },
+    {
+     "desde": 19004.63,
+     "hasta": 20200,
+     "estatal": 12,
+     "autonomico": 12.8,
+     "total": 24.8
+    },
+    {
+     "desde": 20200,
+     "hasta": 35200,
+     "estatal": 15,
+     "autonomico": 12.8,
+     "total": 27.8
+    },
+    {
+     "desde": 35200,
+     "hasta": 35425.68,
+     "estatal": 18.5,
+     "autonomico": 12.8,
+     "total": 31.3
+    },
+    {
+     "desde": 35425.68,
+     "hasta": 57320.4,
+     "estatal": 18.5,
+     "autonomico": 17.4,
+     "total": 35.9
+    },
+    {
+     "desde": 57320.4,
+     "hasta": 60000,
+     "estatal": 18.5,
+     "autonomico": 20.5,
+     "total": 39
+    },
+    {
+     "desde": 60000,
+     "hasta": 300000,
+     "estatal": 22.5,
+     "autonomico": 20.5,
+     "total": 43
+    },
+    {
+     "desde": 300000,
+     "hasta": null,
+     "estatal": 24.5,
+     "autonomico": 20.5,
+     "total": 45
+    }
+   ],
+   "minimos": {
+    "contribuyente": 5956.65,
+    "descendientes": [
+     2575.85,
+     2897.83,
+     4400,
+     4950
+    ],
+    "menor3": 3005.16
+   },
+   "minimos_propios": true,
+   "ejemplos": [
+    {
+     "ingresos": 20000,
+     "gastos": 3000,
+     "cuota_mensual": 299.56,
+     "irpf": 1265.86,
+     "tipo_medio": 9.94,
+     "neto_anual": 12139.42,
+     "neto_mensual": 1011.62,
+     "puesto": 2,
+     "mas_barata": "extremadura",
+     "irpf_mas_barata": 1252.24,
+     "mas_cara": "baleares",
+     "irpf_mas_cara": 1397.89
+    },
+    {
+     "ingresos": 30000,
+     "gastos": 4000,
+     "cuota_mensual": 380.88,
+     "irpf": 3015.63,
+     "tipo_medio": 14.81,
+     "neto_anual": 18413.81,
+     "neto_mensual": 1534.48,
+     "puesto": 3,
+     "mas_barata": "extremadura",
+     "irpf_mas_barata": 2924.85,
+     "mas_cara": "cataluna",
+     "irpf_mas_cara": 3251.69
+    },
+    {
+     "ingresos": 40000,
+     "gastos": 5000,
+     "cuota_mensual": 427.21,
+     "irpf": 5245.7,
+     "tipo_medio": 18.48,
+     "neto_anual": 24627.78,
+     "neto_mensual": 2052.32,
+     "puesto": 1,
+     "mas_barata": "madrid",
+     "irpf_mas_barata": 5245.7,
+     "mas_cara": "cataluna",
+     "irpf_mas_cara": 5680.99
+    },
+    {
+     "ingresos": 60000,
+     "gastos": 8000,
+     "cuota_mensual": 504.41,
+     "irpf": 10271.54,
+     "tipo_medio": 23.37,
+     "neto_anual": 35675.54,
+     "neto_mensual": 2972.96,
+     "puesto": 1,
+     "mas_barata": "madrid",
+     "irpf_mas_barata": 10271.54,
+     "mas_cara": "extremadura",
+     "irpf_mas_cara": 11145.97
+    }
+   ]
+  },
+  "murcia": {
+   "escala_2026": [
+    {
+     "hasta": 12450,
+     "tipo": 9.5
+    },
+    {
+     "hasta": 20200,
+     "tipo": 11.2
+    },
+    {
+     "hasta": 34000,
+     "tipo": 13.3
+    },
+    {
+     "hasta": 60000,
+     "tipo": 17.9
+    },
+    {
+     "hasta": null,
+     "tipo": 22.5
+    }
+   ],
+   "escala_2025": null,
+   "tipo_minimo": 9.5,
+   "tipo_maximo": 22.5,
+   "marginal_conjunto": [
+    {
+     "desde": 0,
+     "hasta": 12450,
+     "estatal": 9.5,
+     "autonomico": 9.5,
+     "total": 19
+    },
+    {
+     "desde": 12450,
+     "hasta": 20200,
+     "estatal": 12,
+     "autonomico": 11.2,
+     "total": 23.2
+    },
+    {
+     "desde": 20200,
+     "hasta": 34000,
+     "estatal": 15,
+     "autonomico": 13.3,
+     "total": 28.3
+    },
+    {
+     "desde": 34000,
+     "hasta": 35200,
+     "estatal": 15,
+     "autonomico": 17.9,
+     "total": 32.9
+    },
+    {
+     "desde": 35200,
+     "hasta": 60000,
+     "estatal": 18.5,
+     "autonomico": 17.9,
+     "total": 36.4
+    },
+    {
+     "desde": 60000,
+     "hasta": 300000,
+     "estatal": 22.5,
+     "autonomico": 22.5,
+     "total": 45
+    },
+    {
+     "desde": 300000,
+     "hasta": null,
+     "estatal": 24.5,
+     "autonomico": 22.5,
+     "total": 47
+    }
+   ],
+   "minimos": {
+    "contribuyente": 5550,
+    "descendientes": [
+     2400,
+     2700,
+     4000,
+     4500
+    ],
+    "menor3": 2800
+   },
+   "minimos_propios": false,
+   "ejemplos": [
+    {
+     "ingresos": 20000,
+     "gastos": 3000,
+     "cuota_mensual": 299.56,
+     "irpf": 1377.12,
+     "tipo_medio": 10.81,
+     "neto_anual": 12028.16,
+     "neto_mensual": 1002.35,
+     "puesto": 12,
+     "mas_barata": "extremadura",
+     "irpf_mas_barata": 1252.24,
+     "mas_cara": "baleares",
+     "irpf_mas_cara": 1397.89
+    },
+    {
+     "ingresos": 30000,
+     "gastos": 4000,
+     "cuota_mensual": 380.88,
+     "irpf": 3153.7,
+     "tipo_medio": 15.49,
+     "neto_anual": 18275.74,
+     "neto_mensual": 1522.98,
+     "puesto": 8,
+     "mas_barata": "extremadura",
+     "irpf_mas_barata": 2924.85,
+     "mas_cara": "cataluna",
+     "irpf_mas_cara": 3251.69
+    },
+    {
+     "ingresos": 40000,
+     "gastos": 5000,
+     "cuota_mensual": 427.21,
+     "irpf": 5423.89,
+     "tipo_medio": 19.11,
+     "neto_anual": 24449.59,
+     "neto_mensual": 2037.47,
+     "puesto": 4,
+     "mas_barata": "madrid",
+     "irpf_mas_barata": 5245.7,
+     "mas_cara": "cataluna",
+     "irpf_mas_cara": 5680.99
+    },
+    {
+     "ingresos": 60000,
+     "gastos": 8000,
+     "cuota_mensual": 504.41,
+     "irpf": 10593.14,
+     "tipo_medio": 24.1,
+     "neto_anual": 35353.94,
+     "neto_mensual": 2946.16,
+     "puesto": 3,
+     "mas_barata": "madrid",
+     "irpf_mas_barata": 10271.54,
+     "mas_cara": "extremadura",
+     "irpf_mas_cara": 11145.97
+    }
+   ]
+  },
+  "valenciana": {
+   "escala_2026": [
+    {
+     "hasta": 12000,
+     "tipo": 8.8
+    },
+    {
+     "hasta": 22000,
+     "tipo": 11.7
+    },
+    {
+     "hasta": 32000,
+     "tipo": 14.6
+    },
+    {
+     "hasta": 42000,
+     "tipo": 17
+    },
+    {
+     "hasta": 52000,
+     "tipo": 19.4
+    },
+    {
+     "hasta": 62000,
+     "tipo": 21.9
+    },
+    {
+     "hasta": 72000,
+     "tipo": 24.4
+    },
+    {
+     "hasta": 100000,
+     "tipo": 26.1
+    },
+    {
+     "hasta": 150000,
+     "tipo": 27.35
+    },
+    {
+     "hasta": 200000,
+     "tipo": 28.35
+    },
+    {
+     "hasta": null,
+     "tipo": 29.35
+    }
+   ],
+   "escala_2025": [
+    {
+     "hasta": 12000,
+     "tipo": 9
+    },
+    {
+     "hasta": 22000,
+     "tipo": 12
+    },
+    {
+     "hasta": 32000,
+     "tipo": 15
+    },
+    {
+     "hasta": 42000,
+     "tipo": 17.5
+    },
+    {
+     "hasta": 52000,
+     "tipo": 20
+    },
+    {
+     "hasta": 62000,
+     "tipo": 22.5
+    },
+    {
+     "hasta": 72000,
+     "tipo": 25
+    },
+    {
+     "hasta": 100000,
+     "tipo": 26.5
+    },
+    {
+     "hasta": 150000,
+     "tipo": 27.5
+    },
+    {
+     "hasta": 200000,
+     "tipo": 28.5
+    },
+    {
+     "hasta": null,
+     "tipo": 29.5
+    }
+   ],
+   "tipo_minimo": 8.8,
+   "tipo_maximo": 29.35,
+   "marginal_conjunto": [
+    {
+     "desde": 0,
+     "hasta": 12000,
+     "estatal": 9.5,
+     "autonomico": 8.8,
+     "total": 18.3
+    },
+    {
+     "desde": 12000,
+     "hasta": 12450,
+     "estatal": 9.5,
+     "autonomico": 11.7,
+     "total": 21.2
+    },
+    {
+     "desde": 12450,
+     "hasta": 20200,
+     "estatal": 12,
+     "autonomico": 11.7,
+     "total": 23.7
+    },
+    {
+     "desde": 20200,
+     "hasta": 22000,
+     "estatal": 15,
+     "autonomico": 11.7,
+     "total": 26.7
+    },
+    {
+     "desde": 22000,
+     "hasta": 32000,
+     "estatal": 15,
+     "autonomico": 14.6,
+     "total": 29.6
+    },
+    {
+     "desde": 32000,
+     "hasta": 35200,
+     "estatal": 15,
+     "autonomico": 17,
+     "total": 32
+    },
+    {
+     "desde": 35200,
+     "hasta": 42000,
+     "estatal": 18.5,
+     "autonomico": 17,
+     "total": 35.5
+    },
+    {
+     "desde": 42000,
+     "hasta": 52000,
+     "estatal": 18.5,
+     "autonomico": 19.4,
+     "total": 37.9
+    },
+    {
+     "desde": 52000,
+     "hasta": 60000,
+     "estatal": 18.5,
+     "autonomico": 21.9,
+     "total": 40.4
+    },
+    {
+     "desde": 60000,
+     "hasta": 62000,
+     "estatal": 22.5,
+     "autonomico": 21.9,
+     "total": 44.4
+    },
+    {
+     "desde": 62000,
+     "hasta": 72000,
+     "estatal": 22.5,
+     "autonomico": 24.4,
+     "total": 46.9
+    },
+    {
+     "desde": 72000,
+     "hasta": 100000,
+     "estatal": 22.5,
+     "autonomico": 26.1,
+     "total": 48.6
+    },
+    {
+     "desde": 100000,
+     "hasta": 150000,
+     "estatal": 22.5,
+     "autonomico": 27.35,
+     "total": 49.85
+    },
+    {
+     "desde": 150000,
+     "hasta": 200000,
+     "estatal": 22.5,
+     "autonomico": 28.35,
+     "total": 50.85
+    },
+    {
+     "desde": 200000,
+     "hasta": 300000,
+     "estatal": 22.5,
+     "autonomico": 29.35,
+     "total": 51.85
+    },
+    {
+     "desde": 300000,
+     "hasta": null,
+     "estatal": 24.5,
+     "autonomico": 29.35,
+     "total": 53.85
+    }
+   ],
+   "minimos": {
+    "contribuyente": 6105,
+    "descendientes": [
+     2640,
+     2970,
+     4400,
+     4950
+    ],
+    "menor3": 3080
+   },
+   "minimos_propios": true,
+   "ejemplos": [
+    {
+     "ingresos": 20000,
+     "gastos": 3000,
+     "cuota_mensual": 299.56,
+     "irpf": 1294.46,
+     "tipo_medio": 10.16,
+     "neto_anual": 12110.82,
+     "neto_mensual": 1009.24,
+     "puesto": 4,
+     "mas_barata": "extremadura",
+     "irpf_mas_barata": 1252.24,
+     "mas_cara": "baleares",
+     "irpf_mas_cara": 1397.89
+    },
+    {
+     "ingresos": 30000,
+     "gastos": 4000,
+     "cuota_mensual": 380.88,
+     "irpf": 3105.84,
+     "tipo_medio": 15.26,
+     "neto_anual": 18323.6,
+     "neto_mensual": 1526.97,
+     "puesto": 5,
+     "mas_barata": "extremadura",
+     "irpf_mas_barata": 2924.85,
+     "mas_cara": "cataluna",
+     "irpf_mas_cara": 3251.69
+    },
+    {
+     "ingresos": 40000,
+     "gastos": 5000,
+     "cuota_mensual": 427.21,
+     "irpf": 5432.68,
+     "tipo_medio": 19.14,
+     "neto_anual": 24440.8,
+     "neto_mensual": 2036.73,
+     "puesto": 5,
+     "mas_barata": "madrid",
+     "irpf_mas_barata": 5245.7,
+     "mas_cara": "cataluna",
+     "irpf_mas_cara": 5680.99
+    },
+    {
+     "ingresos": 60000,
+     "gastos": 8000,
+     "cuota_mensual": 504.41,
+     "irpf": 10680.2,
+     "tipo_medio": 24.3,
+     "neto_anual": 35266.88,
+     "neto_mensual": 2938.91,
+     "puesto": 6,
+     "mas_barata": "madrid",
+     "irpf_mas_barata": 10271.54,
+     "mas_cara": "extremadura",
+     "irpf_mas_cara": 11145.97
+    }
+   ]
+  }
+ }
+}

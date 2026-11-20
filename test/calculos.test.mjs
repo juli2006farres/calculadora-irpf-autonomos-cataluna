@@ -154,3 +154,54 @@ test("sueldo neto en otra comunidad: Madrid paga menos IRPF que Cataluña", () =
   assert.ok(mad.irpf < cat.irpf);
   assert.ok(mad.netoMensual > cat.netoMensual);
 });
+
+import { calcularTarifaPlana, rendimientoParaSmi, SMI_ANUAL, TARIFA_PLANA_2026 } from "../tarifa/calculo.js";
+
+test("tarifa plana: 88,64 € frente a la cuota normal de 427,21 €", () => {
+  const r = calcularTarifaPlana({ ingresos: 40000, gastos: 5000, modalidad: "directa_simplificada", cumpleRequisitosArt32: false });
+  assert.equal(TARIFA_PLANA_2026.total, TARIFA_PLANA_2026.cuotaReducida + TARIFA_PLANA_2026.mei);
+  assert.equal(r.tarifaMensual, 88.64);
+  assert.equal(r.cuotaNormalMensual, 427.21);
+  assert.equal(r.ahorroMensual, 338.57);
+  assert.equal(r.mesesIniciales, 12);
+  assert.equal(r.pagadoPeriodoInicial, 1063.68);
+  assert.equal(r.ahorroPeriodoInicial, 4062.84);
+  // 35.000 - 5 % de 33.936,32 = 33.303,18; menos el 7 % = 30.971,96, por encima del SMI.
+  assert.equal(r.rendimientoParaSmi, 30971.96);
+  assert.equal(r.prorroga[2026].cumple, false);
+  assert.equal(r.prorroga[2027].cumple, false);
+});
+
+test("tarifa plana: con rendimientos bajos se puede alargar", () => {
+  const r = calcularTarifaPlana({ ingresos: 18000, gastos: 3000, modalidad: "directa_simplificada", cumpleRequisitosArt32: false });
+  // 15.000 - 5 % de 13.936,32 = 14.303,18; menos el 7 % = 13.301,96.
+  assert.equal(r.rendimientoParaSmi, 13301.96);
+  assert.equal(r.prorroga[2026].cumple, true);
+  assert.equal(r.prorroga[2027].cumple, true);
+  assert.equal(r.ahorroProrroga, Math.round(r.ahorroMensual * 12 * 100) / 100);
+});
+
+test("tarifa plana: entre los dos SMI solo se puede alargar en 2027", () => {
+  // Directa normal, sin difícil justificación: 19.000 x 0,93 = 17.670, entre 17.094 y 18.004.
+  const r = calcularTarifaPlana({ ingresos: 19000, gastos: 0, modalidad: "directa_normal", cumpleRequisitosArt32: false });
+  assert.equal(r.rendimientoParaSmi, 17670);
+  assert.equal(r.prorroga[2026].cumple, false);
+  assert.equal(r.prorroga[2027].cumple, true);
+  assert.equal(SMI_ANUAL[2026], 1221 * 14);
+  assert.equal(SMI_ANUAL[2027], 1286 * 14);
+});
+
+test("tarifa plana: casos especiales con 24 meses y sin cifra de prórroga", () => {
+  const r = calcularTarifaPlana({ ingresos: 30000, gastos: 4000, modalidad: "directa_simplificada", cumpleRequisitosArt32: false, especial: true });
+  assert.equal(r.mesesIniciales, 24);
+  assert.equal(r.mesesProrroga, 36);
+  assert.equal(r.pagadoPeriodoInicial, 2127.36);
+  assert.equal(r.ahorroProrroga, null);
+  assert.equal(r.ahorroPeriodoInicial, Math.round(r.ahorroMensual * 24 * 100) / 100);
+});
+
+test("tarifa plana: el SMI se compara con un rendimiento que nunca es negativo", () => {
+  assert.equal(rendimientoParaSmi({ ingresos: 0, gastos: 5000, modalidad: "directa_simplificada", cumpleRequisitosArt32: false }), 0);
+  const r = calcularTarifaPlana({ ingresos: 0, gastos: 0, modalidad: "directa_simplificada", cumpleRequisitosArt32: false });
+  assert.ok(r.ahorroMensual > 0);
+});

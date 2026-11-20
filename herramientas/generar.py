@@ -14,10 +14,13 @@ WEB = Path(sys.argv[1])
 BASE = "https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/"
 MCPIZE = "https://mcpize.com/mcp/irpf-pymes-cat-mcp"
 HOY = "2026-11-17"
+# Fecha de la última modificación de las páginas, para el sitemap.
+MODIFICADO = "2026-11-20"
 
 RUTAS = {
     "irpf": {"es": "", "ca": "ca/"},
     "cuota": {"es": "cuota-autonomos-2026/", "ca": "ca/quota-autonoms-2026/"},
+    "tarifa": {"es": "tarifa-plana-autonomos-2026/", "ca": "ca/tarifa-plana-autonoms-2026/"},
     "factura": {"es": "factura-autonomos/", "ca": "ca/factura-autonoms/"},
     "iva": {"es": "calculadora-iva/", "ca": "ca/calculadora-iva/"},
     "sueldo": {"es": "sueldo-neto-autonomo/", "ca": "ca/sou-net-autonom/"},
@@ -30,12 +33,12 @@ RUTAS = {
     "calendario": {"es": "calendario-fiscal-autonomos-2027/", "ca": "ca/calendari-fiscal-autonoms-2027/"},
 }
 # ORDEN: tarjetas y sitemap. MENU_ORDEN: menú de arriba (el IRPF de Cataluña se enlaza desde las tarjetas).
-ORDEN = ["irpf_es", "irpf", "cuota", "factura", "plantilla", "iva", "m303", "m130", "sueldo", "objetivo", "calendario"]
+ORDEN = ["irpf_es", "irpf", "cuota", "tarifa", "factura", "plantilla", "iva", "m303", "m130", "sueldo", "objetivo", "calendario"]
 MENU_ORDEN = ["irpf_es", "cuota", "factura", "plantilla", "iva", "m303", "m130", "sueldo", "objetivo", "calendario"]
 MENU = {
-    "es": {"irpf_es": "IRPF", "calendario": "Calendario", "irpf": "IRPF Cataluña", "cuota": "Cuota", "factura": "Factura", "iva": "IVA", "sueldo": "Sueldo neto",
+    "es": {"irpf_es": "IRPF", "calendario": "Calendario", "irpf": "IRPF Cataluña", "cuota": "Cuota", "tarifa": "Tarifa plana", "factura": "Factura", "iva": "IVA", "sueldo": "Sueldo neto",
            "objetivo": "Cuánto facturar", "m130": "Modelo 130", "m303": "Modelo 303", "plantilla": "Plantilla"},
-    "ca": {"irpf_es": "IRPF", "calendario": "Calendari", "irpf": "IRPF Catalunya", "cuota": "Quota", "factura": "Factura", "iva": "IVA", "sueldo": "Sou net",
+    "ca": {"irpf_es": "IRPF", "calendario": "Calendari", "irpf": "IRPF Catalunya", "cuota": "Quota", "tarifa": "Tarifa plana", "factura": "Factura", "iva": "IVA", "sueldo": "Sou net",
            "objetivo": "Quant facturar", "m130": "Model 130", "m303": "Model 303", "plantilla": "Plantilla"},
 }
 TARJETAS = {
@@ -44,6 +47,7 @@ TARJETAS = {
         "calendario": ("Calendario fiscal 2027", "Todos los plazos del año: modelos 303, 130, 390 y renta."),
         "irpf": ("IRPF de autónomos en Cataluña", "Cuánto pagarás en la renta, con la escala catalana."),
         "cuota": ("Cuota de autónomos 2026", "Tu tramo y tu cuota mensual según lo que ganas."),
+        "tarifa": ("Tarifa plana 2026", "Cuánto te ahorras el primer año y si puedes alargarla."),
         "factura": ("Factura con IVA e IRPF", "El total de la factura, o cuánto facturar para cobrar una cantidad."),
         "iva": ("Calculadora de IVA", "Añade o quita el IVA del 21 %, 10 % o 4 % a cualquier precio."),
         "sueldo": ("Sueldo neto de autónomo", "Lo que te queda al mes tras gastos, cuota e IRPF."),
@@ -57,6 +61,7 @@ TARJETAS = {
         "calendario": ("Calendari fiscal 2027", "Tots els terminis de l'any: models 303, 130, 390 i renda."),
         "irpf": ("IRPF d'autònoms a Catalunya", "Quant pagaràs a la renda, amb l'escala catalana."),
         "cuota": ("Quota d'autònoms 2026", "El teu tram i la teva quota mensual segons el que guanyes."),
+        "tarifa": ("Tarifa plana 2026", "Quant t'estalvies el primer any i si la pots allargar."),
         "factura": ("Factura amb IVA i IRPF", "El total de la factura, o quant facturar per cobrar una quantitat."),
         "iva": ("Calculadora d'IVA", "Afegeix o treu l'IVA del 21 %, 10 % o 4 % a qualsevol preu."),
         "sueldo": ("Sou net d'autònom", "El que et queda al mes després de despeses, quota i IRPF."),
@@ -66,11 +71,12 @@ TARJETAS = {
         "plantilla": ("Plantilla de factura", "Excel i Word gratis, amb l'IVA i la retenció calculats."),
     },
 }
-ICONOS = {"irpf": "📊", "cuota": "🏛️", "factura": "🧾", "iva": "💶", "sueldo": "💰", "objetivo": "🎯", "m130": "📅", "m303": "🧮", "plantilla": "📄", "irpf_es": "🗺️", "calendario": "🗓️"}
+ICONOS = {"irpf": "📊", "cuota": "🏛️", "tarifa": "🌱", "factura": "🧾", "iva": "💶", "sueldo": "💰", "objetivo": "🎯", "m130": "📅", "m303": "🧮", "plantilla": "📄", "irpf_es": "🗺️", "calendario": "🗓️"}
 # Fecha de la última revisión de los datos de cada calculadora y a qué año se refieren.
 REVISION = {
     "irpf": ("2026-11-19", {"es": "datos de 2025 y 2026", "ca": "dades del 2025 i el 2026"}),
     "cuota": ("2026-11-16", {"es": "tablas oficiales de 2026", "ca": "taules oficials del 2026"}),
+    "tarifa": ("2026-11-20", {"es": "datos de 2026", "ca": "dades del 2026"}),
     "factura": (HOY, {"es": "tipos vigentes en 2026", "ca": "tipus vigents el 2026"}),
     "iva": (HOY, {"es": "tipos vigentes en 2026", "ca": "tipus vigents el 2026"}),
     "sueldo": ("2026-11-19", {"es": "datos de 2026", "ca": "dades del 2026"}),
@@ -133,6 +139,8 @@ DESCRIPCIONES = {
 # Versión de la hoja de estilos: cambia sola cuando cambia estilos.css, para que los navegadores
 # no sigan usando una copia antigua guardada en caché.
 VERSION_CSS = hashlib.sha256((WEB / "estilos.css").read_bytes()).hexdigest()[:10]
+# Página de la que cuelga cada página de comunidad, para marcarla en el menú.
+PADRE = {}
 ICONO = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f5f8b'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white' font-family='Arial'%3E%E2%82%AC%3C/text%3E%3C/svg%3E"
 
 
@@ -157,7 +165,7 @@ def cabecera(lang, clave):
     ruta = RUTAS[clave][lang]
     enlaces = []
     for k in MENU_ORDEN:
-        actual = ' aria-current="page"' if k == clave else ""
+        actual = ' aria-current="page"' if k == PADRE.get(clave, clave) else ""
         enlaces.append(f'<a href="{relativa(ruta, RUTAS[k][lang])}"{actual}>{MENU[lang][k]}</a>')
     o = otro(lang)
     enlaces.append(
@@ -229,7 +237,7 @@ def pie(lang, clave):
 # Enlace de afiliado de Quipu (programa de afiliados de Quipu, panel en quipu.getrewardful.com).
 # Solo aparece en las calculadoras relacionadas con facturar e impuestos trimestrales.
 AFILIADO_URL = {"es": "https://getquipu.com/es/autonomos?via=juli", "ca": "https://getquipu.com/ca/autonoms?via=juli"}
-PAGINAS_CON_AFILIADO = {"factura", "iva", "m130", "m303", "plantilla", "calendario"}
+PAGINAS_CON_AFILIADO = {"factura", "iva", "m130", "m303", "plantilla", "calendario", "tarifa"}
 AFILIADO = {
     "es": {
         "titulo": "¿Todavía haces las facturas a mano?",
@@ -413,7 +421,7 @@ def pagina(p):
 <div class="contenedor">
   {bloque}
 
-  {recomendacion(lang, clave)}<section class="tarjeta faq">
+  {p.get("extra", "")}{recomendacion(lang, clave)}<section class="tarjeta faq">
     <h2>{T[lang]["faq"]}</h2>
 {faq}
   </section>
@@ -472,16 +480,20 @@ def actualizar_existente(lang, clave):
     archivo.write_text(t, encoding="utf-8")
 
 
+# Páginas que van al sitemap además de las de ORDEN (las de cada comunidad).
+EXTRA_SITEMAP = []
+
+
 def sitemap():
     lineas = ['<?xml version="1.0" encoding="UTF-8"?>',
               '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
-    for clave in ORDEN:
+    for clave in ORDEN + EXTRA_SITEMAP:
         es, ca = RUTAS[clave]["es"], RUTAS[clave]["ca"]
         for ruta in (es, ca):
             lineas += [
                 "  <url>",
                 f"    <loc>{BASE}{ruta}</loc>",
-                f"    <lastmod>{HOY}</lastmod>",
+                f"    <lastmod>{MODIFICADO}</lastmod>",
                 f'    <xhtml:link rel="alternate" hreflang="es" href="{BASE}{es}"/>',
                 f'    <xhtml:link rel="alternate" hreflang="ca" href="{BASE}{ca}"/>',
                 f'    <xhtml:link rel="alternate" hreflang="x-default" href="{BASE}{es}"/>',
@@ -493,7 +505,13 @@ def sitemap():
 
 if __name__ == "__main__":
     sys.path.insert(0, str(Path(__file__).parent))
-    from contenido_espana import PAGINAS
+    from contenido_comunidades import PADRE_COMUNIDADES, PAGINAS, RUTAS_COMUNIDADES
+
+    RUTAS.update(RUTAS_COMUNIDADES)
+    PADRE.update(PADRE_COMUNIDADES)
+    EXTRA_SITEMAP.extend(RUTAS_COMUNIDADES)
+    for k, padre in PADRE_COMUNIDADES.items():
+        REVISION[k] = REVISION[padre]
 
     for (lang, clave), d in DESCRIPCIONES.items():
         if len(d) > 155:

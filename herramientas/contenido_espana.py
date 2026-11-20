@@ -1,5 +1,6 @@
 """IRPF para todas las comunidades, calendario fiscal 2027 y adaptación de sueldo neto y cuánto facturar."""
 import copy
+import unicodedata
 
 from contenido import BOE_LIRPF, campo, casilla, seleccion
 from contenido_303 import PAGINAS as PAGINAS_ANTERIORES
@@ -25,6 +26,12 @@ COMUNIDADES = {
 }
 
 
+def orden_alfabetico(nombre):
+    """Clave para ordenar nombres sin que cuenten los acentos ni las mayúsculas."""
+    sin_acentos = "".join(ch for ch in unicodedata.normalize("NFD", nombre) if not unicodedata.combining(ch))
+    return sin_acentos.casefold()
+
+
 def selector_comunidad(lang, inicial):
     etiqueta, ayuda = {
         "es": ("Comunidad autónoma", "Donde vives. No incluye País Vasco, Navarra, Ceuta ni Melilla."),
@@ -33,7 +40,7 @@ def selector_comunidad(lang, inicial):
     nombres = COMUNIDADES[lang]
     ops = "\n".join(
         f'          <option value="{c}"{" selected" if c == inicial else ""}>{n}</option>'
-        for c, n in sorted(nombres.items(), key=lambda x: x[1])
+        for c, n in sorted(nombres.items(), key=lambda x: orden_alfabetico(x[1]))
     )
     return f"""      <div>
         <label for="comunidad">{etiqueta}<span class="ayuda">{ayuda}</span></label>

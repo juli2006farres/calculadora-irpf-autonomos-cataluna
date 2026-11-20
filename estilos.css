@@ -319,3 +319,26 @@ tr.fuerte td { font-weight: 800; color: var(--acento-fuerte); }
   .menu::-webkit-scrollbar { display: none; }
   .marca .marca-texto { display: inline; }
 }
+
+/* Páginas de cada comunidad y tarifa plana */
+.resultado h3 { font-size: 1.04rem; margin: 22px 0 6px; }
+.cifras { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 4px 0 18px; padding: 0; list-style: none; }
+.cifras li { background: var(--resalte); border: 1px solid var(--borde); border-radius: 14px; padding: 14px 16px; }
+.cifras strong { display: block; font-size: 1.45rem; line-height: 1.2; color: var(--acento-fuerte); font-variant-numeric: tabular-nums; margin-bottom: 4px; }
+.cifras span { display: block; font-size: 0.88rem; color: var(--suave); line-height: 1.4; }
+.comunidades { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
+.comunidades a {
+  display: block; height: 100%; padding: 12px 14px; border: 1px solid var(--borde); border-radius: 12px; background: var(--fondo);
+  color: var(--acento-fuerte); font-weight: 700; text-decoration: none; transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+.comunidades a:hover { border-color: var(--acento); transform: translateY(-2px); box-shadow: var(--sombra); }
+.comunidades span { display: block; margin-top: 2px; font-size: 0.85rem; font-weight: 500; color: var(--suave); }
+.tarjeta h3.subtitulo { margin-top: 20px; }
+@media (max-width: 600px) {
+  .comunidades { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .comunidades a { padding: 10px 12px; font-size: 0.95rem; }
+  .comunidades span { font-size: 0.8rem; }
+  .cifras { gap: 8px; }
+  .cifras li { display: flex; align-items: center; gap: 12px; padding: 10px 14px; }
+  .cifras strong { flex: none; min-width: 92px; font-size: 1.2rem; margin: 0; }
+}

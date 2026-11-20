@@ -53,7 +53,7 @@ const IMPORTE_MAXIMO = 10_000_000;
 const formulario = document.getElementById("formulario");
 const resultado = document.getElementById("resultado");
 
-const euros = new Intl.NumberFormat(t.locale, { style: "currency", currency: "EUR" });
+const euros = new Intl.NumberFormat(t.locale, { style: "currency", currency: "EUR", useGrouping: "always" });
 const porcentaje = new Intl.NumberFormat(t.locale, { maximumFractionDigits: 2 });
 
 // Lee un importe. Devuelve null si no es un número válido, para no calcular con datos inventados.

@@ -41,7 +41,7 @@ const TEXTOS = {
 const t = TEXTOS[document.documentElement.lang] ?? TEXTOS.es;
 const formulario = document.getElementById("formulario");
 const resultado = document.getElementById("resultado");
-const euros = new Intl.NumberFormat(t.locale, { style: "currency", currency: "EUR" });
+const euros = new Intl.NumberFormat(t.locale, { style: "currency", currency: "EUR", useGrouping: "always" });
 
 function importe(id) {
   const texto = document.getElementById(id).value.trim();

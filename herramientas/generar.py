@@ -71,7 +71,24 @@ TARJETAS = {
         "plantilla": ("Plantilla de factura", "Excel i Word gratis, amb l'IVA i la retenció calculats."),
     },
 }
-ICONOS = {"irpf": "📊", "cuota": "🏛️", "tarifa": "🌱", "factura": "🧾", "iva": "💶", "sueldo": "💰", "objetivo": "🎯", "m130": "📅", "m303": "🧮", "plantilla": "📄", "irpf_es": "🗺️", "calendario": "🗓️"}
+TRAZOS = {
+    "irpf_es": '<path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/>',
+    "irpf": '<path d="M4 20V11M10 20V5M16 20v-6M2 20h20"/>',
+    "cuota": '<path d="M3 10h18L12 4 3 10z"/><path d="M5.5 10v8M10 10v8M14 10v8M18.5 10v8M3 20h18"/>',
+    "tarifa": '<path d="M12 21v-9"/><path d="M12 12C12 7.5 8.5 5 4 5c0 4.5 3.5 7 8 7z"/><path d="M12 14.5c0-4 3-6.5 8-6.5 0 4-3 6.5-8 6.5z"/>',
+    "factura": '<path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/>',
+    "plantilla": '<path d="M7 3h7l5 5v13H7V3z"/><path d="M14 3v5h5M10 13h6M10 17h6"/>',
+    "iva": '<path d="M19 5 5 19"/><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/>',
+    "m303": '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M8 18h.01M12 18h.01M16 15v3"/>',
+    "m130": '<rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M9 15.5l2 2 4-4"/>',
+    "sueldo": '<path d="M4 7h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a1 1 0 0 1-1-1V7z"/><path d="M4 7l11-3v3M16 13.5h.01"/>',
+    "objetivo": '<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><path d="M12 12h.01"/>',
+    "calendario": '<rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/>',
+}
+ICONOS = {
+    k: f'<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">{v}</svg>'
+    for k, v in TRAZOS.items()
+}
 # Fecha de la última revisión de los datos de cada calculadora y a qué año se refieren.
 REVISION = {
     "irpf": ("2026-11-19", {"es": "datos de 2025 y 2026", "ca": "dades del 2025 i el 2026"}),
@@ -223,13 +240,38 @@ def mas_calculadoras(lang, clave):
 TRANSPARENCIA = {"es": "Cómo se financia esta web", "ca": "Com es finança aquest web"}
 
 
+GRUPOS_PIE = {
+    "es": [("Impuestos", ["irpf_es", "irpf", "m303", "m130", "calendario"]),
+           ("Cuota y sueldo", ["cuota", "tarifa", "sueldo", "objetivo"]),
+           ("Facturas", ["factura", "plantilla", "iva"])],
+    "ca": [("Impostos", ["irpf_es", "irpf", "m303", "m130", "calendario"]),
+           ("Quota i sou", ["cuota", "tarifa", "sueldo", "objetivo"]),
+           ("Factures", ["factura", "plantilla", "iva"])],
+}
+LEMA = {
+    "es": "Calculadoras gratuitas para autónomos con datos oficiales del BOE, la Agencia Tributaria y la Seguridad Social. Sin registro y sin cookies.",
+    "ca": "Calculadores gratuïtes per a autònoms amb dades oficials del BOE, l'Agència Tributària i la Seguretat Social. Sense registre i sense galetes.",
+}
+
+
 def pie(lang, clave):
-    enlace = relativa(RUTAS[clave][lang], RUTAS["transparencia"][lang])
+    ruta = RUTAS[clave][lang]
+    enlace = relativa(ruta, RUTAS["transparencia"][lang])
+    columnas = []
+    for titulo, claves in GRUPOS_PIE[lang]:
+        enlaces = "".join(f'<li><a href="{relativa(ruta, RUTAS[k][lang])}">{TARJETAS[lang][k][0]}</a></li>' for k in claves)
+        columnas.append(f'<div><h2>{titulo}</h2><ul>{enlaces}</ul></div>')
     return f"""<footer class="pie">
   <div class="contenedor">
-    <p>{T[lang]["pie"]}</p>
-    <p>{T[lang]["mcp"]}</p>
-    <p><a href="{enlace}">{TRANSPARENCIA[lang]}</a></p>
+    <div class="pie-columnas">
+      <div class="pie-marca"><a class="marca" href="{relativa(ruta, RUTAS["irpf"][lang])}"><span class="logo" aria-hidden="true">€</span><span>{T[lang]["marca"]}</span></a><p>{LEMA[lang]}</p></div>
+      {"".join(columnas)}
+    </div>
+    <div class="pie-legal">
+      <p>{T[lang]["pie"]}</p>
+      <p>{T[lang]["mcp"]}</p>
+      <p><a href="{enlace}">{TRANSPARENCIA[lang]}</a></p>
+    </div>
   </div>
 </footer>"""
 
@@ -334,6 +376,22 @@ def pagina_transparencia(lang):
 """
 
 
+def meta_imagen(lang, clave, titulo):
+    """Etiquetas de la imagen que se ve al compartir el enlace (la crea herramientas/imagenes.py)."""
+    ruta = RUTAS[clave][lang]
+    nombre = (ruta.strip("/").replace("/", "-") or "inicio") + ".jpg"
+    if not (WEB / "compartir" / nombre).exists():
+        return ""
+    return (
+        f'\n  <meta property="og:site_name" content="{T[lang]["marca"]}">'
+        f'\n  <meta property="og:image" content="{BASE}compartir/{nombre}">'
+        f'\n  <meta property="og:image:width" content="1200">'
+        f'\n  <meta property="og:image:height" content="630">'
+        f'\n  <meta property="og:image:alt" content="{html.escape(titulo)}">'
+        f'\n  <meta name="twitter:card" content="summary_large_image">'
+    )
+
+
 def hreflang(clave):
     es, ca = BASE + RUTAS[clave]["es"], BASE + RUTAS[clave]["ca"]
     return (
@@ -407,7 +465,7 @@ def pagina(p):
   <meta property="og:title" content="{html.escape(p["og_titulo"])}">
   <meta property="og:description" content="{html.escape(p["og_descripcion"])}">
   <meta property="og:url" content="{url}">
-  <meta property="og:locale" content="{T[lang]["locale"]}">
+  <meta property="og:locale" content="{T[lang]["locale"]}">{meta_imagen(lang, clave, p["og_titulo"])}
   <link rel="icon" href="{ICONO}">
   <script type="application/ld+json">
   {ld_texto}
@@ -472,6 +530,9 @@ def actualizar_existente(lang, clave):
         1,
     ) if '"dateModified"' not in t else t
     t = sustituir(t, r'<footer class="pie">.*?</footer>', pie(lang, clave), archivo)
+    t = re.sub(r'\n  <meta (?:property="og:(?:site_name|image[^"]*)"|name="twitter:card") content="[^"]*">', "", t)
+    titulo = re.search(r'<meta property="og:title" content="(.*?)">', t).group(1)
+    t = sustituir(t, r'<meta property="og:locale" content="[^"]*">', re.search(r'<meta property="og:locale" content="[^"]*">', t).group(0) + meta_imagen(lang, clave, html.unescape(titulo)), archivo)
     t = re.sub(
         r'href="((?:\.\./)*)estilos\.css(?:\?v=\w+)?"',
         lambda m: f'href="{m.group(1)}estilos.css?v={VERSION_CSS}"',

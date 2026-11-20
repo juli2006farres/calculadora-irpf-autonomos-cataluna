@@ -225,6 +225,33 @@ def comparacion(lang, c):
             f"La que menys cobra és {NOMBRES[lang][barata][0]}, amb {eur(e['irpf_mas_barata'])}, i la que més, {NOMBRES[lang][cara][0]}, amb {eur(e['irpf_mas_cara'])}.")
 
 
+def sujeto(lang, c, mayuscula=False):
+    """Nombre de la comunidad con su artículo, para usarlo como sujeto: «la Comunitat Valenciana», «l'Aragó»."""
+    forma = NOMBRES[lang][c][1].split(" ", 1)[1]
+    return forma[0].upper() + forma[1:] if mayuscula else forma
+
+
+def plural(lang, c):
+    return sujeto(lang, c).startswith(("las ", "les "))
+
+
+def ejemplo_minimo(c):
+    """Primer mínimo en que la comunidad se aparta del estatal: (concepto, autonómico, estatal)."""
+    m, est = DATOS["comunidades"][c]["minimos"], DATOS["minimos_estatales"]
+    pares = [("contribuyente", m["contribuyente"], est["contribuyente"])]
+    pares += [(f"hijo{i}", a, b) for i, (a, b) in enumerate(zip(m["descendientes"], est["descendientes"]), 1)]
+    pares += [("menor3", m["menor3"], est["menor3"])]
+    return next(p for p in pares if p[1] != p[2])
+
+
+CONCEPTO_MINIMO = {
+    "es": {"contribuyente": "el mínimo del contribuyente", "hijo1": "el mínimo por el primer hijo", "hijo2": "el mínimo por el segundo hijo",
+           "hijo3": "el mínimo por el tercer hijo", "hijo4": "el mínimo por el cuarto hijo", "menor3": "el aumento por cada hijo menor de 3 años"},
+    "ca": {"contribuyente": "el mínim del contribuent", "hijo1": "el mínim pel primer fill", "hijo2": "el mínim pel segon fill",
+           "hijo3": "el mínim pel tercer fill", "hijo4": "el mínim pel quart fill", "menor3": "l'augment per cada fill menor de 3 anys"},
+}
+
+
 def cifras(items):
     lis = "".join(f"<li><strong>{a}</strong><span>{b}</span></li>" for a, b in items)
     return f'<ul class="cifras">{lis}</ul>'
@@ -273,9 +300,10 @@ def bloque_minimos(lang, c):
     filas = "\n".join(f"        <tr><td>{t}</td><td>{eur(b)}</td><td>{eur(a)}</td></tr>" for t, (a, b) in zip(conceptos, valores))
     corto = NOMBRES[lang][c][0]
     cab = {"es": ("Mínimo", "Estatal", corto), "ca": ("Mínim", "Estatal", corto)}[lang]
+    todos = all(a > b for a, b in valores)
     intro = {
-        "es": f"<p>La comunidad tiene mínimos propios, más altos que los estatales, que solo se usan para calcular la parte autonómica del impuesto.</p>",
-        "ca": f"<p>La comunitat té mínims propis, més alts que els estatals, que només es fan servir per calcular la part autonòmica de l'impost.</p>",
+        "es": f"<p>La comunidad tiene mínimos propios, {'más altos que los estatales' if todos else 'algunos más altos que los estatales'}, que solo se usan para calcular la parte autonómica del impuesto.</p>",
+        "ca": f"<p>La comunitat té mínims propis, {'més alts que els estatals' if todos else 'alguns més alts que els estatals'}, que només es fan servir per calcular la part autonòmica de l'impost.</p>",
     }[lang]
     return f"""{intro}
     <div class="tabla-ancha">
@@ -404,16 +432,24 @@ def faq_irpf(lang, c):
     maximo, umbral = marginal_maximo(c)
     primero = d["marginal_conjunto"][0]["total"]
     cuota = relativa(ruta("irpf", c, lang), OTRAS["cuota"][lang])
+    if d["minimos_propios"]:
+        concepto, autonomico, estatal = ejemplo_minimo(c)
+    if e["puesto"] == 1:
+        puesto = {"es": "Es la comunidad que menos IRPF cobra de las 15.", "ca": "És la comunitat que menys IRPF cobra de les 15."}[lang]
+    elif e["puesto"] == 15:
+        puesto = {"es": "Es la comunidad que más IRPF cobra de las 15.", "ca": "És la comunitat que més IRPF cobra de les 15."}[lang]
+    else:
+        puesto = {"es": f"Es el puesto {e['puesto']} de 15, de menos a más IRPF.", "ca": f"És la posició {e['puesto']} de 15, de menys a més IRPF."}[lang]
     if lang == "es":
         faq = [
             (f"¿Cuánto IRPF paga un autónomo {en}?",
              f"Depende de lo que gane. Con 40.000 € de facturación, 5.000 € de gastos y la cuota mínima de su tramo en 2026, unos {eur(round(e['irpf']))} al año, "
-             f"un tipo medio del {pct(e['tipo_medio'])}, y le quedan unos {eur(round(e['neto_mensual']))} al mes. Es el puesto {e['puesto']} de 15, de menos a más IRPF."),
+             f"un tipo medio del {pct(e['tipo_medio'])}, y le quedan unos {eur(round(e['neto_mensual']))} al mes. {puesto}"),
             (f"¿Cuáles son los tipos del IRPF {en} en 2026?",
              f"La escala autonómica va del {pct(d['tipo_minimo'])} al {pct(d['tipo_maximo'])}. Sumada a la estatal, el tipo marginal empieza en el {pct(primero)} "
              f"y llega al {pct(maximo)} a partir de {eur(umbral)} de base liquidable."),
-            (f"¿Tiene {corto} mínimos personales propios?",
-             (f"Sí. Por ejemplo, el mínimo del contribuyente es de {eur(d['minimos']['contribuyente'])} para la parte autonómica, frente a los {eur(DATOS['minimos_estatales']['contribuyente'])} estatales. La calculadora los aplica."
+            (f"¿{'Tienen' if plural(lang, c) else 'Tiene'} {sujeto(lang, c)} mínimos personales propios?",
+             (f"Sí. Por ejemplo, {CONCEPTO_MINIMO[lang][concepto]} es de {eur(autonomico)} para la parte autonómica, frente a los {eur(estatal)} estatales. La calculadora los aplica."
               if d["minimos_propios"] else
               f"No. Para la parte autonómica usa los mismos mínimos que el Estado, como los {eur(DATOS['minimos_estatales']['contribuyente'])} del contribuyente.")),
         ]
@@ -429,12 +465,12 @@ def faq_irpf(lang, c):
     faq = [
         (f"Quant IRPF paga un autònom {en}?",
          f"Depèn del que guanyi. Amb 40.000 € de facturació, 5.000 € de despeses i la quota mínima del seu tram el 2026, uns {eur(round(e['irpf']))} l'any, "
-         f"un tipus mitjà del {pct(e['tipo_medio'])}, i li queden uns {eur(round(e['neto_mensual']))} al mes. És la posició {e['puesto']} de 15, de menys a més IRPF."),
+         f"un tipus mitjà del {pct(e['tipo_medio'])}, i li queden uns {eur(round(e['neto_mensual']))} al mes. {puesto}"),
         (f"Quins són els tipus de l'IRPF {en} el 2026?",
          f"L'escala autonòmica va del {pct(d['tipo_minimo'])} al {pct(d['tipo_maximo'])}. Sumada a l'estatal, el tipus marginal comença al {pct(primero)} "
          f"i arriba al {pct(maximo)} a partir de {eur(umbral)} de base liquidable."),
-        (f"{corto} té mínims personals propis?",
-         (f"Sí. Per exemple, el mínim del contribuent és de {eur(d['minimos']['contribuyente'])} per a la part autonòmica, davant els {eur(DATOS['minimos_estatales']['contribuyente'])} estatals. La calculadora els aplica."
+        (f"{sujeto(lang, c, True)} {'tenen' if plural(lang, c) else 'té'} mínims personals propis?",
+         (f"Sí. Per exemple, {CONCEPTO_MINIMO[lang][concepto]} és de {eur(autonomico)} per a la part autonòmica, davant els {eur(estatal)} estatals. La calculadora els aplica."
           if d["minimos_propios"] else
           f"No. Per a la part autonòmica fa servir els mateixos mínims que l'Estat, com els {eur(DATOS['minimos_estatales']['contribuyente'])} del contribuent.")),
     ]
@@ -519,7 +555,7 @@ def extra_sueldo(lang, c):
         ])
         frase = (f"{NOMBRES[lang][c][1][0].upper() + NOMBRES[lang][c][1][1:]} es donde más le queda a un autónomo con 40.000 € de facturación."
                  if diferencia == 0 else
-                 f"Con 40.000 € de facturación, en {NOMBRES[lang][e['mas_barata']][0]}, la comunidad con menos IRPF, le quedarían {eur(diferencia)} más al año. La cuota de autónomos es la misma en toda España: la diferencia es solo el IRPF.")
+                 f"Con 40.000 € de facturación, el mismo autónomo tendría {eur(diferencia)} más al año {NOMBRES[lang][e['mas_barata']][1]}, donde menos IRPF se paga. La cuota de autónomos es la misma en toda España: la diferencia es solo el IRPF.")
         return f"""<section class="tarjeta">
     <h2>Cuánto le queda a un autónomo {en}</h2>
     {cif}
@@ -541,7 +577,7 @@ def extra_sueldo(lang, c):
     ])
     frase = (f"{NOMBRES[lang][c][1][0].upper() + NOMBRES[lang][c][1][1:]} és on més li queda a un autònom amb 40.000 € de facturació."
              if diferencia == 0 else
-             f"Amb 40.000 € de facturació, a {NOMBRES[lang][e['mas_barata']][0]}, la comunitat amb menys IRPF, li quedarien {eur(diferencia)} més l'any. La quota d'autònoms és la mateixa a tot Espanya: la diferència és només l'IRPF.")
+             f"Amb 40.000 € de facturació, el mateix autònom tindria {eur(diferencia)} més l'any {NOMBRES[lang][e['mas_barata']][1]}, on menys IRPF es paga. La quota d'autònoms és la mateixa a tot Espanya: la diferència és només l'IRPF.")
     return f"""<section class="tarjeta">
     <h2>Quant li queda a un autònom {en}</h2>
     {cif}
@@ -563,8 +599,9 @@ def posicion(lang, c):
     e = ref(c)
     if c in (e["mas_barata"], e["mas_cara"]):
         return ""
-    corto = NOMBRES[lang][c][0]
-    return {"es": f" {corto} está en el puesto {e['puesto']} de 15.", "ca": f" {corto} és a la posició {e['puesto']} de 15."}[lang]
+    s, pl = sujeto(lang, c, True), plural(lang, c)
+    return {"es": f" {s} {'están' if pl else 'está'} en el puesto {e['puesto']} de 15.",
+            "ca": f" {s} {'són' if pl else 'és'} a la posició {e['puesto']} de 15."}[lang]
 
 
 def faq_sueldo(lang, c):
@@ -579,7 +616,7 @@ def faq_sueldo(lang, c):
             (f"¿Cuánto le queda a un autónomo {en} que factura 40.000 € al año?",
              f"En 2026, con 5.000 € de gastos y la cuota mínima de su tramo ({eur(e['cuota_mensual'])} al mes), paga unos {eur(round(e['irpf']))} de IRPF y le quedan unos {eur(round(e['neto_mensual']))} al mes en 12 pagas."),
             ("¿En qué comunidad le queda más dinero a un autónomo?",
-             f"Con 40.000 € de facturación, en {NOMBRES[lang][barata][0]}, y donde menos, en {NOMBRES[lang][cara][0]}.{posicion(lang, c)} El orden cambia con los ingresos: la tabla de ejemplos lo muestra con otras cifras."),
+             f"Con 40.000 € de facturación, donde más le queda es {NOMBRES[lang][barata][1]}, y donde menos, {NOMBRES[lang][cara][1]}.{posicion(lang, c)} El orden cambia con los ingresos: la tabla de ejemplos lo muestra con otras cifras."),
             (f"¿La cuota de autónomos es distinta {en}?",
              f'No. La cuota es igual en toda España y depende solo de tus rendimientos. Puedes ver tu tramo en la <a href="{cuota}">calculadora de cuota de autónomos</a>.'),
             ("¿Y si tengo la tarifa plana?",
@@ -591,7 +628,7 @@ def faq_sueldo(lang, c):
         (f"Quant li queda a un autònom {en} que factura 40.000 € l'any?",
          f"El 2026, amb 5.000 € de despeses i la quota mínima del seu tram ({eur(e['cuota_mensual'])} al mes), paga uns {eur(round(e['irpf']))} d'IRPF i li queden uns {eur(round(e['neto_mensual']))} al mes en 12 pagues."),
         ("A quina comunitat li queden més diners a un autònom?",
-         f"Amb 40.000 € de facturació, a {NOMBRES[lang][barata][0]}, i on menys, a {NOMBRES[lang][cara][0]}.{posicion(lang, c)} L'ordre canvia amb els ingressos: la taula d'exemples ho mostra amb altres xifres."),
+         f"Amb 40.000 € de facturació, on més li queda és {NOMBRES[lang][barata][1]}, i on menys, {NOMBRES[lang][cara][1]}.{posicion(lang, c)} L'ordre canvia amb els ingressos: la taula d'exemples ho mostra amb altres xifres."),
         (f"La quota d'autònoms és diferent {en}?",
          f'No. La quota és igual a tot Espanya i depèn només dels teus rendiments. Pots veure el teu tram a la <a href="{cuota}">calculadora de quota d\'autònoms</a>.'),
         ("I si tinc la tarifa plana?",

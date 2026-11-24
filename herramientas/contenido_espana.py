@@ -1,5 +1,6 @@
 """IRPF para todas las comunidades, calendario fiscal 2027 y adaptación de sueldo neto y cuánto facturar."""
 import copy
+import datetime
 import unicodedata
 
 from contenido import BOE_LIRPF, campo, casilla, seleccion
@@ -184,6 +185,88 @@ FILAS_CALENDARIO = {
         ("Fins al 31 de gener del 2028", "Models 303, 130 i 390 del 4T i de l'any 2027", "Termini de l'1 al 30 de gener, que el 2028 acaba en diumenge.", "m130"),
     ],
 }
+# Último día de cada fila de la tabla, en el mismo orden (lo comprueba la verificación del calendario).
+# La renta no tiene fecha fija: se pone el 30 de junio, su final habitual, y el aviso lo dice.
+FECHAS_CALENDARIO = [
+    "2027-01-20", "2027-02-01", "2027-02-01", "2027-02-01", "2027-02-01", "2027-03-01",
+    "2027-04-20", "2027-06-30", "2027-07-20", "2027-10-20", "2028-01-20", "2028-01-31",
+]
+assert all(len(FECHAS_CALENDARIO) == len(f) for f in FILAS_CALENDARIO.values())
+ARCHIVO_ICS = {"es": "plazos-fiscales-2027.ics", "ca": "terminis-fiscals-2027.ics"}
+# El 24-11-2026 el Consejo de Ministros aprobó un real decreto-ley que cambia los pagos trimestrales
+# del IVA y del IRPF de muchos autónomos. Hasta leer su texto en el BOE y revisar los plazos de 2027,
+# no se ofrece el archivo de calendario: una vez importado en el móvil ya no se puede corregir.
+OFRECER_ICS = False
+TEXTOS_ICS = {
+    "es": {
+        "nombre": "Plazos fiscales del autónomo 2027",
+        "ultimo": "Último día: {que}",
+        "renta": "Renta 2026 (modelo 100): final habitual del plazo",
+        "confirma": "Confirma la fecha en el calendario del contribuyente de la Agencia Tributaria.",
+        "mas": "Calendario y calculadoras gratis: {url}",
+        "aviso": "Dentro de 5 días acaba un plazo fiscal: {que}",
+    },
+    "ca": {
+        "nombre": "Terminis fiscals de l'autònom 2027",
+        "ultimo": "Últim dia: {que}",
+        "renta": "Renda 2026 (model 100): final habitual del termini",
+        "confirma": "Confirma la data al calendari del contribuent de l'Agència Tributària.",
+        "mas": "Calendari i calculadores gratuïtes: {url}",
+        "aviso": "D'aquí a 5 dies acaba un termini fiscal: {que}",
+    },
+}
+
+
+def _escapar_ics(texto):
+    return texto.replace("\\", "\\\\").replace(";", "\\;").replace(",", "\\,").replace("\n", "\\n")
+
+
+def _plegar_ics(linea):
+    """Corta las líneas de más de 75 bytes como pide el estándar iCalendar (RFC 5545), sin partir letras."""
+    partes, actual = [], ""
+    for letra in linea:
+        limite = 75 if not partes else 74
+        if len((actual + letra).encode("utf-8")) > limite:
+            partes.append(actual)
+            actual = letra
+        else:
+            actual += letra
+    partes.append(actual)
+    return "\r\n ".join(partes)
+
+
+def calendario_ics(lang, url):
+    """Archivo .ics con un evento de día completo por cada plazo y un aviso 5 días antes a las 9:00."""
+    t = TEXTOS_ICS[lang]
+    lineas = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Calculadoras para autonomos//Calendario fiscal 2027//" + lang.upper(),
+              "CALSCALE:GREGORIAN", "METHOD:PUBLISH", "X-WR-CALNAME:" + _escapar_ics(t["nombre"]), "X-WR-TIMEZONE:Europe/Madrid"]
+    for n, ((plazo, que, detalle, _), fecha) in enumerate(zip(FILAS_CALENDARIO[lang], FECHAS_CALENDARIO), 1):
+        dia = fecha.replace("-", "")
+        siguiente = (datetime.date.fromisoformat(fecha) + datetime.timedelta(days=1)).strftime("%Y%m%d")
+        que_minuscula = que[0].lower() + que[1:] if que.startswith("Model") else que
+        resumen = t["renta"] if que.startswith(("Renta", "Renda")) else t["ultimo"].format(que=que_minuscula)
+        descripcion = " ".join(x for x in (f"{plazo}.", detalle, t["confirma"]) if x) + "\n" + t["mas"].format(url=url)
+        lineas += [
+            "BEGIN:VEVENT",
+            f"UID:plazo-{dia}-{n:02d}-{lang}@juli2006farres.github.io",
+            "DTSTAMP:20261124T000000Z",
+            f"DTSTART;VALUE=DATE:{dia}",
+            f"DTEND;VALUE=DATE:{siguiente}",
+            "SUMMARY:" + _escapar_ics(resumen),
+            "DESCRIPTION:" + _escapar_ics(descripcion),
+            "URL:" + url,
+            "TRANSP:TRANSPARENT",
+            "BEGIN:VALARM",
+            "ACTION:DISPLAY",
+            "DESCRIPTION:" + _escapar_ics(t["aviso"].format(que=que)),
+            "TRIGGER:-P4DT15H",
+            "END:VALARM",
+            "END:VEVENT",
+        ]
+    lineas.append("END:VCALENDAR")
+    return "\r\n".join(_plegar_ics(l) for l in lineas) + "\r\n"
+
+
 RUTAS_CALC = {
     "es": {"m303": "modelo-303/", "m130": "modelo-130/", "irpf_es": "calculadora-irpf-autonomos/"},
     "ca": {"m303": "ca/model-303/", "m130": "ca/model-130/", "irpf_es": "ca/calculadora-irpf-autonoms/"},
@@ -208,10 +291,25 @@ def cuerpo_calendario(lang):
         det = f'<span class="ayuda">{detalle}</span>' if detalle else ""
         filas.append(f"        <tr><td><strong>{plazo}</strong></td><td>{que}{det}</td><td>{enlace}</td></tr>")
     cuerpo = "\n".join(filas)
+    boton, ayuda = {
+        "es": ("Añadir los plazos a mi calendario",
+               f"Descarga un archivo con los {len(FECHAS_CALENDARIO)} plazos de la tabla, cada uno con un aviso 5 días antes si tu calendario lo admite. "
+               "En iPhone, Mac y Outlook se abre con tu calendario; en Google Calendar, impórtalo desde el ordenador en Configuración › Importar y exportar."),
+        "ca": ("Afegeix els terminis al meu calendari",
+               f"Descarrega un fitxer amb els {len(FECHAS_CALENDARIO)} terminis de la taula, cadascun amb un avís 5 dies abans si el teu calendari ho admet. "
+               "A l'iPhone, al Mac i a l'Outlook s'obre amb el teu calendari; a Google Calendar, importa'l des de l'ordinador a Configuració › Importa i exporta."),
+    }[lang]
+    icono = ('<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" '
+             'stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M12 13v5M9.5 15.5h5"/></svg>')
+    bloque_ics = f"""<div class="anadir-calendario">
+      <a class="boton" href="{ARCHIVO_ICS[lang]}" download="{ARCHIVO_ICS[lang]}" type="text/calendar">{icono}{boton}</a>
+      <p class="nota">{ayuda}</p>
+    </div>
+    """ if OFRECER_ICS else ""
     return f"""<section class="tarjeta">
     <h2>{titulo}</h2>
     <p>{intro}</p>
-    <div class="tabla-ancha calendario">
+    {bloque_ics}<div class="tabla-ancha calendario">
     <table>
       <thead><tr><th>{cab[0]}</th><th>{cab[1]}</th><th>{cab[2]}</th></tr></thead>
       <tbody>

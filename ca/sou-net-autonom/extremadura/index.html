@@ -87,7 +87,33 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="../../../estilos.css?v=6fadb38df6">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inici",
+        "item": "https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Sou net d'autònom",
+        "item": "https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/sou-net-autonom/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Extremadura",
+        "item": "https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/sou-net-autonom/extremadura/"
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="../../../estilos.css?v=2d48df388a">
 </head>
 <body>
 <header class="cabecera">
@@ -110,6 +136,7 @@
 </header>
 <section class="heroe">
   <div class="contenedor">
+    <nav class="migas" aria-label="Ets aquí"><ol><li><a href="../../">Inici</a></li><li><a href="../">Sou net d'autònom</a></li><li aria-current="page">Extremadura</li></ol></nav>
     <h1>Sou net d'un autònom a Extremadura: calculadora 2026</h1>
     <p class="entradilla">Calcula el que et queda net cada mes a Extremadura després de despeses, quota d'autònoms i IRPF, amb les taules oficials del 2026, i compara-ho amb les altres comunitats.</p>
     <ul class="chips"><li>Gratuït</li><li>Sense registre</li><li>Sense galetes</li><li>Dades oficials</li></ul>
@@ -177,6 +204,13 @@
     <div id="resultado"><p>Omple les teves dades per veure el càlcul.</p></div>
   </section>
   </div>
+
+  <section class="tarjeta patrocinio">
+    <h2>Vols portar les factures i els impostos al dia?</h2>
+    <p>Quipu és un programa de facturació per a autònoms: crea factures adaptades a Verifactu, desa les despeses amb una foto del tiquet i prepara els teus impostos. Es pot començar gratis.</p>
+    <a class="boton" href="https://getquipu.com/ca/autonoms?via=juli" rel="sponsored noopener" target="_blank">Veure Quipu</a>
+    <p class="nota">Enllaç d'afiliat: si contractes Quipu des d'aquí, aquest web rep una comissió i a tu no et costa més. Així aquestes calculadores continuen sent gratuïtes. <a href="../../transparencia/">Més informació</a></p>
+  </section>
 
   <section class="tarjeta">
     <h2>Quant li queda a un autònom a Extremadura</h2>
@@ -275,5 +309,6 @@
   </div>
 </footer>
 <script type="module" src="../../../sueldo-app.js"></script>
+<script type="module" src="../../../compartir.js"></script>
 </body>
 </html>

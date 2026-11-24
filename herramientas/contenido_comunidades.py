@@ -533,6 +533,7 @@ def pagina_irpf(lang, c):
             "aviso": "és una estimació orientativa i no substitueix la declaració ni el consell d'un assessor fiscal. No inclou les deduccions autonòmiques. Els mínims autonòmics del 2026 se suposen iguals als del 2025, perquè l'informe d'Hisenda no en recull canvis. Fonts, en castellà:",
         })
     p["clave"] = clave("irpf", c)
+    p["miga"] = corto
     p["formulario"] = preseleccionar(p["formulario"], c)
     p["extra"] = extra_irpf(lang, c)
     p["faq"] = faq_irpf(lang, c)
@@ -665,6 +666,7 @@ def pagina_sueldo(lang, c):
             "entradilla": f"Calcula el que et queda net cada mes {en} després de despeses, quota d'autònoms i IRPF, amb les taules oficials del 2026, i compara-ho amb les altres comunitats.",
         })
     p["clave"] = clave("sueldo", c)
+    p["miga"] = corto
     p["formulario"] = preseleccionar(p["formulario"], c)
     p["extra"] = extra_sueldo(lang, c)
     p["faq"] = faq_sueldo(lang, c)

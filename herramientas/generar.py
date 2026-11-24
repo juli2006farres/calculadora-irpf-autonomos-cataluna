@@ -15,7 +15,7 @@ BASE = "https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/"
 MCPIZE = "https://mcpize.com/mcp/irpf-pymes-cat-mcp"
 HOY = "2026-11-17"
 # Fecha de la última modificación de las páginas, para el sitemap.
-MODIFICADO = "2026-11-20"
+MODIFICADO = "2026-11-24"
 
 RUTAS = {
     "irpf": {"es": "", "ca": "ca/"},
@@ -100,7 +100,7 @@ REVISION = {
     "objetivo": ("2026-11-19", {"es": "datos de 2026", "ca": "dades del 2026"}),
     "m130": (HOY, {"es": "normativa vigente en 2026", "ca": "normativa vigent el 2026"}),
     "m303": ("2026-11-18", {"es": "normativa vigente en 2026", "ca": "normativa vigent el 2026"}),
-    "plantilla": ("2026-11-18", {"es": "requisitos vigentes en 2026", "ca": "requisits vigents el 2026"}),
+    "plantilla": ("2026-11-24", {"es": "requisitos vigentes en 2026", "ca": "requisits vigents el 2026"}),
     "irpf_es": ("2026-11-19", {"es": "datos de 2025 y 2026", "ca": "dades del 2025 i el 2026"}),
     "calendario": ("2026-11-19", {"es": "plazos de 2027", "ca": "terminis del 2027"}),
 }
@@ -205,11 +205,59 @@ def linea_revision(lang, clave):
     return f'<p class="actualizado"><time datetime="{iso}">{texto}</time></p>'
 
 
+INICIO = {"es": "Inicio", "ca": "Inici"}
+ESTAS_AQUI = {"es": "Estás aquí", "ca": "Ets aquí"}
+# Nombre de cada página de comunidad en las migas de pan («Madrid», «Galicia»...).
+MIGA = {}
+
+
+def pasos_migas(lang, clave):
+    """Pasos de las migas de pan: [(nombre, ruta)]. La portada no lleva migas."""
+    if clave == "irpf":
+        return []
+    pasos = [(INICIO[lang], RUTAS["irpf"][lang])]
+    if clave in PADRE:
+        padre = PADRE[clave]
+        pasos.append((TARJETAS[lang][padre][0], RUTAS[padre][lang]))
+        pasos.append((MIGA[(lang, clave)], RUTAS[clave][lang]))
+    elif clave == "transparencia":
+        pasos.append((TRANSPARENCIA[lang], RUTAS[clave][lang]))
+    else:
+        pasos.append((TARJETAS[lang][clave][0], RUTAS[clave][lang]))
+    return pasos
+
+
+def migas(lang, clave):
+    pasos = pasos_migas(lang, clave)
+    if not pasos:
+        return ""
+    ruta = RUTAS[clave][lang]
+    items = [f'<li><a href="{relativa(ruta, r)}">{html.escape(n, quote=False)}</a></li>' for n, r in pasos[:-1]]
+    items.append(f'<li aria-current="page">{html.escape(pasos[-1][0], quote=False)}</li>')
+    return f'<nav class="migas" aria-label="{ESTAS_AQUI[lang]}"><ol>{"".join(items)}</ol></nav>\n    '
+
+
+def migas_ld(lang, clave):
+    """Las mismas migas en datos estructurados (BreadcrumbList) para Google."""
+    pasos = pasos_migas(lang, clave)
+    if not pasos:
+        return ""
+    datos = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": i, "name": n, "item": BASE + r} for i, (n, r) in enumerate(pasos, 1)
+        ],
+    }
+    texto = json.dumps(datos, ensure_ascii=False, indent=2).replace("\n", "\n  ")
+    return f'<script type="application/ld+json">\n  {texto}\n  </script>\n  '
+
+
 def heroe(lang, clave, h1, entradilla):
     chips = "".join(f"<li>{c}</li>" for c in T[lang]["chips"])
     return f"""<section class="heroe">
   <div class="contenedor">
-    {h1}
+    {migas(lang, clave)}{h1}
     {entradilla}
     <ul class="chips">{chips}</ul>
     {linea_revision(lang, clave)}
@@ -279,7 +327,10 @@ def pie(lang, clave):
 # Enlace de afiliado de Quipu (programa de afiliados de Quipu, panel en quipu.getrewardful.com).
 # Solo aparece en las calculadoras relacionadas con facturar e impuestos trimestrales.
 AFILIADO_URL = {"es": "https://getquipu.com/es/autonomos?via=juli", "ca": "https://getquipu.com/ca/autonoms?via=juli"}
-PAGINAS_CON_AFILIADO = {"factura", "iva", "m130", "m303", "plantilla", "calendario", "tarifa"}
+PAGINAS_CON_AFILIADO = {"factura", "iva", "m130", "m303", "plantilla", "calendario", "tarifa", "irpf", "irpf_es", "sueldo"}
+# En las calculadoras de impuestos y sueldo el título habla de impuestos, no solo de facturas.
+PAGINAS_IMPUESTOS = {"irpf", "irpf_es", "sueldo"}
+TITULO_IMPUESTOS = {"es": "¿Quieres llevar las facturas y los impuestos al día?", "ca": "Vols portar les factures i els impostos al dia?"}
 AFILIADO = {
     "es": {
         "titulo": "¿Todavía haces las facturas a mano?",
@@ -299,12 +350,14 @@ AFILIADO = {
 
 
 def recomendacion(lang, clave):
-    if clave not in PAGINAS_CON_AFILIADO:
+    tipo = PADRE.get(clave, clave)
+    if tipo not in PAGINAS_CON_AFILIADO:
         return ""
     a = AFILIADO[lang]
+    titulo = TITULO_IMPUESTOS[lang] if tipo in PAGINAS_IMPUESTOS else a["titulo"]
     enlace = relativa(RUTAS[clave][lang], RUTAS["transparencia"][lang])
     return f"""<section class="tarjeta patrocinio">
-    <h2>{a["titulo"]}</h2>
+    <h2>{titulo}</h2>
     <p>{a["texto"]}</p>
     <a class="boton" href="{AFILIADO_URL[lang]}" rel="sponsored noopener" target="_blank">{a["boton"]}</a>
     <p class="nota">{a["nota"]} <a href="{enlace}">{a["mas"]}</a></p>
@@ -351,13 +404,13 @@ def pagina_transparencia(lang):
   <link rel="alternate" hreflang="ca" href="{ca}">
   <link rel="alternate" hreflang="x-default" href="{es}">
   <link rel="icon" href="{ICONO}">
-  <link rel="stylesheet" href="{raiz}estilos.css?v={VERSION_CSS}">
+  {migas_ld(lang, "transparencia")}<link rel="stylesheet" href="{raiz}estilos.css?v={VERSION_CSS}">
 </head>
 <body>
 {cabecera(lang, "transparencia")}
 <section class="heroe">
   <div class="contenedor">
-    <h1>{h1}</h1>
+    {migas(lang, "transparencia")}<h1>{h1}</h1>
     <p class="entradilla">{entradilla}</p>
   </div>
 </section>
@@ -452,6 +505,9 @@ def pagina(p):
   </section>
   </div>"""
     script = f'<script type="module" src="{raiz}{p["script"]}"></script>\n' if p.get("script") else ""
+    # Botones de compartir e imprimir en las calculadoras (las páginas con «cuerpo» no tienen formulario).
+    if p.get("script") and not p.get("cuerpo"):
+        script += f'<script type="module" src="{raiz}compartir.js"></script>\n'
     return f"""<!doctype html>
 <html lang="{lang}">
 <head>
@@ -470,7 +526,7 @@ def pagina(p):
   <script type="application/ld+json">
   {ld_texto}
   </script>
-  <link rel="stylesheet" href="{raiz}estilos.css?v={VERSION_CSS}">
+  {migas_ld(lang, clave)}<link rel="stylesheet" href="{raiz}estilos.css?v={VERSION_CSS}">
 </head>
 <body>
 {cabecera(lang, clave)}
@@ -479,7 +535,7 @@ def pagina(p):
 <div class="contenedor">
   {bloque}
 
-  {p.get("extra", "")}{recomendacion(lang, clave)}<section class="tarjeta faq">
+  {recomendacion(lang, clave)}{p.get("extra", "")}<section class="tarjeta faq">
     <h2>{T[lang]["faq"]}</h2>
 {faq}
   </section>
@@ -538,6 +594,24 @@ def actualizar_existente(lang, clave):
         lambda m: f'href="{m.group(1)}estilos.css?v={VERSION_CSS}"',
         t,
     )
+    # Migas de pan (la portada no lleva): se quitan las anteriores y se vuelven a poner.
+    t = re.sub(r'<nav class="migas".*?</nav>\n    ', "", t, flags=re.S)
+    t = re.sub(r'<script type="application/ld\+json">\s*\{\s*"@context": "https://schema\.org",\s*"@type": "BreadcrumbList".*?</script>\n  ', "", t, flags=re.S)
+    if pasos_migas(lang, clave):
+        t, n = re.subn(r'(<section class="heroe">\s*<div class="contenedor">\s*)(<h1)', lambda m: m.group(1) + migas(lang, clave) + m.group(2), t, count=1)
+        t, n2 = re.subn(r'(\n  )(<link rel="stylesheet")', lambda m: m.group(1) + migas_ld(lang, clave) + m.group(2), t, count=1)
+        if n != 1 or n2 != 1:
+            raise SystemExit(f"No se pudieron poner las migas en {archivo}")
+    # Botones de compartir e imprimir, después del script de la calculadora.
+    t = re.sub(r'<script type="module" src="(?:\.\./)*compartir\.js"></script>\n', "", t)
+    t, n = re.subn(r'(<script type="module" src="((?:\.\./)*)(?:app|cuota-app)\.js"></script>\n)',
+                   lambda m: m.group(1) + f'<script type="module" src="{m.group(2)}compartir.js"></script>\n', t, count=1)
+    if n != 1:
+        raise SystemExit(f"No se encontró el script de la calculadora en {archivo}")
+    # Recuadro de Quipu justo debajo de la calculadora (solo en las páginas que lo llevan).
+    t = re.sub(r'<section class="tarjeta patrocinio">.*?</section>\n\n  ', "", t, flags=re.S)
+    if recomendacion(lang, clave):
+        t = sustituir(t, r'<section class="tarjeta ia">', recomendacion(lang, clave) + '<section class="tarjeta ia">', archivo)
     archivo.write_text(t, encoding="utf-8")
 
 
@@ -573,6 +647,9 @@ if __name__ == "__main__":
     EXTRA_SITEMAP.extend(RUTAS_COMUNIDADES)
     for k, padre in PADRE_COMUNIDADES.items():
         REVISION[k] = REVISION[padre]
+    for p in PAGINAS:
+        if "miga" in p:
+            MIGA[(p["lang"], p["clave"])] = p["miga"]
 
     for (lang, clave), d in DESCRIPCIONES.items():
         if len(d) > 155:
@@ -589,4 +666,14 @@ if __name__ == "__main__":
         destino = WEB / RUTAS["transparencia"][lang] / "index.html"
         destino.parent.mkdir(parents=True, exist_ok=True)
         destino.write_text(pagina_transparencia(lang), encoding="utf-8")
+    # Plazos del calendario fiscal para añadirlos al calendario del móvil o del ordenador.
+    from contenido_espana import ARCHIVO_ICS, OFRECER_ICS, calendario_ics
+
+    for lang in ("es", "ca"):
+        carpeta = RUTAS["calendario"][lang]
+        archivo = WEB / carpeta / ARCHIVO_ICS[lang]
+        if OFRECER_ICS:
+            archivo.write_bytes(calendario_ics(lang, BASE + carpeta).encode("utf-8"))
+        elif archivo.exists():
+            archivo.unlink()
     sitemap()

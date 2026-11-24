@@ -87,7 +87,27 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="../../estilos.css?v=6fadb38df6">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inici",
+        "item": "https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Model 303",
+        "item": "https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/model-303/"
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="../../estilos.css?v=2d48df388a">
 </head>
 <body>
 <header class="cabecera">
@@ -110,6 +130,7 @@
 </header>
 <section class="heroe">
   <div class="contenedor">
+    <nav class="migas" aria-label="Ets aquí"><ol><li><a href="../">Inici</a></li><li aria-current="page">Model 303</li></ol></nav>
     <h1>Calculadora del model 303: l'IVA de cada trimestre</h1>
     <p class="entradilla">Calcula quant IVA has de pagar aquest trimestre: l'IVA de les teves factures menys el de les despeses, amb el pendent de trimestres anteriors. Serveix per a tot Espanya excepte les Canàries, Ceuta, Melilla, el País Basc i Navarra.</p>
     <ul class="chips"><li>Gratuït</li><li>Sense registre</li><li>Sense galetes</li><li>Dades oficials</li></ul>
@@ -229,5 +250,6 @@
   </div>
 </footer>
 <script type="module" src="../../modelo303-app.js"></script>
+<script type="module" src="../../compartir.js"></script>
 </body>
 </html>

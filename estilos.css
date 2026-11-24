@@ -378,3 +378,62 @@ tr.fuerte td { font-weight: 800; color: var(--acento-fuerte); }
 @media (max-width: 600px) {
   .pie li { margin-bottom: 11px; }
 }
+
+/* Migas de pan: dónde está la página dentro de la web */
+.migas ol { display: flex; flex-wrap: wrap; gap: 2px 0; margin: 0 0 14px; padding: 0; list-style: none; font-size: 0.86rem; color: var(--suave); }
+.migas li + li::before { content: "›"; margin: 0 8px; color: var(--borde-fuerte); }
+.migas a { color: var(--suave); text-decoration: none; font-weight: 600; }
+.migas a:hover { color: var(--acento); text-decoration: underline; }
+.migas [aria-current="page"] { color: var(--texto); font-weight: 650; }
+
+/* Compartir, copiar el enlace o imprimir el resultado */
+.acciones { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--borde); }
+.acciones-titulo { font-weight: 700; font-size: 0.95rem; margin-bottom: 10px; }
+.acciones-fila { display: flex; flex-wrap: wrap; gap: 8px; }
+.accion {
+  display: inline-flex; align-items: center; gap: 7px; padding: 9px 14px; border-radius: 10px;
+  border: 1px solid var(--borde-fuerte); background: var(--tarjeta); color: var(--acento-fuerte);
+  font: inherit; font-size: 0.9rem; font-weight: 650; cursor: pointer; transition: border-color 0.15s, background 0.15s;
+}
+.accion:hover { border-color: var(--acento); background: var(--resalte); }
+.accion:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; }
+.acciones-aviso { margin: 10px 0 0; font-size: 0.9rem; font-weight: 600; color: var(--exito); }
+.acciones-aviso:empty { display: none; }
+.acciones-aviso input { display: block; width: 100%; margin-top: 6px; font-size: 0.85rem; }
+.acciones-nota { margin: 10px 0 0; font-size: 0.82rem; color: var(--suave); }
+.solo-impresion { display: none; }
+
+/* Botón para añadir los plazos del calendario fiscal */
+.anadir-calendario {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin: 4px 0 20px; padding: 16px 18px;
+  border: 1px solid var(--borde); border-radius: 14px; background: var(--resalte);
+}
+.anadir-calendario .boton { display: inline-flex; align-items: center; gap: 8px; margin-top: 0; }
+.anadir-calendario .boton::after { content: none; }
+.anadir-calendario .nota { flex: 1 1 260px; margin: 0; }
+
+/* Al imprimir o guardar en PDF: solo el cálculo, en claro y sin adornos */
+@media print {
+  :root {
+    --fondo: #ffffff; --tarjeta: #ffffff; --campo: #ffffff; --texto: #000000; --suave: #333333;
+    --borde: #bbbbbb; --borde-fuerte: #888888; --acento: #134d7c; --acento-fuerte: #134d7c; --acento-texto: #ffffff;
+    --verde: #1f6b47; --resalte: #eef3f8; --heroe-1: #ffffff; --heroe-2: #ffffff; --exito: #1e5f3c;
+    --aviso: #ffffff; --aviso-borde: #bbbbbb; --error: #9b1c12; --sombra: none; --sombra-alta: none;
+  }
+  body { background: #fff; color: #000; font-size: 12pt; }
+  .cabecera, .migas, .chips, .pie, .acciones, .boton { display: none !important; }
+  .heroe { padding: 0 0 8px; border: 0; background: none; }
+  .heroe::before, .heroe::after, .heroe .contenedor::after { display: none !important; }
+  .heroe .contenedor { min-height: 0; }
+  .heroe h1, .heroe .entradilla { max-width: none; }
+  .heroe h1 { font-size: 20pt; }
+  main { padding: 8px 0 0; }
+  body:has(#formulario) main .contenedor > :not(.calculadora):not(.aviso) { display: none; }
+  .calculadora { display: block; }
+  .calculadora > .resultado { position: static; }
+  .tarjeta, .calculadora > .tarjeta { box-shadow: none; border: 1px solid #bbb; margin-bottom: 12px; }
+  .resultado table, .total { break-inside: avoid; }
+  /* Muchos navegadores no imprimen los fondos: sin esto, la cifra blanca del total quedaría invisible. */
+  .total, .barra, .leyenda i { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .solo-impresion { display: block; margin: 14px 0 0; font-size: 9pt; color: #333; word-break: break-all; }
+}

@@ -164,6 +164,12 @@ DESCRIPCIONES = {
 # Versión de la hoja de estilos: cambia sola cuando cambia estilos.css, para que los navegadores
 # no sigan usando una copia antigua guardada en caché.
 VERSION_CSS = hashlib.sha256((WEB / "estilos.css").read_bytes()).hexdigest()[:10]
+# Contador de visitas sin cookies (GoatCounter). Versión fija con su huella (SRI): el navegador solo
+# ejecuta exactamente este archivo. No cuenta en las calculadoras para otras webs ni en localhost, y
+# solo envía la dirección sin la parte de «#», así que los datos de las calculadoras no salen del navegador.
+CONTADOR = ('<script data-goatcounter="https://calculadoras-autonomos.goatcounter.com/count" async '
+            'src="https://gc.zgo.at/count.v5.js" crossorigin="anonymous" '
+            'integrity="sha384-atnOLvQb9t+jTSipvd75X2yginT4PjVbqDdlJAmxMm+wYElFmeR6EmLP5bYeoRVQ"></script>')
 # Página de la que cuelga cada página de comunidad, para marcarla en el menú.
 PADRE = {}
 ICONO = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f5f8b'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white' font-family='Arial'%3E%E2%82%AC%3C/text%3E%3C/svg%3E"
@@ -382,8 +388,9 @@ def pagina_transparencia(lang):
     if lang == "es":
         titulo, h1 = "Cómo se financia esta web · Calculadoras para autónomos", "Cómo se financia esta web"
         entradilla = "Las calculadoras son gratuitas y seguirán siéndolo. Esto es lo que hay detrás."
-        cuerpo = f"""    <h2>Sin cookies ni seguimiento</h2>
-    <p>Las calculadoras no tienen registro, cookies ni analítica. Los cálculos se hacen en tu navegador y no se guarda nada.</p>
+        cuerpo = f"""    <h2>Sin cookies ni datos personales</h2>
+    <p>Las calculadoras no tienen registro ni cookies. Los cálculos se hacen en tu navegador y no se guarda nada de lo que escribes.</p>
+    <p>Para saber qué páginas se usan, contamos las visitas con <a href="https://www.goatcounter.com/help/privacy">GoatCounter</a>, un contador que no usa cookies y no guarda tu IP ni otros datos personales. Solo recoge la página que visitas, la web de la que vienes y, de forma agregada, el país, el idioma, el navegador y el tamaño de la pantalla. Los datos que escribes en las calculadoras no se envían.</p>
     <h2>Enlaces de afiliado</h2>
     <p>Algunas calculadoras muestran un enlace a <strong>Quipu</strong>, un programa de facturación para autónomos. Es un enlace de afiliado: si te registras y contratas una suscripción desde él, esta web recibe una comisión de Quipu. A ti no te cuesta más.</p>
     <p>Esos enlaces llevan siempre la etiqueta «Enlace de afiliado». Las comisiones no cambian los cálculos ni los resultados, y esta web no tiene relación con Quipu más allá de su programa de afiliados.</p>
@@ -393,8 +400,9 @@ def pagina_transparencia(lang):
     else:
         titulo, h1 = "Com es finança aquest web · Calculadores per a autònoms", "Com es finança aquest web"
         entradilla = "Les calculadores són gratuïtes i ho continuaran sent. Això és el que hi ha al darrere."
-        cuerpo = f"""    <h2>Sense galetes ni seguiment</h2>
-    <p>Les calculadores no tenen registre, galetes ni analítica. Els càlculs es fan al teu navegador i no es desa res.</p>
+        cuerpo = f"""    <h2>Sense galetes ni dades personals</h2>
+    <p>Les calculadores no tenen registre ni galetes. Els càlculs es fan al teu navegador i no es desa res del que escrius.</p>
+    <p>Per saber quines pàgines es fan servir, comptem les visites amb <a href="https://www.goatcounter.com/help/privacy">GoatCounter</a>, un comptador que no fa servir galetes i no desa la teva IP ni altres dades personals. Només recull la pàgina que visites, el web d'on vens i, de manera agregada, el país, l'idioma, el navegador i la mida de la pantalla. Les dades que escrius a les calculadores no s'envien.</p>
     <h2>Enllaços d'afiliat</h2>
     <p>Algunes calculadores mostren un enllaç a <strong>Quipu</strong>, un programa de facturació per a autònoms. És un enllaç d'afiliat: si et registres i contractes una subscripció des d'aquí, aquest web rep una comissió de Quipu. A tu no et costa més.</p>
     <p>Aquests enllaços porten sempre l'etiqueta «Enllaç d'afiliat». Les comissions no canvien els càlculs ni els resultats, i aquest web no té relació amb Quipu més enllà del seu programa d'afiliats.</p>
@@ -414,7 +422,8 @@ def pagina_transparencia(lang):
   <link rel="alternate" hreflang="ca" href="{ca}">
   <link rel="alternate" hreflang="x-default" href="{es}">
   <link rel="icon" href="{ICONO}">
-  {migas_ld(lang, "transparencia")}<link rel="stylesheet" href="{raiz}estilos.css?v={VERSION_CSS}">
+  {migas_ld(lang, "transparencia")}{CONTADOR}
+  <link rel="stylesheet" href="{raiz}estilos.css?v={VERSION_CSS}">
 </head>
 <body>
 {cabecera(lang, "transparencia")}
@@ -536,7 +545,8 @@ def pagina(p):
   <script type="application/ld+json">
   {ld_texto}
   </script>
-  {migas_ld(lang, clave)}<link rel="stylesheet" href="{raiz}estilos.css?v={VERSION_CSS}">
+  {migas_ld(lang, clave)}{CONTADOR}
+  <link rel="stylesheet" href="{raiz}estilos.css?v={VERSION_CSS}">
 </head>
 <body>
 {cabecera(lang, clave)}
@@ -604,6 +614,11 @@ def actualizar_existente(lang, clave):
         lambda m: f'href="{m.group(1)}estilos.css?v={VERSION_CSS}"',
         t,
     )
+    # Contador de visitas: se quita el anterior y se pone el actual antes de la hoja de estilos.
+    t = re.sub(r'<script data-goatcounter="[^"]*"[^>]*></script>\n  ', "", t)
+    t, n = re.subn(r'(\n  )(<link rel="stylesheet")', lambda m: m.group(1) + CONTADOR + m.group(1) + m.group(2), t, count=1)
+    if n != 1:
+        raise SystemExit(f"No se pudo poner el contador en {archivo}")
     # Migas de pan (la portada no lleva): se quitan las anteriores y se vuelven a poner.
     t = re.sub(r'<nav class="migas".*?</nav>\n    ', "", t, flags=re.S)
     t = re.sub(r'<script type="application/ld\+json">\s*\{\s*"@context": "https://schema\.org",\s*"@type": "BreadcrumbList".*?</script>\n  ', "", t, flags=re.S)

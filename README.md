@@ -21,7 +21,8 @@ Web estática y gratuita con calculadoras para autónomos, en castellano y en ca
 | Sueldo neto en cada comunidad | `/sueldo-neto-autonomo/{comunidad}/` | `/ca/sou-net-autonom/{comunitat}/` | 15 páginas |
 | Calculadoras para otras webs | `/insertar/` | `/ca/inserir/` | Código para copiar y vista previa |
 
-- **Sin servidor ni datos guardados:** el cálculo se hace en el navegador. No hay registro, cookies ni analítica.
+- **Sin servidor ni datos guardados:** el cálculo se hace en el navegador. No hay registro ni cookies.
+- **Contador de visitas:** GoatCounter (cuenta `calculadoras-autonomos`, panel en https://calculadoras-autonomos.goatcounter.com), sin cookies ni datos personales. El script va con versión fija y huella SRI (`CONTADOR` en `herramientas/generar.py`) en todas las páginas menos las calculadoras para otras webs. Solo envía la dirección sin la parte de «#», así que los datos de los enlaces para compartir no salen del navegador.
 - **Mismo cálculo que el servidor MCP:** las carpetas `irpf/`, `cuota/`, `factura/`, `modelo130/` y `modelo303/` son copias exactas de la compilación de `irpf-pymes-cat-mcp`. Si cambian las tablas, hay que compilar el servidor y volver a copiarlas.
 - **Cálculos propios de la web:** `iva/`, `objetivo/`, `sueldo/`, `tarifa/` y `regularizacion/`. La tarifa plana sigue el art. 38 ter de la Ley 20/2007 y usa el importe de 2026 que publica la Seguridad Social (80 € más el MEI, 88,64 €) y el salario mínimo de 2026 y 2027 (RD 126/2026 y RD 1013/2026), revisados el 20 de noviembre de 2026. El modelo 130 sigue el art. 110 del Reglamento del IRPF y las instrucciones del modelo de la AEAT, revisados el 17 de noviembre de 2026.
 - **Pruebas:** `node --test test/`.

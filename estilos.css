@@ -437,3 +437,24 @@ tr.fuerte td { font-weight: 800; color: var(--acento-fuerte); }
   .total, .barra, .leyenda i { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .solo-impresion { display: block; margin: 14px 0 0; font-size: 9pt; color: #333; word-break: break-all; }
 }
+
+/* Calculadoras para insertar en otras webs */
+body.widget { background: var(--fondo); }
+.widget main { padding: 10px 0; }
+.widget .contenedor { padding: 0 8px; }
+.widget .calculadora { margin-bottom: 10px; }
+.widget-pie { text-align: center; font-size: 0.86rem; color: var(--suave); margin: 0 0 4px; }
+.opciones-widget { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-bottom: 18px; }
+.opcion-widget {
+  display: flex; gap: 10px; align-items: flex-start; padding: 14px; border: 1px solid var(--borde); border-radius: 14px;
+  background: var(--fondo); cursor: pointer;
+}
+.opcion-widget:has(input:checked) { border-color: var(--acento); background: var(--resalte); }
+.opcion-widget input { margin-top: 4px; accent-color: var(--acento); }
+.opcion-widget strong { display: block; color: var(--acento-fuerte); }
+.opcion-widget span { font-size: 0.9rem; color: var(--suave); }
+.codigo {
+  width: 100%; font: 0.82rem/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; padding: 12px; border-radius: 12px;
+  border: 1px solid var(--borde-fuerte); background: var(--campo); color: var(--texto); resize: vertical; margin-bottom: 10px;
+}
+.vista-widget { width: 100%; border: 1px dashed var(--borde-fuerte); border-radius: 14px; background: var(--fondo); display: block; }

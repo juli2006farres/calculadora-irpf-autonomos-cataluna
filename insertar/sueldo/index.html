@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculadora de sueldo neto de autónomo 2026</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f5f8b'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white' font-family='Arial'%3E%E2%82%AC%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../../estilos.css?v=3079c0fe58">
+</head>
+<body class="widget">
+<main>
+<div class="contenedor">
+  <div class="calculadora apilada">
+  <form id="formulario" class="tarjeta" novalidate>
+    <h2>Tus previsiones para 2026</h2>
+    <div class="rejilla">
+      <div>
+        <label for="comunidad">Comunidad autónoma<span class="ayuda">Donde vives. No incluye País Vasco, Navarra, Ceuta ni Melilla.</span></label>
+        <select id="comunidad" name="comunidad">
+          <option value="andalucia">Andalucía</option>
+          <option value="aragon">Aragón</option>
+          <option value="canarias">Canarias</option>
+          <option value="cantabria">Cantabria</option>
+          <option value="castilla_y_leon">Castilla y León</option>
+          <option value="castilla_la_mancha">Castilla-La Mancha</option>
+          <option value="cataluna">Cataluña</option>
+          <option value="madrid" selected>Comunidad de Madrid</option>
+          <option value="valenciana">Comunitat Valenciana</option>
+          <option value="extremadura">Extremadura</option>
+          <option value="galicia">Galicia</option>
+          <option value="baleares">Illes Balears</option>
+          <option value="la_rioja">La Rioja</option>
+          <option value="asturias">Principado de Asturias</option>
+          <option value="murcia">Región de Murcia</option>
+        </select>
+      </div>
+      <div>
+        <label for="ingresos">Ingresos anuales (€)<span class="ayuda" id="ayuda-ingresos">Lo que prevés facturar en el año, sin IVA.</span></label>
+        <input id="ingresos" name="ingresos" type="number" inputmode="decimal" min="0" step="0.01" value="40000">
+      </div>
+      <div>
+        <label for="gastos">Gastos deducibles (€)<span class="ayuda" id="ayuda-gastos">Sin contar las cuotas de autónomo.</span></label>
+        <input id="gastos" name="gastos" type="number" inputmode="decimal" min="0" step="0.01" value="5000">
+      </div>
+      <div>
+        <label for="cuota">Cuota de autónomos al mes (€)<span class="ayuda" id="ayuda-cuota">Déjala vacía para usar la cuota mínima de tu tramo.</span></label>
+        <input id="cuota" name="cuota" type="number" inputmode="decimal" min="0" step="0.01" placeholder="Mínima de tu tramo">
+      </div>
+      <div>
+        <label for="modalidad">Estimación en el IRPF<span class="ayuda">La que usas en el IRPF. La más habitual es la simplificada.</span></label>
+        <select id="modalidad" name="modalidad">
+          <option value="directa_simplificada" selected>Directa simplificada</option>
+          <option value="directa_normal">Directa normal</option>
+        </select>
+      </div>
+    </div>
+    <div class="casilla">
+      <input id="inicio" name="inicio" type="checkbox">
+      <label for="inicio">Acabo de empezar como autónomo<span class="ayuda">Reducción del 20 % del IRPF (art. 32.3 de la Ley del IRPF). Márcala solo si no tuviste actividad económica el año anterior al inicio, es tu primer o segundo año con beneficios y no facturas más del 50 % a quien te pagó como asalariado ese año anterior.</span></label>
+    </div>
+    <div class="casilla">
+      <input id="cliente" name="cliente" type="checkbox">
+      <label for="cliente">Cumplo los requisitos de la reducción para autónomos dependientes<span class="ayuda">Art. 32.2.2.º de la Ley del IRPF: entre otros, un único cliente no vinculado y gastos que no superen el 30 % de los ingresos.</span></label>
+    </div>
+  </form>
+
+  <section class="tarjeta resultado" aria-live="polite">
+    <h2>Resultado</h2>
+    <div id="resultado"><p>Rellena tus datos para ver el cálculo.</p></div>
+  </section>
+  </div>
+  <p class="widget-pie">Calculadora: <a href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/sueldo-neto-autonomo/" target="_blank" rel="noopener">Sueldo neto de autónomo · Calculadoras para autónomos</a>. Datos oficiales de 2026. Estimación orientativa.</p>
+</div>
+</main>
+<script type="module" src="../../sueldo-app.js"></script>
+<script type="module" src="../../widget.js"></script>
+</body>
+</html>

@@ -21,6 +21,8 @@ RUTAS = {
     "irpf": {"es": "", "ca": "ca/"},
     "cuota": {"es": "cuota-autonomos-2026/", "ca": "ca/quota-autonoms-2026/"},
     "tarifa": {"es": "tarifa-plana-autonomos-2026/", "ca": "ca/tarifa-plana-autonoms-2026/"},
+    "regularizacion": {"es": "regularizacion-cuota-autonomos-2026/", "ca": "ca/regularitzacio-quota-autonoms-2026/"},
+    "insertar": {"es": "insertar/", "ca": "ca/inserir/"},
     "factura": {"es": "factura-autonomos/", "ca": "ca/factura-autonoms/"},
     "iva": {"es": "calculadora-iva/", "ca": "ca/calculadora-iva/"},
     "sueldo": {"es": "sueldo-neto-autonomo/", "ca": "ca/sou-net-autonom/"},
@@ -33,12 +35,12 @@ RUTAS = {
     "calendario": {"es": "calendario-fiscal-autonomos-2027/", "ca": "ca/calendari-fiscal-autonoms-2027/"},
 }
 # ORDEN: tarjetas y sitemap. MENU_ORDEN: menú de arriba (el IRPF de Cataluña se enlaza desde las tarjetas).
-ORDEN = ["irpf_es", "irpf", "cuota", "tarifa", "factura", "plantilla", "iva", "m303", "m130", "sueldo", "objetivo", "calendario"]
+ORDEN = ["irpf_es", "irpf", "cuota", "tarifa", "regularizacion", "factura", "plantilla", "iva", "m303", "m130", "sueldo", "objetivo", "calendario"]
 MENU_ORDEN = ["irpf_es", "cuota", "factura", "plantilla", "iva", "m303", "m130", "sueldo", "objetivo", "calendario"]
 MENU = {
-    "es": {"irpf_es": "IRPF", "calendario": "Calendario", "irpf": "IRPF Cataluña", "cuota": "Cuota", "tarifa": "Tarifa plana", "factura": "Factura", "iva": "IVA", "sueldo": "Sueldo neto",
+    "es": {"irpf_es": "IRPF", "calendario": "Calendario", "irpf": "IRPF Cataluña", "cuota": "Cuota", "tarifa": "Tarifa plana", "regularizacion": "Regularización", "factura": "Factura", "iva": "IVA", "sueldo": "Sueldo neto",
            "objetivo": "Cuánto facturar", "m130": "Modelo 130", "m303": "Modelo 303", "plantilla": "Plantilla"},
-    "ca": {"irpf_es": "IRPF", "calendario": "Calendari", "irpf": "IRPF Catalunya", "cuota": "Quota", "tarifa": "Tarifa plana", "factura": "Factura", "iva": "IVA", "sueldo": "Sou net",
+    "ca": {"irpf_es": "IRPF", "calendario": "Calendari", "irpf": "IRPF Catalunya", "cuota": "Quota", "tarifa": "Tarifa plana", "regularizacion": "Regularització", "factura": "Factura", "iva": "IVA", "sueldo": "Sou net",
            "objetivo": "Quant facturar", "m130": "Model 130", "m303": "Model 303", "plantilla": "Plantilla"},
 }
 TARJETAS = {
@@ -48,6 +50,7 @@ TARJETAS = {
         "irpf": ("IRPF de autónomos en Cataluña", "Cuánto pagarás en la renta, con la escala catalana."),
         "cuota": ("Cuota de autónomos 2026", "Tu tramo y tu cuota mensual según lo que ganas."),
         "tarifa": ("Tarifa plana 2026", "Cuánto te ahorras el primer año y si puedes alargarla."),
+        "regularizacion": ("Regularización de la cuota", "Si la Seguridad Social te devolverá o te cobrará la diferencia de 2026."),
         "factura": ("Factura con IVA e IRPF", "El total de la factura, o cuánto facturar para cobrar una cantidad."),
         "iva": ("Calculadora de IVA", "Añade o quita el IVA del 21 %, 10 % o 4 % a cualquier precio."),
         "sueldo": ("Sueldo neto de autónomo", "Lo que te queda al mes tras gastos, cuota e IRPF."),
@@ -62,6 +65,7 @@ TARJETAS = {
         "irpf": ("IRPF d'autònoms a Catalunya", "Quant pagaràs a la renda, amb l'escala catalana."),
         "cuota": ("Quota d'autònoms 2026", "El teu tram i la teva quota mensual segons el que guanyes."),
         "tarifa": ("Tarifa plana 2026", "Quant t'estalvies el primer any i si la pots allargar."),
+        "regularizacion": ("Regularització de la quota", "Si la Seguretat Social et retornarà o et cobrarà la diferència del 2026."),
         "factura": ("Factura amb IVA i IRPF", "El total de la factura, o quant facturar per cobrar una quantitat."),
         "iva": ("Calculadora d'IVA", "Afegeix o treu l'IVA del 21 %, 10 % o 4 % a qualsevol preu."),
         "sueldo": ("Sou net d'autònom", "El que et queda al mes després de despeses, quota i IRPF."),
@@ -76,6 +80,8 @@ TRAZOS = {
     "irpf": '<path d="M4 20V11M10 20V5M16 20v-6M2 20h20"/>',
     "cuota": '<path d="M3 10h18L12 4 3 10z"/><path d="M5.5 10v8M10 10v8M14 10v8M18.5 10v8M3 20h18"/>',
     "tarifa": '<path d="M12 21v-9"/><path d="M12 12C12 7.5 8.5 5 4 5c0 4.5 3.5 7 8 7z"/><path d="M12 14.5c0-4 3-6.5 8-6.5 0 4-3 6.5-8 6.5z"/>',
+    "insertar": '<path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/>',
+    "regularizacion": '<path d="M20 11a8 8 0 0 0-14.3-4.9L4 8"/><path d="M4 3v5h5"/><path d="M4 13a8 8 0 0 0 14.3 4.9L20 16"/><path d="M20 21v-5h-5"/>',
     "factura": '<path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/>',
     "plantilla": '<path d="M7 3h7l5 5v13H7V3z"/><path d="M14 3v5h5M10 13h6M10 17h6"/>',
     "iva": '<path d="M19 5 5 19"/><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/>',
@@ -94,6 +100,8 @@ REVISION = {
     "irpf": ("2026-11-25", {"es": "datos de 2025 y 2026", "ca": "dades del 2025 i el 2026"}),
     "cuota": ("2026-11-25", {"es": "tablas oficiales de 2026", "ca": "taules oficials del 2026"}),
     "tarifa": ("2026-11-25", {"es": "datos de 2026", "ca": "dades del 2026"}),
+    "regularizacion": ("2026-11-25", {"es": "normativa y tablas de 2026", "ca": "normativa i taules del 2026"}),
+    "insertar": ("2026-11-25", {"es": "datos de 2026", "ca": "dades del 2026"}),
     "factura": (HOY, {"es": "tipos vigentes en 2026", "ca": "tipus vigents el 2026"}),
     "iva": (HOY, {"es": "tipos vigentes en 2026", "ca": "tipus vigents el 2026"}),
     "sueldo": ("2026-11-25", {"es": "datos de 2026", "ca": "dades del 2026"}),
@@ -222,6 +230,8 @@ def pasos_migas(lang, clave):
         pasos.append((MIGA[(lang, clave)], RUTAS[clave][lang]))
     elif clave == "transparencia":
         pasos.append((TRANSPARENCIA[lang], RUTAS[clave][lang]))
+    elif clave == "insertar":
+        pasos.append((INSERTAR[lang]["titulo"], RUTAS[clave][lang]))
     else:
         pasos.append((TARJETAS[lang][clave][0], RUTAS[clave][lang]))
     return pasos
@@ -290,10 +300,10 @@ TRANSPARENCIA = {"es": "Cómo se financia esta web", "ca": "Com es finança aque
 
 GRUPOS_PIE = {
     "es": [("Impuestos", ["irpf_es", "irpf", "m303", "m130", "calendario"]),
-           ("Cuota y sueldo", ["cuota", "tarifa", "sueldo", "objetivo"]),
+           ("Cuota y sueldo", ["cuota", "tarifa", "regularizacion", "sueldo", "objetivo"]),
            ("Facturas", ["factura", "plantilla", "iva"])],
     "ca": [("Impostos", ["irpf_es", "irpf", "m303", "m130", "calendario"]),
-           ("Quota i sou", ["cuota", "tarifa", "sueldo", "objetivo"]),
+           ("Quota i sou", ["cuota", "tarifa", "regularizacion", "sueldo", "objetivo"]),
            ("Factures", ["factura", "plantilla", "iva"])],
 }
 LEMA = {
@@ -318,7 +328,7 @@ def pie(lang, clave):
     <div class="pie-legal">
       <p>{T[lang]["pie"]}</p>
       <p>{T[lang]["mcp"]}</p>
-      <p><a href="{enlace}">{TRANSPARENCIA[lang]}</a></p>
+      <p><a href="{enlace}">{TRANSPARENCIA[lang]}</a> · <a href="{relativa(ruta, RUTAS["insertar"][lang])}">{INSERTAR[lang]["titulo"]}</a></p>
     </div>
   </div>
 </footer>"""
@@ -615,6 +625,198 @@ def actualizar_existente(lang, clave):
     archivo.write_text(t, encoding="utf-8")
 
 
+# ---------------------------------------------------------------- Calculadoras para insertar en otras webs
+# Cada una es una página mínima (sin menú ni pie) que se pone en un iframe. No se indexan: la página
+# que se posiciona es la normal. /insertar/ explica cómo ponerlas y da el código para copiar.
+WIDGETS = {
+    "irpf": {"destino": "irpf_es", "ruta": {"es": "insertar/irpf/", "ca": "ca/inserir/irpf/"}, "altura": 1100},
+    "sueldo": {"destino": "sueldo", "ruta": {"es": "insertar/sueldo/", "ca": "ca/inserir/sou/"}, "altura": 980},
+}
+INSERTAR = {
+    "es": {
+        "titulo": "Pon nuestras calculadoras en tu web",
+        "pie": "Calculadora:",
+        "fuente": "Datos oficiales de 2026. Estimación orientativa.",
+    },
+    "ca": {
+        "titulo": "Posa les nostres calculadores al teu web",
+        "pie": "Calculadora:",
+        "fuente": "Dades oficials del 2026. Estimació orientativa.",
+    },
+}
+
+
+def pagina_widget(lang, tipo, p):
+    w = WIDGETS[tipo]
+    ruta = w["ruta"][lang]
+    raiz = "../" * ruta.count("/")
+    destino = BASE + RUTAS[w["destino"]][lang]
+    i = INSERTAR[lang]
+    return f"""<!doctype html>
+<html lang="{lang}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{p["og_titulo"]}</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" href="{ICONO}">
+  <link rel="stylesheet" href="{raiz}estilos.css?v={VERSION_CSS}">
+</head>
+<body class="widget">
+<main>
+<div class="contenedor">
+  <div class="calculadora apilada">
+  <form id="formulario" class="tarjeta" novalidate>
+{p["formulario"]}
+  </form>
+
+  <section class="tarjeta resultado" aria-live="polite">
+    <h2>{T[lang]["resultado"]}</h2>
+    <div id="resultado"><p>{T[lang]["rellena"]}</p></div>
+  </section>
+  </div>
+  <p class="widget-pie">{i["pie"]} <a href="{destino}" target="_blank" rel="noopener">{TARJETAS[lang][w["destino"]][0]} · {T[lang]["marca"]}</a>. {i["fuente"]}</p>
+</div>
+</main>
+<script type="module" src="{raiz}{p["script"]}"></script>
+<script type="module" src="{raiz}widget.js"></script>
+</body>
+</html>
+"""
+
+
+def cuerpo_insertar(lang):
+    """Instrucciones y código para copiar. insertar.js cambia la vista previa y el código según la elección."""
+    t = {
+        "es": ("Elige la calculadora", "Vista previa", "Código para pegar en tu web", "Copiar el código",
+               "Pégalo en tu página donde quieras que aparezca la calculadora (en WordPress, en un bloque «HTML personalizado»). "
+               "Se adapta al ancho de tu web y funciona en el móvil.",
+               "Condiciones: es gratis, no hace falta registrarse y no pone cookies ni publicidad en tu web. Solo te pedimos que dejes el enlace de debajo de la calculadora."),
+        "ca": ("Tria la calculadora", "Vista prèvia", "Codi per enganxar al teu web", "Copia el codi",
+               "Enganxa'l a la teva pàgina on vulguis que aparegui la calculadora (al WordPress, en un bloc «HTML personalitzat»). "
+               "S'adapta a l'amplada del teu web i funciona al mòbil.",
+               "Condicions: és gratuït, no cal registrar-se i no posa galetes ni publicitat al teu web. Només et demanem que deixis l'enllaç de sota de la calculadora."),
+    }[lang]
+    eleccion, vista, codigo, copiar, como, condiciones = t
+    opciones = []
+    for n, (tipo, w) in enumerate(WIDGETS.items()):
+        titulo, texto = TARJETAS[lang][w["destino"]]
+        src = BASE + w["ruta"][lang]
+        enlace = BASE + RUTAS[w["destino"]][lang]
+        marcado = " checked" if n == 0 else ""
+        vista_rel = relativa(RUTAS["insertar"][lang], w["ruta"][lang])
+        opciones.append(
+            f'      <label class="opcion-widget"><input type="radio" name="widget" value="{tipo}"{marcado} '
+            f'data-src="{src}" data-vista="{vista_rel}" data-enlace="{enlace}" data-titulo="{html.escape(titulo)}" data-altura="{w["altura"]}">'
+            f'<span><strong>{titulo}</strong>{texto}</span></label>'
+        )
+    primera = next(iter(WIDGETS.values()))
+    return f"""<section class="tarjeta">
+    <h2>{eleccion}</h2>
+    <div class="opciones-widget">
+{chr(10).join(opciones)}
+    </div>
+    <h3 class="subtitulo">{codigo}</h3>
+    <textarea id="codigo" class="codigo" rows="6" readonly aria-label="{codigo}"></textarea>
+    <div class="acciones-fila"><button type="button" class="accion" id="copiar">{copiar}</button></div>
+    <p class="acciones-aviso" id="copiado" role="status"></p>
+    <p class="nota">{como}</p>
+    <p class="nota">{condiciones}</p>
+  </section>
+
+  <section class="tarjeta">
+    <h2>{vista}</h2>
+    <iframe id="vista" class="vista-widget" src="{relativa(RUTAS["insertar"][lang], primera["ruta"][lang])}" title="{vista}" height="{primera["altura"]}" loading="lazy"></iframe>
+  </section>"""
+
+
+REPO = "https://github.com/juli2006farres/calculadora-irpf-autonomos-cataluna"
+
+
+def paginas_insertar():
+    es = {
+        "lang": "es",
+        "clave": "insertar",
+        "script": "insertar.js",
+        "cuerpo": cuerpo_insertar("es"),
+        "titulo": "Calculadoras para autónomos gratis para tu web · Insertar",
+        "descripcion": "Pon gratis en tu web la calculadora de IRPF por comunidad o la de sueldo neto de autónomo: copia el código y pégalo. Sin registro ni cookies.",
+        "og_titulo": "Pon nuestras calculadoras para autónomos en tu web",
+        "og_descripcion": "Calculadoras de IRPF y sueldo neto gratis para tu blog o tu web, con datos oficiales de 2026.",
+        "h1": "Pon nuestras calculadoras para autónomos en tu web",
+        "entradilla": "Si tienes un blog, una gestoría o una web para autónomos, puedes poner gratis nuestra calculadora de IRPF por comunidad o la de sueldo neto. Copia el código y pégalo en tu página.",
+        "faq": [
+            ("¿Cuánto cuesta?", "Nada. Es gratis y no hace falta registrarse."),
+            ("¿Se actualiza sola?", "Sí. La calculadora se carga desde esta web, así que cuando cambian los datos, por ejemplo al pasar a 2027, se actualiza en tu web sin que tengas que hacer nada."),
+            ("¿Recoge datos de mis visitantes?", "No. Los cálculos se hacen en el navegador de cada visitante y no se guarda nada. No hay cookies, analítica ni publicidad."),
+            ("¿Se adapta al tamaño de mi web?", "Sí. El ancho se adapta a tu página y el alto crece o encoge con el resultado gracias a la última línea del código, la del «script». Si tu web no permite añadir scripts, quita esa línea: la calculadora funciona igual, con el alto fijo de «height» y una barra de desplazamiento si hace falta."),
+        ],
+        "aviso": "las calculadoras dan estimaciones orientativas y no sustituyen el consejo de un asesor fiscal. Cada calculadora enlaza sus fuentes oficiales en su página. Más información:",
+        "fuentes": [("Código de las calculadoras, con licencia MIT (GitHub)", REPO)],
+    }
+    ca = {
+        "lang": "ca",
+        "clave": "insertar",
+        "script": "insertar.js",
+        "cuerpo": cuerpo_insertar("ca"),
+        "titulo": "Calculadores per a autònoms gratuïtes per al teu web · Inserir",
+        "descripcion": "Posa gratis al teu web la calculadora d'IRPF per comunitat o la de sou net d'autònom: copia el codi i enganxa'l. Sense registre ni galetes.",
+        "og_titulo": "Posa les nostres calculadores per a autònoms al teu web",
+        "og_descripcion": "Calculadores d'IRPF i sou net gratuïtes per al teu blog o el teu web, amb dades oficials del 2026.",
+        "h1": "Posa les nostres calculadores per a autònoms al teu web",
+        "entradilla": "Si tens un blog, una gestoria o un web per a autònoms, pots posar-hi gratis la nostra calculadora d'IRPF per comunitat o la de sou net. Copia el codi i enganxa'l a la teva pàgina.",
+        "faq": [
+            ("Quant costa?", "Res. És gratuït i no cal registrar-se."),
+            ("S'actualitza sola?", "Sí. La calculadora es carrega des d'aquest web, així que quan canvien les dades, per exemple en passar al 2027, s'actualitza al teu web sense que hagis de fer res."),
+            ("Recull dades dels meus visitants?", "No. Els càlculs es fan al navegador de cada visitant i no es desa res. No hi ha galetes, analítica ni publicitat."),
+            ("S'adapta a la mida del meu web?", "Sí. L'amplada s'adapta a la teva pàgina i l'alçada creix o s'encongeix amb el resultat gràcies a l'última línia del codi, la de l'«script». Si el teu web no permet afegir scripts, treu aquesta línia: la calculadora funciona igual, amb l'alçada fixa de «height» i una barra de desplaçament si cal."),
+        ],
+        "aviso": "les calculadores donen estimacions orientatives i no substitueixen el consell d'un assessor fiscal. Cada calculadora enllaça les seves fonts oficials a la seva pàgina. Més informació:",
+        "fuentes": [("Codi de les calculadores, amb llicència MIT (GitHub)", REPO)],
+    }
+    return [es, ca]
+
+
+def llms_txt(paginas):
+    """Resumen de la web para asistentes de IA (formato llms.txt: https://llmstxt.org/)."""
+    por_clave = {(p["lang"], p["clave"]): p for p in paginas}
+
+    def descripcion(lang, clave):
+        p = por_clave.get((lang, clave))
+        return p["descripcion"] if p else DESCRIPCIONES[(lang, clave)]
+
+    lineas = [
+        "# Calculadoras para autónomos",
+        "",
+        "> Calculadoras gratuitas para autónomos en España, en castellano y en catalán: IRPF en las 15 comunidades de régimen común, "
+        "cuota de autónomos 2026, tarifa plana, regularización de la cuota, sueldo neto, cuánto facturar, IVA, facturas, modelos 130 y 303 "
+        "y calendario fiscal 2027. Datos oficiales del BOE, la Agencia Tributaria y la Seguridad Social, sin registro, sin cookies y sin guardar datos.",
+        "",
+        f"- Datos revisados el {fecha_texto(MODIFICADO, 'es')}, incluido el Real Decreto-ley 43/2026: en 2026, los gastos de difícil "
+        "justificación de la estimación directa simplificada son el 10 % del rendimiento, con un máximo de 3.000 €.",
+        "- Cada página enlaza sus fuentes oficiales y explica qué incluye y qué no. Son estimaciones orientativas, no asesoramiento fiscal.",
+        "- No cubre el País Vasco ni Navarra (IRPF foral), ni Ceuta y Melilla.",
+        "- Los cálculos se hacen en el navegador del usuario. El código es público con licencia MIT: "
+        "https://github.com/juli2006farres/calculadora-irpf-autonomos-cataluna",
+        f"- Las mismas calculadoras están disponibles como servidor MCP para asistentes de IA, con plan gratuito: {MCPIZE}",
+        "",
+        "## Calculadoras",
+        "",
+    ]
+    for clave in ORDEN:
+        lineas.append(f"- [{TARJETAS['es'][clave][0]}]({BASE + RUTAS[clave]['es']}): {descripcion('es', clave)}")
+    lineas += ["", "## Por comunidad autónoma", ""]
+    for tipo, titulo in (("irpf_es", "IRPF de autónomos"), ("sueldo", "Sueldo neto de autónomo")):
+        hijos = [k for k, padre in PADRE.items() if padre == tipo]
+        enlaces = ", ".join(f"[{MIGA[('es', k)]}]({BASE + RUTAS[k]['es']})" for k in sorted(hijos, key=lambda k: MIGA[("es", k)]))
+        lineas.append(f"- {titulo}: {enlaces}.")
+    lineas += ["", "## En catalán", ""]
+    for clave in ORDEN:
+        lineas.append(f"- [{TARJETAS['ca'][clave][0]}]({BASE + RUTAS[clave]['ca']}): {descripcion('ca', clave)}")
+    lineas += ["", "## Optional", "", f"- [Cómo se financia esta web]({BASE + RUTAS['transparencia']['es']}): enlaces de afiliado marcados y servidor MCP."]
+    (WEB / "llms.txt").write_text("\n".join(lineas) + "\n", encoding="utf-8")
+
+
 # Páginas que van al sitemap además de las de ORDEN (las de cada comunidad).
 EXTRA_SITEMAP = []
 
@@ -640,7 +842,8 @@ def sitemap():
 
 if __name__ == "__main__":
     sys.path.insert(0, str(Path(__file__).parent))
-    from contenido_comunidades import PADRE_COMUNIDADES, PAGINAS, RUTAS_COMUNIDADES
+    from contenido_comunidades import PADRE_COMUNIDADES, RUTAS_COMUNIDADES
+    from contenido_regularizacion import PAGINAS
 
     RUTAS.update(RUTAS_COMUNIDADES)
     PADRE.update(PADRE_COMUNIDADES)
@@ -650,6 +853,15 @@ if __name__ == "__main__":
     for p in PAGINAS:
         if "miga" in p:
             MIGA[(p["lang"], p["clave"])] = p["miga"]
+
+    PAGINAS = [*PAGINAS, *paginas_insertar()]
+    EXTRA_SITEMAP.append("insertar")
+    por_clave = {(p["lang"], p["clave"]): p for p in PAGINAS}
+    for tipo, w in WIDGETS.items():
+        for lang in ("es", "ca"):
+            destino = WEB / w["ruta"][lang] / "index.html"
+            destino.parent.mkdir(parents=True, exist_ok=True)
+            destino.write_text(pagina_widget(lang, tipo, por_clave[(lang, w["destino"])]), encoding="utf-8")
 
     for (lang, clave), d in DESCRIPCIONES.items():
         if len(d) > 155:
@@ -677,3 +889,4 @@ if __name__ == "__main__":
         elif archivo.exists():
             archivo.unlink()
     sitemap()
+    llms_txt(PAGINAS)

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculadora d'IRPF d'autònoms per comunitat autònoma</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f5f8b'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white' font-family='Arial'%3E%E2%82%AC%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../../../estilos.css?v=3079c0fe58">
+</head>
+<body class="widget">
+<main>
+<div class="contenedor">
+  <div class="calculadora apilada">
+  <form id="formulario" class="tarjeta" novalidate>
+    <h2>Les teves dades de l'any</h2>
+    <div class="rejilla">
+      <div>
+        <label for="comunidad">Comunitat autònoma<span class="ayuda">On vius. No inclou el País Basc, Navarra, Ceuta ni Melilla.</span></label>
+        <select id="comunidad" name="comunidad">
+          <option value="andalucia">Andalusia</option>
+          <option value="aragon">Aragó</option>
+          <option value="canarias">Canàries</option>
+          <option value="cantabria">Cantàbria</option>
+          <option value="castilla_y_leon">Castella i Lleó</option>
+          <option value="castilla_la_mancha">Castella-la Manxa</option>
+          <option value="cataluna">Catalunya</option>
+          <option value="madrid" selected>Comunitat de Madrid</option>
+          <option value="valenciana">Comunitat Valenciana</option>
+          <option value="extremadura">Extremadura</option>
+          <option value="galicia">Galícia</option>
+          <option value="baleares">Illes Balears</option>
+          <option value="la_rioja">La Rioja</option>
+          <option value="asturias">Principat d'Astúries</option>
+          <option value="murcia">Regió de Múrcia</option>
+        </select>
+      </div>
+      <div>
+        <label for="anio">Exercici<span class="ayuda">L'any que vols calcular.</span></label>
+        <select id="anio" name="anio">
+          <option value="2026" selected>2026</option>
+          <option value="2025">2025</option>
+        </select>
+      </div>
+      <div>
+        <label for="ingresos">Ingressos anuals (€)<span class="ayuda" id="ayuda-ingresos">El que has facturat durant l'any, sense IVA.</span></label>
+        <input id="ingresos" name="ingresos" type="number" inputmode="decimal" min="0" step="0.01" value="40000">
+      </div>
+      <div>
+        <label for="gastos">Despeses deduïbles (€)<span class="ayuda" id="ayuda-gastos">Sense comptar les quotes d'autònom.</span></label>
+        <input id="gastos" name="gastos" type="number" inputmode="decimal" min="0" step="0.01" value="5000">
+      </div>
+      <div>
+        <label for="cuotas">Quotes d'autònom pagades (€)<span class="ayuda" id="ayuda-cuotas">Total de l'any a la Seguretat Social.</span></label>
+        <input id="cuotas" name="cuotas" type="number" inputmode="decimal" min="0" step="0.01" value="4000">
+      </div>
+      <div>
+        <label for="pagos">Retencions i pagaments a compte (€)<span class="ayuda" id="ayuda-pagos">El que ja has avançat a Hisenda durant l'any.</span></label>
+        <input id="pagos" name="pagos" type="number" inputmode="decimal" min="0" step="0.01" value="0">
+      </div>
+      <div>
+        <label for="modalidad">Estimació<span class="ayuda">La que fas servir a l'IRPF. La més habitual és la simplificada.</span></label>
+        <select id="modalidad" name="modalidad">
+          <option value="directa_simplificada" selected>Directa simplificada</option>
+          <option value="directa_normal">Directa normal</option>
+        </select>
+      </div>
+    </div>
+    <div class="casilla">
+      <input id="inicio" name="inicio" type="checkbox">
+      <label for="inicio">Acabo de començar com a autònom<span class="ayuda">Reducció del 20 % de l'IRPF (art. 32.3 de la Llei de l'IRPF). Marca-la només si no vas tenir activitat econòmica l'any anterior a l'inici, és el teu primer o segon any amb beneficis i no factures més del 50 % a qui et va pagar com a assalariat aquell any anterior.</span></label>
+    </div>
+    <div class="casilla">
+      <input id="cliente" name="cliente" type="checkbox">
+      <label for="cliente">Compleixo els requisits de la reducció per a autònoms dependents<span class="ayuda">Art. 32.2.2n de la Llei de l'IRPF: entre d'altres, un únic client no vinculat i despeses que no superin el 30 % dels ingressos.</span></label>
+    </div>
+    <details>
+      <summary>Fills i altres descendents</summary>
+      <div class="rejilla" style="margin-top:12px">
+      <div>
+        <label for="hijos">Descendents que donen dret al mínim<span class="ayuda" id="ayuda-hijos">En general, menors de 25 anys que conviuen amb tu.</span></label>
+        <input id="hijos" name="hijos" type="number" inputmode="decimal" min="0" step="0.01" value="0" step="1" max="20">
+      </div>
+      <div>
+        <label for="menores3">D'aquests, menors de 3 anys<span class="ayuda" id="ayuda-menores3">Compta'ls també a la casella anterior.</span></label>
+        <input id="menores3" name="menores3" type="number" inputmode="decimal" min="0" step="0.01" value="0" step="1" max="20">
+      </div>
+      </div>
+      <div class="casilla">
+        <input id="compartido" name="compartido" type="checkbox">
+        <label for="compartido">L'altre progenitor també aplica el mínim<span class="ayuda">En aquest cas es reparteix a parts iguals.</span></label>
+      </div>
+    </details>
+  </form>
+
+  <section class="tarjeta resultado" aria-live="polite">
+    <h2>Resultat</h2>
+    <div id="resultado"><p>Omple les teves dades per veure el càlcul.</p></div>
+  </section>
+  </div>
+  <p class="widget-pie">Calculadora: <a href="https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca/calculadora-irpf-autonoms/" target="_blank" rel="noopener">IRPF per comunitat autònoma · Calculadores per a autònoms</a>. Dades oficials del 2026. Estimació orientativa.</p>
+</div>
+</main>
+<script type="module" src="../../../irpf-espana-app.js"></script>
+<script type="module" src="../../../widget.js"></script>
+</body>
+</html>

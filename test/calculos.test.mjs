@@ -211,3 +211,46 @@ test("tarifa plana: el SMI se compara con un rendimiento que nunca es negativo",
   const r = calcularTarifaPlana({ ingresos: 0, gastos: 0, modalidad: "directa_simplificada", cumpleRequisitosArt32: false });
   assert.ok(r.ahorroMensual > 0);
 });
+
+import { calcularRegularizacion, CUOTA_MAXIMA_2026, CUOTA_MINIMA_2026 } from "../regularizacion/calculo.js";
+
+test("regularización: con la cuota mínima del tramo 1 y rendimientos del tramo 5 se paga la diferencia", () => {
+  // 30.000 - 3.000 - 3.594,72 de cuotas = 23.405,28; 10 % de difícil justificación = 2.340,53.
+  // Computable: 27.000 - 2.340,53 = 24.659,47; menos el 7 %, entre 12 = 1.911,11 → tramo 5 de la general.
+  const r = calcularRegularizacion({ ingresos: 30000, gastos: 3000, cuotaMensual: 299.56, meses: 12, modalidad: "directa_simplificada", cumpleRequisitosArt32: false });
+  assert.equal(r.rendimientoMensual, 1911.11);
+  assert.equal(r.tabla, "general");
+  assert.equal(r.tramo, 5);
+  assert.equal(r.cuotaMinima, 380.88);
+  assert.equal(r.cuotaMaxima, 639.45);
+  assert.equal(r.resultado, "pagar");
+  assert.equal(r.diferenciaMensual, 81.32);
+  assert.equal(r.importe, 975.84);
+});
+
+test("regularización: por encima de la máxima del tramo real se devuelve el exceso", () => {
+  // Directa normal: 12.000 × 0,93 / 12 = 930 € al mes → tramo 3 de la reducida (de 267,65 a 367,51 €).
+  const datos = { ingresos: 15000, gastos: 3000, meses: 12, modalidad: "directa_normal", cumpleRequisitosArt32: false };
+  const r = calcularRegularizacion({ ...datos, cuotaMensual: 500 });
+  assert.equal(r.rendimientoMensual, 930);
+  assert.equal(r.tabla, "reducida");
+  assert.equal(r.tramo, 3);
+  assert.equal(r.cuotaMinima, 267.65);
+  assert.equal(r.cuotaMaxima, 367.51);
+  assert.equal(r.resultado, "devolver");
+  assert.equal(r.importe, 1589.88);
+  // Entre la mínima y la máxima no cambia nada.
+  const n = calcularRegularizacion({ ...datos, cuotaMensual: 300 });
+  assert.equal(n.resultado, "nada");
+  assert.equal(n.importe, 0);
+});
+
+test("regularización: el rendimiento se reparte entre los meses de alta", () => {
+  // 6 meses: 12.000 × 0,93 / 6 = 1.860 € al mes → tramo 5 de la general (mínima 380,88 €).
+  const r = calcularRegularizacion({ ingresos: 15000, gastos: 3000, cuotaMensual: 300, meses: 6, modalidad: "directa_normal", cumpleRequisitosArt32: false });
+  assert.equal(r.rendimientoMensual, 1860);
+  assert.equal(r.tramo, 5);
+  assert.equal(r.importe, Math.round((380.88 - 300) * 6 * 100) / 100);
+  assert.equal(CUOTA_MINIMA_2026, 205.88);
+  assert.equal(CUOTA_MAXIMA_2026, 1606.88);
+});

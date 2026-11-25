@@ -172,7 +172,7 @@ CONTADOR = ('<script data-goatcounter="https://calculadoras-autonomos.goatcounte
             'integrity="sha384-atnOLvQb9t+jTSipvd75X2yginT4PjVbqDdlJAmxMm+wYElFmeR6EmLP5bYeoRVQ"></script>')
 # Página de la que cuelga cada página de comunidad, para marcarla en el menú.
 PADRE = {}
-ICONO = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f5f8b'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white' font-family='Arial'%3E%E2%82%AC%3C/text%3E%3C/svg%3E"
+ICONO = "/favicon.svg"  # también /favicon.ico en la raíz, para Google y navegadores antiguos
 
 
 def fecha_texto(iso, lang):

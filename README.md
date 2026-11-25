@@ -1,6 +1,6 @@
 # Calculadoras para autónomos
 
-Web estática y gratuita con calculadoras para autónomos, en castellano y en catalán. Se publica con GitHub Pages en <https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/>.
+Web estática y gratuita con calculadoras para autónomos, en castellano y en catalán. Se publica con GitHub Pages en <https://calculadorasautonomos.es/>.
 
 | Calculadora | Castellano | Catalán | Ámbito |
 |---|---|---|---|
@@ -62,6 +62,6 @@ Los cálculos son funciones puras de JavaScript, sin red ni datos guardados, y r
 
 ## Licencia
 
-El código es software libre con [licencia MIT](LICENSE): puedes usarlo, copiarlo y modificarlo, también en proyectos comerciales, manteniendo el aviso de copyright. Si usas estos cálculos en tu web o proyecto, se agradece un enlace a <https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/>.
+El código es software libre con [licencia MIT](LICENSE): puedes usarlo, copiarlo y modificarlo, también en proyectos comerciales, manteniendo el aviso de copyright. Si usas estos cálculos en tu web o proyecto, se agradece un enlace a <https://calculadorasautonomos.es/>.
 
 Son estimaciones orientativas y no sustituyen a un asesor fiscal.

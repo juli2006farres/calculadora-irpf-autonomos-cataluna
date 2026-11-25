@@ -19,7 +19,7 @@ from openpyxl.worksheet.datavalidation import DataValidation
 WEB = Path(sys.argv[1])
 DESTINO = WEB / "plantillas"
 AZUL = "1B64A0"
-WEB_URL = "https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/"
+WEB_URL = "https://calculadorasautonomos.es/"
 
 TEXTOS = {
     "es": {

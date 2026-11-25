@@ -10,7 +10,7 @@ import sys
 import time
 import urllib.request
 
-BASE = "https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/"
+BASE = "https://calculadorasautonomos.es/"
 claves = [f[:-4] for f in glob.glob("*.txt") if re.fullmatch(r"[0-9a-f]{32}\.txt", f)]
 if len(claves) != 1:
     sys.exit("Debe haber exactamente un archivo de clave de IndexNow en la raíz")
@@ -35,7 +35,7 @@ else:
     sys.exit("GitHub Pages no ha publicado la clave a tiempo")
 
 cuerpo = json.dumps({
-    "host": "juli2006farres.github.io",
+    "host": "calculadorasautonomos.es",
     "key": clave,
     "keyLocation": f"{BASE}{clave}.txt",
     "urlList": urls,

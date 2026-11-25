@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 
 WEB = Path(sys.argv[1])
-BASE = "https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/"
+BASE = "https://calculadorasautonomos.es/"
 MCPIZE = "https://mcpize.com/mcp/irpf-pymes-cat-mcp"
 HOY = "2026-11-17"
 # Fecha de la última modificación de las páginas, para el sitemap.

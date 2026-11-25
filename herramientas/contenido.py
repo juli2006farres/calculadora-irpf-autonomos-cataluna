@@ -6,6 +6,9 @@ BOE_LIRPF = "https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764"
 BOE_CUOTA = "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-7296"
 BOE_CAT = "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2025-10270"
 AEAT_130 = "https://sede.agenciatributaria.gob.es/Sede/impuestos-tasas/impuesto-sobre-renta-personas-fisicas/modelo-130-irpf______esionales-estimacion-directa-fraccionado_/instrucciones.html"
+# Real Decreto-ley 43/2026 (BOE del 25-11-2026): en 2026, gastos de difícil justificación del 10 % con un máximo de 3.000 €.
+BOE_RDL_43_2026 = "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-24701"
+FUENTE_RDL_43 = ("Real Decreto-ley 43/2026: gastos de difícil justificación de 2026 (BOE)", BOE_RDL_43_2026)
 
 
 def campo(id_, etiqueta, ayuda="", valor="", extra=""):
@@ -148,7 +151,7 @@ SUELDO_ES = {
         ("¿Cómo se calcula el sueldo neto de un autónomo?",
          "A lo que facturas sin IVA se le restan los gastos de la actividad, la cuota de autónomos y el IRPF del año. El IVA no cuenta, porque lo ingresas a Hacienda."),
         ("¿Cuánto le queda a un autónomo que factura 40.000 € al año?",
-         "En Cataluña en 2026, con 5.000 € de gastos y la cuota mínima de su tramo (427,21 € al mes), el IRPF ronda los 5.681 € y le quedan unos 2.016 € al mes en 12 pagas."),
+         "En Cataluña en 2026, con 5.000 € de gastos y la cuota mínima de su tramo (427,21 € al mes), el IRPF ronda los 5.218 € y le quedan unos 2.055 € al mes en 12 pagas."),
         ("¿Por qué solo vale para Cataluña?",
          "El IRPF tiene una parte autonómica y esta calculadora usa la escala catalana. La cuota de autónomos sí es igual en toda España: puedes calcularla aparte en la calculadora de cuota."),
         ("¿Las retenciones y el modelo 130 cambian lo que me queda?",
@@ -161,6 +164,7 @@ SUELDO_ES = {
         ("Cuota de autónomos: Orden PJC/297/2026 (BOE)", BOE_CUOTA),
         ("Ley del IRPF (BOE)", BOE_LIRPF),
         ("Escala catalana: Decreto-ley 5/2025 (BOE)", BOE_CAT),
+        FUENTE_RDL_43,
     ],
 }
 
@@ -187,7 +191,7 @@ SUELDO_CA = {
         ("Com es calcula el sou net d'un autònom?",
          "Al que factures sense IVA se li resten les despeses de l'activitat, la quota d'autònoms i l'IRPF de l'any. L'IVA no compta, perquè l'ingresses a Hisenda."),
         ("Quant li queda a un autònom que factura 40.000 € l'any?",
-         "A Catalunya el 2026, amb 5.000 € de despeses i la quota mínima del seu tram (427,21 € al mes), l'IRPF és d'uns 5.681 € i li queden uns 2.016 € al mes en 12 pagues."),
+         "A Catalunya el 2026, amb 5.000 € de despeses i la quota mínima del seu tram (427,21 € al mes), l'IRPF és d'uns 5.218 € i li queden uns 2.055 € al mes en 12 pagues."),
         ("Per què només serveix per a Catalunya?",
          "L'IRPF té una part autonòmica i aquesta calculadora fa servir l'escala catalana. La quota d'autònoms sí que és igual a tot Espanya: pots calcular-la a part a la calculadora de quota."),
         ("Les retencions i el model 130 canvien el que em queda?",
@@ -246,12 +250,13 @@ M130_ES = {
         ("¿Cuándo se presenta?",
          "Del 1 al 20 de abril, julio y octubre, y del 1 al 30 de enero del año siguiente para el cuarto trimestre."),
         ("¿Se incluyen los gastos de difícil justificación?",
-         "Sí. En estimación directa simplificada se suman a los gastos de la casilla 02, como indican las instrucciones de la AEAT: un 5 % del rendimiento, con un máximo de 2.000 € al año."),
+         f'Sí. En estimación directa simplificada se suman a los gastos de la casilla 02, como indican las instrucciones de la AEAT. En 2026 son un 5 % del rendimiento, con un máximo de 2.000 € al año, en los tres primeros trimestres, y en el cuarto un 10 %, con un máximo de 3.000 €, por el <a href="{BOE_RDL_43_2026}">Real Decreto-ley 43/2026</a>. La calculadora ya lo aplica.'),
     ],
     "aviso": "es una estimación orientativa y no sustituye el consejo de un asesor fiscal. No incluye la estimación objetiva (módulos, modelo 131), las actividades agrícolas, la deducción por vivienda ni las declaraciones complementarias. Fuentes:",
     "fuentes": [
         ("Reglamento del IRPF, artículos 109 y 110 (BOE)", BOE_RIRPF + "#a110"),
         ("Instrucciones del modelo 130 (Agencia Tributaria)", AEAT_130),
+        FUENTE_RDL_43,
     ],
 }
 
@@ -285,7 +290,7 @@ M130_CA = {
         ("Quan es presenta?",
          "De l'1 al 20 d'abril, juliol i octubre, i de l'1 al 30 de gener de l'any següent per al quart trimestre."),
         ("S'hi inclouen les despeses de difícil justificació?",
-         "Sí. En estimació directa simplificada se sumen a les despeses de la casella 02, com indiquen les instruccions de l'AEAT: un 5 % del rendiment, amb un màxim de 2.000 € l'any."),
+         f'Sí. En estimació directa simplificada se sumen a les despeses de la casella 02, com indiquen les instruccions de l\'AEAT. El 2026 són un 5 % del rendiment, amb un màxim de 2.000 € l\'any, en els tres primers trimestres, i en el quart un 10 %, amb un màxim de 3.000 €, pel <a href="{BOE_RDL_43_2026}">Reial decret llei 43/2026</a>. La calculadora ja ho aplica.'),
     ],
     "aviso": "és una estimació orientativa i no substitueix el consell d'un assessor fiscal. No inclou l'estimació objectiva (mòduls, model 131), les activitats agrícoles, la deducció per habitatge ni les declaracions complementàries. Fonts, en castellà:",
     "fuentes": M130_ES["fuentes"],

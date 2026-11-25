@@ -489,6 +489,7 @@ def fuentes_irpf(c):
     fuentes = [FUENTES_IRPF[0], FUENTES_IRPF[1], FUENTES_IRPF[2], FUENTES_IRPF[3]]
     if c == "valenciana":
         fuentes.append(FUENTES_IRPF[4])
+    fuentes.append(FUENTES_IRPF[-1])
     return fuentes
 
 

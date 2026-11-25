@@ -106,7 +106,7 @@ OBJETIVO_ES = {
 {casilla("cliente", *CLIENTE["es"])}""",
     "faq": [
         ("¿Cuánto tiene que facturar un autónomo para ganar 2.000 € netos al mes?",
-         "En Cataluña en 2026, con 5.000 € de gastos al año y la cuota mínima de su tramo, unos 39.730 € al año sin IVA, unos 3.311 € al mes. De ahí salen 427,21 € al mes de cuota de autónomos y unos 5.601 € de IRPF en el año."),
+         "En Cataluña en 2026, con 5.000 € de gastos al año y la cuota mínima de su tramo, unos 39.091 € al año sin IVA, unos 3.258 € al mes. De ahí salen 427,21 € al mes de cuota de autónomos y unos 4.964 € de IRPF en el año."),
         ("¿Cómo se calcula?",
          "La calculadora busca la facturación con la que, después de restar los gastos, la cuota mínima de autónomos de tu tramo y el IRPF del año, te queda el sueldo neto que has pedido."),
         ("¿Qué precio por hora debo cobrar?",
@@ -141,7 +141,7 @@ OBJETIVO_CA = {
 {casilla("cliente", *CLIENTE["ca"])}""",
     "faq": [
         ("Quant ha de facturar un autònom per guanyar 2.000 € nets al mes?",
-         "A Catalunya el 2026, amb 5.000 € de despeses l'any i la quota mínima del seu tram, uns 39.730 € l'any sense IVA, uns 3.311 € al mes. D'aquí surten 427,21 € al mes de quota d'autònoms i uns 5.601 € d'IRPF a l'any."),
+         "A Catalunya el 2026, amb 5.000 € de despeses l'any i la quota mínima del seu tram, uns 39.091 € l'any sense IVA, uns 3.258 € al mes. D'aquí surten 427,21 € al mes de quota d'autònoms i uns 4.964 € d'IRPF a l'any."),
         ("Com es calcula?",
          "La calculadora busca la facturació amb la qual, després de restar les despeses, la quota mínima d'autònoms del teu tram i l'IRPF de l'any, et queda el sou net que has demanat."),
         ("Quin preu per hora he de cobrar?",

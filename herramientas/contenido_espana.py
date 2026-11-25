@@ -3,7 +3,7 @@ import copy
 import datetime
 import unicodedata
 
-from contenido import BOE_LIRPF, campo, casilla, seleccion
+from contenido import BOE_LIRPF, FUENTE_RDL_43, campo, casilla, seleccion
 from contenido_303 import PAGINAS as PAGINAS_ANTERIORES
 from contenido_extra import CLIENTE, INICIO
 
@@ -98,6 +98,7 @@ FUENTES_IRPF = [
     ("Mínimos autonómicos, Manual de Renta 2025 (Agencia Tributaria)", AEAT_MINIMOS),
     ("Tributación autonómica. Medidas 2026 (Ministerio de Hacienda)", HACIENDA_2026),
     ("Comunitat Valenciana: Ley 5/2026, artículo 18 (BOE)", BOE_VALENCIA),
+    FUENTE_RDL_43,
 ]
 
 IRPF_ES = {
@@ -115,7 +116,7 @@ IRPF_ES = {
         ("¿Por qué el IRPF cambia según la comunidad autónoma?",
          "El IRPF tiene dos partes: la estatal, igual para todos, y la autonómica, que fija cada comunidad con su propia escala y, en algunos casos, sus propios mínimos personales. Por eso con los mismos ingresos se paga distinto en cada comunidad."),
         ("¿En qué comunidad paga menos IRPF un autónomo?",
-         "Depende de lo que ganes. Con 40.000 € de ingresos, 5.000 € de gastos y 4.000 € de cuotas en 2026, la más baja es Madrid y la más alta, Cataluña, con unos 470 € de diferencia. Pero el orden cambia: Extremadura es la más barata con ingresos bajos y de las más caras con ingresos altos. La tabla del resultado ordena las 15 comunidades con tus datos."),
+         "Depende de lo que ganes. Con 40.000 € de ingresos, 5.000 € de gastos y 4.000 € de cuotas en 2026, la más baja es Madrid y la más alta, Cataluña, con unos 420 € de diferencia. Pero el orden cambia: Extremadura es la más barata con ingresos bajos y de las más caras con ingresos altos. La tabla del resultado ordena las 15 comunidades con tus datos."),
         ("¿Qué cambia en 2026?",
          f'Según el <a href="{HACIENDA_2026}">informe de Hacienda sobre las medidas autonómicas de 2026</a>, solo cambian las escalas de Extremadura, que baja los dos primeros tipos, y de la Comunitat Valenciana, que baja todos según la <a href="{BOE_VALENCIA}">Ley 5/2026</a>. El resto aplica la misma escala que en 2025.'),
         ("¿Incluye las deducciones autonómicas?",
@@ -142,7 +143,7 @@ IRPF_CA = {
         ("Per què l'IRPF canvia segons la comunitat autònoma?",
          "L'IRPF té dues parts: l'estatal, igual per a tothom, i l'autonòmica, que fixa cada comunitat amb la seva pròpia escala i, en alguns casos, els seus propis mínims personals. Per això amb els mateixos ingressos es paga diferent a cada comunitat."),
         ("A quina comunitat paga menys IRPF un autònom?",
-         "Depèn del que guanyis. Amb 40.000 € d'ingressos, 5.000 € de despeses i 4.000 € de quotes el 2026, la més baixa és Madrid i la més alta, Catalunya, amb uns 470 € de diferència. Però l'ordre canvia: Extremadura és la més barata amb ingressos baixos i de les més cares amb ingressos alts. La taula del resultat ordena les 15 comunitats amb les teves dades."),
+         "Depèn del que guanyis. Amb 40.000 € d'ingressos, 5.000 € de despeses i 4.000 € de quotes el 2026, la més baixa és Madrid i la més alta, Catalunya, amb uns 420 € de diferència. Però l'ordre canvia: Extremadura és la més barata amb ingressos baixos i de les més cares amb ingressos alts. La taula del resultat ordena les 15 comunitats amb les teves dades."),
         ("Què canvia el 2026?",
          f'Segons l\'<a href="{HACIENDA_2026}">informe d\'Hisenda sobre les mesures autonòmiques del 2026</a>, només canvien les escales d\'Extremadura, que baixa els dos primers tipus, i de la Comunitat Valenciana, que els baixa tots segons la <a href="{BOE_VALENCIA}">Llei 5/2026</a>. La resta aplica la mateixa escala que el 2025.'),
         ("Inclou les deduccions autonòmiques?",
@@ -193,10 +194,10 @@ FECHAS_CALENDARIO = [
 ]
 assert all(len(FECHAS_CALENDARIO) == len(f) for f in FILAS_CALENDARIO.values())
 ARCHIVO_ICS = {"es": "plazos-fiscales-2027.ics", "ca": "terminis-fiscals-2027.ics"}
-# El 24-11-2026 el Consejo de Ministros aprobó un real decreto-ley que cambia los pagos trimestrales
-# del IVA y del IRPF de muchos autónomos. Hasta leer su texto en el BOE y revisar los plazos de 2027,
-# no se ofrece el archivo de calendario: una vez importado en el móvil ya no se puede corregir.
-OFRECER_ICS = False
+# El Real Decreto-ley 43/2026 (BOE del 25-11-2026) no cambia estos plazos, pero desde 2027 algunos
+# autónomos pueden declarar el IVA una vez al año o no tener que presentar el modelo 130: la página y
+# los eventos de 2027 del 303 y el 130 lo avisan. Revisado el 25-11-2026, así que se ofrece el archivo.
+OFRECER_ICS = True
 TEXTOS_ICS = {
     "es": {
         "nombre": "Plazos fiscales del autónomo 2027",
@@ -205,6 +206,7 @@ TEXTOS_ICS = {
         "confirma": "Confirma la fecha en el calendario del contribuyente de la Agencia Tributaria.",
         "mas": "Calendario y calculadoras gratis: {url}",
         "aviso": "Dentro de 5 días acaba un plazo fiscal: {que}",
+        "novedad": "Desde 2027, si facturas menos de 85.000 € puedes optar por el IVA anual con pagos a cuenta domiciliados, y en algunos casos no tienes que presentar el modelo 130. Lo explica la página.",
     },
     "ca": {
         "nombre": "Terminis fiscals de l'autònom 2027",
@@ -213,6 +215,7 @@ TEXTOS_ICS = {
         "confirma": "Confirma la data al calendari del contribuent de l'Agència Tributària.",
         "mas": "Calendari i calculadores gratuïtes: {url}",
         "aviso": "D'aquí a 5 dies acaba un termini fiscal: {que}",
+        "novedad": "Des del 2027, si factures menys de 85.000 € pots optar per l'IVA anual amb pagaments a compte domiciliats, i en alguns casos no has de presentar el model 130. Ho explica la pàgina.",
     },
 }
 
@@ -245,11 +248,12 @@ def calendario_ics(lang, url):
         siguiente = (datetime.date.fromisoformat(fecha) + datetime.timedelta(days=1)).strftime("%Y%m%d")
         que_minuscula = que[0].lower() + que[1:] if que.startswith("Model") else que
         resumen = t["renta"] if que.startswith(("Renta", "Renda")) else t["ultimo"].format(que=que_minuscula)
-        descripcion = " ".join(x for x in (f"{plazo}.", detalle, t["confirma"]) if x) + "\n" + t["mas"].format(url=url)
+        novedad = t["novedad"] if "2027" in que and ("303" in que or "130" in que) else ""
+        descripcion = " ".join(x for x in (f"{plazo}.", detalle, novedad, t["confirma"]) if x) + "\n" + t["mas"].format(url=url)
         lineas += [
             "BEGIN:VEVENT",
             f"UID:plazo-{dia}-{n:02d}-{lang}@juli2006farres.github.io",
-            "DTSTAMP:20261124T000000Z",
+            "DTSTAMP:20261125T000000Z",
             f"DTSTART;VALUE=DATE:{dia}",
             f"DTEND;VALUE=DATE:{siguiente}",
             "SUMMARY:" + _escapar_ics(resumen),
@@ -270,6 +274,12 @@ def calendario_ics(lang, url):
 RUTAS_CALC = {
     "es": {"m303": "modelo-303/", "m130": "modelo-130/", "irpf_es": "calculadora-irpf-autonomos/"},
     "ca": {"m303": "ca/model-303/", "m130": "ca/model-130/", "irpf_es": "ca/calculadora-irpf-autonoms/"},
+}
+
+
+NOVEDADES_2027 = {
+    "es": '<strong>Cambios en 2027</strong> (<a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-24701">Real Decreto-ley 43/2026</a>): si en 2026 tu volumen de operaciones no pasa de 85.000 €, puedes optar en marzo de 2027 por declarar el IVA una vez al año. Entonces dejas de presentar el modelo 303 cada trimestre y Hacienda te cobra por domiciliación un pago a cuenta el 20 de abril, el 20 de julio y el 20 de octubre. En el IRPF, en 2027 no tienes que presentar el modelo 130 si en 2025 facturaste menos de 85.000 € y tu renta de 2025 salió a devolver por una cantidad igual o mayor que tus pagos fraccionados de ese año. Y si en 2025 facturaste menos de 250.000 €, el pago fraccionado baja del 20 % al 19 %. La tabla muestra los plazos de quien sigue con los modelos trimestrales.',
+    "ca": '<strong>Canvis el 2027</strong> (<a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-24701">Reial decret llei 43/2026</a>): si el 2026 el teu volum d\'operacions no passa de 85.000 €, pots optar el març del 2027 per declarar l\'IVA un cop l\'any. Aleshores deixes de presentar el model 303 cada trimestre i Hisenda et cobra per domiciliació un pagament a compte el 20 d\'abril, el 20 de juliol i el 20 d\'octubre. A l\'IRPF, el 2027 no has de presentar el model 130 si el 2025 vas facturar menys de 85.000 € i la teva renda del 2025 va sortir a retornar per una quantitat igual o superior als teus pagaments fraccionats d\'aquell any. I si el 2025 vas facturar menys de 250.000 €, el pagament fraccionat baixa del 20 % al 19 %. La taula mostra els terminis de qui continua amb els models trimestrals.',
 }
 
 
@@ -318,6 +328,7 @@ def cuerpo_calendario(lang):
     </table>
     </div>
     <p class="nota">{nota}</p>
+    <p class="nota">{NOVEDADES_2027[lang]}</p>
   </section>"""
 
 
@@ -349,6 +360,7 @@ CALENDARIO_ES = {
         ("Plazos de presentación del modelo 303 (Agencia Tributaria)", AEAT_PLAZO_303),
         ("Calendario del contribuyente (Agencia Tributaria)", AEAT_CALENDARIO),
         ("Ley General Tributaria, artículo 27 (BOE)", BOE_LGT),
+        ("Real Decreto-ley 43/2026: pagos del IVA y del IRPF desde 2027 (BOE)", "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-24701"),
     ],
 }
 
@@ -380,7 +392,7 @@ CALENDARIO_CA = {
 }
 
 # ---------------------------------------------------------------- Sueldo neto y cuánto facturar para toda España
-FUENTES_SUELDO = [("Cuota de autónomos: Orden PJC/297/2026 (BOE)", "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-7296"), *FUENTES_IRPF[:3]]
+FUENTES_SUELDO = [("Cuota de autónomos: Orden PJC/297/2026 (BOE)", "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-7296"), *FUENTES_IRPF[:3], FUENTE_RDL_43]
 
 
 def a_toda_espana(p):
@@ -407,7 +419,7 @@ SUELDO_ES.update({
 SUELDO_ES["faq"] = reemplazar_faq(SUELDO_ES["faq"], {
     "¿Cuánto le queda a un autónomo que factura 40.000 € al año?": (
         "¿Cuánto le queda a un autónomo que factura 40.000 € al año?",
-        "En 2026, con 5.000 € de gastos y la cuota mínima de su tramo (427,21 € al mes), unos 2.016 € al mes en Cataluña. En otras comunidades cambia el IRPF: elige la tuya en la calculadora para verlo."),
+        "En 2026, con 5.000 € de gastos y la cuota mínima de su tramo (427,21 € al mes), unos 2.055 € al mes en Cataluña. En otras comunidades cambia el IRPF: elige la tuya en la calculadora para verlo."),
     "¿Por qué solo vale para Cataluña?": (
         "¿Por qué cambia según la comunidad?",
         "El IRPF tiene una parte autonómica con escala propia en cada comunidad. La cuota de autónomos, en cambio, es igual en toda España."),
@@ -423,7 +435,7 @@ SUELDO_CA.update({
 SUELDO_CA["faq"] = reemplazar_faq(SUELDO_CA["faq"], {
     "Quant li queda a un autònom que factura 40.000 € l'any?": (
         "Quant li queda a un autònom que factura 40.000 € l'any?",
-        "El 2026, amb 5.000 € de despeses i la quota mínima del seu tram (427,21 € al mes), uns 2.016 € al mes a Catalunya. A altres comunitats canvia l'IRPF: tria la teva a la calculadora per veure-ho."),
+        "El 2026, amb 5.000 € de despeses i la quota mínima del seu tram (427,21 € al mes), uns 2.055 € al mes a Catalunya. A altres comunitats canvia l'IRPF: tria la teva a la calculadora per veure-ho."),
     "Per què només serveix per a Catalunya?": (
         "Per què canvia segons la comunitat?",
         "L'IRPF té una part autonòmica amb escala pròpia a cada comunitat. La quota d'autònoms, en canvi, és igual a tot Espanya."),
@@ -437,7 +449,7 @@ OBJETIVO_ES.update({
 OBJETIVO_ES["faq"] = reemplazar_faq(OBJETIVO_ES["faq"], {
     "¿Cuánto tiene que facturar un autónomo para ganar 2.000 € netos al mes?": (
         "¿Cuánto tiene que facturar un autónomo para ganar 2.000 € netos al mes?",
-        "En Cataluña en 2026, con 5.000 € de gastos al año y la cuota mínima de su tramo, unos 39.730 € al año sin IVA, unos 3.311 € al mes. En otras comunidades cambia por el IRPF: elige la tuya en la calculadora."),
+        "En Cataluña en 2026, con 5.000 € de gastos al año y la cuota mínima de su tramo, unos 39.091 € al año sin IVA, unos 3.258 € al mes. En otras comunidades cambia por el IRPF: elige la tuya en la calculadora."),
     "¿Por qué solo vale para Cataluña?": (
         "¿Por qué cambia según la comunidad?",
         "El IRPF tiene una parte autonómica con escala propia en cada comunidad. La cuota de autónomos es igual en toda España."),
@@ -451,7 +463,7 @@ OBJETIVO_CA.update({
 OBJETIVO_CA["faq"] = reemplazar_faq(OBJETIVO_CA["faq"], {
     "Quant ha de facturar un autònom per guanyar 2.000 € nets al mes?": (
         "Quant ha de facturar un autònom per guanyar 2.000 € nets al mes?",
-        "A Catalunya el 2026, amb 5.000 € de despeses l'any i la quota mínima del seu tram, uns 39.730 € l'any sense IVA, uns 3.311 € al mes. A altres comunitats canvia per l'IRPF: tria la teva a la calculadora."),
+        "A Catalunya el 2026, amb 5.000 € de despeses l'any i la quota mínima del seu tram, uns 39.091 € l'any sense IVA, uns 3.258 € al mes. A altres comunitats canvia per l'IRPF: tria la teva a la calculadora."),
     "Per què només serveix per a Catalunya?": (
         "Per què canvia segons la comunitat?",
         "L'IRPF té una part autonòmica amb escala pròpia a cada comunitat. La quota d'autònoms és igual a tot Espanya."),

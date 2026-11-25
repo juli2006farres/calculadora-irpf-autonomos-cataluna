@@ -5,9 +5,11 @@ from contenido_extra import PAGINAS as PAGINAS_ANTERIORES
 AEAT_303 = "https://sede.agenciatributaria.gob.es/Sede/todas-gestiones/impuestos-tasas/iva/modelo-303-iva-autoliquidacion_/instrucciones-2025.html"
 BOE_FACTURACION = "https://www.boe.es/buscar/act.php?id=BOE-A-2012-14696#a6"
 AEAT_VERIFACTU = "https://sede.agenciatributaria.gob.es/Sede/iva/sistemas-informaticos-facturacion-verifactu/preguntas-frecuentes/cuestiones-generales-ambitos-aplicacion.html"
-BOE_RDL_15_2025 = "https://www.boe.es/buscar/doc.php?id=BOE-A-2025-24446"
-# Referencia del Consejo de Ministros del 24-11-2026: real decreto-ley que retrasa Verifactu a octubre de 2028 (aún no estaba en el BOE ese día).
-MONCLOA_VERIFACTU = "https://www.lamoncloa.gob.es/consejodeministros/referencias/Paginas/2026/20261124-referencia-rueda-de-consejo-ministros.aspx"
+# Verifactu: el Real Decreto-ley 43/2026 (disposición final primera) lo liga al final del plazo de la letra b) de la
+# disposición final cuarta del Real Decreto 238/2026 (24 meses desde la Orden HAC/1028/2026, en vigor el 6-10-2026).
+BOE_RDL_43_2026 = "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-24701"
+BOE_RD_238_2026 = "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-7295"
+BOE_ORDEN_1028_2026 = "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-20587"
 
 
 def bases(prefijo, leyenda, lang, valor21=""):
@@ -168,7 +170,7 @@ PLANTILLA_ES = {
         ("¿Qué datos tiene que llevar una factura de autónomo?",
          f'Número y serie correlativos, fecha de expedición, nombre o razón social, NIF y domicilio tuyos y del cliente, descripción de lo que facturas con el precio unitario sin IVA, el tipo de IVA y su cuota, y la fecha de la operación si es distinta, según el <a href="{BOE_FACTURACION}">artículo 6 del Reglamento de facturación</a>.'),
         ("¿Puedo seguir usando Excel o Word con Verifactu?",
-         f'Según la <a href="{AEAT_VERIFACTU}">Agencia Tributaria</a>, sí, si los usas solo para escribir, emitir, imprimir y guardar las facturas. Si los usas con macros para generar el libro registro u otras obligaciones fiscales, cuentan como sistema de facturación y deben cumplir Verifactu, obligatorio para los autónomos desde el 1 de julio de 2027 según el <a href="{BOE_RDL_15_2025}">Real Decreto-ley 15/2025</a>. El 24 de noviembre de 2026 el <a href="{MONCLOA_VERIFACTU}">Consejo de Ministros aprobó un real decreto-ley que lo retrasa hasta octubre de 2028</a>. Hasta que se publique en el BOE, sigue valiendo la fecha de 2027. Esta plantilla no lleva macros.'),
+         f'Según la <a href="{AEAT_VERIFACTU}">Agencia Tributaria</a>, sí, si los usas solo para escribir, emitir, imprimir y guardar las facturas. Si los usas con macros para generar el libro registro u otras obligaciones fiscales, cuentan como sistema de facturación y deben cumplir Verifactu. El <a href="{BOE_RDL_43_2026}">Real Decreto-ley 43/2026</a>, publicado en el BOE el 25 de noviembre de 2026, retrasó esa obligación, que para los autónomos empezaba el 1 de julio de 2027, hasta que la factura electrónica sea obligatoria para todos: en octubre de 2028, 24 meses después de que entrara en vigor la <a href="{BOE_ORDEN_1028_2026}">Orden HAC/1028/2026</a> el 6 de octubre de 2026. Esta plantilla no lleva macros.'),
         ("¿Tengo que poner la retención de IRPF?",
          "Si eres profesional y facturas a una empresa o a otro autónomo, sí: el 15 %, o el 7 % el año de inicio y los dos siguientes. Si facturas a un particular, o tu actividad es empresarial, normalmente no."),
         ("¿Cómo numero las facturas?",
@@ -180,8 +182,9 @@ PLANTILLA_ES = {
     "fuentes": [
         ("Reglamento de facturación (Real Decreto 1619/2012), artículo 6 (BOE)", BOE_FACTURACION),
         ("Verifactu: ámbito de aplicación (Agencia Tributaria)", AEAT_VERIFACTU),
-        ("Real Decreto-ley 15/2025 (BOE)", BOE_RDL_15_2025),
-        ("Consejo de Ministros del 24 de noviembre de 2026: aplazamiento de Verifactu (La Moncloa)", MONCLOA_VERIFACTU),
+        ("Real Decreto-ley 43/2026, disposición final primera: nuevo plazo de Verifactu (BOE)", BOE_RDL_43_2026),
+        ("Real Decreto 238/2026, disposición final cuarta: plazos de la factura electrónica (BOE)", BOE_RD_238_2026),
+        ("Orden HAC/1028/2026: inicio del cómputo de esos plazos (BOE)", BOE_ORDEN_1028_2026),
     ],
 }
 
@@ -200,7 +203,7 @@ PLANTILLA_CA = {
         ("Quines dades ha de portar una factura d'autònom?",
          f'Número i sèrie correlatius, data d\'expedició, nom o raó social, NIF i domicili teus i del client, descripció del que factures amb el preu unitari sense IVA, el tipus d\'IVA i la quota, i la data de l\'operació si és diferent, segons l\'<a href="{BOE_FACTURACION}">article 6 del Reglament de facturació</a>.'),
         ("Puc continuar fent servir Excel o Word amb Verifactu?",
-         f'Segons l\'<a href="{AEAT_VERIFACTU}">Agència Tributària</a>, sí, si els fas servir només per escriure, emetre, imprimir i desar les factures. Si els fas servir amb macros per generar el llibre registre o altres obligacions fiscals, compten com a sistema de facturació i han de complir Verifactu, obligatori per als autònoms des de l\'1 de juliol de 2027 segons el <a href="{BOE_RDL_15_2025}">Reial decret llei 15/2025</a>. El 24 de novembre de 2026 el <a href="{MONCLOA_VERIFACTU}">Consell de Ministres va aprovar un reial decret llei que l\'endarrereix fins a l\'octubre de 2028</a>. Fins que no es publiqui al BOE, continua valent la data del 2027. Aquesta plantilla no porta macros.'),
+         f'Segons l\'<a href="{AEAT_VERIFACTU}">Agència Tributària</a>, sí, si els fas servir només per escriure, emetre, imprimir i desar les factures. Si els fas servir amb macros per generar el llibre registre o altres obligacions fiscals, compten com a sistema de facturació i han de complir Verifactu. El <a href="{BOE_RDL_43_2026}">Reial decret llei 43/2026</a>, publicat al BOE el 25 de novembre de 2026, va endarrerir aquesta obligació, que per als autònoms començava l\'1 de juliol de 2027, fins que la factura electrònica sigui obligatòria per a tothom: l\'octubre de 2028, 24 mesos després que entrés en vigor l\'<a href="{BOE_ORDEN_1028_2026}">Ordre HAC/1028/2026</a> el 6 d\'octubre de 2026. Aquesta plantilla no porta macros.'),
         ("He de posar la retenció d'IRPF?",
          "Si ets professional i factures a una empresa o a un altre autònom, sí: el 15 %, o el 7 % l'any d'inici i els dos següents. Si factures a un particular, o la teva activitat és empresarial, normalment no."),
         ("Com numero les factures?",

@@ -255,22 +255,26 @@ export const MINIMOS_AUTONOMICOS = {
     murcia: MINIMOS_ESTATALES,
     valenciana: { contribuyente: 6_105, descendientes: [2_640, 2_970, 4_400, 4_950], menor3: 3_080 },
 };
-function tabla(escalasAutonomicas) {
+// Gastos de difícil justificación en estimación directa simplificada: 5 % con un máximo de 2.000 €
+// (art. 30 del Reglamento y art. 30.2.4.ª de la Ley del IRPF). Para 2026, el Real Decreto-ley 43/2026
+// (BOE-A-2026-24701, disposición adicional sexagésima séptima de la Ley del IRPF) suma 5 puntos y
+// sube el máximo a 3.000 €: 10 % con un máximo de 3.000 €.
+function tabla(escalasAutonomicas, porcentajeGastosDificilJustificacion, limiteGastosDificilJustificacion) {
     return {
         escalaEstatal: ESCALA_ESTATAL,
         minimosEstatales: MINIMOS_ESTATALES,
         escalasAutonomicas,
-        porcentajeGastosDificilJustificacion: 5, // AEAT; el 10 % de 2026 es solo para Ceuta
-        limiteGastosDificilJustificacion: 2_000, // art. 30.2.4.ª LIRPF
+        porcentajeGastosDificilJustificacion,
+        limiteGastosDificilJustificacion,
     };
 }
 // Solo hay ejercicios comprobados: pedir otro año es un error de validación.
 export const EJERCICIOS = [2025, 2026];
 export const TABLAS = {
-    2025: tabla(ESCALAS_2025),
-    2026: tabla(ESCALAS_2026),
+    2025: tabla(ESCALAS_2025, 5, 2_000),
+    2026: tabla(ESCALAS_2026, 10, 3_000),
 };
-export const FECHA_REVISION_TABLAS = "2026-11-19";
+export const FECHA_REVISION_TABLAS = "2026-11-25";
 export const FUENTES_FISCALES = [
     "Ley 35/2006 del IRPF, arts. 30, 32, 57, 58 y 63: https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764",
     "AEAT, estimación directa simplificada: https://sede.agenciatributaria.gob.es/Sede/irpf/empresarios-individuales-profesionales/regimenes-determinar-rendimiento-actividad/estimacion-directa-simplificada.html",
@@ -279,5 +283,6 @@ export const FUENTES_FISCALES = [
     "Hacienda, Tributación autonómica. Medidas 2026: https://www.hacienda.gob.es/sgfal/financiacionterritorial/autonomica/capitulo-i-tributacion-autonomica-2026.pdf",
     "Comunitat Valenciana, Ley 5/2026, art. 18 (BOE): https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-19331",
     "Escala de Cataluña (Decreto-ley 5/2025, BOE): https://www.boe.es/diario_boe/txt.php?id=BOE-A-2025-10270",
+    "Real Decreto-ley 43/2026, art. 2 (gastos de difícil justificación de 2026: 10 %, máximo 3.000 €): https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-24701",
 ];
 //# sourceMappingURL=tablas.js.map

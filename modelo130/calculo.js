@@ -3,12 +3,18 @@
 // el 1 de enero, restando lo ya ingresado en los trimestres anteriores.
 // La web de calculadoras usa una copia de la compilación de este archivo.
 export const PORCENTAJE_PAGO = 20;
+// Gastos de difícil justificación de 2026: 5 % con un máximo de 2.000 € en los tres primeros
+// trimestres y, en el cuarto, 10 % con un máximo de 3.000 € (Real Decreto-ley 43/2026, BOE-A-2026-24701:
+// disposición adicional sexagésima séptima, apartado 3, de la Ley del IRPF).
 export const PORCENTAJE_DIFICIL = 5;
 export const LIMITE_DIFICIL = 2000;
-export const FECHA_REVISION_MODELO130 = "2026-11-17";
+export const PORCENTAJE_DIFICIL_4T = 10;
+export const LIMITE_DIFICIL_4T = 3000;
+export const FECHA_REVISION_MODELO130 = "2026-11-25";
 export const FUENTES_MODELO130 = [
     "Reglamento del IRPF, artículos 109 y 110 (BOE): https://www.boe.es/buscar/act.php?id=BOE-A-2007-6820#a110",
     "Instrucciones del modelo 130 (AEAT): https://sede.agenciatributaria.gob.es/Sede/impuestos-tasas/impuesto-sobre-renta-personas-fisicas/modelo-130-irpf______esionales-estimacion-directa-fraccionado_/instrucciones.html",
+    "Real Decreto-ley 43/2026, art. 2 (en el cuarto trimestre de 2026, difícil justificación al 10 %, máximo 3.000 €): https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-24701",
 ];
 const aCentimos = (valor) => Math.round(valor * 100) / 100;
 // Minoración del art. 110.3.c según el rendimiento neto de actividades del año anterior.
@@ -42,7 +48,9 @@ export function calcularModelo130({ trimestres, modalidad, minoracion, }) {
         retenciones += t.retenciones;
         const previo = ingresos - gastos;
         const dificil = modalidad === "directa_simplificada" && previo > 0
-            ? aCentimos(Math.min((previo * PORCENTAJE_DIFICIL) / 100, LIMITE_DIFICIL))
+            ? aCentimos(indice === 3
+                ? Math.min((previo * PORCENTAJE_DIFICIL_4T) / 100, LIMITE_DIFICIL_4T)
+                : Math.min((previo * PORCENTAJE_DIFICIL) / 100, LIMITE_DIFICIL))
             : 0;
         const c01 = aCentimos(ingresos);
         const c02 = aCentimos(gastos + dificil);

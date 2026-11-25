@@ -2,6 +2,7 @@
 // Compara la cuota reducida con la cuota normal de tu tramo, que calcula el módulo verificado de la cuota.
 import { calcularCuota } from "../cuota/calculo.js";
 import { DEDUCCION_GASTOS_GENERICOS } from "../cuota/tablas.js";
+import { TABLAS } from "../irpf/tablas.js";
 
 const aCentimos = (valor) => Math.round(valor * 100) / 100;
 
@@ -25,12 +26,14 @@ export const CUOTA_ESPECIAL_PRORROGA_2023_2025 = 160;
 
 // El rendimiento que se compara con el SMI es el del art. 308.1.c LGSS: rendimiento neto
 // más las cuotas, menos el 7 % de gastos genéricos. Como con la tarifa plana se pagan menos
-// cuotas, los gastos de difícil justificación (5 % en simplificada) se calculan con ella.
+// cuotas, los gastos de difícil justificación (en simplificada; en 2026, 10 % con un máximo de
+// 3.000 € según el Real Decreto-ley 43/2026) se calculan con ella.
 export function rendimientoParaSmi({ ingresos, gastos, modalidad, cumpleRequisitosArt32 }) {
   const cuotasTarifa = TARIFA_PLANA_2026.total * 12;
   const previo = ingresos - gastos - cuotasTarifa;
   const aplicaDificil = modalidad === "directa_simplificada" && !cumpleRequisitosArt32;
-  const dificil = aplicaDificil && previo > 0 ? Math.min(previo * 0.05, 2_000) : 0;
+  const { porcentajeGastosDificilJustificacion: porcentaje, limiteGastosDificilJustificacion: limite } = TABLAS[2026];
+  const dificil = aplicaDificil && previo > 0 ? Math.min((previo * porcentaje) / 100, limite) : 0;
   const computable = ingresos - gastos - dificil;
   return aCentimos(Math.max((computable * (100 - DEDUCCION_GASTOS_GENERICOS)) / 100, 0));
 }

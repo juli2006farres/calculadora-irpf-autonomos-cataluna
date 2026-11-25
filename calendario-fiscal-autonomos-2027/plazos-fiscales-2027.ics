@@ -1,0 +1,263 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Calculadoras para autonomos//Calendario fiscal 2027//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Plazos fiscales del autónomo 2027
+X-WR-TIMEZONE:Europe/Madrid
+BEGIN:VEVENT
+UID:plazo-20270120-01-es@juli2006farres.github.io
+DTSTAMP:20261125T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:Último día: modelos 111 y 115 del 4T de 2026
+DESCRIPTION:Hasta el 20 de enero. Solo si tienes trabajadores\, pagas a pro
+ fesionales con retención o alquilas un local. Confirma la fecha en el cal
+ endario del contribuyente de la Agencia Tributaria.\nCalendario y calculad
+ oras gratis: https://juli2006farres.github.io/calculadora-irpf-autonomos-c
+ ataluna/calendario-fiscal-autonomos-2027/
+URL:https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca
+ lendario-fiscal-autonomos-2027/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Dentro de 5 días acaba un plazo fiscal: Modelos 111 y 115 del 
+ 4T de 2026
+TRIGGER:-P4DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:plazo-20270201-02-es@juli2006farres.github.io
+DTSTAMP:20261125T000000Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:Último día: modelo 303 del 4T de 2026 (IVA)
+DESCRIPTION:Hasta el 1 de febrero. Plazo del 1 al 30 de enero\, que en 2027
+  acaba en sábado. Confirma la fecha en el calendario del contribuyente de
+  la Agencia Tributaria.\nCalendario y calculadoras gratis: https://juli200
+ 6farres.github.io/calculadora-irpf-autonomos-cataluna/calendario-fiscal-au
+ tonomos-2027/
+URL:https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca
+ lendario-fiscal-autonomos-2027/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Dentro de 5 días acaba un plazo fiscal: Modelo 303 del 4T de 2
+ 026 (IVA)
+TRIGGER:-P4DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:plazo-20270201-03-es@juli2006farres.github.io
+DTSTAMP:20261125T000000Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:Último día: modelo 130 del 4T de 2026 (IRPF)
+DESCRIPTION:Hasta el 1 de febrero. Salvo profesionales con retención en al
+  menos el 70 % de sus ingresos del año anterior. Confirma la fecha en el 
+ calendario del contribuyente de la Agencia Tributaria.\nCalendario y calcu
+ ladoras gratis: https://juli2006farres.github.io/calculadora-irpf-autonomo
+ s-cataluna/calendario-fiscal-autonomos-2027/
+URL:https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca
+ lendario-fiscal-autonomos-2027/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Dentro de 5 días acaba un plazo fiscal: Modelo 130 del 4T de 2
+ 026 (IRPF)
+TRIGGER:-P4DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:plazo-20270201-04-es@juli2006farres.github.io
+DTSTAMP:20261125T000000Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:Último día: modelo 390: resumen anual del IVA de 2026
+DESCRIPTION:Hasta el 1 de febrero. Confirma la fecha en el calendario del c
+ ontribuyente de la Agencia Tributaria.\nCalendario y calculadoras gratis: 
+ https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/calen
+ dario-fiscal-autonomos-2027/
+URL:https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca
+ lendario-fiscal-autonomos-2027/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Dentro de 5 días acaba un plazo fiscal: Modelo 390: resumen an
+ ual del IVA de 2026
+TRIGGER:-P4DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:plazo-20270201-05-es@juli2006farres.github.io
+DTSTAMP:20261125T000000Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:Último día: modelos 190 y 180: resúmenes anuales de retenciones
+DESCRIPTION:Hasta el 1 de febrero. Si presentas los modelos 111 o 115. Conf
+ irma la fecha en el calendario del contribuyente de la Agencia Tributaria.
+ \nCalendario y calculadoras gratis: https://juli2006farres.github.io/calcu
+ ladora-irpf-autonomos-cataluna/calendario-fiscal-autonomos-2027/
+URL:https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca
+ lendario-fiscal-autonomos-2027/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Dentro de 5 días acaba un plazo fiscal: Modelos 190 y 180: res
+ úmenes anuales de retenciones
+TRIGGER:-P4DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:plazo-20270301-06-es@juli2006farres.github.io
+DTSTAMP:20261125T000000Z
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270302
+SUMMARY:Último día: modelo 347: operaciones con terceros
+DESCRIPTION:Hasta el 1 de marzo. Si superas 3.005\,06 € con un mismo clie
+ nte o proveedor en 2026. Plazo de febrero\, que acaba en domingo. Confirma
+  la fecha en el calendario del contribuyente de la Agencia Tributaria.\nCa
+ lendario y calculadoras gratis: https://juli2006farres.github.io/calculado
+ ra-irpf-autonomos-cataluna/calendario-fiscal-autonomos-2027/
+URL:https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca
+ lendario-fiscal-autonomos-2027/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Dentro de 5 días acaba un plazo fiscal: Modelo 347: operacione
+ s con terceros
+TRIGGER:-P4DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:plazo-20270420-07-es@juli2006farres.github.io
+DTSTAMP:20261125T000000Z
+DTSTART;VALUE=DATE:20270420
+DTEND;VALUE=DATE:20270421
+SUMMARY:Último día: modelos 303\, 130\, 111 y 115 del 1T de 2027
+DESCRIPTION:Del 1 al 20 de abril. Desde 2027\, si facturas menos de 85.000 
+ € puedes optar por el IVA anual con pagos a cuenta domiciliados\, y en a
+ lgunos casos no tienes que presentar el modelo 130. Lo explica la página.
+  Confirma la fecha en el calendario del contribuyente de la Agencia Tribut
+ aria.\nCalendario y calculadoras gratis: https://juli2006farres.github.io/
+ calculadora-irpf-autonomos-cataluna/calendario-fiscal-autonomos-2027/
+URL:https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca
+ lendario-fiscal-autonomos-2027/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Dentro de 5 días acaba un plazo fiscal: Modelos 303\, 130\, 11
+ 1 y 115 del 1T de 2027
+TRIGGER:-P4DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:plazo-20270630-08-es@juli2006farres.github.io
+DTSTAMP:20261125T000000Z
+DTSTART;VALUE=DATE:20270630
+DTEND;VALUE=DATE:20270701
+SUMMARY:Renta 2026 (modelo 100): final habitual del plazo
+DESCRIPTION:De abril a junio. Hacienda publica las fechas exactas cada año
+ . Normalmente acaba el 30 de junio. Confirma la fecha en el calendario del
+  contribuyente de la Agencia Tributaria.\nCalendario y calculadoras gratis
+ : https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/cal
+ endario-fiscal-autonomos-2027/
+URL:https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca
+ lendario-fiscal-autonomos-2027/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Dentro de 5 días acaba un plazo fiscal: Renta 2026 (modelo 100
+ )
+TRIGGER:-P4DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:plazo-20270720-09-es@juli2006farres.github.io
+DTSTAMP:20261125T000000Z
+DTSTART;VALUE=DATE:20270720
+DTEND;VALUE=DATE:20270721
+SUMMARY:Último día: modelos 303\, 130\, 111 y 115 del 2T de 2027
+DESCRIPTION:Del 1 al 20 de julio. Desde 2027\, si facturas menos de 85.000 
+ € puedes optar por el IVA anual con pagos a cuenta domiciliados\, y en a
+ lgunos casos no tienes que presentar el modelo 130. Lo explica la página.
+  Confirma la fecha en el calendario del contribuyente de la Agencia Tribut
+ aria.\nCalendario y calculadoras gratis: https://juli2006farres.github.io/
+ calculadora-irpf-autonomos-cataluna/calendario-fiscal-autonomos-2027/
+URL:https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca
+ lendario-fiscal-autonomos-2027/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Dentro de 5 días acaba un plazo fiscal: Modelos 303\, 130\, 11
+ 1 y 115 del 2T de 2027
+TRIGGER:-P4DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:plazo-20271020-10-es@juli2006farres.github.io
+DTSTAMP:20261125T000000Z
+DTSTART;VALUE=DATE:20271020
+DTEND;VALUE=DATE:20271021
+SUMMARY:Último día: modelos 303\, 130\, 111 y 115 del 3T de 2027
+DESCRIPTION:Del 1 al 20 de octubre. Desde 2027\, si facturas menos de 85.00
+ 0 € puedes optar por el IVA anual con pagos a cuenta domiciliados\, y en
+  algunos casos no tienes que presentar el modelo 130. Lo explica la págin
+ a. Confirma la fecha en el calendario del contribuyente de la Agencia Trib
+ utaria.\nCalendario y calculadoras gratis: https://juli2006farres.github.i
+ o/calculadora-irpf-autonomos-cataluna/calendario-fiscal-autonomos-2027/
+URL:https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca
+ lendario-fiscal-autonomos-2027/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Dentro de 5 días acaba un plazo fiscal: Modelos 303\, 130\, 11
+ 1 y 115 del 3T de 2027
+TRIGGER:-P4DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:plazo-20280120-11-es@juli2006farres.github.io
+DTSTAMP:20261125T000000Z
+DTSTART;VALUE=DATE:20280120
+DTEND;VALUE=DATE:20280121
+SUMMARY:Último día: modelos 111 y 115 del 4T de 2027
+DESCRIPTION:Hasta el 20 de enero de 2028. Solo si tienes trabajadores\, pag
+ as a profesionales con retención o alquilas un local. Confirma la fecha e
+ n el calendario del contribuyente de la Agencia Tributaria.\nCalendario y 
+ calculadoras gratis: https://juli2006farres.github.io/calculadora-irpf-aut
+ onomos-cataluna/calendario-fiscal-autonomos-2027/
+URL:https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca
+ lendario-fiscal-autonomos-2027/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Dentro de 5 días acaba un plazo fiscal: Modelos 111 y 115 del 
+ 4T de 2027
+TRIGGER:-P4DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:plazo-20280131-12-es@juli2006farres.github.io
+DTSTAMP:20261125T000000Z
+DTSTART;VALUE=DATE:20280131
+DTEND;VALUE=DATE:20280201
+SUMMARY:Último día: modelos 303\, 130 y 390 del 4T y del año 2027
+DESCRIPTION:Hasta el 31 de enero de 2028. Plazo del 1 al 30 de enero\, que 
+ en 2028 acaba en domingo. Desde 2027\, si facturas menos de 85.000 € pue
+ des optar por el IVA anual con pagos a cuenta domiciliados\, y en algunos 
+ casos no tienes que presentar el modelo 130. Lo explica la página. Confir
+ ma la fecha en el calendario del contribuyente de la Agencia Tributaria.\n
+ Calendario y calculadoras gratis: https://juli2006farres.github.io/calcula
+ dora-irpf-autonomos-cataluna/calendario-fiscal-autonomos-2027/
+URL:https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/ca
+ lendario-fiscal-autonomos-2027/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Dentro de 5 días acaba un plazo fiscal: Modelos 303\, 130 y 39
+ 0 del 4T y del año 2027
+TRIGGER:-P4DT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

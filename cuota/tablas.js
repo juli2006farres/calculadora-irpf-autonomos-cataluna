@@ -28,9 +28,10 @@ export const TIPOS_CUOTA_2026 = {
 // Deducción por gastos genéricos del art. 308 LGSS para el autónomo persona física.
 export const DEDUCCION_GASTOS_GENERICOS = 7;
 export const EJERCICIOS_CUOTA = [2026];
-export const FECHA_REVISION_CUOTA = "2026-11-16";
+export const FECHA_REVISION_CUOTA = "2026-11-25";
 export const FUENTES_CUOTA = [
     "Orden PJC/297/2026, arts. 18 y 37 (bases y tipos del RETA en 2026): https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-7296",
     "Ley General de la Seguridad Social, art. 308 (rendimientos computables y deducción del 7 %): https://www.boe.es/buscar/act.php?id=BOE-A-2015-11724",
+    "Real Decreto-ley 43/2026, art. 2 (gastos de difícil justificación de 2026: 10 %, máximo 3.000 €): https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-24701",
 ];
 //# sourceMappingURL=tablas.js.map

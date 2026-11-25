@@ -40,17 +40,20 @@ test("modelo 130 acumulado en simplificada sin retenciones", () => {
   assert.equal(r[0].a_ingresar, 1520);
   assert.equal(r[1].pagos_anteriores, 1520);
   assert.equal(r[1].a_ingresar, 1520);
-  // T3: 24.000 − 1.200 = 22.800 → 4.560 − 3.040. T4: 32.000 − 1.600 = 30.400 → 6.080 − 4.560.
+  // T3: 24.000 − 1.200 = 22.800 → 4.560 − 3.040. T4 de 2026 (Real Decreto-ley 43/2026): 10 % de 32.000,
+  // con el máximo de 3.000 € → 29.000 → 5.800 − 4.560.
   assert.equal(r[2].a_ingresar, 1520);
-  assert.equal(r[3].a_ingresar, 1520);
+  assert.equal(r[3].dificil, 3000);
+  assert.equal(r[3].a_ingresar, 1240);
 });
 
-test("modelo 130: el límite de 2.000 € de difícil justificación es anual", () => {
+test("modelo 130: el límite de difícil justificación es anual (2.000 € hasta el 3T y 3.000 € en el 4T)", () => {
   const t = { ingresos: 20000, gastos: 0, retenciones: 0 };
-  const r = calcularModelo130({ trimestres: [t, t, t], modalidad: "directa_simplificada", minoracion: 0 });
+  const r = calcularModelo130({ trimestres: [t, t, t, t], modalidad: "directa_simplificada", minoracion: 0 });
   assert.equal(r[0].dificil, 1000);
   assert.equal(r[1].dificil, 2000);
   assert.equal(r[2].dificil, 2000);
+  assert.equal(r[3].dificil, 3000);
   assert.equal(calcularModelo130({ trimestres: [t], modalidad: "directa_normal", minoracion: 0 })[0].dificil, 0);
 });
 
@@ -132,12 +135,15 @@ test("quitar IVA: base e IVA suman siempre el precio", () => {
 
 test("cuánto facturar: es la inversa del sueldo neto", () => {
   const datos = { gastos: 5000, modalidad: "directa_simplificada", cumpleRequisitosArt32: false, inicioActividad: false };
-  const r = facturacionParaNeto({ netoMensual: 2016.04, ...datos });
+  // Con 40.000 € y 5.000 € de gastos quedan 2.054,63 € al mes en 2026 (calculado aparte, con el 10 % de
+  // difícil justificación y su máximo de 3.000 €).
+  assert.equal(calcularSueldoNeto({ ingresos: 40000, cuotaMensual: null, ...datos }).netoMensual, 2054.63);
+  const r = facturacionParaNeto({ netoMensual: 2054.63, ...datos });
   assert.ok(Math.abs(r.ingresos - 40000) < 5, `facturación ${r.ingresos}`);
-  assert.ok(r.netoMensual >= 2016.04);
+  assert.ok(r.netoMensual >= 2054.63);
   // Un euro menos de facturación ya no llega al objetivo (un céntimo puede no notarse al redondear).
   const menos = calcularSueldoNeto({ ingresos: r.ingresos - 1, cuotaMensual: null, ...datos });
-  assert.ok(menos.netoAnual < 2016.04 * 12);
+  assert.ok(menos.netoAnual < 2054.63 * 12);
 });
 
 test("cuánto facturar con objetivo cero o imposible", () => {
@@ -166,16 +172,16 @@ test("tarifa plana: 88,64 € frente a la cuota normal de 427,21 €", () => {
   assert.equal(r.mesesIniciales, 12);
   assert.equal(r.pagadoPeriodoInicial, 1063.68);
   assert.equal(r.ahorroPeriodoInicial, 4062.84);
-  // 35.000 - 5 % de 33.936,32 = 33.303,18; menos el 7 % = 30.971,96, por encima del SMI.
-  assert.equal(r.rendimientoParaSmi, 30971.96);
+  // 2026: el 10 % de 33.936,32 supera el máximo, así que 35.000 - 3.000 = 32.000; menos el 7 % = 29.760, por encima del SMI.
+  assert.equal(r.rendimientoParaSmi, 29760);
   assert.equal(r.prorroga[2026].cumple, false);
   assert.equal(r.prorroga[2027].cumple, false);
 });
 
 test("tarifa plana: con rendimientos bajos se puede alargar", () => {
   const r = calcularTarifaPlana({ ingresos: 18000, gastos: 3000, modalidad: "directa_simplificada", cumpleRequisitosArt32: false });
-  // 15.000 - 5 % de 13.936,32 = 14.303,18; menos el 7 % = 13.301,96.
-  assert.equal(r.rendimientoParaSmi, 13301.96);
+  // 15.000 - 10 % de 13.936,32 = 13.606,37; menos el 7 % = 12.653,92.
+  assert.equal(r.rendimientoParaSmi, 12653.92);
   assert.equal(r.prorroga[2026].cumple, true);
   assert.equal(r.prorroga[2027].cumple, true);
   assert.equal(r.ahorroProrroga, Math.round(r.ahorroMensual * 12 * 100) / 100);

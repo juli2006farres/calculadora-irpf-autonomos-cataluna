@@ -16,8 +16,9 @@ export function aplicarEscala(base, tramos) {
     }
     return cuota;
 }
-// Gastos de difícil justificación: 5 % del rendimiento positivo, con un máximo de
-// 2.000 €. Solo en simplificada y nunca junto a la reducción del art. 32.2.1.º.
+// Gastos de difícil justificación: un porcentaje del rendimiento positivo con un máximo anual,
+// según el año (5 % y 2.000 € en 2025; 10 % y 3.000 € en 2026). Solo en simplificada y nunca
+// junto a la reducción del art. 32.2.1.º.
 function calcularGastosDificilJustificacion(entrada, previo, tabla) {
     if (entrada.modalidad !== "directa_simplificada" || entrada.cumpleRequisitosArt32 || previo <= 0) {
         return 0;

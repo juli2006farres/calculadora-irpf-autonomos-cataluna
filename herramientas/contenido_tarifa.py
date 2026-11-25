@@ -1,5 +1,5 @@
 """Calculadora de la tarifa plana de autónomos 2026 (cuota reducida del art. 38 ter de la Ley 20/2007)."""
-from contenido import BOE_CUOTA, MODALIDAD, campo, casilla, seleccion
+from contenido import BOE_CUOTA, FUENTE_RDL_43, MODALIDAD, campo, casilla, seleccion
 from contenido_espana import PAGINAS as PAGINAS_ANTERIORES
 from contenido_extra import CLIENTE
 
@@ -44,6 +44,7 @@ FUENTES = [
     ("Salario mínimo de 2026: Real Decreto 126/2026 (BOE)", BOE_SMI_2026),
     ("Salario mínimo de 2027: Real Decreto 1013/2026 (BOE)", BOE_SMI_2027),
     ("Bases y tipos de cotización de 2026: Orden PJC/297/2026 (BOE)", BOE_CUOTA),
+    FUENTE_RDL_43,
 ]
 
 TARIFA_ES = {

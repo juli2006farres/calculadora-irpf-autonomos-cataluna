@@ -15,7 +15,7 @@ BASE = "https://juli2006farres.github.io/calculadora-irpf-autonomos-cataluna/"
 MCPIZE = "https://mcpize.com/mcp/irpf-pymes-cat-mcp"
 HOY = "2026-11-17"
 # Fecha de la última modificación de las páginas, para el sitemap.
-MODIFICADO = "2026-11-24"
+MODIFICADO = "2026-11-25"
 
 RUTAS = {
     "irpf": {"es": "", "ca": "ca/"},
@@ -91,18 +91,18 @@ ICONOS = {
 }
 # Fecha de la última revisión de los datos de cada calculadora y a qué año se refieren.
 REVISION = {
-    "irpf": ("2026-11-19", {"es": "datos de 2025 y 2026", "ca": "dades del 2025 i el 2026"}),
-    "cuota": ("2026-11-16", {"es": "tablas oficiales de 2026", "ca": "taules oficials del 2026"}),
-    "tarifa": ("2026-11-20", {"es": "datos de 2026", "ca": "dades del 2026"}),
+    "irpf": ("2026-11-25", {"es": "datos de 2025 y 2026", "ca": "dades del 2025 i el 2026"}),
+    "cuota": ("2026-11-25", {"es": "tablas oficiales de 2026", "ca": "taules oficials del 2026"}),
+    "tarifa": ("2026-11-25", {"es": "datos de 2026", "ca": "dades del 2026"}),
     "factura": (HOY, {"es": "tipos vigentes en 2026", "ca": "tipus vigents el 2026"}),
     "iva": (HOY, {"es": "tipos vigentes en 2026", "ca": "tipus vigents el 2026"}),
-    "sueldo": ("2026-11-19", {"es": "datos de 2026", "ca": "dades del 2026"}),
-    "objetivo": ("2026-11-19", {"es": "datos de 2026", "ca": "dades del 2026"}),
-    "m130": (HOY, {"es": "normativa vigente en 2026", "ca": "normativa vigent el 2026"}),
+    "sueldo": ("2026-11-25", {"es": "datos de 2026", "ca": "dades del 2026"}),
+    "objetivo": ("2026-11-25", {"es": "datos de 2026", "ca": "dades del 2026"}),
+    "m130": ("2026-11-25", {"es": "normativa vigente en 2026", "ca": "normativa vigent el 2026"}),
     "m303": ("2026-11-18", {"es": "normativa vigente en 2026", "ca": "normativa vigent el 2026"}),
-    "plantilla": ("2026-11-24", {"es": "requisitos vigentes en 2026", "ca": "requisits vigents el 2026"}),
-    "irpf_es": ("2026-11-19", {"es": "datos de 2025 y 2026", "ca": "dades del 2025 i el 2026"}),
-    "calendario": ("2026-11-19", {"es": "plazos de 2027", "ca": "terminis del 2027"}),
+    "plantilla": ("2026-11-25", {"es": "requisitos vigentes en 2026", "ca": "requisits vigents el 2026"}),
+    "irpf_es": ("2026-11-25", {"es": "datos de 2025 y 2026", "ca": "dades del 2025 i el 2026"}),
+    "calendario": ("2026-11-25", {"es": "plazos de 2027", "ca": "terminis del 2027"}),
 }
 MESES = {
     "es": ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"],

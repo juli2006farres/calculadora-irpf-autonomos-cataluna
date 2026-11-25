@@ -390,7 +390,7 @@ def pagina_transparencia(lang):
         entradilla = "Las calculadoras son gratuitas y seguirán siéndolo. Esto es lo que hay detrás."
         cuerpo = f"""    <h2>Sin cookies ni datos personales</h2>
     <p>Las calculadoras no tienen registro ni cookies. Los cálculos se hacen en tu navegador y no se guarda nada de lo que escribes.</p>
-    <p>Para saber qué páginas se usan, contamos las visitas con <a href="https://www.goatcounter.com/help/privacy">GoatCounter</a>, un contador que no usa cookies y no guarda tu IP ni otros datos personales. Solo recoge la página que visitas, la web de la que vienes y, de forma agregada, el país, el idioma, el navegador y el tamaño de la pantalla. Los datos que escribes en las calculadoras no se envían.</p>
+    <p>Para saber qué páginas se usan, contamos las visitas con <a href="https://www.goatcounter.com/help/privacy">GoatCounter</a>, un contador que no usa cookies y no guarda tu IP ni otros datos personales. Solo recoge la página que visitas, la web de la que vienes y, de forma agregada, el país, el navegador y el tamaño de la pantalla. Los datos que escribes en las calculadoras no se envían.</p>
     <h2>Enlaces de afiliado</h2>
     <p>Algunas calculadoras muestran un enlace a <strong>Quipu</strong>, un programa de facturación para autónomos. Es un enlace de afiliado: si te registras y contratas una suscripción desde él, esta web recibe una comisión de Quipu. A ti no te cuesta más.</p>
     <p>Esos enlaces llevan siempre la etiqueta «Enlace de afiliado». Las comisiones no cambian los cálculos ni los resultados, y esta web no tiene relación con Quipu más allá de su programa de afiliados.</p>
@@ -402,7 +402,7 @@ def pagina_transparencia(lang):
         entradilla = "Les calculadores són gratuïtes i ho continuaran sent. Això és el que hi ha al darrere."
         cuerpo = f"""    <h2>Sense galetes ni dades personals</h2>
     <p>Les calculadores no tenen registre ni galetes. Els càlculs es fan al teu navegador i no es desa res del que escrius.</p>
-    <p>Per saber quines pàgines es fan servir, comptem les visites amb <a href="https://www.goatcounter.com/help/privacy">GoatCounter</a>, un comptador que no fa servir galetes i no desa la teva IP ni altres dades personals. Només recull la pàgina que visites, el web d'on vens i, de manera agregada, el país, l'idioma, el navegador i la mida de la pantalla. Les dades que escrius a les calculadores no s'envien.</p>
+    <p>Per saber quines pàgines es fan servir, comptem les visites amb <a href="https://www.goatcounter.com/help/privacy">GoatCounter</a>, un comptador que no fa servir galetes i no desa la teva IP ni altres dades personals. Només recull la pàgina que visites, el web d'on vens i, de manera agregada, el país, el navegador i la mida de la pantalla. Les dades que escrius a les calculadores no s'envien.</p>
     <h2>Enllaços d'afiliat</h2>
     <p>Algunes calculadores mostren un enllaç a <strong>Quipu</strong>, un programa de facturació per a autònoms. És un enllaç d'afiliat: si et registres i contractes una subscripció des d'aquí, aquest web rep una comissió de Quipu. A tu no et costa més.</p>
     <p>Aquests enllaços porten sempre l'etiqueta «Enllaç d'afiliat». Les comissions no canvien els càlculs ni els resultats, i aquest web no té relació amb Quipu més enllà del seu programa d'afiliats.</p>

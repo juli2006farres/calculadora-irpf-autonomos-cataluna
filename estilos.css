@@ -144,7 +144,7 @@ main { padding: 32px 0 56px; }
 .rejilla > div > label { flex: 1 1 auto; }
 label { display: block; font-weight: 650; margin-bottom: 7px; }
 .ayuda { display: block; font-weight: 400; font-size: 0.84rem; line-height: 1.45; color: var(--suave); margin-top: 3px; }
-input[type="number"], select {
+input[type="number"], input[type="date"], select {
   width: 100%;
   height: 48px;
   padding: 0 14px;
@@ -158,8 +158,8 @@ input[type="number"], select {
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 input[type="number"]::placeholder { color: var(--suave); font-weight: 400; }
-input[type="number"]:hover, select:hover { border-color: var(--acento); }
-input[type="number"]:focus, select:focus { border-color: var(--acento); box-shadow: 0 0 0 4px var(--resalte); outline: none; }
+input[type="number"]:hover, input[type="date"]:hover, select:hover { border-color: var(--acento); }
+input[type="number"]:focus, input[type="date"]:focus, select:focus { border-color: var(--acento); box-shadow: 0 0 0 4px var(--resalte); outline: none; }
 input:focus-visible, select:focus-visible, summary:focus-visible, a:focus-visible, button:focus-visible {
   outline: 2px solid var(--acento);
   outline-offset: 2px;

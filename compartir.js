@@ -84,6 +84,10 @@ function restaurar() {
     } else if (e.type === "number" && (valor === "" || NUMERO.test(valor))) {
       e.value = valor;
       cambios = true;
+    } else if (e.type === "date" && /^\d{4}-\d{2}-\d{2}$/.test(valor)) {
+      // Solo fechas con el formato AAAA-MM-DD; el campo ya rechaza los días que no existen.
+      e.value = valor;
+      cambios = true;
     }
   }
   if (!cambios) return;

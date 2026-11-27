@@ -2,7 +2,7 @@
 
 > Calculadoras gratuitas para autónomos en España, en castellano y en catalán: IRPF en las 15 comunidades de régimen común, cuota de autónomos 2026, tarifa plana, regularización de la cuota, sueldo neto, cuánto facturar, IVA, facturas, modelos 130 y 303 y calendario fiscal 2027. Datos oficiales del BOE, la Agencia Tributaria y la Seguridad Social, sin registro, sin cookies y sin guardar datos.
 
-- Datos revisados el 25 de noviembre de 2026, incluido el Real Decreto-ley 43/2026: en 2026, los gastos de difícil justificación de la estimación directa simplificada son el 10 % del rendimiento, con un máximo de 3.000 €.
+- Datos revisados el 27 de noviembre de 2026, incluido el Real Decreto-ley 43/2026: en 2026, los gastos de difícil justificación de la estimación directa simplificada son el 10 % del rendimiento, con un máximo de 3.000 €.
 - Cada página enlaza sus fuentes oficiales y explica qué incluye y qué no. Son estimaciones orientativas, no asesoramiento fiscal.
 - No cubre el País Vasco ni Navarra (IRPF foral), ni Ceuta y Melilla.
 - Los cálculos se hacen en el navegador del usuario. El código es público con licencia MIT: https://github.com/juli2006farres/calculadora-irpf-autonomos-cataluna
@@ -19,7 +19,9 @@
 - [Plantilla de factura](https://calculadorasautonomos.es/plantilla-factura-autonomo/): Descarga gratis una plantilla de factura de autónomo en Excel y Word, con el IVA y la retención de IRPF calculados y todos los datos obligatorios.
 - [Calculadora de IVA](https://calculadorasautonomos.es/calculadora-iva/): Calcula el IVA de un precio al momento: añade o quita el IVA del 21 %, 10 % o 4 % y obtén la base imponible y el total. Gratis y sin registro.
 - [Modelo 303](https://calculadorasautonomos.es/modelo-303/): Calcula gratis tu modelo 303: IVA repercutido menos IVA soportado, compensación de trimestres anteriores y resultado a ingresar. Toda España.
+- [IVA anual en 2027](https://calculadorasautonomos.es/iva-anual-autonomos-2027/): Comprueba gratis si puedes pasar al IVA anual en 2027 y calcula tus tres pagos a cuenta de abril, julio y octubre, según el Real Decreto-ley 43/2026.
 - [Modelo 130](https://calculadorasautonomos.es/modelo-130/): Calcula gratis tus pagos trimestrales del modelo 130: 20 % del rendimiento acumulado, menos pagos anteriores, retenciones y minoración. Toda España.
+- [Modelo 130 en 2027](https://calculadorasautonomos.es/modelo-130-2027/): Comprueba gratis si en 2027 te libras del modelo 130, si pagarás el 19 % o el 20 % y si puedes pedir el pago domiciliado (Real Decreto-ley 43/2026).
 - [Sueldo neto de autónomo](https://calculadorasautonomos.es/sueldo-neto-autonomo/): Calcula cuánto te queda al mes como autónomo en 2026 en tu comunidad, tras gastos, cuota de autónomos e IRPF. Gratis, sin registro y con datos oficiales.
 - [Cuánto facturar](https://calculadorasautonomos.es/cuanto-facturar-autonomo/): ¿Cuánto tienes que facturar como autónomo para ganar 2.000 € netos al mes? Calcúlalo con la cuota de autónomos y el IRPF de tu comunidad en 2026.
 - [Calendario fiscal 2027](https://calculadorasautonomos.es/calendario-fiscal-autonomos-2027/): Calendario fiscal 2027 para autónomos: plazos de los modelos 303, 130, 390, 111, 347 y de la renta, mes a mes, con enlaces a calculadoras gratis.
@@ -40,7 +42,9 @@
 - [Plantilla de factura](https://calculadorasautonomos.es/ca/plantilla-factura-autonom/): Descarrega gratis una plantilla de factura d'autònom en Excel i Word, amb l'IVA i la retenció d'IRPF calculats i totes les dades obligatòries.
 - [Calculadora d'IVA](https://calculadorasautonomos.es/ca/calculadora-iva/): Calcula l'IVA d'un preu al moment: afegeix o treu l'IVA del 21 %, 10 % o 4 % i obtén la base imposable i el total. Gratuïta i sense registre.
 - [Model 303](https://calculadorasautonomos.es/ca/model-303/): Calcula gratis el teu model 303: IVA repercutit menys IVA suportat, compensació de trimestres anteriors i resultat a ingressar. Tot Espanya.
+- [IVA anual el 2027](https://calculadorasautonomos.es/ca/iva-anual-autonoms-2027/): Comprova gratis si pots passar a l'IVA anual el 2027 i calcula els teus tres pagaments a compte d'abril, juliol i octubre (Reial decret llei 43/2026).
 - [Model 130](https://calculadorasautonomos.es/ca/model-130/): Calcula gratis els teus pagaments trimestrals del model 130: 20 % del rendiment acumulat, menys pagaments anteriors, retencions i minoració.
+- [Model 130 el 2027](https://calculadorasautonomos.es/ca/model-130-2027/): Comprova gratis si el 2027 et lliures del model 130, si pagaràs el 19 % o el 20 % i si pots demanar el pagament domiciliat (RDL 43/2026).
 - [Sou net d'autònom](https://calculadorasautonomos.es/ca/sou-net-autonom/): Calcula quant et queda al mes com a autònom el 2026 a la teva comunitat, després de despeses, quota d'autònoms i IRPF. Gratuïta i amb dades oficials.
 - [Quant facturar](https://calculadorasautonomos.es/ca/quant-facturar-autonom/): Quant has de facturar com a autònom per guanyar 2.000 € nets al mes? Calcula-ho amb la quota d'autònoms i l'IRPF de la teva comunitat el 2026.
 - [Calendari fiscal 2027](https://calculadorasautonomos.es/ca/calendari-fiscal-autonoms-2027/): Calendari fiscal 2027 per a autònoms: terminis dels models 303, 130, 390, 111, 347 i de la renda, mes a mes, amb enllaços a calculadores gratuïtes.

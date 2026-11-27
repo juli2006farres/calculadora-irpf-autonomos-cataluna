@@ -138,6 +138,7 @@ main { padding: 32px 0 56px; }
 
 /* Formularios: los campos de una misma fila quedan a la misma altura aunque unos
    tengan texto de ayuda y otros no, porque la etiqueta ocupa el espacio sobrante. */
+[hidden] { display: none !important; }
 .rejilla { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px 18px; }
 .rejilla > div { display: flex; flex-direction: column; }
 .rejilla > div > label { flex: 1 1 auto; }

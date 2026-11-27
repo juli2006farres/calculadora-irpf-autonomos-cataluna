@@ -254,3 +254,107 @@ test("regularización: el rendimiento se reparte entre los meses de alta", () =>
   assert.equal(CUOTA_MINIMA_2026, 205.88);
   assert.equal(CUOTA_MAXIMA_2026, 1606.88);
 });
+
+// ---- Novedades de 2027 (Real Decreto-ley 43/2026)
+import { calcularModelo130En2027, diasActividad2025 } from "../modelo130-2027/calculo.js";
+import { calcularIvaAnual2027, diasActividad2026 } from "../iva-anual/calculo.js";
+
+const base130 = { metodo: "directa", inicio: "antes", cifraNegocios: 30000, cuotaDiferencial: -600, pagosFraccionados: 400, profesionalRetenciones70: false };
+
+test("130 en 2027: dispensa si la cifra es inferior a 85.000 € y lo devuelto cubre los pagos", () => {
+  const r = calcularModelo130En2027(base130);
+  assert.equal(r.caso, "dispensa");
+  assert.equal(r.porcentaje, null);
+  // Igual al límite: lo devuelto igual a los pagos también cuenta.
+  assert.equal(calcularModelo130En2027({ ...base130, cuotaDiferencial: -400 }).caso, "dispensa");
+  // Sin pagos y a devolver: también (la condición es «igual o superior» a 0).
+  assert.equal(calcularModelo130En2027({ ...base130, pagosFraccionados: 0, cuotaDiferencial: -1 }).caso, "dispensa");
+});
+
+test("130 en 2027: sin dispensa si lo devuelto no cubre los pagos, si sale a pagar o si la cifra llega a 85.000 €", () => {
+  const poco = calcularModelo130En2027({ ...base130, cuotaDiferencial: -399.99 });
+  assert.equal(poco.caso, "presenta");
+  assert.equal(poco.porcentaje, 19);
+  assert.equal(poco.puedeDomiciliar, true);
+  assert.equal(calcularModelo130En2027({ ...base130, cuotaDiferencial: 100 }).caso, "presenta");
+  assert.equal(calcularModelo130En2027({ ...base130, cuotaDiferencial: 0 }).caso, "presenta");
+  const justo = calcularModelo130En2027({ ...base130, cifraNegocios: 85000 });
+  assert.equal(justo.caso, "presenta");
+  assert.equal(justo.puedeDomiciliar, true);
+  assert.equal(calcularModelo130En2027({ ...base130, cifraNegocios: 84999.99 }).caso, "dispensa");
+});
+
+test("130 en 2027: 19 % por debajo de 250.000 € y 20 % desde 250.000 €", () => {
+  const sin = { ...base130, cuotaDiferencial: 500 };
+  assert.equal(calcularModelo130En2027({ ...sin, cifraNegocios: 249999.99 }).porcentaje, 19);
+  const alto = calcularModelo130En2027({ ...sin, cifraNegocios: 250000 });
+  assert.equal(alto.porcentaje, 20);
+  assert.equal(alto.puedeDomiciliar, false);
+});
+
+test("130 en 2027: pago domiciliado = 25 % del rendimiento de 2025 por la suma de tipos medios", () => {
+  const r = calcularModelo130En2027({ ...base130, cifraNegocios: 120000, rendimientoNeto: 40000, tipoMedioEstatal: 9.5, tipoMedioAutonomico: 10.25 });
+  assert.equal(r.caso, "presenta");
+  assert.equal(r.puedeDomiciliar, true);
+  assert.equal(r.tipoMedio, 19.75);
+  assert.equal(r.pagoDomiciliado, 1975); // 40.000 × 19,75 % ÷ 4
+  // Sin pagos fraccionados en 2025 no se puede domiciliar.
+  assert.equal(calcularModelo130En2027({ ...base130, cifraNegocios: 120000, pagosFraccionados: 0 }).puedeDomiciliar, false);
+});
+
+test("130 en 2027: si empezó en 2025 la cifra se eleva al año por días", () => {
+  assert.equal(diasActividad2025("2025-01-01"), 365);
+  assert.equal(diasActividad2025("2025-07-01"), 184);
+  assert.equal(diasActividad2025("2025-12-31"), 1);
+  assert.equal(diasActividad2025("2025-02-30"), null);
+  assert.equal(diasActividad2025("2024-05-01"), null);
+  const r = calcularModelo130En2027({ ...base130, inicio: "2025", fechaInicio: "2025-07-01", cifraNegocios: 50000 });
+  assert.equal(r.cifraAnual, 99184.78); // 50.000 × 365 ÷ 184
+  assert.equal(r.caso, "presenta");
+});
+
+test("130 en 2027: casos sin cálculo", () => {
+  assert.equal(calcularModelo130En2027({ ...base130, metodo: "objetiva" }).caso, "objetiva");
+  assert.equal(calcularModelo130En2027({ ...base130, metodo: "agraria" }).caso, "agraria");
+  assert.equal(calcularModelo130En2027({ ...base130, profesionalRetenciones70: true }).caso, "retenciones_70");
+  assert.equal(calcularModelo130En2027({ ...base130, inicio: "despues", profesionalRetenciones70: true }).caso, "retenciones_70");
+  assert.deepEqual(calcularModelo130En2027({ ...base130, inicio: "despues" }), { caso: "sin_actividad_2025", porcentaje: 19 });
+});
+
+const baseIva = { titular: "persona", inicio: "antes", volumen: 40000, regimen: "general", ivaRepercutido: 8400, ivaSoportado: 2400 };
+
+test("IVA anual 2027: pagos a cuenta de la cuarta parte del IVA de 2026 y el resto en enero", () => {
+  const r = calcularIvaAnual2027(baseIva);
+  assert.equal(r.caso, "puede");
+  assert.equal(r.cuotaReferencia, 6000);
+  assert.equal(r.pagoACuenta, 1500);
+  assert.equal(r.enero, 1500);
+  const menos = calcularIvaAnual2027({ ...baseIva, ivaPrevisto2027: 3000 });
+  assert.equal(menos.enero, -1500); // a devolver o compensar
+  const centimos = calcularIvaAnual2027({ ...baseIva, ivaRepercutido: 1000.01, ivaSoportado: 0 });
+  assert.equal(centimos.pagoACuenta, 250);
+});
+
+test("IVA anual 2027: límite de 85.000 € (incluido) y elevación al año", () => {
+  assert.equal(calcularIvaAnual2027({ ...baseIva, volumen: 85000 }).caso, "puede");
+  assert.equal(calcularIvaAnual2027({ ...baseIva, volumen: 85000.01 }).caso, "supera");
+  assert.equal(diasActividad2026("2026-10-01"), 92);
+  const r = calcularIvaAnual2027({ ...baseIva, inicio: "2026", fechaInicio: "2026-10-01", volumen: 25000 });
+  assert.equal(r.caso, "supera");
+  assert.equal(r.volumenAnual, 99184.78); // 25.000 × 365 ÷ 92
+});
+
+test("IVA anual 2027: pagos cero si el IVA de 2026 no sale a pagar o si se empieza en 2027", () => {
+  assert.equal(calcularIvaAnual2027({ ...baseIva, ivaRepercutido: 1000, ivaSoportado: 1500 }).pagoACuenta, 0);
+  assert.equal(calcularIvaAnual2027({ ...baseIva, ivaRepercutido: 1000, ivaSoportado: 1000 }).pagoACuenta, 0);
+  const nuevo = calcularIvaAnual2027({ ...baseIva, inicio: "2027", ivaPrevisto2027: 2000 });
+  assert.equal(nuevo.pagoACuenta, 0);
+  assert.equal(nuevo.enero, 2000);
+  assert.equal(calcularIvaAnual2027({ ...baseIva, inicio: "2027" }).enero, null);
+});
+
+test("IVA anual 2027: sociedades y recargo de equivalencia", () => {
+  assert.equal(calcularIvaAnual2027({ ...baseIva, titular: "sociedad" }).caso, "sociedad");
+  assert.equal(calcularIvaAnual2027({ ...baseIva, regimen: "recargo" }).caso, "recargo");
+  assert.equal(calcularIvaAnual2027({ ...baseIva, titular: "atribucion_fisicas" }).caso, "puede");
+});

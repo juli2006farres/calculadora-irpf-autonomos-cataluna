@@ -15,7 +15,7 @@ BASE = "https://calculadorasautonomos.es/"
 MCPIZE = "https://mcpize.com/mcp/irpf-pymes-cat-mcp"
 HOY = "2026-11-17"
 # Fecha de la última modificación de las páginas, para el sitemap.
-MODIFICADO = "2026-11-25"
+MODIFICADO = "2026-11-27"
 
 RUTAS = {
     "irpf": {"es": "", "ca": "ca/"},
@@ -29,19 +29,23 @@ RUTAS = {
     "objetivo": {"es": "cuanto-facturar-autonomo/", "ca": "ca/quant-facturar-autonom/"},
     "m130": {"es": "modelo-130/", "ca": "ca/model-130/"},
     "m303": {"es": "modelo-303/", "ca": "ca/model-303/"},
+    "m130_2027": {"es": "modelo-130-2027/", "ca": "ca/model-130-2027/"},
+    "iva_anual": {"es": "iva-anual-autonomos-2027/", "ca": "ca/iva-anual-autonoms-2027/"},
     "plantilla": {"es": "plantilla-factura-autonomo/", "ca": "ca/plantilla-factura-autonom/"},
     "transparencia": {"es": "transparencia/", "ca": "ca/transparencia/"},
     "irpf_es": {"es": "calculadora-irpf-autonomos/", "ca": "ca/calculadora-irpf-autonoms/"},
     "calendario": {"es": "calendario-fiscal-autonomos-2027/", "ca": "ca/calendari-fiscal-autonoms-2027/"},
 }
 # ORDEN: tarjetas y sitemap. MENU_ORDEN: menú de arriba (el IRPF de Cataluña se enlaza desde las tarjetas).
-ORDEN = ["irpf_es", "irpf", "cuota", "tarifa", "regularizacion", "factura", "plantilla", "iva", "m303", "m130", "sueldo", "objetivo", "calendario"]
+ORDEN = ["irpf_es", "irpf", "cuota", "tarifa", "regularizacion", "factura", "plantilla", "iva", "m303", "iva_anual", "m130", "m130_2027", "sueldo", "objetivo", "calendario"]
 MENU_ORDEN = ["irpf_es", "cuota", "factura", "plantilla", "iva", "m303", "m130", "sueldo", "objetivo", "calendario"]
 MENU = {
     "es": {"irpf_es": "IRPF", "calendario": "Calendario", "irpf": "IRPF Cataluña", "cuota": "Cuota", "tarifa": "Tarifa plana", "regularizacion": "Regularización", "factura": "Factura", "iva": "IVA", "sueldo": "Sueldo neto",
-           "objetivo": "Cuánto facturar", "m130": "Modelo 130", "m303": "Modelo 303", "plantilla": "Plantilla"},
+           "objetivo": "Cuánto facturar", "m130": "Modelo 130", "m303": "Modelo 303", "plantilla": "Plantilla",
+           "m130_2027": "Modelo 130 en 2027", "iva_anual": "IVA anual"},
     "ca": {"irpf_es": "IRPF", "calendario": "Calendari", "irpf": "IRPF Catalunya", "cuota": "Quota", "tarifa": "Tarifa plana", "regularizacion": "Regularització", "factura": "Factura", "iva": "IVA", "sueldo": "Sou net",
-           "objetivo": "Quant facturar", "m130": "Model 130", "m303": "Model 303", "plantilla": "Plantilla"},
+           "objetivo": "Quant facturar", "m130": "Model 130", "m303": "Model 303", "plantilla": "Plantilla",
+           "m130_2027": "Model 130 el 2027", "iva_anual": "IVA anual"},
 }
 TARJETAS = {
     "es": {
@@ -57,6 +61,8 @@ TARJETAS = {
         "objetivo": ("Cuánto facturar", "La facturación y el precio por hora para ganar el neto que quieres."),
         "m130": ("Modelo 130", "Tus pagos trimestrales del IRPF, trimestre a trimestre."),
         "m303": ("Modelo 303", "El IVA de cada trimestre: lo que cobras menos lo que pagas."),
+        "m130_2027": ("Modelo 130 en 2027", "Si te libras del 130, si pagas el 19 % y el pago domiciliado."),
+        "iva_anual": ("IVA anual en 2027", "Si puedes cambiar los cuatro 303 por una declaración al año."),
         "plantilla": ("Plantilla de factura", "Excel y Word gratis, con el IVA y la retención calculados."),
     },
     "ca": {
@@ -72,6 +78,8 @@ TARJETAS = {
         "objetivo": ("Quant facturar", "La facturació i el preu per hora per guanyar el net que vols."),
         "m130": ("Model 130", "Els teus pagaments trimestrals de l'IRPF, trimestre a trimestre."),
         "m303": ("Model 303", "L'IVA de cada trimestre: el que cobres menys el que pagues."),
+        "m130_2027": ("Model 130 el 2027", "Si et lliures del 130, si pagues el 19 % i el pagament domiciliat."),
+        "iva_anual": ("IVA anual el 2027", "Si pots canviar els quatre 303 per una declaració a l'any."),
         "plantilla": ("Plantilla de factura", "Excel i Word gratis, amb l'IVA i la retenció calculats."),
     },
 }
@@ -90,6 +98,8 @@ TRAZOS = {
     "sueldo": '<path d="M4 7h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a1 1 0 0 1-1-1V7z"/><path d="M4 7l11-3v3M16 13.5h.01"/>',
     "objetivo": '<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><path d="M12 12h.01"/>',
     "calendario": '<rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/>',
+    "m130_2027": '<rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M9 17l6-5M9.5 13h.01M14.5 16.5h.01"/>',
+    "iva_anual": '<circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/>',
 }
 ICONOS = {
     k: f'<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">{v}</svg>'
@@ -111,6 +121,8 @@ REVISION = {
     "plantilla": ("2026-11-25", {"es": "requisitos vigentes en 2026", "ca": "requisits vigents el 2026"}),
     "irpf_es": ("2026-11-25", {"es": "datos de 2025 y 2026", "ca": "dades del 2025 i el 2026"}),
     "calendario": ("2026-11-25", {"es": "plazos de 2027", "ca": "terminis del 2027"}),
+    "m130_2027": ("2026-11-27", {"es": "Real Decreto-ley 43/2026", "ca": "Reial decret llei 43/2026"}),
+    "iva_anual": ("2026-11-27", {"es": "Real Decreto-ley 43/2026", "ca": "Reial decret llei 43/2026"}),
 }
 MESES = {
     "es": ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"],
@@ -305,10 +317,10 @@ TRANSPARENCIA = {"es": "Cómo se financia esta web", "ca": "Com es finança aque
 
 
 GRUPOS_PIE = {
-    "es": [("Impuestos", ["irpf_es", "irpf", "m303", "m130", "calendario"]),
+    "es": [("Impuestos", ["irpf_es", "irpf", "m303", "iva_anual", "m130", "m130_2027", "calendario"]),
            ("Cuota y sueldo", ["cuota", "tarifa", "regularizacion", "sueldo", "objetivo"]),
            ("Facturas", ["factura", "plantilla", "iva"])],
-    "ca": [("Impostos", ["irpf_es", "irpf", "m303", "m130", "calendario"]),
+    "ca": [("Impostos", ["irpf_es", "irpf", "m303", "iva_anual", "m130", "m130_2027", "calendario"]),
            ("Quota i sou", ["cuota", "tarifa", "regularizacion", "sueldo", "objetivo"]),
            ("Factures", ["factura", "plantilla", "iva"])],
 }
@@ -343,9 +355,9 @@ def pie(lang, clave):
 # Enlace de afiliado de Quipu (programa de afiliados de Quipu, panel en quipu.getrewardful.com).
 # Solo aparece en las calculadoras relacionadas con facturar e impuestos trimestrales.
 AFILIADO_URL = {"es": "https://getquipu.com/es/autonomos?via=juli", "ca": "https://getquipu.com/ca/autonoms?via=juli"}
-PAGINAS_CON_AFILIADO = {"factura", "iva", "m130", "m303", "plantilla", "calendario", "tarifa", "irpf", "irpf_es", "sueldo"}
+PAGINAS_CON_AFILIADO = {"factura", "iva", "m130", "m303", "plantilla", "calendario", "tarifa", "irpf", "irpf_es", "sueldo", "m130_2027", "iva_anual"}
 # En las calculadoras de impuestos y sueldo el título habla de impuestos, no solo de facturas.
-PAGINAS_IMPUESTOS = {"irpf", "irpf_es", "sueldo"}
+PAGINAS_IMPUESTOS = {"irpf", "irpf_es", "sueldo", "m130_2027", "iva_anual"}
 TITULO_IMPUESTOS = {"es": "¿Quieres llevar las facturas y los impuestos al día?", "ca": "Vols portar les factures i els impostos al dia?"}
 AFILIADO = {
     "es": {
@@ -858,7 +870,7 @@ def sitemap():
 if __name__ == "__main__":
     sys.path.insert(0, str(Path(__file__).parent))
     from contenido_comunidades import PADRE_COMUNIDADES, RUTAS_COMUNIDADES
-    from contenido_regularizacion import PAGINAS
+    from contenido_novedades_2027 import PAGINAS
 
     RUTAS.update(RUTAS_COMUNIDADES)
     PADRE.update(PADRE_COMUNIDADES)
